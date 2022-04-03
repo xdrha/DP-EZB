@@ -1,0 +1,4 @@
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.AssemblyReference.cache
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.GenerateResource.cache
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.MainWindow.resources
