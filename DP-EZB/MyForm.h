@@ -1,6 +1,7 @@
 ﻿#pragma once
 #include "VectorsNewTaskDialog.h"
 #include "EZB.cpp"
+#include "VectorsTask.cpp"
 
 namespace DP_EZB {
 
@@ -66,6 +67,7 @@ namespace DP_EZB {
 
 	vectorsNewTaskDialog^ vectorsNewTaskD;
 	EZB* ezb;
+	VectorsTask* vt;
 
 
 	private:
@@ -496,25 +498,22 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		this->solutionPanel->Show();
 		this->stepTaskPanel->Show();
 
+		vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix());
 
-		int pocetVektorov = vectorsNewTaskD->getPocetVektorov();
-		int pocetSuradnicVektorov = vectorsNewTaskD->getPocetSuradnicVektorov();
-		int** matrix = vectorsNewTaskD->getMatrix();
+		pocetVektorovLabel->Text += System::Convert::ToString(vt->pocetVektorov);
+		pocetSuradnicVektorovLabel->Text += System::Convert::ToString(vt->pocetSuradnic);
 
-		pocetVektorovLabel->Text += System::Convert::ToString(pocetVektorov);
-		pocetSuradnicVektorovLabel->Text += System::Convert::ToString(pocetSuradnicVektorov);
+		taskMatrix->ColumnCount = vt->pocetSuradnic;
 
-		taskMatrix->ColumnCount = pocetSuradnicVektorov;
-
-		for (int i = 0; i < pocetVektorov; i++) {
+		for (int i = 0; i < vt->pocetVektorov; i++) {
 			taskMatrix->Rows->Add();
 			taskMatrix->Rows[i]->Height = 35;
 		}
 
-		for (int i = 0; i < pocetSuradnicVektorov; i++) {
+		for (int i = 0; i < vt->pocetSuradnic; i++) {
 			taskMatrix->Columns[i]->Width = 35;
-			for (int j = 0; j < pocetVektorov; j++) {
-				taskMatrix[i, j]->Value = (matrix[j][i]);
+			for (int j = 0; j < vt->pocetVektorov; j++) {
+				taskMatrix[i, j]->Value = (vt->matrix[j][i]);
 				taskMatrix[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 					static_cast<System::Int32>(static_cast<System::Byte>(45)));
 				taskMatrix[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
@@ -527,64 +526,73 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		//vytvor bazicku maticu
 		//
 		int** bazickaMatica = 0;
-		bazickaMatica = new int* [pocetSuradnicVektorov];
-		for (int h = 0; h < pocetSuradnicVektorov; h++)
+		bazickaMatica = new int* [vt->pocetSuradnic];
+		for (int h = 0; h < vt->pocetSuradnic; h++)
 		{
-			bazickaMatica[h] = new int[pocetVektorov + 1];
+			bazickaMatica[h] = new int[vt->pocetVektorov + 1];
 		}
 
 
-		ezbTable->ColumnCount = pocetVektorov + 2;
+		ezbTable->ColumnCount = vt->pocetVektorov + 2;
 		ezbTable->MultiSelect = false;
 		ezbTable->Columns[0]->Name = "Báza";
-		for (int i = 1; i <= pocetVektorov; i++) {
+		for (int i = 1; i <= vt->pocetVektorov; i++) {
 			ezbTable->Columns[i]->Name = "a" + System::Convert::ToString(i);
 			ezbTable->Columns[i]->Width = 35;
 
 		}
-		ezbTable->Columns[pocetVektorov + 1]->Name = "Suma";
+		ezbTable->Columns[vt->pocetVektorov + 1]->Name = "Suma";
 
-		for (int i = 0; i <= pocetSuradnicVektorov; i++) {
+		for (int i = 0; i <= vt->pocetSuradnic; i++) {
 			ezbTable->Rows->Add();
 			ezbTable->Rows[i]->Height = 35;
 			ezbTable[0, i]->Value = "e" + System::Convert::ToString(i + 1);
 		}
-		ezbTable->Rows[pocetSuradnicVektorov]->Height = 2;
+		ezbTable->Rows[vt->pocetSuradnic]->Height = 2;
 
-		for (int i = 0; i <= pocetVektorov + 1; i++) {
+		for (int i = 0; i <= vt->pocetVektorov + 1; i++) {
 			ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
-			for (int j = 0; j <= pocetSuradnicVektorov; j++) {
+			for (int j = 0; j <= vt->pocetSuradnic; j++) {
 				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 					static_cast<System::Int32>(static_cast<System::Byte>(45)));
 				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
 			}
 		}
 
-		for (int j = 0; j < pocetSuradnicVektorov; j++) {
+		for (int j = 0; j < vt->pocetSuradnic; j++) {
 			int suma = 0;
-			for (int i = 0; i < pocetVektorov; i++) {
-				suma += matrix[i][j];
-				ezbTable[i + 1, j]->Value = matrix[i][j];
-				bazickaMatica[j][i] = matrix[i][j];
-				stepTaskTextBox->Text += System::Convert::ToString(bazickaMatica[j][i]);
+			for (int i = 0; i < vt->pocetVektorov; i++) {
+				suma += vt->matrix[i][j];
+				ezbTable[i + 1, j]->Value = vt->matrix[i][j];
+				bazickaMatica[j][i] = vt->matrix[i][j];
+				//stepTaskTextBox->Text += System::Convert::ToString(bazickaMatica[j][i]);
 			}
-			ezbTable[pocetVektorov + 1, j]->Value = suma;
-			bazickaMatica[j][pocetVektorov] = suma;
+			ezbTable[vt->pocetVektorov + 1, j]->Value = suma;
+			bazickaMatica[j][vt->pocetVektorov] = suma;
 		}
 		//
 		//skontroluj bazicku maticu
 		//
-		ezb = new EZB(bazickaMatica, pocetVektorov+1, pocetSuradnicVektorov);
-		int check = ezb->checkMatrix();
+		ezb = new EZB(bazickaMatica, vt->pocetVektorov+1, vt->pocetSuradnic);
+		int check = 2;// ezb->checkMatrix();
 		if (check == 0) { //nulovy riadok, koniec ezb
 			ezbTable->Enabled = false;
 			okButton->Enabled = true;
 			okButton->Text = "Ukoncit";
-			stepTaskTextBox->Text = "Koniec vypoctu: do bazy je mozne zaclenit vektory: \n\n ukoncit ulohu?";
+			stepTaskTextBox->Text = "Koniec vypoctu: do bazy je mozne zaclenit vektory: \r\n\r\n ukoncit ulohu?";
 		}
 		else {
 			if (check == 1) {
-
+				ezbTable->Enabled = false;
+				okButton->Enabled = true;
+				okButton->Text = "Ukoncit";
+				stepTaskTextBox->Text = "Koniec vypoctu: do bazy boli zaclenene vsetky vektory: \r\n\r\n ukoncit ulohu?";
+			}
+			else {
+				if (check == 2) {
+					stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\n";
+					okButton->Enabled = false;
+				}
 			}
 		}
 
@@ -616,6 +624,12 @@ private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::
 
 	if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1)
 		ezbTable->ClearSelection();
+	else {
+		stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\nvybrany pivot: " + ezbTable->CurrentCell->Value + "  column: " + ezbTable->CurrentCell->OwningColumn->Index + "   row:  " + 
+		ezbTable->CurrentCell->OwningRow->Index;
+		okButton->Enabled = true;
+	}
+
 }
 private: System::Void vectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->vectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
@@ -629,9 +643,44 @@ private: System::Void matrixRankButton_Click(System::Object^ sender, System::Eve
 
 
 private: System::Void okButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	if (this->stepTaskTextBox->Text == "Ukoncit") {
+	if (this->okButton->Text == "Ukoncit") {
 		this->clearTaskButton->PerformClick();
 	}
+	else {
+		int** newMatrix = 0;
+		newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index-1, ezbTable->CurrentCell->OwningRow->Index);
+		stepTaskTextBox->Text = "hotovo";
+
+		// dokreslenie matice
+
+		for (int i = vt->pocetSuradnic+1; i <= 1  + vt->pocetSuradnic*2; i++) {
+			ezbTable->Rows->Add();
+			ezbTable->Rows[i]->Height = 35;
+			ezbTable[0, i]->Value = "e" + System::Convert::ToString(i - vt->pocetSuradnic);
+		}
+		ezbTable->Rows[vt->pocetSuradnic*2+1]->Height = 2;
+
+		for (int i = 0; i <= vt->pocetVektorov + 1; i++) {
+			for (int j = 0; j <= vt->pocetSuradnic*2; j++) {
+				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+			}
+		}
+
+		for (int j = vt->pocetSuradnic+1; j < 1+vt->pocetSuradnic*2; j++) {
+			int suma = 0;
+			for (int i = 0; i < vt->pocetVektorov; i++) {
+				suma += newMatrix[j-vt->pocetSuradnic-1][i];
+				ezbTable[i + 1, j]->Value = newMatrix[j-vt->pocetSuradnic - 1][i];
+			}
+			ezbTable[vt->pocetVektorov + 1, j]->Value = newMatrix[j - vt->pocetSuradnic - 1][vt->pocetVektorov];
+		}
+
+	}
+
+
 }
+
 };
 }

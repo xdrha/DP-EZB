@@ -1242,6 +1242,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"vectorsNewTaskDialog";
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"vectorsNewTaskDialog";
 			this->vectorPanel1->ResumeLayout(false);
 			this->vectorPanel1->PerformLayout();
