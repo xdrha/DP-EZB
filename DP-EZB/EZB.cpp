@@ -25,12 +25,12 @@ namespace DP_EZB {
 	}
 
 	public: int checkMatrix() {
-		/*for (int i = 0; i < height; i++) { //nulovy riadok
+		for (int i = 0; i < height; i++) { //nulovy riadok
 			int count = 0;
 			for (int j = 0; j < width; j++)
 				if (oldMatrix[i][j] != 0) count ++;
-			if (count == 0) return 5;
-		}*/
+			if (count == 0) return 0;
+		}
 
 		int count = 0;
 

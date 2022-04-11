@@ -1,6 +1,8 @@
 ﻿#pragma once
+#include "VectorsNewTaskDialog.h"
+#include "EZB.cpp"
 
-namespace $safeprojectname$ {
+namespace DP_EZB {
 
 	using namespace System;
 	using namespace System::ComponentModel;
@@ -18,6 +20,7 @@ namespace $safeprojectname$ {
 		MyForm(void)
 		{
 			InitializeComponent();
+
 			//
 			//TODO: Add the constructor code here
 			//
@@ -34,54 +37,32 @@ namespace $safeprojectname$ {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Panel^ topPanel;
-	private: System::Windows::Forms::Panel^ centerPanel;
-	private: array<System::Windows::Forms::Label^>^ LabelArr1;
-	private: array<System::Windows::Forms::TextBox ^>^ TextArr1;
-	protected:
 
-
-
+	private: vectorsNewTaskDialog^ vectorsNewTaskD;
 	private: System::Windows::Forms::Panel^ bottomPanel;
 
 	private: System::Windows::Forms::Label^ label1;
-	private: System::Windows::Forms::Panel^ buttonPanel;
+	private: System::Windows::Forms::Panel^ topPanel;
+
 
 	private: System::Windows::Forms::Button^ matrixRank;
 	private: System::Windows::Forms::Button^ vectors;
-	private: System::Windows::Forms::Panel^ vectorsWorkPanel;
-	private: System::Windows::Forms::Panel^ panel1;
-	private: System::Windows::Forms::Label^ vectorLabel15;
-	private: System::Windows::Forms::TextBox^ vectorText15;
-	private: System::Windows::Forms::Label^ vectorLabel14;
-	private: System::Windows::Forms::TextBox^ vectorText14;
-	private: System::Windows::Forms::Label^ vectorLabel13;
-	private: System::Windows::Forms::TextBox^ vectorText13;
-	private: System::Windows::Forms::Label^ vectorLabel12;
-	private: System::Windows::Forms::TextBox^ vectorText12;
-	private: System::Windows::Forms::Label^ vectorLabel11;
-	private: System::Windows::Forms::TextBox^ vectorText11;
-	private: System::Windows::Forms::Label^ label4;
-	private: System::Windows::Forms::Label^ label3;
-	private: System::Windows::Forms::NumericUpDown^ pocetSuradnicVektorov;
+	private: System::Windows::Forms::Panel^ taskButtonPanel;
+
+	private: System::Windows::Forms::Button^ saveTaskButton;
+	private: System::Windows::Forms::Button^ clearTaskButton;
+	private: System::Windows::Forms::Button^ newTaskButton;
+	private: System::Windows::Forms::Panel^ taskPanel;
 	private: System::Windows::Forms::Label^ label2;
-	private: System::Windows::Forms::NumericUpDown^ pocetVektorov;
-	private: System::Windows::Forms::Label^ LabelFirstAction;
+	private: System::Windows::Forms::Label^ pocetSuradnicVektorovLabel;
+	private: System::Windows::Forms::Label^ pocetVektorovLabel;
+	private: System::Windows::Forms::DataGridView^ taskMatrix;
 
-
-	private:
-
-
-
-
-
-
-
-
-
-
-
-	protected:
+	private: System::Windows::Forms::Label^ label3;
+	private: System::Windows::Forms::Panel^ solutionPanel;
+	private: System::Windows::Forms::Label^ label4;
+	private: System::Windows::Forms::Label^ label5;
+	private: System::Windows::Forms::DataGridView^ ezbTable;
 
 	private:
 		/// <summary>
@@ -96,101 +77,81 @@ namespace $safeprojectname$ {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->topPanel = (gcnew System::Windows::Forms::Panel());
-			this->centerPanel = (gcnew System::Windows::Forms::Panel());
-			this->buttonPanel = (gcnew System::Windows::Forms::Panel());
 			this->matrixRank = (gcnew System::Windows::Forms::Button());
 			this->vectors = (gcnew System::Windows::Forms::Button());
 			this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->vectorsWorkPanel = (gcnew System::Windows::Forms::Panel());
-			this->LabelFirstAction = (gcnew System::Windows::Forms::Label());
-			this->pocetVektorov = (gcnew System::Windows::Forms::NumericUpDown());
-			this->pocetSuradnicVektorov = (gcnew System::Windows::Forms::NumericUpDown());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->taskButtonPanel = (gcnew System::Windows::Forms::Panel());
+			this->saveTaskButton = (gcnew System::Windows::Forms::Button());
+			this->clearTaskButton = (gcnew System::Windows::Forms::Button());
+			this->newTaskButton = (gcnew System::Windows::Forms::Button());
+			this->taskPanel = (gcnew System::Windows::Forms::Panel());
 			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->taskMatrix = (gcnew System::Windows::Forms::DataGridView());
+			this->pocetSuradnicVektorovLabel = (gcnew System::Windows::Forms::Label());
+			this->pocetVektorovLabel = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->solutionPanel = (gcnew System::Windows::Forms::Panel());
+			this->ezbTable = (gcnew System::Windows::Forms::DataGridView());
 			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->vectorText11 = (gcnew System::Windows::Forms::TextBox());
-			this->vectorLabel11 = (gcnew System::Windows::Forms::Label());
-			this->vectorText12 = (gcnew System::Windows::Forms::TextBox());
-			this->vectorLabel12 = (gcnew System::Windows::Forms::Label());
-			this->vectorText13 = (gcnew System::Windows::Forms::TextBox());
-			this->vectorLabel13 = (gcnew System::Windows::Forms::Label());
-			this->vectorText14 = (gcnew System::Windows::Forms::TextBox());
-			this->vectorLabel14 = (gcnew System::Windows::Forms::Label());
-			this->vectorText15 = (gcnew System::Windows::Forms::TextBox());
-			this->vectorLabel15 = (gcnew System::Windows::Forms::Label());
-			this->centerPanel->SuspendLayout();
-			this->buttonPanel->SuspendLayout();
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->topPanel->SuspendLayout();
 			this->bottomPanel->SuspendLayout();
-			this->vectorsWorkPanel->SuspendLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->BeginInit();
-			this->panel1->SuspendLayout();
+			this->taskButtonPanel->SuspendLayout();
+			this->taskPanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->taskMatrix))->BeginInit();
+			this->solutionPanel->SuspendLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ezbTable))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// topPanel
 			// 
-			this->topPanel->BackColor = System::Drawing::SystemColors::WindowText;
 			this->topPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->topPanel->Controls->Add(this->matrixRank);
+			this->topPanel->Controls->Add(this->vectors);
 			this->topPanel->Dock = System::Windows::Forms::DockStyle::Top;
 			this->topPanel->Location = System::Drawing::Point(0, 0);
 			this->topPanel->Name = L"topPanel";
-			this->topPanel->Size = System::Drawing::Size(1024, 30);
-			this->topPanel->TabIndex = 1;
-			// 
-			// centerPanel
-			// 
-			this->centerPanel->AutoScroll = true;
-			this->centerPanel->BackColor = System::Drawing::SystemColors::WindowText;
-			this->centerPanel->Controls->Add(this->vectorsWorkPanel);
-			this->centerPanel->Controls->Add(this->buttonPanel);
-			this->centerPanel->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->centerPanel->Location = System::Drawing::Point(0, 30);
-			this->centerPanel->Name = L"centerPanel";
-			this->centerPanel->Size = System::Drawing::Size(1024, 738);
-			this->centerPanel->TabIndex = 2;
-			// 
-			// buttonPanel
-			// 
-			this->buttonPanel->Controls->Add(this->matrixRank);
-			this->buttonPanel->Controls->Add(this->vectors);
-			this->buttonPanel->Dock = System::Windows::Forms::DockStyle::Top;
-			this->buttonPanel->Location = System::Drawing::Point(0, 0);
-			this->buttonPanel->Name = L"buttonPanel";
-			this->buttonPanel->Size = System::Drawing::Size(1024, 38);
-			this->buttonPanel->TabIndex = 0;
+			this->topPanel->Size = System::Drawing::Size(1024, 38);
+			this->topPanel->TabIndex = 0;
 			// 
 			// matrixRank
 			// 
-			this->matrixRank->BackColor = System::Drawing::SystemColors::WindowText;
+			this->matrixRank->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->matrixRank->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->matrixRank->ForeColor = System::Drawing::SystemColors::Window;
 			this->matrixRank->Location = System::Drawing::Point(75, 0);
 			this->matrixRank->Name = L"matrixRank";
-			this->matrixRank->Size = System::Drawing::Size(103, 38);
+			this->matrixRank->Size = System::Drawing::Size(129, 38);
 			this->matrixRank->TabIndex = 1;
-			this->matrixRank->Text = L"Matrix Rank";
+			this->matrixRank->Text = L"Hodnosť matice";
 			this->matrixRank->UseVisualStyleBackColor = false;
 			this->matrixRank->Click += gcnew System::EventHandler(this, &MyForm::matrixRank_Click);
 			// 
 			// vectors
 			// 
-			this->vectors->BackColor = System::Drawing::SystemColors::WindowText;
+			this->vectors->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->vectors->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->vectors->ForeColor = System::Drawing::SystemColors::Window;
 			this->vectors->Location = System::Drawing::Point(0, 0);
 			this->vectors->Name = L"vectors";
 			this->vectors->Size = System::Drawing::Size(75, 38);
 			this->vectors->TabIndex = 0;
-			this->vectors->Text = L"Vectors";
+			this->vectors->Text = L"Vektory";
 			this->vectors->UseVisualStyleBackColor = false;
 			this->vectors->Click += gcnew System::EventHandler(this, &MyForm::vectors_Click);
 			// 
 			// bottomPanel
 			// 
-			this->bottomPanel->BackColor = System::Drawing::SystemColors::WindowText;
+			this->bottomPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->bottomPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->bottomPanel->Controls->Add(this->label1);
 			this->bottomPanel->Dock = System::Windows::Forms::DockStyle::Bottom;
@@ -211,244 +172,267 @@ namespace $safeprojectname$ {
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Copyright 2022 Bc. Matej Drha";
 			// 
-			// vectorsWorkPanel
+			// taskButtonPanel
 			// 
-			this->vectorsWorkPanel->Controls->Add(this->panel1);
-			this->vectorsWorkPanel->Controls->Add(this->label3);
-			this->vectorsWorkPanel->Controls->Add(this->pocetSuradnicVektorov);
-			this->vectorsWorkPanel->Controls->Add(this->label2);
-			this->vectorsWorkPanel->Controls->Add(this->pocetVektorov);
-			this->vectorsWorkPanel->Controls->Add(this->LabelFirstAction);
-			this->vectorsWorkPanel->Dock = System::Windows::Forms::DockStyle::Fill;
-			this->vectorsWorkPanel->Location = System::Drawing::Point(0, 38);
-			this->vectorsWorkPanel->Name = L"vectorsWorkPanel";
-			this->vectorsWorkPanel->Size = System::Drawing::Size(1024, 700);
-			this->vectorsWorkPanel->TabIndex = 1;
+			this->taskButtonPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->taskButtonPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->taskButtonPanel->Controls->Add(this->saveTaskButton);
+			this->taskButtonPanel->Controls->Add(this->clearTaskButton);
+			this->taskButtonPanel->Controls->Add(this->newTaskButton);
+			this->taskButtonPanel->Location = System::Drawing::Point(0, 38);
+			this->taskButtonPanel->Name = L"taskButtonPanel";
+			this->taskButtonPanel->Size = System::Drawing::Size(1024, 38);
+			this->taskButtonPanel->TabIndex = 4;
 			// 
-			// LabelFirstAction
+			// saveTaskButton
 			// 
-			this->LabelFirstAction->AutoSize = true;
-			this->LabelFirstAction->ForeColor = System::Drawing::SystemColors::Window;
-			this->LabelFirstAction->Location = System::Drawing::Point(39, 56);
-			this->LabelFirstAction->Name = L"LabelFirstAction";
-			this->LabelFirstAction->Size = System::Drawing::Size(174, 21);
-			this->LabelFirstAction->TabIndex = 0;
-			this->LabelFirstAction->Text = L"1. Zadaj počet vektorov:";
+			this->saveTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->saveTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->saveTaskButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->saveTaskButton->Location = System::Drawing::Point(200, -1);
+			this->saveTaskButton->Name = L"saveTaskButton";
+			this->saveTaskButton->Size = System::Drawing::Size(105, 38);
+			this->saveTaskButton->TabIndex = 3;
+			this->saveTaskButton->Text = L"Uložiť";
+			this->saveTaskButton->UseVisualStyleBackColor = false;
 			// 
-			// pocetVektorov
+			// clearTaskButton
 			// 
-			this->pocetVektorov->Location = System::Drawing::Point(282, 56);
-			this->pocetVektorov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->pocetVektorov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			this->pocetVektorov->Name = L"pocetVektorov";
-			this->pocetVektorov->Size = System::Drawing::Size(44, 29);
-			this->pocetVektorov->TabIndex = 2;
-			this->pocetVektorov->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
+			this->clearTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->clearTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->clearTaskButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->clearTaskButton->Location = System::Drawing::Point(99, -1);
+			this->clearTaskButton->Name = L"clearTaskButton";
+			this->clearTaskButton->Size = System::Drawing::Size(105, 38);
+			this->clearTaskButton->TabIndex = 2;
+			this->clearTaskButton->Text = L"Zmazať";
+			this->clearTaskButton->UseVisualStyleBackColor = false;
+			this->clearTaskButton->Click += gcnew System::EventHandler(this, &MyForm::clearTaskButton_Click);
 			// 
-			// pocetSuradnicVektorov
+			// newTaskButton
 			// 
-			this->pocetSuradnicVektorov->Location = System::Drawing::Point(282, 100);
-			this->pocetSuradnicVektorov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
-			this->pocetSuradnicVektorov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			this->pocetSuradnicVektorov->Name = L"pocetSuradnicVektorov";
-			this->pocetSuradnicVektorov->Size = System::Drawing::Size(44, 29);
-			this->pocetSuradnicVektorov->TabIndex = 4;
-			this->pocetSuradnicVektorov->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
-			this->pocetSuradnicVektorov->ValueChanged += gcnew System::EventHandler(this, &MyForm::pocetSuradnicVektorov_ValueChanged);
+			this->newTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->newTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->newTaskButton->ForeColor = System::Drawing::SystemColors::Window;
+			this->newTaskButton->Location = System::Drawing::Point(-1, -1);
+			this->newTaskButton->Name = L"newTaskButton";
+			this->newTaskButton->Size = System::Drawing::Size(105, 38);
+			this->newTaskButton->TabIndex = 1;
+			this->newTaskButton->Text = L"Nová úloha";
+			this->newTaskButton->UseVisualStyleBackColor = false;
+			this->newTaskButton->Click += gcnew System::EventHandler(this, &MyForm::newTaskButton_Click);
+			// 
+			// taskPanel
+			// 
+			this->taskPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->taskPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->taskPanel->Controls->Add(this->label3);
+			this->taskPanel->Controls->Add(this->taskMatrix);
+			this->taskPanel->Controls->Add(this->pocetSuradnicVektorovLabel);
+			this->taskPanel->Controls->Add(this->pocetVektorovLabel);
+			this->taskPanel->Controls->Add(this->label2);
+			this->taskPanel->Location = System::Drawing::Point(0, 76);
+			this->taskPanel->Name = L"taskPanel";
+			this->taskPanel->Size = System::Drawing::Size(1024, 200);
+			this->taskPanel->TabIndex = 5;
+			this->taskPanel->Visible = false;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->ForeColor = System::Drawing::SystemColors::Window;
+			this->label3->Location = System::Drawing::Point(326, 16);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(59, 21);
+			this->label3->TabIndex = 4;
+			this->label3->Text = L"Matica:";
+			// 
+			// taskMatrix
+			// 
+			this->taskMatrix->AllowUserToAddRows = false;
+			this->taskMatrix->AllowUserToDeleteRows = false;
+			this->taskMatrix->AllowUserToResizeColumns = false;
+			this->taskMatrix->AllowUserToResizeRows = false;
+			this->taskMatrix->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->taskMatrix->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->taskMatrix->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
+			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleLeft;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->taskMatrix->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			this->taskMatrix->ColumnHeadersHeight = 20;
+			this->taskMatrix->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::DisableResizing;
+			this->taskMatrix->ColumnHeadersVisible = false;
+			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle2->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->taskMatrix->DefaultCellStyle = dataGridViewCellStyle2;
+			this->taskMatrix->Location = System::Drawing::Point(404, 5);
+			this->taskMatrix->MaximumSize = System::Drawing::Size(175, 175);
+			this->taskMatrix->MinimumSize = System::Drawing::Size(70, 70);
+			this->taskMatrix->Name = L"taskMatrix";
+			this->taskMatrix->RowHeadersVisible = false;
+			this->taskMatrix->RowHeadersWidth = 20;
+			this->taskMatrix->ScrollBars = System::Windows::Forms::ScrollBars::None;
+			this->taskMatrix->Size = System::Drawing::Size(175, 175);
+			this->taskMatrix->TabIndex = 3;
+			// 
+			// pocetSuradnicVektorovLabel
+			// 
+			this->pocetSuradnicVektorovLabel->AutoSize = true;
+			this->pocetSuradnicVektorovLabel->ForeColor = System::Drawing::SystemColors::Window;
+			this->pocetSuradnicVektorovLabel->Location = System::Drawing::Point(17, 84);
+			this->pocetSuradnicVektorovLabel->Name = L"pocetSuradnicVektorovLabel";
+			this->pocetSuradnicVektorovLabel->Size = System::Drawing::Size(186, 21);
+			this->pocetSuradnicVektorovLabel->TabIndex = 2;
+			this->pocetSuradnicVektorovLabel->Text = L"Počet súradníc vektorov:  ";
+			// 
+			// pocetVektorovLabel
+			// 
+			this->pocetVektorovLabel->AutoSize = true;
+			this->pocetVektorovLabel->ForeColor = System::Drawing::SystemColors::Window;
+			this->pocetVektorovLabel->Location = System::Drawing::Point(17, 61);
+			this->pocetVektorovLabel->Name = L"pocetVektorovLabel";
+			this->pocetVektorovLabel->Size = System::Drawing::Size(123, 21);
+			this->pocetVektorovLabel->TabIndex = 1;
+			this->pocetVektorovLabel->Text = L"Počet vektorov:  ";
 			// 
 			// label2
 			// 
 			this->label2->AutoSize = true;
 			this->label2->ForeColor = System::Drawing::SystemColors::Window;
-			this->label2->Location = System::Drawing::Point(39, 100);
+			this->label2->Location = System::Drawing::Point(13, 16);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(237, 21);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"2. Zadaj počet súradníc vektorov:";
+			this->label2->Size = System::Drawing::Size(68, 21);
+			this->label2->TabIndex = 0;
+			this->label2->Text = L"Zadanie:";
 			// 
-			// label3
+			// solutionPanel
 			// 
-			this->label3->AutoSize = true;
-			this->label3->BackColor = System::Drawing::SystemColors::WindowText;
-			this->label3->ForeColor = System::Drawing::SystemColors::Window;
-			this->label3->Location = System::Drawing::Point(43, 161);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(66, 21);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"Vektory:";
+			this->solutionPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->solutionPanel->Controls->Add(this->ezbTable);
+			this->solutionPanel->Controls->Add(this->label4);
+			this->solutionPanel->Location = System::Drawing::Point(0, 276);
+			this->solutionPanel->Name = L"solutionPanel";
+			this->solutionPanel->Size = System::Drawing::Size(516, 472);
+			this->solutionPanel->TabIndex = 6;
+			this->solutionPanel->Visible = false;
 			// 
-			// panel1
+			// ezbTable
 			// 
-			this->panel1->Controls->Add(this->vectorLabel15);
-			this->panel1->Controls->Add(this->vectorText15);
-			this->panel1->Controls->Add(this->vectorLabel14);
-			this->panel1->Controls->Add(this->vectorText14);
-			this->panel1->Controls->Add(this->vectorLabel13);
-			this->panel1->Controls->Add(this->vectorText13);
-			this->panel1->Controls->Add(this->vectorLabel12);
-			this->panel1->Controls->Add(this->vectorText12);
-			this->panel1->Controls->Add(this->vectorLabel11);
-			this->panel1->Controls->Add(this->vectorText11);
-			this->panel1->Controls->Add(this->label4);
-			this->panel1->Location = System::Drawing::Point(139, 157);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(323, 34);
-			this->panel1->TabIndex = 6;
+			this->ezbTable->AllowUserToAddRows = false;
+			this->ezbTable->AllowUserToDeleteRows = false;
+			this->ezbTable->AllowUserToResizeColumns = false;
+			this->ezbTable->AllowUserToResizeRows = false;
+			this->ezbTable->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->ezbTable->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->ezbTable->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
+			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->ezbTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			this->ezbTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle4->BackColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle4;
+			this->ezbTable->EnableHeadersVisualStyles = false;
+			this->ezbTable->Location = System::Drawing::Point(131, 17);
+			this->ezbTable->Name = L"ezbTable";
+			this->ezbTable->RowHeadersVisible = false;
+			this->ezbTable->RowHeadersWidth = 20;
+			this->ezbTable->ScrollBars = System::Windows::Forms::ScrollBars::None;
+			this->ezbTable->Size = System::Drawing::Size(233, 102);
+			this->ezbTable->TabIndex = 6;
+			this->ezbTable->SelectionChanged += gcnew System::EventHandler(this, &MyForm::ezbTable_SelectionChanged);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
 			this->label4->ForeColor = System::Drawing::SystemColors::Window;
-			this->label4->Location = System::Drawing::Point(6, 4);
+			this->label4->Location = System::Drawing::Point(14, 17);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(61, 25);
-			this->label4->TabIndex = 0;
-			this->label4->Text = L"a1 = (";
-			//
-			// LabelArr
-			//
-			this->LabelArr1 = gcnew array<System::Windows::Forms::Label^>(25);
-			this->LabelArr1[0] = this->vectorLabel11;
-			this->LabelArr1[1] = this->vectorLabel12;
-			this->LabelArr1[2] = this->vectorLabel13;
-			this->LabelArr1[3] = this->vectorLabel14;
-			this->LabelArr1[4] = this->vectorLabel15;
-			//
-			// TextArr1
+			this->label4->Size = System::Drawing::Size(71, 21);
+			this->label4->TabIndex = 5;
+			this->label4->Text = L"Riešenie:";
 			// 
-			this->TextArr1 = gcnew array<System::Windows::Forms::TextBox^>(25);
-			this->TextArr1[0] = this->vectorText11;
-			this->TextArr1[1] = this->vectorText12;
-			this->TextArr1[2] = this->vectorText13;
-			this->TextArr1[3] = this->vectorText14;
-			this->TextArr1[4] = this->vectorText15;
+			// label5
 			// 
-			// vectorText11
-			// 
-			this->vectorText11->Location = System::Drawing::Point(73, 4);
-			this->vectorText11->Name = L"vectorText11";
-			this->vectorText11->Size = System::Drawing::Size(27, 29);
-			this->vectorText11->TabIndex = 1;
-			// 
-			// vectorLabel11
-			// 
-			this->vectorLabel11->AutoSize = true;
-			this->vectorLabel11->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
-			this->vectorLabel11->ForeColor = System::Drawing::SystemColors::Window;
-			this->vectorLabel11->Location = System::Drawing::Point(102, 5);
-			this->vectorLabel11->Name = L"vectorLabel11";
-			this->vectorLabel11->Size = System::Drawing::Size(16, 25);
-			this->vectorLabel11->TabIndex = 2;
-			this->vectorLabel11->Text = L";";
-			// 
-			// vectorText12
-			// 
-			this->vectorText12->Location = System::Drawing::Point(119, 3);
-			this->vectorText12->Name = L"vectorText12";
-			this->vectorText12->Size = System::Drawing::Size(27, 29);
-			this->vectorText12->TabIndex = 3;
-			// 
-			// vectorLabel12
-			// 
-			this->vectorLabel12->AutoSize = true;
-			this->vectorLabel12->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
-			this->vectorLabel12->ForeColor = System::Drawing::SystemColors::Window;
-			this->vectorLabel12->Location = System::Drawing::Point(149, 5);
-			this->vectorLabel12->Name = L"vectorLabel12";
-			this->vectorLabel12->Size = System::Drawing::Size(16, 25);
-			this->vectorLabel12->TabIndex = 4;
-			this->vectorLabel12->Text = L";";
-			// 
-			// vectorText13
-			// 
-			this->vectorText13->Location = System::Drawing::Point(166, 3);
-			this->vectorText13->Name = L"vectorText13";
-			this->vectorText13->Size = System::Drawing::Size(27, 29);
-			this->vectorText13->TabIndex = 5;
-			// 
-			// vectorLabel13
-			// 
-			this->vectorLabel13->AutoSize = true;
-			this->vectorLabel13->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
-			this->vectorLabel13->ForeColor = System::Drawing::SystemColors::Window;
-			this->vectorLabel13->Location = System::Drawing::Point(196, 6);
-			this->vectorLabel13->Name = L"vectorLabel13";
-			this->vectorLabel13->Size = System::Drawing::Size(16, 25);
-			this->vectorLabel13->TabIndex = 6;
-			this->vectorLabel13->Text = L";";
-			// 
-			// vectorText14
-			// 
-			this->vectorText14->Location = System::Drawing::Point(213, 1);
-			this->vectorText14->Name = L"vectorText14";
-			this->vectorText14->Size = System::Drawing::Size(27, 29);
-			this->vectorText14->TabIndex = 7;
-			// 
-			// vectorLabel15
-			// 
-			this->vectorLabel14->AutoSize = true;
-			this->vectorLabel14->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
-			this->vectorLabel14->ForeColor = System::Drawing::SystemColors::Window;
-			this->vectorLabel14->Location = System::Drawing::Point(242, 5);
-			this->vectorLabel14->Name = L"vectorLabel15";
-			this->vectorLabel14->Size = System::Drawing::Size(16, 25);
-			this->vectorLabel14->TabIndex = 8;
-			this->vectorLabel14->Text = L";";
-			// 
-			// vectorText15
-			// 
-			this->vectorText15->Location = System::Drawing::Point(259, 2);
-			this->vectorText15->Name = L"vectorText15";
-			this->vectorText15->Size = System::Drawing::Size(27, 29);
-			this->vectorText15->TabIndex = 9;
-			// 
-			// vectorLabel16
-			// 
-			this->vectorLabel15->AutoSize = true;
-			this->vectorLabel15->Font = (gcnew System::Drawing::Font(L"Segoe UI", 14));
-			this->vectorLabel15->ForeColor = System::Drawing::SystemColors::Window;
-			this->vectorLabel15->Location = System::Drawing::Point(289, 2);
-			this->vectorLabel15->Name = L"vectorLabel16";
-			this->vectorLabel15->Size = System::Drawing::Size(18, 25);
-			this->vectorLabel15->TabIndex = 10;
-			this->vectorLabel15->Text = L")";
+			this->label5->AutoSize = true;
+			this->label5->ForeColor = System::Drawing::SystemColors::Window;
+			this->label5->Location = System::Drawing::Point(16, 17);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(54, 21);
+			this->label5->TabIndex = 6;
+			this->label5->Text = L"Úloha:";
 			// 
 			// MyForm
 			// 
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::None;
-			this->BackColor = System::Drawing::SystemColors::WindowText;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ClientSize = System::Drawing::Size(1024, 768);
+			this->Controls->Add(this->solutionPanel);
+			this->Controls->Add(this->taskPanel);
+			this->Controls->Add(this->taskButtonPanel);
 			this->Controls->Add(this->bottomPanel);
-			this->Controls->Add(this->centerPanel);
 			this->Controls->Add(this->topPanel);
+			this->Enabled = false;
 			this->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
+			this->ForeColor = System::Drawing::SystemColors::Window;
+			this->Location = System::Drawing::Point(20, 54);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EZB";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
-			this->centerPanel->ResumeLayout(false);
-			this->buttonPanel->ResumeLayout(false);
+			this->topPanel->ResumeLayout(false);
 			this->bottomPanel->ResumeLayout(false);
 			this->bottomPanel->PerformLayout();
-			this->vectorsWorkPanel->ResumeLayout(false);
-			this->vectorsWorkPanel->PerformLayout();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->EndInit();
-			this->panel1->ResumeLayout(false);
-			this->panel1->PerformLayout();
+			this->taskButtonPanel->ResumeLayout(false);
+			this->taskPanel->ResumeLayout(false);
+			this->taskPanel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->taskMatrix))->EndInit();
+			this->solutionPanel->ResumeLayout(false);
+			this->solutionPanel->PerformLayout();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ezbTable))->EndInit();
 			this->ResumeLayout(false);
 
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
 	}
-	private: System::Void button1_Click(System::Object^ sender, System::EventArgs^ e) {
-		
-		Application::Exit();
 
-	}
 private: System::Void vectors_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->vectors->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 	this->matrixRank->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
@@ -458,25 +442,118 @@ private: System::Void matrixRank_Click(System::Object^ sender, System::EventArgs
 	this->matrixRank->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 }
 private: System::Void pocetSuradnicVektorov_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
-	for (int i = 1; i <= 5; i++) {
-		if (i < System::Convert::ToInt16(this->pocetSuradnicVektorov->Value)) {
-			this->LabelArr1[i-1]->Visible;
-			this->LabelArr1[i - 1]->Text = ";";
-			this->TextArr1[i - 1]->Visible = true;
+	
+}
+private: System::Void newTaskButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	vectorsNewTaskD = gcnew vectorsNewTaskDialog();
+	vectorsNewTaskD->ShowDialog();
+
+	if (vectorsNewTaskD->created) {
+		this->taskPanel->Show();
+		this->solutionPanel->Show();
+
+		int pocetVektorov = vectorsNewTaskD->getPocetVektorov();
+		int pocetSuradnicVektorov = vectorsNewTaskD->getPocetSuradnicVektorov();
+		int** matrix = vectorsNewTaskD->getMatrix();
+
+		pocetVektorovLabel->Text += System::Convert::ToString(pocetVektorov);
+		pocetSuradnicVektorovLabel->Text += System::Convert::ToString(pocetSuradnicVektorov);
+		
+		taskMatrix->ColumnCount = pocetSuradnicVektorov;
+
+		for (int i = 0; i < pocetVektorov; i++) {
+			taskMatrix->Rows->Add();
+			taskMatrix->Rows[i]->Height = 35;
 		}
-		else {
-			if (i == System::Convert::ToInt16(this->pocetSuradnicVektorov->Value)) {
-				this->LabelArr1[i-1]->Visible = true;
-				this->TextArr1[i - 1]->Visible = true;
-				this->LabelArr1[i-1]->Text = ")";
-			}
-			else {
-				this->LabelArr1[i-1]->Visible = false;
-				this->TextArr1[i - 1]->Visible = false;
-			}
+
+		for (int i = 0; i < pocetSuradnicVektorov; i++) {
+			taskMatrix->Columns[i]->Width = 35;
+			for (int j = 0; j < pocetVektorov; j++) {
+				taskMatrix[i,j]->Value = (matrix[j][i]);
+				taskMatrix[i,j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				taskMatrix[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+			}		
+		}
+		//
+		//vygeneruje sa riesenie - ezb tabulka
+		//
+		//
+		//vytvor bazicku maticu
+		//
+		int** bazickaMatica = 0;
+		bazickaMatica = new int* [pocetSuradnicVektorov];
+		for (int h = 0; h < pocetSuradnicVektorov; h++)
+		{
+			bazickaMatica[h] = new int[pocetVektorov + 1];
+		}
+
+
+		ezbTable->ColumnCount = pocetVektorov + 2;
+		ezbTable->MultiSelect = false;
+		ezbTable->Columns[0]->Name = "Báza";
+		for (int i = 1; i <= pocetVektorov; i++) {
+			ezbTable->Columns[i]->Name = "a" + System::Convert::ToString(i);
+			ezbTable->Columns[i]->Width = 35;		
 
 		}
+		ezbTable->Columns[pocetVektorov+1]->Name = "Suma";
+
+		for (int i = 0; i <= pocetSuradnicVektorov; i++) {
+			ezbTable->Rows->Add();
+			ezbTable->Rows[i]->Height = 35;
+			ezbTable[0,i]->Value = "e" + System::Convert::ToString(i+1);
+		}
+		ezbTable->Rows[pocetSuradnicVektorov]->Height = 2;
+
+		for (int i = 0; i <= pocetVektorov + 1; i++) {
+			ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+			for (int j = 0; j <= pocetSuradnicVektorov; j++) {
+				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+			}
+		}
+
+		for (int j = 0; j < pocetSuradnicVektorov; j++) {
+			int suma = 0;
+			for (int i = 0; i < pocetVektorov; i++) {
+				suma += matrix[i][j];
+				ezbTable[i + 1, j]->Value = matrix[i][j];
+				bazickaMatica[i][j] = matrix[i][j];
+			}
+			ezbTable[pocetVektorov + 1, j]->Value = suma;
+			bazickaMatica[j][pocetVektorov] = suma;
+		}
+		//
+		//skontroluj bazicku maticu
+		//
+		//EZB ezb = EZB(bazickaMatica);
+
+		// 
+		// EZB
+		//
+
+		
+		
+
 	}
+}
+private: System::Void clearTaskButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	pocetVektorovLabel->Text = "Počet vektorov :";
+	pocetSuradnicVektorovLabel->Text = "Počet súradníc vektorov:  ";
+	taskMatrix->Rows->Clear();
+	taskMatrix->Refresh();
+	ezbTable->Rows->Clear();
+	ezbTable->Refresh();
+	taskPanel->Hide();
+	solutionPanel->Hide();
+
+}
+private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
+
+	if(ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1)
+		ezbTable->ClearSelection();
 }
 };
 }

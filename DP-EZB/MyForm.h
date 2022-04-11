@@ -574,7 +574,7 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		//skontroluj bazicku maticu
 		//
 		ezb = new EZB(bazickaMatica, vt->pocetVektorov+1, vt->pocetSuradnic);
-		int check = 2;// ezb->checkMatrix();
+		int check = ezb->checkMatrix();
 		if (check == 0) { //nulovy riadok, koniec ezb
 			ezbTable->Enabled = false;
 			okButton->Enabled = true;
