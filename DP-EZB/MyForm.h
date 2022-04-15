@@ -2,6 +2,7 @@
 #include "VectorsNewTaskDialog.h"
 #include "EZB.cpp"
 #include "VectorsTask.cpp"
+#include <string.h>
 
 namespace DP_EZB {
 
@@ -83,11 +84,11 @@ namespace DP_EZB {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle9 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle10 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->topPanel = (gcnew System::Windows::Forms::Panel());
@@ -249,28 +250,28 @@ namespace DP_EZB {
 			this->taskMatrix->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->taskMatrix->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->taskMatrix->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->taskMatrix->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
 			this->taskMatrix->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->taskMatrix->ColumnHeadersVisible = false;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->taskMatrix->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle7->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->taskMatrix->DefaultCellStyle = dataGridViewCellStyle7;
 			this->taskMatrix->Location = System::Drawing::Point(495, 15);
 			this->taskMatrix->MaximumSize = System::Drawing::Size(175, 175);
 			this->taskMatrix->MinimumSize = System::Drawing::Size(70, 70);
@@ -327,6 +328,7 @@ namespace DP_EZB {
 			// 
 			this->solutionPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
 				| System::Windows::Forms::AnchorStyles::Left));
+			this->solutionPanel->AutoScroll = true;
 			this->solutionPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->solutionPanel->Controls->Add(this->ezbTable);
 			this->solutionPanel->Controls->Add(this->label4);
@@ -342,36 +344,36 @@ namespace DP_EZB {
 			this->ezbTable->AllowUserToDeleteRows = false;
 			this->ezbTable->AllowUserToResizeColumns = false;
 			this->ezbTable->AllowUserToResizeRows = false;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::Color::White;
-			this->ezbTable->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::Color::White;
+			this->ezbTable->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle8;
 			this->ezbTable->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ezbTable->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->ezbTable->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			dataGridViewCellStyle9->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle9->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->ezbTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle9->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle9->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle9->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle9->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->ezbTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle9;
 			this->ezbTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle10->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			dataGridViewCellStyle10->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle5;
+			dataGridViewCellStyle10->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle10->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle10->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle10->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle10;
 			this->ezbTable->EnableHeadersVisualStyles = false;
 			this->ezbTable->Location = System::Drawing::Point(101, 38);
 			this->ezbTable->MultiSelect = false;
@@ -413,7 +415,7 @@ namespace DP_EZB {
 			// 
 			this->okButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->okButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			this->okButton->Location = System::Drawing::Point(385, 143);
+			this->okButton->Location = System::Drawing::Point(385, 241);
 			this->okButton->Name = L"okButton";
 			this->okButton->Size = System::Drawing::Size(105, 38);
 			this->okButton->TabIndex = 2;
@@ -430,7 +432,9 @@ namespace DP_EZB {
 			this->stepTaskTextBox->Location = System::Drawing::Point(22, 39);
 			this->stepTaskTextBox->Multiline = true;
 			this->stepTaskTextBox->Name = L"stepTaskTextBox";
-			this->stepTaskTextBox->Size = System::Drawing::Size(468, 98);
+			this->stepTaskTextBox->ReadOnly = true;
+			this->stepTaskTextBox->ScrollBars = System::Windows::Forms::ScrollBars::Vertical;
+			this->stepTaskTextBox->Size = System::Drawing::Size(468, 196);
 			this->stepTaskTextBox->TabIndex = 1;
 			// 
 			// label5
@@ -498,7 +502,7 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		this->solutionPanel->Show();
 		this->stepTaskPanel->Show();
 
-		vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix());
+		vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix(), vectorsNewTaskD->getVB());
 
 		pocetVektorovLabel->Text += System::Convert::ToString(vt->pocetVektorov);
 		pocetSuradnicVektorovLabel->Text += System::Convert::ToString(vt->pocetSuradnic);
@@ -520,24 +524,23 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 			}
 		}
 		//
-		//vygeneruje sa riesenie - ezb tabulka
-		//
-		//
 		//vytvor bazicku maticu
 		//
-		int** bazickaMatica = 0;
-		bazickaMatica = new int* [vt->pocetSuradnic];
+		double** bazickaMatica = 0;
+		bazickaMatica = new double* [vt->pocetSuradnic];
 		for (int h = 0; h < vt->pocetSuradnic; h++)
 		{
-			bazickaMatica[h] = new int[vt->pocetVektorov + 1];
+			bazickaMatica[h] = new double[vt->pocetVektorov + 1];
 		}
-
 
 		ezbTable->ColumnCount = vt->pocetVektorov + 2;
 		ezbTable->MultiSelect = false;
 		ezbTable->Columns[0]->Name = "Báza";
 		for (int i = 1; i <= vt->pocetVektorov; i++) {
-			ezbTable->Columns[i]->Name = "a" + System::Convert::ToString(i);
+			if(vt->vectorB == 1 && i == vt->pocetVektorov)
+				ezbTable->Columns[i]->Name = "b";
+			else
+				ezbTable->Columns[i]->Name = "a" + System::Convert::ToString(i);
 			ezbTable->Columns[i]->Width = 35;
 
 		}
@@ -571,37 +574,10 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 			bazickaMatica[j][vt->pocetVektorov] = suma;
 		}
 		//
-		//skontroluj bazicku maticu
+		//skontroluj bazicku maticu /// nove ezb
 		//
 		ezb = new EZB(bazickaMatica, vt->pocetVektorov+1, vt->pocetSuradnic);
-		int check = ezb->checkMatrix();
-		if (check == 0) { //nulovy riadok, koniec ezb
-			ezbTable->Enabled = false;
-			okButton->Enabled = true;
-			okButton->Text = "Ukoncit";
-			stepTaskTextBox->Text = "Koniec vypoctu: do bazy je mozne zaclenit vektory: \r\n\r\n ukoncit ulohu?";
-		}
-		else {
-			if (check == 1) {
-				ezbTable->Enabled = false;
-				okButton->Enabled = true;
-				okButton->Text = "Ukoncit";
-				stepTaskTextBox->Text = "Koniec vypoctu: do bazy boli zaclenene vsetky vektory: \r\n\r\n ukoncit ulohu?";
-			}
-			else {
-				if (check == 2) {
-					stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\n";
-					okButton->Enabled = false;
-				}
-			}
-		}
-
-		// 
-		// EZB
-		//
-
-
-
+		checkMatrix(bazickaMatica);
 
 	}
 }
@@ -612,22 +588,37 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	taskMatrix->Refresh();
 	ezbTable->Rows->Clear();
 	ezbTable->Refresh();
+	ezbTable->Enabled = true;
 	taskPanel->Hide();
 	solutionPanel->Hide();
 	stepTaskPanel->Hide();
 	stepTaskTextBox->Clear();
 	okButton->Enabled = false;
 	okButton->Text = "OK";
+	label5->Text = "Úloha:";
 
 }
-private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
+	private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
 
-	if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1)
-		ezbTable->ClearSelection();
+		if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
+			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (vt->pocetSuradnic + 1)
+			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (vt->pocetSuradnic + 1)*ezb->iteration] == 1 ||
+			ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1
+			|| ezbTable->CurrentCell->OwningColumn->Name == "b") {
+			
+			okButton->Enabled = false;
+			stepTaskTextBox->Text = "Vyber veduci prvok (pivot)";
+			ezbTable->ClearSelection();
+		}
+		
 	else {
-		stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\nvybrany pivot: " + ezbTable->CurrentCell->Value + "  column: " + ezbTable->CurrentCell->OwningColumn->Index + "   row:  " + 
-		ezbTable->CurrentCell->OwningRow->Index;
-		okButton->Enabled = true;
+		if (ezb != NULL) {
+			if (ezb->stepTask == 2) {
+				stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\nvybrany pivot: " + ezbTable->CurrentCell->Value;
+				okButton->Enabled = true;
+			}
+		}
+		
 	}
 
 }
@@ -647,38 +638,198 @@ private: System::Void okButton_Click(System::Object^ sender, System::EventArgs^ 
 		this->clearTaskButton->PerformClick();
 	}
 	else {
-		int** newMatrix = 0;
-		newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index-1, ezbTable->CurrentCell->OwningRow->Index);
-		stepTaskTextBox->Text = "hotovo";
 
-		// dokreslenie matice
+		ezbTable->CurrentCell->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(65)), static_cast<System::Int32>(static_cast<System::Byte>(65)),
+			static_cast<System::Int32>(static_cast<System::Byte>(65)));
 
-		for (int i = vt->pocetSuradnic+1; i <= 1  + vt->pocetSuradnic*2; i++) {
+		double** newMatrix = 0;
+		newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index-1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (vt->pocetSuradnic + 1)));
+		
+		// dokreslenie tabulky
+
+		for (int i = (vt->pocetSuradnic + 1) * ezb->iteration; i <= (vt->pocetSuradnic * (ezb->iteration+1))+ezb->iteration; i++) {
 			ezbTable->Rows->Add();
 			ezbTable->Rows[i]->Height = 35;
-			ezbTable[0, i]->Value = "e" + System::Convert::ToString(i - vt->pocetSuradnic);
+			ezbTable[0, i]->Value = ezbTable[0, i - (vt->pocetSuradnic + 1)]->Value;
+			if (i == ezbTable->CurrentCell->OwningRow->Index + (vt->pocetSuradnic + 1)) {
+				// a1->e1
+				ezbTable[0, i]->Value = "a" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (vt->pocetSuradnic + 1) * ezb->iteration);
+			}
 		}
-		ezbTable->Rows[vt->pocetSuradnic*2+1]->Height = 2;
+
+		ezbTable->ClearSelection();
+
+		ezbTable->Rows[(vt->pocetSuradnic * (ezb->iteration + 1)) + ezb->iteration]->Height = 2;
 
 		for (int i = 0; i <= vt->pocetVektorov + 1; i++) {
-			for (int j = 0; j <= vt->pocetSuradnic*2; j++) {
+			for (int j = (vt->pocetSuradnic + 1) * ezb->iteration; j <= (vt->pocetSuradnic * (ezb->iteration + 1)) + ezb->iteration; j++) {
 				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 					static_cast<System::Int32>(static_cast<System::Byte>(45)));
 				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
 			}
 		}
 
-		for (int j = vt->pocetSuradnic+1; j < 1+vt->pocetSuradnic*2; j++) {
-			int suma = 0;
-			for (int i = 0; i < vt->pocetVektorov; i++) {
-				suma += newMatrix[j-vt->pocetSuradnic-1][i];
-				ezbTable[i + 1, j]->Value = newMatrix[j-vt->pocetSuradnic - 1][i];
+		for (int j = (vt->pocetSuradnic + 1)*ezb->iteration; j < (vt->pocetSuradnic * (ezb->iteration + 1)) + ezb->iteration; j++) {
+			for (int i = 0; i <= vt->pocetVektorov; i++) {
+				ezbTable[i + 1, j]->Value = newMatrix[j - (((vt->pocetSuradnic+1) * ezb->iteration))][i];
 			}
-			ezbTable[vt->pocetVektorov + 1, j]->Value = newMatrix[j - vt->pocetSuradnic - 1][vt->pocetVektorov];
 		}
+
+		checkMatrix(newMatrix);
+		ezbTable->Height = ezbTable->RowCount * 35;
 
 	}
 
+
+}
+
+private: void checkMatrix(double** m) {
+	ezbTable->ClearSelection();
+	int check = ezb->checkMatrix(vt->vectorB);
+	if (check < 2) { //nulovy riadok, koniec ezb
+		ezbTable->Enabled = false;
+		okButton->Enabled = true;
+		okButton->Text = "Ukoncit";
+		label5->Text = "Výsledok:";
+		getResult(m, check);
+		stepTaskTextBox->Text += "\r\n\r\n ukoncit ulohu?";
+	}
+	else { //pokracujeme
+		
+		stepTaskTextBox->Text = "Vyber veduci prvok (pivot)\r\n\r\n";
+		okButton->Enabled = false;
+	}
+	
+}
+
+private: void getResult(double** m, int check) {
+	// zaclenene vektory + ich zlozky
+	int count = 0;
+	String^ all = "{ ";
+	String^ zaclenene = "";
+	String^ nezaclenene = "";
+	String^ vektorB = "";
+
+	for (int i = 1; i <= vt->pocetVektorov - vt->vectorB; i++) {
+		all += "a" + i;
+		if (i < vt->pocetVektorov - vt->vectorB)
+			all += ", ";
+		if (ezb->pocetZaclenenychVektorov[i-1] == 1) {
+			count++;
+			zaclenene += "a" + i;
+			if (i <= vt->pocetVektorov - vt->vectorB) {
+				zaclenene += ", ";
+			}
+		}
+		else {
+			nezaclenene += "a" + i;
+			if (i <= vt->pocetVektorov - vt->vectorB) {
+				nezaclenene += ", ";
+			}
+		}
+	}
+	all += " }";
+
+	if (check == 0) {
+		if (count == vt->pocetVektorov - vt->vectorB) {
+			stepTaskTextBox->Text = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit vsetky vektory: " + zaclenene + " z vektorov " + all +
+				".\r\n\r\n";
+		}
+		else {
+			if (count > 0) {
+				stepTaskTextBox->Text = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit najviac " + count + " vektory: " + zaclenene + " z vektorov " + all +
+					" a ostatne vektory " + nezaclenene + " su linearnou kombinaciou zaclenenych (bazickych) vektorov:\r\n\r\n";
+			}
+		}
+	}
+	else {
+		stepTaskTextBox->Text = "Koniec vypoctu!\r\n\r\nZo systemu vektorov " + all + " sme do bazy zaclenili vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
+			zaclenene + " } tvori jednu z moznych baz.\r\n\r\n Nezacleneny vektor " + nezaclenene + " sa da vyjadrit ako jednoznacna linearna kombinacia vektorov bazy: ";
+
+	}
+	
+	
+	//ak je vektor v baze tak vypis jeho suradnice
+
+	for (int j = 1; j <= vt->pocetVektorov; j++) {
+
+		String^ lk = "";
+		if (ezb->pocetZaclenenychVektorov[j-1] == 0) {
+			lk += "a" + j + " = ";
+			Boolean sign = false;
+			for (int i = 0; i < vt->pocetSuradnic; i++) {
+				if (m[i][j-1] < 0) {
+					String^ help = "";
+					help += ezbTable[0, ezbTable->RowCount - vt->pocetSuradnic + i - 1]->Value;
+					lk += m[i][j-1]+ " * " + help->Substring(0, 2);
+					if (!sign) sign = true;
+				}
+				else {
+					if (m[i][j-1] > 0) {
+						String^ help = "";
+						help += ezbTable[0, ezbTable->RowCount - vt->pocetSuradnic + i - 1]->Value;
+						if (sign) lk += " + ";
+						lk += m[i][j - 1] + " * " + help->Substring(0, 2);
+						if (!sign) sign = true;
+					}
+				}
+
+			}
+			if (vt->vectorB == 1 && j == vt->pocetVektorov)
+				vektorB = lk->Substring(3, lk->Length-3);
+			else
+				stepTaskTextBox->Text += lk + "\r\n";
+		}
+	}
+	
+	stepTaskTextBox->Text += "\r\n";
+
+	//linearne zavisly / nezavisly
+
+	if(check == 0){
+		if (count == vt->pocetVektorov - vt->vectorB) {
+			stepTaskTextBox->Text += "System vektorov A = " + all +
+				" je jednou z moznych baz. Vsetky vektory boli zaclenene do bazy a su linearne nezavisle.\r\n\r\n";
+		}
+		else {
+			if (count > 0) {
+				stepTaskTextBox->Text += "System vektorov A = " + all +
+					" je linearne zavisly, pretoze aspon jeden z vektorov je linearnou kombinaciou ostatnych vektorov.\r\n\r\n";
+			}
+			else {
+				stepTaskTextBox->Text += "System vektorov A = " + all +
+					" nie je linearne zavisly, pretoze ziadny z vektorov nie je linearnou kombinaciou ostatnych vektorov.\r\n\r\n";
+			}
+		}
+	}
+	else {
+		stepTaskTextBox->Text += "System vektorov { " + zaclenene + " } generuje ten isty podpriestor ako povodny system, teda plati:\r\nL " + 
+			all + " = L { " + zaclenene + " }\r\n\r\n";
+
+	}
+
+	
+
+	//h(a1-an)
+
+	stepTaskTextBox->Text += "Maximalny pocet vektorov systemu " + all + " ktore mozeme zaclenit do bazy je " + count + ". Preto: h" + 
+		all + " = " + count + ".\r\n\r\n";
+
+	//ci je vektor b linearnou kombinaciou
+
+	if (vt->vectorB == 1) {
+		for (int i = 0; i < vt->pocetSuradnic; i++) { //nulovy riadok
+			int count = 0;
+			for (int j = 1; j <= vt->pocetVektorov - vt->vectorB; j++)
+				if (m[i][j - 1] != 0) count++;
+			if (count == 0 && m[i][vt->pocetVektorov] != 0) {
+				//nie je linearnou kombinaciou vektorov bazy + vypis bazu pretoze zlozka bindex != 0
+				stepTaskTextBox->Text += "vektor b nie je linearnou kombinaciou vektorov bazy { " + zaclenene + " }, pretoze zlozka b" + (i + 1) + " != 0.\r\n";
+				return;
+			}
+		}
+		stepTaskTextBox->Text += "vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + " a plati: b = " + vektorB + ".\r\n";
+	}
 
 }
 

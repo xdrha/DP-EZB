@@ -20,11 +20,12 @@ Class DP_EZB.vectorsNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeF
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
     Boolean created : Public
+    Int32 vB : Public
   Methods:
     getPocetVektorov(): PrivateScope, Public, HideBySig
     getPocetSuradnicVektorov(): PrivateScope, Public, HideBySig
+    getVB(): PrivateScope, Public, HideBySig
     getMatrix(): PrivateScope, Public, HideBySig
-    InitializeComponent(): PrivateScope, Public, HideBySig
 Class DP_EZB.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

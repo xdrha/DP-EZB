@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include <iostream>
 
 namespace DP_EZB {
 
@@ -158,6 +159,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
+private: System::Windows::Forms::Button^ vectorB;
 
 #pragma region Windows Form Designer generated code
 		/// <summary>
@@ -168,6 +170,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 		/// 
 		/// 
 	public: Boolean created = false;
+	public: int vB = 0;
 		
 	public: int getPocetVektorov() {
 		return (int)this->pocetVektorov->Value;
@@ -177,54 +180,318 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 		return (int)this->pocetSuradnicVektorov->Value;
 	}
 
-	public: int** getMatrix() {
-		int** matrix = 0;
-		matrix = new int* [(int)this->pocetVektorov->Value];
+	public: int getVB() {
+		return vB;
+	}
+
+	public: double** getMatrix() {
+		double** matrix = 0;
+		matrix = new double* [(double)this->pocetVektorov->Value];
 
 		for (int h = 0; h < (int)this->pocetVektorov->Value; h++)
 		{
-			matrix[h] = new int[(int)this->pocetSuradnicVektorov->Value];
+			matrix[h] = new double[(int)this->pocetSuradnicVektorov->Value];
 		
 		}
-		// matica je vytvorena ale prazdna
 
-		matrix[0][0] = System::Convert::ToInt16(vectorText11->Text);
-		matrix[0][1] = System::Convert::ToInt16(vectorText12->Text);
-		matrix[1][0] = System::Convert::ToInt16(vectorText21->Text);
-		matrix[1][1] = System::Convert::ToInt16(vectorText22->Text);
+		matrix[0][0] = System::Convert::ToDouble(vectorText11->Text);
+		matrix[0][1] = System::Convert::ToDouble(vectorText12->Text);
+		matrix[1][0] = System::Convert::ToDouble(vectorText21->Text);
+		matrix[1][1] = System::Convert::ToDouble(vectorText22->Text);
 
-		if (vectorText13->Text != "") matrix[0][2] = System::Convert::ToInt16(vectorText13->Text);
-		if (vectorText14->Text != "") matrix[0][3] = System::Convert::ToInt16(vectorText14->Text);
-		if (vectorText15->Text != "") matrix[0][4] = System::Convert::ToInt16(vectorText15->Text);
+		if (vectorText13->Text != "") matrix[0][2] = System::Convert::ToDouble(vectorText13->Text);
+		if (vectorText14->Text != "") matrix[0][3] = System::Convert::ToDouble(vectorText14->Text);
+		if (vectorText15->Text != "") matrix[0][4] = System::Convert::ToDouble(vectorText15->Text);
 
-		if (vectorText23->Text != "") matrix[1][2] = System::Convert::ToInt16(vectorText23->Text);
-		if (vectorText24->Text != "") matrix[1][3] = System::Convert::ToInt16(vectorText24->Text);
-		if (vectorText25->Text != "") matrix[1][4] = System::Convert::ToInt16(vectorText25->Text);
+		if (vectorText23->Text != "") matrix[1][2] = System::Convert::ToDouble(vectorText23->Text);
+		if (vectorText24->Text != "") matrix[1][3] = System::Convert::ToDouble(vectorText24->Text);
+		if (vectorText25->Text != "") matrix[1][4] = System::Convert::ToDouble(vectorText25->Text);
 
-		if (vectorText31->Text != "") matrix[2][0] = System::Convert::ToInt16(vectorText31->Text);
-		if (vectorText32->Text != "") matrix[2][1] = System::Convert::ToInt16(vectorText32->Text);
-		if (vectorText33->Text != "") matrix[2][2] = System::Convert::ToInt16(vectorText33->Text);
-		if (vectorText34->Text != "") matrix[2][3] = System::Convert::ToInt16(vectorText34->Text);
-		if (vectorText35->Text != "") matrix[2][4] = System::Convert::ToInt16(vectorText35->Text);
+		if (vectorText31->Text != "") matrix[2][0] = System::Convert::ToDouble(vectorText31->Text);
+		if (vectorText32->Text != "") matrix[2][1] = System::Convert::ToDouble(vectorText32->Text);
+		if (vectorText33->Text != "") matrix[2][2] = System::Convert::ToDouble(vectorText33->Text);
+		if (vectorText34->Text != "") matrix[2][3] = System::Convert::ToDouble(vectorText34->Text);
+		if (vectorText35->Text != "") matrix[2][4] = System::Convert::ToDouble(vectorText35->Text);
 
-		if (vectorText41->Text != "") matrix[3][0] = System::Convert::ToInt16(vectorText41->Text);
-		if (vectorText42->Text != "") matrix[3][1] = System::Convert::ToInt16(vectorText42->Text);
-		if (vectorText43->Text != "") matrix[3][2] = System::Convert::ToInt16(vectorText43->Text);
-		if (vectorText44->Text != "") matrix[3][3] = System::Convert::ToInt16(vectorText44->Text);
-		if (vectorText45->Text != "") matrix[3][4] = System::Convert::ToInt16(vectorText45->Text);
+		if (vectorText41->Text != "") matrix[3][0] = System::Convert::ToDouble(vectorText41->Text);
+		if (vectorText42->Text != "") matrix[3][1] = System::Convert::ToDouble(vectorText42->Text);
+		if (vectorText43->Text != "") matrix[3][2] = System::Convert::ToDouble(vectorText43->Text);
+		if (vectorText44->Text != "") matrix[3][3] = System::Convert::ToDouble(vectorText44->Text);
+		if (vectorText45->Text != "") matrix[3][4] = System::Convert::ToDouble(vectorText45->Text);
 
-		if (vectorText51->Text != "") matrix[4][0] = System::Convert::ToInt16(vectorText51->Text);
-		if (vectorText52->Text != "") matrix[4][1] = System::Convert::ToInt16(vectorText52->Text);
-		if (vectorText53->Text != "") matrix[4][2] = System::Convert::ToInt16(vectorText53->Text);
-		if (vectorText54->Text != "") matrix[4][3] = System::Convert::ToInt16(vectorText54->Text);
-		if (vectorText55->Text != "") matrix[4][4] = System::Convert::ToInt16(vectorText55->Text);
+		if (vectorText51->Text != "") matrix[4][0] = System::Convert::ToDouble(vectorText51->Text);
+		if (vectorText52->Text != "") matrix[4][1] = System::Convert::ToDouble(vectorText52->Text);
+		if (vectorText53->Text != "") matrix[4][2] = System::Convert::ToDouble(vectorText53->Text);
+		if (vectorText54->Text != "") matrix[4][3] = System::Convert::ToDouble(vectorText54->Text);
+		if (vectorText55->Text != "") matrix[4][4] = System::Convert::ToDouble(vectorText55->Text);
 
 
 		return matrix;
 	}
 
+	private: Boolean getVsetkyVyplnene() {
+		if (vectorText11->Text == "") return false;
+		if (vectorText12->Text == "") return false;
+		if (vectorText21->Text == "") return false;
+		if (vectorText22->Text == "") return false;
+
+		if (pocetVektorov->Value == 3) {
+			if (vectorText31->Text == "") return false;
+			if (vectorText32->Text == "") return false;
+			if (pocetSuradnicVektorov->Value == 3) 
+				if (vectorText33->Text == "") return false;
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+			}		
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText35->Text == "") return false;
+			}				
+			
+		}
+		if (pocetVektorov->Value == 4) {
+			if (vectorText31->Text == "") return false;
+			if (vectorText32->Text == "") return false;
+			if (vectorText41->Text == "") return false;
+			if (vectorText42->Text == "") return false;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+			}
+				
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+				if (vectorText44->Text == "") return false;
+			}			
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText35->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+				if (vectorText44->Text == "") return false;
+				if (vectorText45->Text == "") return false;
+			}
+		}
+		if (pocetVektorov->Value == 5) {
+			if (vectorText31->Text == "") return false;
+			if (vectorText32->Text == "") return false;
+			if (vectorText41->Text == "") return false;
+			if (vectorText42->Text == "") return false;
+			if (vectorText51->Text == "") return false;
+			if (vectorText52->Text == "") return false;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+				if (vectorText53->Text == "") return false;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+				if (vectorText44->Text == "") return false;
+				if (vectorText53->Text == "") return false;
+				if (vectorText54->Text == "") return false;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText33->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText35->Text == "") return false;
+				if (vectorText43->Text == "") return false;
+				if (vectorText44->Text == "") return false;
+				if (vectorText45->Text == "") return false;
+				if (vectorText53->Text == "") return false;
+				if (vectorText54->Text == "") return false;
+				if (vectorText55->Text == "") return false;
+			}
+		}
+
+		return true;
+	}
+
+	private: Boolean getNulovyRiadok() {
+		if (vectorText11->Text == "0" && vectorText12->Text == "0") {
+			if (pocetSuradnicVektorov->Value == 2)
+				return true;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText13->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText13->Text == "0" && vectorText14->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText13->Text == "0" && vectorText14->Text == "0" && vectorText15->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText21->Text == "0" && vectorText22->Text == "0") {
+			if (pocetSuradnicVektorov->Value == 2)
+				return true;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText23->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText23->Text == "0" && vectorText24->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText23->Text == "0" && vectorText24->Text == "0" && vectorText25->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText31->Text == "0" && vectorText32->Text == "0") {
+			if (pocetSuradnicVektorov->Value == 2)
+				return true;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText33->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText33->Text == "0" && vectorText34->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText33->Text == "0" && vectorText34->Text == "0" && vectorText35->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText41->Text == "0" && vectorText42->Text == "0") {
+			if (pocetSuradnicVektorov->Value == 2)
+				return true;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText43->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText43->Text == "0" && vectorText44->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText43->Text == "0" && vectorText44->Text == "0" && vectorText45->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText51->Text == "0" && vectorText52->Text == "0") {
+			if (pocetSuradnicVektorov->Value == 2)
+				return true;
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText53->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText53->Text == "0" && vectorText54->Text == "0")
+					return true;
+			}
+			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText53->Text == "0" && vectorText54->Text == "0" && vectorText55->Text == "0")
+					return true;
+			}
+		}
+
+		return false;
+	}
+
+	private: Boolean getNulovyStlpec() {
+
+		if (vectorText11->Text == "0" && vectorText21->Text == "0") {
+			if (pocetVektorov->Value == 2)
+				return true;
+			if (pocetVektorov->Value == 3) {
+				if (vectorText31->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 4) {
+				if (vectorText31->Text == "0" && vectorText41->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 5) {
+				if (vectorText31->Text == "0" && vectorText41->Text == "0" && vectorText51->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText12->Text == "0" && vectorText22->Text == "0") {
+			if (pocetVektorov->Value == 2)
+				return true;
+			if (pocetVektorov->Value == 3) {
+				if (vectorText32->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 4) {
+				if (vectorText32->Text == "0" && vectorText42->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 5) {
+				if (vectorText32->Text == "0" && vectorText42->Text == "0" && vectorText52->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText13->Text == "0" && vectorText23->Text == "0") {
+			if (pocetVektorov->Value == 2)
+				return true;
+			if (pocetVektorov->Value == 3) {
+				if (vectorText33->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 4) {
+				if (vectorText33->Text == "0" && vectorText43->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 5) {
+				if (vectorText33->Text == "0" && vectorText43->Text == "0" && vectorText53->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText14->Text == "0" && vectorText24->Text == "0") {
+			if (pocetVektorov->Value == 2)
+				return true;
+			if (pocetVektorov->Value == 3) {
+				if (vectorText34->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 4) {
+				if (vectorText34->Text == "0" && vectorText44->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 5) {
+				if (vectorText34->Text == "0" && vectorText44->Text == "0" && vectorText54->Text == "0")
+					return true;
+			}
+		}
+
+		if (vectorText15->Text == "0" && vectorText25->Text == "0") {
+			if (pocetVektorov->Value == 2)
+				return true;
+			if (pocetVektorov->Value == 3) {
+				if (vectorText35->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 4) {
+				if (vectorText35->Text == "0" && vectorText45->Text == "0")
+					return true;
+			}
+			if (pocetVektorov->Value == 5) {
+				if (vectorText35->Text == "0" && vectorText45->Text == "0" && vectorText55->Text == "0")
+					return true;
+			}
+		}
 
 
+
+		return false;
+	}
 
 		void InitializeComponent(void)
 		{
@@ -297,6 +564,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorLabel51 = (gcnew System::Windows::Forms::Label());
 			this->vectorText51 = (gcnew System::Windows::Forms::TextBox());
 			this->label27 = (gcnew System::Windows::Forms::Label());
+			this->vectorB = (gcnew System::Windows::Forms::Button());
 			this->vectorPanel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->BeginInit();
@@ -350,6 +618,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText15->Name = L"vectorText15";
 			this->vectorText15->Size = System::Drawing::Size(38, 29);
 			this->vectorText15->TabIndex = 6;
+			this->vectorText15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText15_KeyPress);
+			this->vectorText15->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText15_Leave);
 			// 
 			// vectorLabel14
 			// 
@@ -375,6 +645,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText14->Name = L"vectorText14";
 			this->vectorText14->Size = System::Drawing::Size(38, 29);
 			this->vectorText14->TabIndex = 5;
+			this->vectorText14->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText14_KeyPress);
+			this->vectorText14->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText14_Leave);
 			// 
 			// vectorLabel13
 			// 
@@ -400,6 +672,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText13->Name = L"vectorText13";
 			this->vectorText13->Size = System::Drawing::Size(38, 29);
 			this->vectorText13->TabIndex = 4;
+			this->vectorText13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText13_KeyPress);
+			this->vectorText13->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText13_Leave);
 			// 
 			// vectorLabel12
 			// 
@@ -425,6 +699,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText12->Name = L"vectorText12";
 			this->vectorText12->Size = System::Drawing::Size(38, 29);
 			this->vectorText12->TabIndex = 3;
+			this->vectorText12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText12_KeyPress);
+			this->vectorText12->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText12_Leave);
 			// 
 			// vectorLabel11
 			// 
@@ -450,6 +726,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText11->Name = L"vectorText11";
 			this->vectorText11->Size = System::Drawing::Size(38, 29);
 			this->vectorText11->TabIndex = 2;
+			this->vectorText11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText11_KeyPress);
+			this->vectorText11->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText11_Leave);
 			// 
 			// label4
 			// 
@@ -640,6 +918,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText25->Name = L"vectorText25";
 			this->vectorText25->Size = System::Drawing::Size(38, 29);
 			this->vectorText25->TabIndex = 11;
+			this->vectorText25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText25_KeyPress);
+			this->vectorText25->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText25_Leave);
 			// 
 			// vectorLabel24
 			// 
@@ -665,6 +945,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText24->Name = L"vectorText24";
 			this->vectorText24->Size = System::Drawing::Size(38, 29);
 			this->vectorText24->TabIndex = 10;
+			this->vectorText24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText24_KeyPress);
+			this->vectorText24->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText24_Leave);
 			// 
 			// vectorLabel23
 			// 
@@ -690,6 +972,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText23->Name = L"vectorText23";
 			this->vectorText23->Size = System::Drawing::Size(38, 29);
 			this->vectorText23->TabIndex = 9;
+			this->vectorText23->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText23_KeyPress);
+			this->vectorText23->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText23_Leave);
 			// 
 			// vectorLabel22
 			// 
@@ -715,6 +999,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText22->Name = L"vectorText22";
 			this->vectorText22->Size = System::Drawing::Size(38, 29);
 			this->vectorText22->TabIndex = 8;
+			this->vectorText22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText22_KeyPress);
+			this->vectorText22->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText22_Leave);
 			// 
 			// vectorLabel21
 			// 
@@ -740,6 +1026,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText21->Name = L"vectorText21";
 			this->vectorText21->Size = System::Drawing::Size(38, 29);
 			this->vectorText21->TabIndex = 7;
+			this->vectorText21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText21_KeyPress);
+			this->vectorText21->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText21_Leave);
 			// 
 			// label9
 			// 
@@ -796,6 +1084,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText35->Name = L"vectorText35";
 			this->vectorText35->Size = System::Drawing::Size(38, 29);
 			this->vectorText35->TabIndex = 16;
+			this->vectorText35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText35_KeyPress);
+			this->vectorText35->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText35_Leave);
 			// 
 			// vectorLabel34
 			// 
@@ -821,6 +1111,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText34->Name = L"vectorText34";
 			this->vectorText34->Size = System::Drawing::Size(38, 29);
 			this->vectorText34->TabIndex = 15;
+			this->vectorText34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText34_KeyPress);
+			this->vectorText34->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText34_Leave);
 			// 
 			// vectorLabel33
 			// 
@@ -846,6 +1138,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText33->Name = L"vectorText33";
 			this->vectorText33->Size = System::Drawing::Size(38, 29);
 			this->vectorText33->TabIndex = 14;
+			this->vectorText33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText33_KeyPress);
+			this->vectorText33->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText33_Leave);
 			// 
 			// vectorLabel32
 			// 
@@ -871,6 +1165,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText32->Name = L"vectorText32";
 			this->vectorText32->Size = System::Drawing::Size(38, 29);
 			this->vectorText32->TabIndex = 13;
+			this->vectorText32->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText32_KeyPress);
+			this->vectorText32->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText32_Leave);
 			// 
 			// vectorLabel31
 			// 
@@ -896,6 +1192,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText31->Name = L"vectorText31";
 			this->vectorText31->Size = System::Drawing::Size(38, 29);
 			this->vectorText31->TabIndex = 12;
+			this->vectorText31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText31_KeyPress);
+			this->vectorText31->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText31_Leave);
 			// 
 			// label15
 			// 
@@ -952,6 +1250,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText45->Name = L"vectorText45";
 			this->vectorText45->Size = System::Drawing::Size(38, 29);
 			this->vectorText45->TabIndex = 21;
+			this->vectorText45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText45_KeyPress);
+			this->vectorText45->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText45_Leave);
 			// 
 			// vectorLabel44
 			// 
@@ -977,6 +1277,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText44->Name = L"vectorText44";
 			this->vectorText44->Size = System::Drawing::Size(38, 29);
 			this->vectorText44->TabIndex = 20;
+			this->vectorText44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText44_KeyPress);
+			this->vectorText44->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText44_Leave);
 			// 
 			// vectorLabel43
 			// 
@@ -1002,6 +1304,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText43->Name = L"vectorText43";
 			this->vectorText43->Size = System::Drawing::Size(38, 29);
 			this->vectorText43->TabIndex = 19;
+			this->vectorText43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText43_KeyPress);
+			this->vectorText43->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText43_Leave);
 			// 
 			// vectorLabel42
 			// 
@@ -1027,6 +1331,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText42->Name = L"vectorText42";
 			this->vectorText42->Size = System::Drawing::Size(38, 29);
 			this->vectorText42->TabIndex = 18;
+			this->vectorText42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText42_KeyPress);
+			this->vectorText42->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText42_Leave);
 			// 
 			// vectorLabel41
 			// 
@@ -1052,6 +1358,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText41->Name = L"vectorText41";
 			this->vectorText41->Size = System::Drawing::Size(38, 29);
 			this->vectorText41->TabIndex = 17;
+			this->vectorText41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText41_KeyPress);
+			this->vectorText41->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText41_Leave);
 			// 
 			// label21
 			// 
@@ -1108,6 +1416,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText55->Name = L"vectorText55";
 			this->vectorText55->Size = System::Drawing::Size(38, 29);
 			this->vectorText55->TabIndex = 26;
+			this->vectorText55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText55_KeyPress);
+			this->vectorText55->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText55_Leave);
 			// 
 			// vectorLabel54
 			// 
@@ -1133,6 +1443,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText54->Name = L"vectorText54";
 			this->vectorText54->Size = System::Drawing::Size(38, 29);
 			this->vectorText54->TabIndex = 25;
+			this->vectorText54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText54_KeyPress);
+			this->vectorText54->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText54_Leave);
 			// 
 			// vectorLabel53
 			// 
@@ -1158,6 +1470,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText53->Name = L"vectorText53";
 			this->vectorText53->Size = System::Drawing::Size(38, 29);
 			this->vectorText53->TabIndex = 24;
+			this->vectorText53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText53_KeyPress);
+			this->vectorText53->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText53_Leave);
 			// 
 			// vectorLabel52
 			// 
@@ -1183,6 +1497,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText52->Name = L"vectorText52";
 			this->vectorText52->Size = System::Drawing::Size(38, 29);
 			this->vectorText52->TabIndex = 23;
+			this->vectorText52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText52_KeyPress);
+			this->vectorText52->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText52_Leave);
 			// 
 			// vectorLabel51
 			// 
@@ -1208,6 +1524,8 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorText51->Name = L"vectorText51";
 			this->vectorText51->Size = System::Drawing::Size(38, 29);
 			this->vectorText51->TabIndex = 22;
+			this->vectorText51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &vectorsNewTaskDialog::vectorText51_KeyPress);
+			this->vectorText51->Leave += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorText51_Leave);
 			// 
 			// label27
 			// 
@@ -1221,6 +1539,23 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->label27->TabIndex = 0;
 			this->label27->Text = L"a5 = (";
 			// 
+			// vectorB
+			// 
+			this->vectorB->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->vectorB->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->vectorB->Enabled = false;
+			this->vectorB->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->vectorB->ForeColor = System::Drawing::SystemColors::Window;
+			this->vectorB->Location = System::Drawing::Point(166, 411);
+			this->vectorB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			this->vectorB->Name = L"vectorB";
+			this->vectorB->Size = System::Drawing::Size(148, 38);
+			this->vectorB->TabIndex = 28;
+			this->vectorB->Text = L"Pridať vektor b";
+			this->vectorB->UseVisualStyleBackColor = false;
+			this->vectorB->Click += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorB_Click);
+			// 
 			// vectorsNewTaskDialog
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(9, 21);
@@ -1228,6 +1563,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ClientSize = System::Drawing::Size(607, 499);
+			this->Controls->Add(this->vectorB);
 			this->Controls->Add(this->vectorPanel5);
 			this->Controls->Add(this->vectorPanel4);
 			this->Controls->Add(this->vectorPanel3);
@@ -1242,7 +1578,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"vectorsNewTaskDialog";
-			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
+			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			this->Text = L"vectorsNewTaskDialog";
 			this->vectorPanel1->ResumeLayout(false);
 			this->vectorPanel1->PerformLayout();
@@ -1302,7 +1638,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorLabel32->Text = ")";
 			this->vectorLabel42->Text = ")";
 			this->vectorLabel52->Text = ")";
-			
+
 
 		}
 
@@ -1350,6 +1686,7 @@ private: System::Windows::Forms::TextBox^ vectorText51;
 			this->vectorLabel33->Text = ")";
 			this->vectorLabel43->Text = ")";
 			this->vectorLabel53->Text = ")";
+
 		}
 
 		if (this->pocetSuradnicVektorov->Value == 4) {
@@ -1474,21 +1811,45 @@ private: System::Void pocetVektorov_ValueChanged(System::Object^ sender, System:
 		this->vectorPanel3->Hide();
 		this->vectorPanel4->Hide();
 		this->vectorPanel5->Hide();
+
+		this->vectorB->Enabled = true;
+		this->vectorB->Location = System::Drawing::Point(148, 246);
 	}
 	if (this->pocetVektorov->Value == 3) {
 		this->vectorPanel3->Show();
 		this->vectorPanel4->Hide();
 		this->vectorPanel5->Hide();
+
+		this->vectorB->Enabled = true;
+		this->vectorB->Location = System::Drawing::Point(148, 301);
+
+		if (vB == 1) {
+			label15->Text = "b = (";
+		}
 	}
 	if (this->pocetVektorov->Value == 4) {
 		this->vectorPanel3->Show();
 		this->vectorPanel4->Show();
 		this->vectorPanel5->Hide();
+
+		this->vectorB->Enabled = true;
+		this->vectorB->Location = System::Drawing::Point(148, 356);
+
+		if (vB == 1) {
+			label21->Text = "b = (";
+		}
 	}
 	if (this->pocetVektorov->Value == 5) {
 		this->vectorPanel3->Show();
 		this->vectorPanel4->Show();
 		this->vectorPanel5->Show();
+
+		this->vectorB->Enabled = false;
+		this->vectorB->Location = System::Drawing::Point(148, 411);
+
+		if (vB == 1) {
+			label27->Text = "b = (";
+		}
 	}
 }
 private: System::Void clearTaskButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1522,11 +1883,677 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	this->vectorText54->Text = "";
 	this->vectorText55->Text = "";
 
+	vB = 0;
+	pocetVektorov->Enabled = true;
+	if(pocetVektorov->Value < 5)
+		vectorB->Enabled = true;
+	label15->Text = "a3 = (";
+	label21->Text = "a4 = (";
+	label27->Text = "a5 = (";
+
 }
 
 private: System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	created = true;
-	Form::Close();
+
+	// zisti ci su vsetky hodnoty vyplnene
+	if (getVsetkyVyplnene()) {
+		if (!getNulovyRiadok() && !getNulovyStlpec()) {
+			Form::Close();
+		}
+		else {
+			MessageBox::Show("V linearnom priestore nesmie byt nulovy riadok alebo stlpec !", "Chybny vstup !", MessageBoxButtons::OK, MessageBoxIcon::Error);
+		}
+		
+	}
+	else {
+		MessageBox::Show("Vypln vsetky zlozky vsetkych vektorov !", "Chybajuce hodnoty !", MessageBoxButtons::OK, MessageBoxIcon::Error);
+	}
+
+	
 }
+private: System::Void vectorB_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+	if (pocetVektorov->Value < 5 - vB) {
+		vB = 1;
+		pocetVektorov->Value++;
+		pocetVektorov->Enabled = false;
+		vectorB->Enabled = false;
+	}
+}
+
+#pragma region vector_text_key_press
+
+private: System::Void vectorText11_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText11->Text->Contains(",") && !this->vectorText11->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText11->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText11->Text = "-";
+		vectorText11->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08 ) {
+			e->Handled = true;
+	}
+
+}
+
+
+private: System::Void vectorText12_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText12->Text->Contains(",") && !this->vectorText12->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText12->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText12->Text = "-";
+		vectorText12->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+			e->Handled = true;
+	}
+}
+private: System::Void vectorText13_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText13->Text->Contains(",") && !this->vectorText13->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText13->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText13->Text = "-";
+		vectorText13->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+			e->Handled = true;
+	}
+}
+private: System::Void vectorText14_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText14->Text->Contains(",") && !this->vectorText14->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText14->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText14->Text = "-";
+		vectorText14->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText15_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText15->Text->Contains(",") && !this->vectorText15->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText15->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText15->Text = "-";
+		vectorText15->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText21_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText21->Text->Contains(",") && !this->vectorText21->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText21->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText21->Text = "-";
+		vectorText21->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText22_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText22->Text->Contains(",") && !this->vectorText22->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText22->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText22->Text = "-";
+		vectorText22->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText23_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText23->Text->Contains(",") && !this->vectorText23->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText23->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText23->Text = "-";
+		vectorText23->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText24_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText24->Text->Contains(",") && !this->vectorText24->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText24->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText24->Text = "-";
+		vectorText24->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText25_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText25->Text->Contains(",") && !this->vectorText25->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText25->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText25->Text = "-";
+		vectorText25->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+
+private: System::Void vectorText31_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText31->Text->Contains(",") && !this->vectorText31->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText31->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText31->Text = "-";
+		vectorText31->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText32_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText32->Text->Contains(",") && !this->vectorText32->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText32->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText32->Text = "-";
+		vectorText32->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText33_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText33->Text->Contains(",") && !this->vectorText33->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText33->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText33->Text = "-";
+		vectorText33->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText34_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText34->Text->Contains(",") && !this->vectorText34->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText34->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText34->Text = "-";
+		vectorText34->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText35_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText35->Text->Contains(",") && !this->vectorText35->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText35->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText35->Text = "-";
+		vectorText35->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText41_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText41->Text->Contains(",") && !this->vectorText41->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText41->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText41->Text = "-";
+		vectorText41->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText42_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText42->Text->Contains(",") && !this->vectorText42->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText42->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText42->Text = "-";
+		vectorText42->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText43_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText43->Text->Contains(",") && !this->vectorText43->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText43->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText43->Text = "-";
+		vectorText43->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText44_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText44->Text->Contains(",") && !this->vectorText44->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText44->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText44->Text = "-";
+		vectorText44->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText45_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText45->Text->Contains(",") && !this->vectorText45->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText45->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText45->Text = "-";
+		vectorText45->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText51_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText51->Text->Contains(",") && !this->vectorText51->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText51->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText51->Text = "-";
+		vectorText51->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText52_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText52->Text->Contains(",") && !this->vectorText52->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText52->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText52->Text = "-";
+		vectorText52->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText53_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText53->Text->Contains(",") && !this->vectorText53->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText53->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText53->Text = "-";
+		vectorText53->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText54_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText54->Text->Contains(",") && !this->vectorText54->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText54->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText54->Text = "-";
+		vectorText54->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+private: System::Void vectorText55_KeyPress(System::Object^ sender, System::Windows::Forms::KeyPressEventArgs^ e) {
+	if (e->KeyChar == ',') {
+		if (this->vectorText55->Text->Contains(",") && !this->vectorText55->SelectedText->Contains(","))
+			e->Handled = true;
+	}
+	// Allow negative numbers
+	else if (e->KeyChar == '-' && !(this->vectorText55->Text->Contains("-"))) {
+		e->Handled = true;
+		vectorText55->Text = "-";
+		vectorText55->SelectionStart = 1;
+	}
+	// Accept only digits ",", "-" and the Backspace character
+	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
+		e->Handled = true;
+	}
+}
+
+private: System::Void vectorText11_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText11->Text);
+		vectorText11->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText11->Text = "";
+	}
+}
+private: System::Void vectorText12_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText12->Text);
+		vectorText12->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText12->Text = "";
+	}
+}
+private: System::Void vectorText13_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText13->Text);
+		vectorText13->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText13->Text = "";
+	}
+}
+private: System::Void vectorText14_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText14->Text);
+		vectorText14->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText14->Text = "";
+	}
+}
+private: System::Void vectorText15_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText15->Text);
+		vectorText15->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText15->Text = "";
+	}
+}
+private: System::Void vectorText21_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText21->Text);
+		vectorText21->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText21->Text = "";
+	}
+}
+private: System::Void vectorText22_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText22->Text);
+		vectorText22->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText22->Text = "";
+	}
+}
+private: System::Void vectorText23_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText23->Text);
+		vectorText23->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText23->Text = "";
+	}
+}
+private: System::Void vectorText24_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText24->Text);
+		vectorText24->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText24->Text = "";
+	}
+}
+private: System::Void vectorText25_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText25->Text);
+		vectorText25->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText25->Text = "";
+	}
+}
+private: System::Void vectorText31_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText31->Text);
+		vectorText31->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText31->Text = "";
+	}
+}
+private: System::Void vectorText32_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText32->Text);
+		vectorText32->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText32->Text = "";
+	}
+}
+private: System::Void vectorText33_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText33->Text);
+		vectorText33->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText33->Text = "";
+	}
+}
+private: System::Void vectorText34_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText34->Text);
+		vectorText34->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText34->Text = "";
+	}
+}
+private: System::Void vectorText35_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText35->Text);
+		vectorText35->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText35->Text = "";
+	}
+}
+private: System::Void vectorText41_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText41->Text);
+		vectorText41->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText41->Text = "";
+	}
+}
+private: System::Void vectorText42_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText42->Text);
+		vectorText42->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText42->Text = "";
+	}
+}
+private: System::Void vectorText43_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText43->Text);
+		vectorText43->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText43->Text = "";
+	}
+}
+private: System::Void vectorText44_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText44->Text);
+		vectorText44->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText44->Text = "";
+	}
+}
+private: System::Void vectorText45_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText45->Text);
+		vectorText45->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText45->Text = "";
+	}
+}
+private: System::Void vectorText51_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText51->Text);
+		vectorText51->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText51->Text = "";
+	}
+}
+private: System::Void vectorText52_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText52->Text);
+		vectorText52->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText52->Text = "";
+	}
+}
+private: System::Void vectorText53_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText53->Text);
+		vectorText53->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText53->Text = "";
+	}
+}
+private: System::Void vectorText54_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText54->Text);
+		vectorText54->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText54->Text = "";
+	}
+}
+private: System::Void vectorText55_Leave(System::Object^ sender, System::EventArgs^ e) {
+	try {
+		double number = System::Convert::ToDouble(vectorText55->Text);
+		vectorText55->Text = number.ToString();
+	}
+	catch (...) {
+		vectorText55->Text = "";
+	}
+}
+#pragma endregion
 };
 }

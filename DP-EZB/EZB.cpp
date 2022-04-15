@@ -5,31 +5,37 @@ namespace DP_EZB {
 
 	class EZB {
 
-	private: int** oldMatrix;
-	private: int** newMatrix = 0;
+	private: double** oldMatrix;
+	private: double** newMatrix = 0;
 	private: int width;
 	private: int height;
-	private: int pocetZaclenenychVektorov[5] = { 0,0,0,0,0 };
+	public: int pocetZaclenenychVektorov[5] = { 0,0,0,0,0 };
+	public: int pocetBazickychVektorov[5] = { 0,0,0,0,0 };
+	public: int stepTask;
+	public: int iteration = 0;
 
 
-	public: EZB(int** matrix, int w, int h) {
+	public: EZB(double** matrix, int w, int h) {
 		this->oldMatrix = matrix;
 		this->height = h;
 		this->width = w;
 
-		newMatrix = new int* [height];
+		newMatrix = new double* [height];
 		for (int h = 0; h < height; h++)
 		{
-			newMatrix[h] = new int[width + 1];
+			newMatrix[h] = new double[width + 1];
 		}
 	}
 
-	public: int checkMatrix() {
+	public: int checkMatrix(int vB) {
 		for (int i = 0; i < height; i++) { //nulovy riadok
 			int count = 0;
-			for (int j = 0; j < width; j++)
+			for (int j = 0; j < width-vB-1; j++)
 				if (oldMatrix[i][j] != 0) count ++;
-			if (count == 0) return 0;
+			if (count == 0) {
+				stepTask = 0;
+				return stepTask;
+			}
 		}
 
 		int count = 0;
@@ -37,18 +43,31 @@ namespace DP_EZB {
 		for (int i = 0; i < width - 1; i++) {
 			count += pocetZaclenenychVektorov[i];
 		}
-		if (count == width - 1) 
-			return 1; //vsetky vektory zaclenene v baze
+		if (height < width - 1) {
+			if (count == height) {  //vsetky mozne vektory zaclenene v baze
+				stepTask = 1;
+				return stepTask;
+			}
+		}
+		else {
+			if (count == width - 1) {  //vsetky vektory zaclenene v baze
+				stepTask = 1;
+				return stepTask;
+			}
+		}
 
-		return 2;
+		stepTask = 2;
+		return stepTask;
 	}
 
-	public: int** ezb(int pivotXColumn, int pivotYRow) {
+	public: double** ezb(int pivotXColumn, int pivotYRow) {
+
+		pocetZaclenenychVektorov[pivotXColumn] = 1;
+		pocetBazickychVektorov[pivotYRow] = 1;
 
 		int pivot = oldMatrix[pivotYRow][pivotXColumn];
 
-		for (int j = 0; j < width; j++) {
-				
+		for (int j = 0; j < width; j++) {			
 			for (int i = 0; i < height; i++) {		
 				if (j == pivotXColumn) {
 					if (i == pivotYRow) {
@@ -63,15 +82,19 @@ namespace DP_EZB {
 						newMatrix[i][j] = oldMatrix[i][j] / pivot;
 					}
 					else {
-						int sigma = oldMatrix[pivotYRow][j] / pivot;
+						double sigma = oldMatrix[pivotYRow][j] / pivot;
 						newMatrix[i][j] = oldMatrix[i][j] - (sigma * oldMatrix[i][pivotXColumn]);
 					}
 				}
 			}
 		}
 
+		iteration++;
 
-		oldMatrix = newMatrix;
+		for (int j = 0; j < width; j++)
+			for (int i = 0; i < height; i++)
+				oldMatrix[i][j] = newMatrix[i][j];
+
 		return newMatrix;
 	}
 
