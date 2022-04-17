@@ -65,7 +65,7 @@ namespace DP_EZB {
 		pocetZaclenenychVektorov[pivotXColumn] = 1;
 		pocetBazickychVektorov[pivotYRow] = 1;
 
-		int pivot = oldMatrix[pivotYRow][pivotXColumn];
+		double pivot = oldMatrix[pivotYRow][pivotXColumn];
 
 		for (int j = 0; j < width; j++) {			
 			for (int i = 0; i < height; i++) {		

@@ -186,7 +186,7 @@ private: System::Windows::Forms::Button^ vectorB;
 
 	public: double** getMatrix() {
 		double** matrix = 0;
-		matrix = new double* [(double)this->pocetVektorov->Value];
+		matrix = new double* [(int)this->pocetVektorov->Value];
 
 		for (int h = 0; h < (int)this->pocetVektorov->Value; h++)
 		{
