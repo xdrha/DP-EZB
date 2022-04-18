@@ -1,3 +1,4 @@
+  DP_EZB.MatrixNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.MyForm.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.VectorsNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
@@ -24,6 +25,17 @@ Class DP_EZB.vectorsNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeF
   Methods:
     getPocetVektorov(): PrivateScope, Public, HideBySig
     getPocetSuradnicVektorov(): PrivateScope, Public, HideBySig
+    getVB(): PrivateScope, Public, HideBySig
+    getMatrix(): PrivateScope, Public, HideBySig
+Class DP_EZB.matrixNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean created : Public
+    Int32 vB : Public
+  Methods:
+    getPocetRiadkov(): PrivateScope, Public, HideBySig
+    getPocetStlpcov(): PrivateScope, Public, HideBySig
     getVB(): PrivateScope, Public, HideBySig
     getMatrix(): PrivateScope, Public, HideBySig
 Class DP_EZB.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit

@@ -199,31 +199,36 @@ private: System::Windows::Forms::Button^ vectorB;
 		matrix[1][0] = System::Convert::ToDouble(vectorText21->Text);
 		matrix[1][1] = System::Convert::ToDouble(vectorText22->Text);
 
-		if (vectorText13->Text != "") matrix[0][2] = System::Convert::ToDouble(vectorText13->Text);
-		if (vectorText14->Text != "") matrix[0][3] = System::Convert::ToDouble(vectorText14->Text);
-		if (vectorText15->Text != "") matrix[0][4] = System::Convert::ToDouble(vectorText15->Text);
+		try {
 
-		if (vectorText23->Text != "") matrix[1][2] = System::Convert::ToDouble(vectorText23->Text);
-		if (vectorText24->Text != "") matrix[1][3] = System::Convert::ToDouble(vectorText24->Text);
-		if (vectorText25->Text != "") matrix[1][4] = System::Convert::ToDouble(vectorText25->Text);
+			if (vectorText13->Text != "") matrix[0][2] = System::Convert::ToDouble(vectorText13->Text);
+			if (vectorText14->Text != "") matrix[0][3] = System::Convert::ToDouble(vectorText14->Text);
+			if (vectorText15->Text != "") matrix[0][4] = System::Convert::ToDouble(vectorText15->Text);
 
-		if (vectorText31->Text != "") matrix[2][0] = System::Convert::ToDouble(vectorText31->Text);
-		if (vectorText32->Text != "") matrix[2][1] = System::Convert::ToDouble(vectorText32->Text);
-		if (vectorText33->Text != "") matrix[2][2] = System::Convert::ToDouble(vectorText33->Text);
-		if (vectorText34->Text != "") matrix[2][3] = System::Convert::ToDouble(vectorText34->Text);
-		if (vectorText35->Text != "") matrix[2][4] = System::Convert::ToDouble(vectorText35->Text);
+			if (vectorText23->Text != "") matrix[1][2] = System::Convert::ToDouble(vectorText23->Text);
+			if (vectorText24->Text != "") matrix[1][3] = System::Convert::ToDouble(vectorText24->Text);
+			if (vectorText25->Text != "") matrix[1][4] = System::Convert::ToDouble(vectorText25->Text);
 
-		if (vectorText41->Text != "") matrix[3][0] = System::Convert::ToDouble(vectorText41->Text);
-		if (vectorText42->Text != "") matrix[3][1] = System::Convert::ToDouble(vectorText42->Text);
-		if (vectorText43->Text != "") matrix[3][2] = System::Convert::ToDouble(vectorText43->Text);
-		if (vectorText44->Text != "") matrix[3][3] = System::Convert::ToDouble(vectorText44->Text);
-		if (vectorText45->Text != "") matrix[3][4] = System::Convert::ToDouble(vectorText45->Text);
+			if (vectorText31->Text != "") matrix[2][0] = System::Convert::ToDouble(vectorText31->Text);
+			if (vectorText32->Text != "") matrix[2][1] = System::Convert::ToDouble(vectorText32->Text);
+			if (vectorText33->Text != "") matrix[2][2] = System::Convert::ToDouble(vectorText33->Text);
+			if (vectorText34->Text != "") matrix[2][3] = System::Convert::ToDouble(vectorText34->Text);
+			if (vectorText35->Text != "") matrix[2][4] = System::Convert::ToDouble(vectorText35->Text);
 
-		if (vectorText51->Text != "") matrix[4][0] = System::Convert::ToDouble(vectorText51->Text);
-		if (vectorText52->Text != "") matrix[4][1] = System::Convert::ToDouble(vectorText52->Text);
-		if (vectorText53->Text != "") matrix[4][2] = System::Convert::ToDouble(vectorText53->Text);
-		if (vectorText54->Text != "") matrix[4][3] = System::Convert::ToDouble(vectorText54->Text);
-		if (vectorText55->Text != "") matrix[4][4] = System::Convert::ToDouble(vectorText55->Text);
+			if (vectorText41->Text != "") matrix[3][0] = System::Convert::ToDouble(vectorText41->Text);
+			if (vectorText42->Text != "") matrix[3][1] = System::Convert::ToDouble(vectorText42->Text);
+			if (vectorText43->Text != "") matrix[3][2] = System::Convert::ToDouble(vectorText43->Text);
+			if (vectorText44->Text != "") matrix[3][3] = System::Convert::ToDouble(vectorText44->Text);
+			if (vectorText45->Text != "") matrix[3][4] = System::Convert::ToDouble(vectorText45->Text);
+
+			if (vectorText51->Text != "") matrix[4][0] = System::Convert::ToDouble(vectorText51->Text);
+			if (vectorText52->Text != "") matrix[4][1] = System::Convert::ToDouble(vectorText52->Text);
+			if (vectorText53->Text != "") matrix[4][2] = System::Convert::ToDouble(vectorText53->Text);
+			if (vectorText54->Text != "") matrix[4][3] = System::Convert::ToDouble(vectorText54->Text);
+			if (vectorText55->Text != "") matrix[4][4] = System::Convert::ToDouble(vectorText55->Text);
+		}
+		catch(...){
+		}
 
 
 		return matrix;
@@ -1579,7 +1584,7 @@ private: System::Windows::Forms::Button^ vectorB;
 			this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			this->Name = L"vectorsNewTaskDialog";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"vectorsNewTaskDialog";
+			this->Text = L"Nová úloha";
 			this->vectorPanel1->ResumeLayout(false);
 			this->vectorPanel1->PerformLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->EndInit();
@@ -1851,6 +1856,7 @@ private: System::Void pocetVektorov_ValueChanged(System::Object^ sender, System:
 			label27->Text = "b = (";
 		}
 	}
+
 }
 private: System::Void clearTaskButton_Click(System::Object^ sender, System::EventArgs^ e) {
 	this->vectorText11->Text = "";

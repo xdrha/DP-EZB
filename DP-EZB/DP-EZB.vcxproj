@@ -128,11 +128,16 @@
   <ItemGroup>
     <ClCompile Include="EZB.cpp" />
     <ClCompile Include="Main.cpp" />
+    <ClCompile Include="MatrixNewTaskDialog.cpp" />
+    <ClCompile Include="MatrixTask.cpp" />
     <ClCompile Include="MyForm.cpp" />
     <ClCompile Include="VectorsTask.cpp" />
     <ClCompile Include="vectorsNewTaskDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="MatrixNewTaskDialog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -141,6 +146,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="MatrixNewTaskDialog.resx">
+      <DependentUpon>MatrixNewTaskDialog.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>

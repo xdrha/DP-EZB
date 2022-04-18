@@ -3,3 +3,4 @@ C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.SuggestedBind
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.GenerateResource.cache
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.vectorsNewTaskDialog.resources
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.MyForm.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.MatrixNewTaskDialog.resources
