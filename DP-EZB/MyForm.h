@@ -173,7 +173,6 @@ namespace DP_EZB {
 			// vectorsButton
 			// 
 			this->vectorsButton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->vectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->vectorsButton->Location = System::Drawing::Point(-1, -1);
 			this->vectorsButton->Name = L"vectorsButton";
 			this->vectorsButton->Size = System::Drawing::Size(105, 38);
@@ -493,9 +492,6 @@ namespace DP_EZB {
 	private: System::Void taskPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
 
-
-	////////////////////////////////////////////////
-
 	double round_up(double value, int decimal_places) {
 		const double multiplier = std::pow(10.0, decimal_places);
 		return std::ceil(value * multiplier) / multiplier;
@@ -648,7 +644,10 @@ private: System::Void okButton_Click(System::Object^ sender, System::EventArgs^ 
 			ezbTable[0, i]->Value = ezbTable[0, i - (hlbka + 1)]->Value;
 			if (i == ezbTable->CurrentCell->OwningRow->Index + (hlbka + 1)) {
 				// a1->e1
-				ezbTable[0, i]->Value = "a" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
+				if (taskType == 0) 
+					ezbTable[0, i]->Value = "a" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
+				if (taskType == 1)
+					ezbTable[0, i]->Value = "s" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
 			}
 		}
 

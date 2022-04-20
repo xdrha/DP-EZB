@@ -81,7 +81,7 @@ namespace DP_EZB {
 					if (m[i][j - 1] < 0) {
 						String^ help = "";
 						help += heplField->Substring(0, heplField->IndexOf("/"));
-						lk += m[i][j - 1] + " * " + help->Substring(0, 2);
+						lk += round_up(m[i][j - 1], 2).ToString() + " * " + help->Substring(0, 2);
 						if (!sign) sign = true;
 					}
 					else {
@@ -89,7 +89,7 @@ namespace DP_EZB {
 							String^ help = "";
 							help += heplField->Substring(0, heplField->IndexOf("/"));
 							if (sign) lk += " + ";
-							lk += m[i][j - 1] + " * " + help->Substring(0, 2);
+							lk += round_up(m[i][j - 1], 2).ToString() + " * " + help->Substring(0, 2);
 							if (!sign) sign = true;
 						}
 					}
@@ -152,6 +152,11 @@ namespace DP_EZB {
 		}
 
 		return output;
+	}
+
+	double round_up(double value, int decimal_places) {
+		const double multiplier = std::pow(10.0, decimal_places);
+		return std::ceil(value * multiplier) / multiplier;
 	}
 
 	};
