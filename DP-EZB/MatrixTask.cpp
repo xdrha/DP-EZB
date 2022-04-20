@@ -11,17 +11,19 @@ namespace DP_EZB {
 	public: int pocetStlpcov;
 	public:	double** matrix;
 	public: int vectorB;
+	public: int type; // 1 or 2 ...
 
-	public: MatrixTask(int pocetV, int pocetS, double** m, int vB) {
+	public: MatrixTask(int pocetV, int pocetS, double** m, int vB, int t) {
 		this->pocetRiadkov = pocetV;
 		this->pocetStlpcov = pocetS;
 		this->matrix = m;
 		this->vectorB = vB;
+		this->type = t;
 	}
 
-	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, String^ field, int rowCount) {
+	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount) {
 		// zaclenene vektory + ich zlozky
-		int count = 0;
+		int pocetZaclenenych = 0;
 		String^ all = "{ ";
 		String^ zaclenene = "";
 		String^ nezaclenene = "";
@@ -33,7 +35,7 @@ namespace DP_EZB {
 			if (i < pocetStlpcov - vectorB)
 				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
-				count++;
+				pocetZaclenenych++;
 				zaclenene += "s" + i;
 				if (i < pocetStlpcov - vectorB) {
 					zaclenene += ", ";
@@ -49,12 +51,12 @@ namespace DP_EZB {
 		all += " }";
 
 		if (check == 0) {
-			if (count == pocetStlpcov - vectorB) {
+			if (pocetZaclenenych == pocetStlpcov - vectorB) {
 				output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit vsetky stlpcove vektory matice: " + zaclenene + ".\r\n\r\n";
 			}
 			else {
-				if (count > 0) {
-					output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit najviac " + count + " stlpcove vektory: " + zaclenene + "\r\n\r\n";
+				if (pocetZaclenenych > 0) {
+					output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit najviac " + pocetZaclenenych + " stlpcove vektory: " + zaclenene + "\r\n\r\n";
 				}
 			}
 		}
@@ -65,36 +67,104 @@ namespace DP_EZB {
 
 		//h(a1-an)
 
-		output += "Maximalny pocet stlpcovych vektorov matice " + all + ", ktore mozeme zaclenit do bazy je " + count + ". Preto: h" +
-			all + " = " + count + ".\r\n\r\n";
+		output += "Maximalny pocet stlpcovych vektorov matice " + all + ", ktore mozeme zaclenit do bazy je " + pocetZaclenenych + ".\r\nPreto: h" +
+			all + " = " + pocetZaclenenych + ".\r\n\r\n";
+
+		// tu sa vypise rozklad matice
+
+		if (type == 2) {
+			// prvych h vektrov musi byt lineane nezavislych
+			Boolean lnz = true;
+			for (int i = 0; i < pocetStlpcov; i++) {
+				if (i < pocetZaclenenych && pocetZaclenenychVektorov[i] == 0) lnz = false;
+				if (i >= pocetZaclenenych && pocetZaclenenychVektorov[i] == 1) lnz = false;
+			}
+			if (!lnz) {
+				output += "Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice nie je linearne nezavislych. Nie je mozne rozlozit maticu na sucin !";
+			}
+			else {
+				//ak je h vektrov lineane nezavislych
+				//matica B
+				output += "Rozklad matice: A = B * C = B * (E | D)\r\n\r\nMatica B = ( ";
+
+				for (int i = 0; i < pocetRiadkov; i++) {
+					for (int j = 0; j < pocetZaclenenych; j++) {
+						output += matrix[i][j];
+						if (j < pocetZaclenenych - 1) output += "; ";
+						else output += " ";
+
+					}
+					if (i == pocetRiadkov - 1) output += " )\r\n\r\n";
+					else output += "\r\n\t   ";
+				}
+
+				//Matica E
+
+				String^ MatrixE = "Matica E = ( ";
+				String^ MatrixD = "Matica D = ( ";
+				int count = 0;
+				for (int j = 0; j < pocetZaclenenych; j++) {
+					for (int i = 0; i < pocetRiadkov; i++) {
+						if (m[i][j] == 1) {
+							for (int k = 0; k < pocetStlpcov; k++) {
+								if (k < pocetZaclenenych) {
+									MatrixE += m[i][k];
+									if (k < pocetZaclenenych - 1) MatrixE += "; ";
+									else MatrixE += " ";
+								}
+								else {
+									MatrixD += m[i][k];
+									if (k < pocetStlpcov - 1) MatrixD += "; ";
+									else MatrixD += " ";
+								}
+
+							}
+							if (pocetZaclenenych - 1 == count) {
+								MatrixE += " )\r\n\r\n";
+								MatrixD += " )\r\n\r\n";
+							}
+							else if (pocetZaclenenych - 1 > count) {
+								MatrixE += "\r\n\t   ";
+								MatrixD += "\r\n\t   ";
+							}
+							count++;
+						}
+					}
+				}
+
+				output += MatrixE + MatrixD;
+
+			}
+
+
+		}
+
+
 
 		//ci je vektor b linearnou kombinaciou
 
 		if (vectorB == 1) {
 
 			String^ heplField = field;
-			String^ lk = "";
-				lk += "a" + pocetStlpcov + " = ";
 				Boolean sign = false;
 				for (int i = 0; i < pocetRiadkov; i++) {
 					if (m[i][pocetStlpcov - 1] < 0) {
 						String^ help = "";
 						help += heplField->Substring(0, heplField->IndexOf("/"));
-						lk += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
+						vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
 						if (!sign) sign = true;
 					}
 					else {
 						if (m[i][pocetStlpcov - 1] > 0) {
 							String^ help = "";
 							help += heplField->Substring(0, heplField->IndexOf("/"));
-							if (sign) lk += " + ";
-							lk += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
+							if (sign) vektorB += " + ";
+							vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
 							if (!sign) sign = true;
 						}
 					}
 					heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
 				}
-				vektorB = lk->Substring(3, lk->Length - 3);
 
 
 			for (int i = 0; i < pocetRiadkov; i++) { //nulovy riadok
@@ -110,6 +180,8 @@ namespace DP_EZB {
 			output += "Vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + " a plati: b = " + vektorB + ".\r\nVektor b je je kompatibilny so stlpcovym podpriestorom matice.";
 		}
 
+
+		// tu vraciam text !!
 		return output;
 	}
 

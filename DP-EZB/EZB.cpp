@@ -50,7 +50,7 @@ namespace DP_EZB {
 			countZaclenenych += pocetZaclenenychVektorov[i];
 		}
 
-		if (countNulovych >= height - countZaclenenych) {
+		if (countNulovych >= height - countZaclenenych) { //vela nulovych riadkov
 			stepTask = 0;
 			return stepTask;
 		}

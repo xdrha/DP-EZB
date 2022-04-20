@@ -96,7 +96,7 @@ namespace DP_EZB {
 					heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
 				}
 				if (vectorB == 1 && j == pocetVektorov)
-					vektorB = lk->Substring(3, lk->Length - 3);
+					vektorB = lk->Substring(5, lk->Length - 5);
 				else
 					output += lk + "\r\n";
 			}
@@ -132,7 +132,7 @@ namespace DP_EZB {
 
 		//h(a1-an)
 
-		output += "Maximalny pocet vektorov systemu " + all + " ktore mozeme zaclenit do bazy je " + count + ". Preto: h" +
+		output += "Maximalny pocet vektorov systemu " + all + " ktore mozeme zaclenit do bazy je " + count + ".\r\nPreto: h" +
 			all + " = " + count + ".\r\n\r\n";
 
 		//ci je vektor b linearnou kombinaciou

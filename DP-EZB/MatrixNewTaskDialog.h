@@ -159,7 +159,7 @@ namespace DP_EZB {
 				/// Required designer variable.
 				/// </summary>
 				System::ComponentModel::Container^ components;
-			private: System::Windows::Forms::Button^ vectorB;
+			public: System::Windows::Forms::Button^ vectorB;
 
 #pragma region Windows Form Designer generated code
 				   /// <summary>
