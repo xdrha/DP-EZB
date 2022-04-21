@@ -31,6 +31,9 @@ Class DP_EZB.matrixNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFi
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
   Fields:
+    System.Windows.Forms.NumericUpDown pocetStlpcov : Public
+    System.Windows.Forms.Label label2 : Public
+    System.Windows.Forms.Label LabelFirstAction : Public
     System.Windows.Forms.Button vectorB : Public
     Boolean created : Public
     Int32 vB : Public

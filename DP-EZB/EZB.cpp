@@ -9,9 +9,9 @@ namespace DP_EZB {
 	private: double** newMatrix = 0;
 	private: int width;
 	private: int height;
-	public: int pocetZaclenenychVektorov[5] = { 0,0,0,0,0 };
-	public: int pocetBazickychVektorov[5] = { 0,0,0,0,0 };
-	public: int pocetNulovychRiadkov[5] = { 0,0,0,0,0 };
+	public: int pocetZaclenenychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	public: int pocetBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	public: int pocetNulovychRiadkov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int stepTask;
 	public: int iteration = 0;
 
@@ -49,23 +49,23 @@ namespace DP_EZB {
 		for (int i = 0; i < width - 1; i++) {
 			countZaclenenych += pocetZaclenenychVektorov[i];
 		}
-
-		if (countNulovych >= height - countZaclenenych) { //vela nulovych riadkov
-			stepTask = 0;
-			return stepTask;
-		}
 				
-		if (height < width - 1) {
+		if (height < width - vB - 1) {
 			if (countZaclenenych == height) {  //vsetky mozne vektory zaclenene v baze
 				stepTask = 1;
 				return stepTask;
 			}
 		}
 		else {
-			if (countZaclenenych == width - 1) {  //vsetky vektory zaclenene v baze
+			if (countZaclenenych == width - vB - 1) {  //vsetky vektory zaclenene v baze
 				stepTask = 1;
 				return stepTask;
 			}
+		}
+
+		if (countNulovych >= height - countZaclenenych) { //vela nulovych riadkov
+			stepTask = 0;
+			return stepTask;
 		}
 
 		stepTask = 2;

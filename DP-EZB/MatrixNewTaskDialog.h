@@ -51,10 +51,10 @@ namespace DP_EZB {
 			private: System::Windows::Forms::TextBox^ matrixText11;
 
 			private: System::Windows::Forms::Label^ label3;
-			private: System::Windows::Forms::NumericUpDown^ pocetStlpcov;
-			private: System::Windows::Forms::Label^ label2;
+			public: System::Windows::Forms::NumericUpDown^ pocetStlpcov;
+			public: System::Windows::Forms::Label^ label2;
 			private: System::Windows::Forms::NumericUpDown^ pocetRiadkov;
-			private: System::Windows::Forms::Label^ LabelFirstAction;
+			public: System::Windows::Forms::Label^ LabelFirstAction;
 			private: System::Windows::Forms::Panel^ bottomPanel;
 
 			private: System::Windows::Forms::Button^ exitTaskButton;
@@ -1276,6 +1276,8 @@ namespace DP_EZB {
 				Form::Close();
 			}
 			private: System::Void pocetRiadkov_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
+
+				if (!pocetStlpcov->Visible) pocetStlpcov->Value = pocetRiadkov->Value;
 
 				if (this->pocetRiadkov->Value == 2) {
 					this->matrixPanel3->Hide();

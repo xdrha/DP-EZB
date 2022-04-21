@@ -16,9 +16,29 @@ namespace DP_EZB {
 	public: MatrixTask(int pocetV, int pocetS, double** m, int vB, int t) {
 		this->pocetRiadkov = pocetV;
 		this->pocetStlpcov = pocetS;
-		this->matrix = m;
+		
 		this->vectorB = vB;
 		this->type = t;
+
+		if (t == 3) doubleMatrix(m);
+		else this->matrix = m;
+	}
+
+	private: void doubleMatrix(double** m) {
+
+		matrix = new double* [pocetRiadkov];
+		for (int h = 0; h < pocetRiadkov; h++)
+		{
+			matrix[h] = new double[pocetStlpcov*2];
+		}
+
+		for (int i = 0; i < pocetRiadkov; i++) {
+			for (int j = 0; j < pocetStlpcov*2; j++) {
+				if (j < pocetStlpcov) matrix[i][j] = m[i][j];
+				else if (j - pocetStlpcov == i) matrix[i][j] = 1;
+				else matrix[i][j] = 0;
+			}
+		}
 	}
 
 	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount) {
@@ -61,8 +81,14 @@ namespace DP_EZB {
 			}
 		}
 		else {
-			output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice " + all + " sme do bazy zaclenili vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
-				zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
+			if (pocetZaclenenych == pocetStlpcov - vectorB) {
+				output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice sme do bazy zaclenili vsetky vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
+					zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
+			}
+			else {
+				output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice " + all + " sme do bazy zaclenili vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
+					zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
+			}
 		}
 
 		//h(a1-an)
@@ -89,7 +115,7 @@ namespace DP_EZB {
 
 				for (int i = 0; i < pocetRiadkov; i++) {
 					for (int j = 0; j < pocetZaclenenych; j++) {
-						output += matrix[i][j];
+						output += round_up(matrix[i][j], 2);
 						if (j < pocetZaclenenych - 1) output += "; ";
 						else output += " ";
 
@@ -98,7 +124,7 @@ namespace DP_EZB {
 					else output += "\r\n\t   ";
 				}
 
-				//Matica E
+				//Matice E,D
 
 				String^ MatrixE = "Matica E = ( ";
 				String^ MatrixD = "Matica D = ( ";
@@ -108,12 +134,12 @@ namespace DP_EZB {
 						if (m[i][j] == 1) {
 							for (int k = 0; k < pocetStlpcov; k++) {
 								if (k < pocetZaclenenych) {
-									MatrixE += m[i][k];
+									MatrixE += round_up(m[i][k], 2);
 									if (k < pocetZaclenenych - 1) MatrixE += "; ";
 									else MatrixE += " ";
 								}
 								else {
-									MatrixD += m[i][k];
+									MatrixD += round_up(m[i][k], 2);
 									if (k < pocetStlpcov - 1) MatrixD += "; ";
 									else MatrixD += " ";
 								}
@@ -139,7 +165,60 @@ namespace DP_EZB {
 
 		}
 
+		if (type == 3) {
+			if (pocetZaclenenych == pocetStlpcov - vectorB) {
+				output += "Stvorcova matica je preto regularna a existuje k nej inverzna matica:\r\n\r\nA * A-1 = E\r\n\r\nMatica A = ( ";
 
+				//tu vypis inverznu maticu
+				// matica A
+				for (int i = 0; i < pocetRiadkov; i++) {
+					for (int j = 0; j < pocetStlpcov; j++) {
+						output += round_up(matrix[i][j], 2);
+						if (j < pocetStlpcov - 1) output += "; ";
+						else output += " ";
+
+					}
+					if (i == pocetRiadkov - 1) output += " )\r\n\r\n";
+					else output += "\r\n\t   ";
+				}
+
+				//matica A-1
+				String^ MatrixE = "Matica E = ( ";
+				String^ MatrixD = "Matica A-1 = ( ";
+				int count = 0;
+				for (int j = 0; j < pocetStlpcov; j++) {
+					for (int i = 0; i < pocetRiadkov; i++) {
+						if (m[i][j] == 1) {
+							for (int k = 0; k < pocetStlpcov*2; k++) {
+								if (k < pocetStlpcov) {
+									MatrixE += round_up(m[i][k], 2);
+									if (k < pocetStlpcov - 1) MatrixE += "; ";
+									else MatrixE += " ";
+								}
+								else {
+									MatrixD += round_up(m[i][k], 2);
+									if (k < pocetStlpcov*2 - 1) MatrixD += "; ";
+									else MatrixD += " ";
+								}
+
+							}
+							if (pocetStlpcov - 1 == count) {
+								MatrixE += " )\r\n\r\n";
+								MatrixD += " )\r\n\r\n";
+							}
+							else if (pocetStlpcov - 1 > count) {
+								MatrixE += "\r\n\t   ";
+								MatrixD += "\r\n\t   ";
+							}
+							count++;
+						}
+					}
+				}
+				output += MatrixD + MatrixE;
+
+			}
+			else output += "Stvorcova matica preto nie je regularna a neexistuje k nej inverzna matica!\r\n\r\n";
+		}
 
 		//ci je vektor b linearnou kombinaciou
 
