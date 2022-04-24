@@ -1,5 +1,5 @@
 #include <iostream>
-#include <string>
+#include <string.h>
 
 namespace DP_EZB {
 
@@ -12,6 +12,7 @@ namespace DP_EZB {
 	public: int pocetZaclenenychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int pocetBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int pocetNulovychRiadkov[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	public: double pivots[5];
 	public: int stepTask;
 	public: int iteration = 0;
 
@@ -26,6 +27,10 @@ namespace DP_EZB {
 		{
 			newMatrix[h] = new double[width + 1];
 		}
+	}
+
+	public: double getPivot(int pivotXColumn, int pivotYRow) {
+		return oldMatrix[pivotYRow][pivotXColumn];
 	}
 
 	public: int checkMatrix(int vB) {

@@ -71,7 +71,7 @@ namespace DP_EZB {
 		//ak je vektor v baze tak vypis jeho suradnice
 
 		for (int j = 1; j <= pocetVektorov; j++) {
-			String^ heplField = field;
+			String^ helpField = field;
 
 			String^ lk = "";
 			if (pocetZaclenenychVektorov[j - 1] == 0) {
@@ -80,20 +80,20 @@ namespace DP_EZB {
 				for (int i = 0; i < pocetSuradnic; i++) {
 					if (m[i][j - 1] < 0) {
 						String^ help = "";
-						help += heplField->Substring(0, heplField->IndexOf("/"));
+						help += helpField->Substring(0, helpField->IndexOf("/"));
 						lk += round_up(m[i][j - 1], 2).ToString() + " * " + help->Substring(0, 2);
 						if (!sign) sign = true;
 					}
 					else {
 						if (m[i][j - 1] > 0) {
 							String^ help = "";
-							help += heplField->Substring(0, heplField->IndexOf("/"));
+							help += helpField->Substring(0, helpField->IndexOf("/"));
 							if (sign) lk += " + ";
 							lk += round_up(m[i][j - 1], 2).ToString() + " * " + help->Substring(0, 2);
 							if (!sign) sign = true;
 						}
 					}
-					heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
+					helpField = helpField->Remove(0, helpField->IndexOf("/") + 1);
 				}
 				if (vectorB == 1 && j == pocetVektorov)
 					vektorB = lk->Substring(5, lk->Length - 5);
@@ -127,8 +127,6 @@ namespace DP_EZB {
 				all + " = L { " + zaclenene + " }\r\n\r\n";
 
 		}
-
-
 
 		//h(a1-an)
 

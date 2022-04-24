@@ -1,6 +1,6 @@
 #include "MatrixNewTaskDialog.h"
 #include <iostream>
-#include <string.h>
+#include <string>
 
 namespace DP_EZB {
 
@@ -16,7 +16,7 @@ namespace DP_EZB {
 	public: MatrixTask(int pocetV, int pocetS, double** m, int vB, int t) {
 		this->pocetRiadkov = pocetV;
 		this->pocetStlpcov = pocetS;
-		
+
 		this->vectorB = vB;
 		this->type = t;
 
@@ -29,11 +29,11 @@ namespace DP_EZB {
 		matrix = new double* [pocetRiadkov];
 		for (int h = 0; h < pocetRiadkov; h++)
 		{
-			matrix[h] = new double[pocetStlpcov*2];
+			matrix[h] = new double[pocetStlpcov * 2];
 		}
 
 		for (int i = 0; i < pocetRiadkov; i++) {
-			for (int j = 0; j < pocetStlpcov*2; j++) {
+			for (int j = 0; j < pocetStlpcov * 2; j++) {
 				if (j < pocetStlpcov) matrix[i][j] = m[i][j];
 				else if (j - pocetStlpcov == i) matrix[i][j] = 1;
 				else matrix[i][j] = 0;
@@ -41,7 +41,7 @@ namespace DP_EZB {
 		}
 	}
 
-	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount) {
+	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount, double* pivots) {
 		// zaclenene vektory + ich zlozky
 		int pocetZaclenenych = 0;
 		String^ all = "{ ";
@@ -189,7 +189,7 @@ namespace DP_EZB {
 				for (int j = 0; j < pocetStlpcov; j++) {
 					for (int i = 0; i < pocetRiadkov; i++) {
 						if (m[i][j] == 1) {
-							for (int k = 0; k < pocetStlpcov*2; k++) {
+							for (int k = 0; k < pocetStlpcov * 2; k++) {
 								if (k < pocetStlpcov) {
 									MatrixE += round_up(m[i][k], 2);
 									if (k < pocetStlpcov - 1) MatrixE += "; ";
@@ -197,7 +197,7 @@ namespace DP_EZB {
 								}
 								else {
 									MatrixD += round_up(m[i][k], 2);
-									if (k < pocetStlpcov*2 - 1) MatrixD += "; ";
+									if (k < pocetStlpcov * 2 - 1) MatrixD += "; ";
 									else MatrixD += " ";
 								}
 
@@ -220,30 +220,69 @@ namespace DP_EZB {
 			else output += "Stvorcova matica preto nie je regularna a neexistuje k nej inverzna matica!\r\n\r\n";
 		}
 
+		if (type == 4) {
+			if (pocetZaclenenych == pocetStlpcov - vectorB) {
+				String^ permutacia = "I(";
+				int pocetPermutacii = 0;
+
+				String^ helpField = field;
+				String^ help;
+				int indexes[5];
+				for (int i = 0; i < pocetStlpcov; i++) {
+					help = helpField->Substring(1, helpField->IndexOf("/"));
+					indexes[i] = System::Convert::ToInt32(help->Substring(0, 1));
+					helpField = helpField->Remove(0, helpField->IndexOf("/") + 1);
+				}
+
+				for (int i = 0; i < pocetStlpcov; i++) {
+					for (int j = i + 1; j < pocetStlpcov; j++) {
+						if (indexes[i] > indexes[j]) pocetPermutacii++;
+					}
+					permutacia += indexes[i];
+					if (i < pocetStlpcov - 1) permutacia += ", ";
+				}
+				permutacia += ")";
+				output += "Stvorcova matica je preto regularna a existuje k nej determinant. Pocet inverzii permutacii stlpcovych indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n";
+				output += "Potom determinant matice A:\r\n|A| = ";
+
+				double result = 1;
+				for (int i = 0; i < pocetStlpcov; i++) {
+					if (pivots[i] < 0) output += "(";
+					output += round_up(pivots[i], 2);
+					if (pivots[i] < 0) output += ")";
+					output += " * ";
+					result *= pivots[i];
+				}
+
+				output += "(-1)^" + pocetPermutacii + " = " + round_up(result * pow(-1, pocetPermutacii), 2) + "\r\n\r\n";
+
+			}
+		}
+
 		//ci je vektor b linearnou kombinaciou
 
 		if (vectorB == 1) {
 
 			String^ heplField = field;
-				Boolean sign = false;
-				for (int i = 0; i < pocetRiadkov; i++) {
-					if (m[i][pocetStlpcov - 1] < 0) {
+			Boolean sign = false;
+			for (int i = 0; i < pocetRiadkov; i++) {
+				if (m[i][pocetStlpcov - 1] < 0) {
+					String^ help = "";
+					help += heplField->Substring(0, heplField->IndexOf("/"));
+					vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
+					if (!sign) sign = true;
+				}
+				else {
+					if (m[i][pocetStlpcov - 1] > 0) {
 						String^ help = "";
 						help += heplField->Substring(0, heplField->IndexOf("/"));
+						if (sign) vektorB += " + ";
 						vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
 						if (!sign) sign = true;
 					}
-					else {
-						if (m[i][pocetStlpcov - 1] > 0) {
-							String^ help = "";
-							help += heplField->Substring(0, heplField->IndexOf("/"));
-							if (sign) vektorB += " + ";
-							vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
-							if (!sign) sign = true;
-						}
-					}
-					heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
 				}
+				heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
+			}
 
 
 			for (int i = 0; i < pocetRiadkov; i++) { //nulovy riadok
@@ -262,6 +301,9 @@ namespace DP_EZB {
 
 		// tu vraciam text !!
 		return output;
+
+
+
 	}
 
 	double round_up(double value, int decimal_places) {
