@@ -1,9 +1,11 @@
 ﻿#pragma once
 #include "VectorsNewTaskDialog.h"
 #include "MatrixNewTaskDialog.h"
+#include "SLRNewTaskDialog.h"
 #include "EZB.cpp"
 #include "VectorsTask.cpp"
 #include "MatrixTask.cpp"
+#include "SLRTask.cpp"
 #include <string.h>
 
 namespace DP_EZB {
@@ -65,15 +67,16 @@ namespace DP_EZB {
 	private: System::Windows::Forms::TextBox^ stepTaskTextBox;
 
 	private: System::Windows::Forms::Label^ label5;
-
-
+	private: System::Windows::Forms::Label^ vektoryAll;
 
 	vectorsNewTaskDialog^ vectorsNewTaskD;
 	matrixNewTaskDialog^ matrixNewTaskD;
-	private: System::Windows::Forms::Label^ vektoryAll;
-		   EZB* ezb;
+	slrNewTaskDialog^ slrNewTaskD;
+
+	EZB* ezb;
 	VectorsTask* vt;
 	MatrixTask* mt;
+	SLRTask* st;
 	int taskType = 0;
 	private: System::Windows::Forms::TextBox^ taskTextBox;
 	private: System::Windows::Forms::Button^ determinantButton;
@@ -83,7 +86,8 @@ namespace DP_EZB {
 	private: System::Windows::Forms::TextBox^ textBox1;
 	private: System::Windows::Forms::Button^ matrixDecompositionButton;
 	private: System::Windows::Forms::Button^ invertibleMatrixButton;
-		   
+	private: System::Windows::Forms::Button^ slrButton;
+
 
 
 	private:
@@ -107,6 +111,7 @@ namespace DP_EZB {
 			this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->topPanel = (gcnew System::Windows::Forms::Panel());
+			this->slrButton = (gcnew System::Windows::Forms::Button());
 			this->determinantButton = (gcnew System::Windows::Forms::Button());
 			this->invertibleMatrixButton = (gcnew System::Windows::Forms::Button());
 			this->matrixDecompositionButton = (gcnew System::Windows::Forms::Button());
@@ -165,6 +170,7 @@ namespace DP_EZB {
 			this->topPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->topPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->topPanel->Controls->Add(this->slrButton);
 			this->topPanel->Controls->Add(this->determinantButton);
 			this->topPanel->Controls->Add(this->invertibleMatrixButton);
 			this->topPanel->Controls->Add(this->matrixDecompositionButton);
@@ -174,6 +180,18 @@ namespace DP_EZB {
 			this->topPanel->Name = L"topPanel";
 			this->topPanel->Size = System::Drawing::Size(1384, 38);
 			this->topPanel->TabIndex = 1;
+			// 
+			// slrButton
+			// 
+			this->slrButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->Location = System::Drawing::Point(689, -1);
+			this->slrButton->Name = L"slrButton";
+			this->slrButton->Size = System::Drawing::Size(91, 38);
+			this->slrButton->TabIndex = 5;
+			this->slrButton->Text = L"SLR";
+			this->slrButton->UseVisualStyleBackColor = false;
+			this->slrButton->Click += gcnew System::EventHandler(this, &MyForm::slrButton_Click);
 			// 
 			// determinantButton
 			// 
@@ -587,6 +605,7 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 	if (this->newTaskButton->Text == "Upravit") {
 		if (taskType == 0) vectorsNewTaskD->ShowDialog();
 		if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) matrixNewTaskD->ShowDialog();
+		if (taskType == 5) slrNewTaskD->ShowDialog();
 	}
 	else {
 		if (taskType == 0) {
@@ -609,9 +628,14 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 			}
 			matrixNewTaskD->ShowDialog();
 		}
+		if (taskType == 5) {
+			slrNewTaskD = gcnew slrNewTaskDialog();
+			slrNewTaskD->ShowDialog();
+		}
 	}
 
-	if ((taskType == 0 && vectorsNewTaskD->created) || ((taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) && matrixNewTaskD->created)) {
+	if ((taskType == 0 && vectorsNewTaskD->created) || ((taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) && matrixNewTaskD->created) ||
+		(taskType == 5 && slrNewTaskD->created)) {
 		createNewTask();
 	}
 	
@@ -646,12 +670,13 @@ private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::
 		int hlbka = 0;
 		if (taskType == 0) hlbka = vt->pocetSuradnic;
 		if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) hlbka = mt->pocetRiadkov;
+		if (taskType == 5) hlbka = st->pocetRovnic;
 
 		if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
 			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
 			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1)*ezb->iteration] == 1 ||
 			ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1
-			|| ezbTable->CurrentCell->OwningColumn->Name == "b" || (taskType > 0 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
+			|| ezbTable->CurrentCell->OwningColumn->Name == "b" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
 			
 			okButton->Enabled = false;
 			stepTaskTextBox->Text = "Vyber veduci prvok (pivot)";
@@ -680,6 +705,7 @@ private: System::Void vectorsButton_Click(System::Object^ sender, System::EventA
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			taskType = 0;
 		}
 	}
@@ -689,6 +715,7 @@ private: System::Void vectorsButton_Click(System::Object^ sender, System::EventA
 		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		taskType = 0;
 	}
 	
@@ -703,6 +730,7 @@ private: System::Void matrixRankButton_Click(System::Object^ sender, System::Eve
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			taskType = 1;
 		}
 	}
@@ -712,6 +740,7 @@ private: System::Void matrixRankButton_Click(System::Object^ sender, System::Eve
 		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		taskType = 1;
 	}
 }
@@ -726,6 +755,7 @@ private: System::Void matrixDecompositionButton_Click(System::Object^ sender, Sy
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			taskType = 2;
 		}
 	}
@@ -735,6 +765,7 @@ private: System::Void matrixDecompositionButton_Click(System::Object^ sender, Sy
 		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		taskType = 2;
 	}
 }
@@ -748,6 +779,7 @@ private: System::Void invertibleMatrixButton_Click(System::Object^ sender, Syste
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			taskType = 3;
 		}
 	}
@@ -757,6 +789,7 @@ private: System::Void invertibleMatrixButton_Click(System::Object^ sender, Syste
 		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
 		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		taskType = 3;
 	}
 
@@ -771,6 +804,7 @@ private: System::Void determinantButton_Click(System::Object^ sender, System::Ev
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 			taskType = 4;
 		}
 	}
@@ -780,7 +814,33 @@ private: System::Void determinantButton_Click(System::Object^ sender, System::Ev
 		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
 		taskType = 4;
+	}
+}
+private: System::Void slrButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	if (clearTaskButton->Enabled) {
+		if (MessageBox::Show("Zmazat aktualnu ulohu ?", "Nova uloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
+			clearTaskButton->PerformClick();
+
+			this->vectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->matrixRankButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
+			taskType = 5;
+		}
+	}
+	else {
+		this->vectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->matrixRankButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
+		this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+		this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Standard;
+		taskType = 5;
 	}
 }
 
@@ -812,6 +872,11 @@ private: System::Void okButton_Click(System::Object^ sender, System::EventArgs^ 
 			if (taskType == 3) sirka += mt->pocetStlpcov;
 		}
 
+		if (taskType == 5) {
+			sirka = st->pocetZloziek + st->zeros;
+			hlbka = st->pocetRovnic;
+		}
+
 		double** newMatrix = 0;
 		ezb->pivots[ezb->iteration] = ezb->getPivot(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
 		newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index-1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
@@ -828,6 +893,8 @@ private: System::Void okButton_Click(System::Object^ sender, System::EventArgs^ 
 					ezbTable[0, i]->Value = "a" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
 				if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4)
 					ezbTable[0, i]->Value = "s" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
+				if (taskType == 5)
+					ezbTable[0, i]->Value = "x" + ezbTable->CurrentCell->OwningColumn->Index + " -> e" + System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration);
 			}
 		}
 
@@ -971,10 +1038,35 @@ private: void createNewTask() {
 		   if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) {
 			   matrixNewTaskD->created = false;
 			   label3->Text = "Matica:";
+			   if (taskType == 1)
+				   taskTextBox->Text = "Metodou elementarnej zmeny bazy urci hodnost matice. \r\n\r\nMaticu uvazujeme ako system stlpcovych vektorov.\r\n\r\n" +
+				   "Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
+				   "Postupne uskutocni maximalny pocet pocet EZB na najdenie hodnosti matice, ktora sa rovna hodnosti systemu stlpcovych vektorov.\r\n\r\n";
+
+
+			   if (taskType == 2)
+				   taskTextBox->Text = "Metodou elementarnej zmeny bazy najdi bazicky rozklad matice v tvare: \r\n A = B * C = B * (E | D)\r\n\r\n" +
+				   "Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
+				   "Vhodnou volbou veducich prvkov v prirodzenom poradi postupne uskutocni elementarnu zmenu bazy.\r\n\r\n";
+
+			   if (taskType == 3)
+				   taskTextBox->Text = "Metodou elementarnej zmeny bazy najdi inverznu maticu k matici A.\r\n\r\n" +
+				   "Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
+				   "V druhej casti tabulky je zapisana jednotkova matica E, kedze podla definicie A * A-1 = E.";
+
+			   if (taskType == 4) {
+				   taskTextBox->Text = "Metodou elementarnej zmeny bazy vypocitaj determinant matice.\r\n\r\n" +
+					   "Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
+					   "Vhodnou volbou veducich prvkov postupne zaclenujeme maximalny pocet vektorov do bazy.\r\n\r\n"+
+					   "Z poslednej casti tabulky zisti ci je matica regularna a v pripade ze ano, vypocitaj determinant ako sucin veducich prvkov a cisla (-1)^I.";
+			   }
+
 			   vektoryAll->Hide();
 			   taskMatrix->Show();
 
 			   mt = new MatrixTask(matrixNewTaskD->getPocetRiadkov(), matrixNewTaskD->getPocetStlpcov(), matrixNewTaskD->getMatrix(), matrixNewTaskD->getVB(), taskType);
+
+			   if (mt->vectorB != 0) taskTextBox->Text += "Ulohou je tiez zistit, ci vektor b patri do stlpcoveho podpriestoru matice.";
 
 			   pocetVektorovLabel->Text = "Pocet riadkov: " + System::Convert::ToString(mt->pocetRiadkov);
 			   pocetSuradnicVektorovLabel->Text = "Pocet stlpcov: " + System::Convert::ToString(mt->pocetStlpcov);
@@ -1061,6 +1153,92 @@ private: void createNewTask() {
 			   ezbTable->Height = ezbTable->RowCount * 35;
 			   ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
 		   }
+			//ak sa riesi SLR
+		   if (taskType == 5) {
+			   slrNewTaskD->created = false;
+			   label3->Text = "Rovnice:";
+			   taskTextBox->Text = "Metodou elementarnej zmeny bazy najdi riesenie systemu linearnych rovnic ak taketo riesenie existuje.\r\n\r\n"+
+				   "V tabulke elementarnej zmeny bazy su zapisane stlpcove vektory matice a ich zlozky povazujeme za suradnice v jednotkovej baze.\r\n\r\n"+
+				   "Postupne uskutocni elementarne zmeny bazy a z poslednej casti tabulky rozhodni o riesitelnosti systemu linearnych rovnic.";
+			   vektoryAll->Show();
+			   taskMatrix->Hide();
+
+			   st = new SLRTask(slrNewTaskD->getPocetRovnic(), slrNewTaskD->getPocetZloziekRovnic(), slrNewTaskD->getMatrix(), slrNewTaskD->getZeros());
+
+			   //zobraz rovnice v labeli
+
+			   String^ text = "";
+
+			   for (int i = 0; i < st->pocetRovnic; i++) {
+				   for (int j = 0; j < st->pocetZloziek; j++) {
+					   text += st->matrix[i][j] + "x" + System::Convert::ToString(j+1) + " ";
+					   if (j < st->pocetZloziek - 1 && st->matrix[i][j + 1] >= 0) text += "+ ";
+					   if (st->zeros == 1 && j == st->pocetZloziek - 1) text += " = " + st->matrix[i][st->pocetZloziek];
+				   }
+				   text += "\r\n";
+			   }
+
+			   vektoryAll->Text = text;
+
+			   pocetVektorovLabel->Text = "Pocet rovnic: " + System::Convert::ToString(st->pocetRovnic);
+			   pocetSuradnicVektorovLabel->Text = "Pocet zloziek rovnic: " + System::Convert::ToString(st->pocetZloziek);
+
+			   //
+			   //vytvor bazicku maticu
+			   //
+			   double** bazickaMatica = 0;
+			   bazickaMatica = new double* [st->pocetRovnic];
+			   for (int h = 0; h < st->pocetRovnic; h++)
+			   {
+				   bazickaMatica[h] = new double[st->pocetZloziek + st->zeros + 1];
+			   }
+
+			   ezbTable->ColumnCount = st->pocetZloziek + st->zeros + 2;
+			   ezbTable->Columns[0]->Name = "Báza";
+			   for (int i = 1; i <= st->pocetZloziek + st->zeros; i++) {
+				   if (st->zeros == 1 && i == st->pocetZloziek + st->zeros)
+					   ezbTable->Columns[i]->Name = "b";
+				   else
+					   ezbTable->Columns[i]->Name = "x" + System::Convert::ToString(i);
+				   ezbTable->Columns[i]->Width = 55;
+
+			   }
+			   ezbTable->Columns[st->pocetZloziek + st->zeros + 1]->Name = "Suma";
+
+			   for (int i = 0; i <= st->pocetRovnic; i++) {
+				   ezbTable->Rows->Add();
+				   ezbTable->Rows[i]->Height = 35;
+				   ezbTable[0, i]->Value = "e" + System::Convert::ToString(i + 1);
+			   }
+			   ezbTable->Rows[st->pocetRovnic]->Height = 2;
+
+			   for (int i = 0; i <= st->pocetZloziek + st->zeros + 1; i++) {
+				   ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+				   for (int j = 0; j <= st->pocetRovnic; j++) {
+					   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					   ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				   }
+			   }
+
+			   for (int j = 0; j < st->pocetRovnic; j++) {
+				   double suma = 0;
+				   for (int i = 0; i < st->pocetZloziek + st->zeros; i++) {
+					   suma += st->matrix[j][i];
+					   ezbTable[i + 1, j]->Value = round_up(st->matrix[j][i], 2);
+					   bazickaMatica[j][i] = st->matrix[j][i];
+				   }
+				   ezbTable[st->pocetZloziek + st->zeros + 1, j]->Value = round_up(suma, 2);
+				   bazickaMatica[j][st->pocetZloziek + st->zeros] = suma;
+			   }
+
+
+			   //
+			   //skontroluj bazicku maticu /// nove ezb
+			   //
+			   ezb = new EZB(bazickaMatica, st->pocetZloziek+st->zeros + 1, st->pocetRovnic);
+			   checkMatrix(bazickaMatica);
+		   }
 	   }
 
 private: void checkMatrix(double** m) {
@@ -1070,6 +1248,7 @@ private: void checkMatrix(double** m) {
 	if (taskType == 0) check = ezb->checkMatrix(vt->vectorB);
 	if (taskType == 1 || taskType == 2 || taskType == 4) check = ezb->checkMatrix(mt->vectorB);
 	if (taskType == 3) check = ezb->checkMatrix(mt->pocetStlpcov);
+	if (taskType == 5) check = ezb->checkMatrix(st->zeros);
 
 	if (check < 2) { //nulovy riadok alebo koniec ezb
 		ezbTable->Enabled = false;
@@ -1097,6 +1276,14 @@ private: void checkMatrix(double** m) {
 			stepTaskTextBox->Text = mt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount, ezb->pivots);
 			stepTaskTextBox->Text += "\r\n\r\nUkoncit ulohu?";
 		}
+		if (taskType == 5) {
+			for (int i = 0; i < st->pocetRovnic; i++) {
+				field += ezbTable[0, ezbTable->RowCount - st->pocetRovnic + i - 1]->Value->ToString() + "/";
+			}
+
+			stepTaskTextBox->Text = st->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount);
+			stepTaskTextBox->Text += "\r\n\r\nUkoncit ulohu?";
+		}
 
 	}
 	else { //pokracujeme
@@ -1105,7 +1292,6 @@ private: void checkMatrix(double** m) {
 	}
 	
 }
-
 
 };
 }

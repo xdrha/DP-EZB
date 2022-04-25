@@ -131,6 +131,8 @@
     <ClCompile Include="MatrixNewTaskDialog.cpp" />
     <ClCompile Include="MatrixTask.cpp" />
     <ClCompile Include="MyForm.cpp" />
+    <ClCompile Include="SLRNewTaskDialog.cpp" />
+    <ClCompile Include="SLRTask.cpp" />
     <ClCompile Include="VectorsTask.cpp" />
     <ClCompile Include="vectorsNewTaskDialog.cpp" />
   </ItemGroup>
@@ -139,6 +141,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="SLRNewTaskDialog.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="VectorsNewTaskDialog.h">
@@ -151,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SLRNewTaskDialog.resx">
+      <DependentUpon>SLRNewTaskDialog.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="VectorsNewTaskDialog.resx">
       <DependentUpon>VectorsNewTaskDialog.h</DependentUpon>
