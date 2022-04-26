@@ -672,12 +672,14 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 			if (taskType == 3 || taskType == 4) {
 				matrixNewTaskD->label2->Hide();
 				matrixNewTaskD->pocetStlpcov->Hide();
-				matrixNewTaskD->LabelFirstAction->Text = "Zadaj rozmer matice:";
+				matrixNewTaskD->LabelFirstAction->Text = "1. Zadaj rozmer matice:";
+				matrixNewTaskD->label3->Text = "2. Vyplň zložky matice:";
 			}
 			else {
 				matrixNewTaskD->label2->Show();
 				matrixNewTaskD->pocetStlpcov->Show();
-				matrixNewTaskD->LabelFirstAction->Text = "Zadaj počet riadkov:";
+				matrixNewTaskD->LabelFirstAction->Text = "1. Zadaj počet riadkov:";
+				matrixNewTaskD->label3->Text = "3. Vyplň zložky matice:";
 			}
 			matrixNewTaskD->ShowDialog();
 		}
@@ -729,7 +731,7 @@ private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::
 			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
 			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1)*ezb->iteration] == 1 ||
 			ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1
-			|| ezbTable->CurrentCell->OwningColumn->Name == "b" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
+			|| ezbTable->CurrentCell->OwningColumn->Name == "b\u20D7" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
 			
 			ezbTable->ClearSelection();
 		}
@@ -931,13 +933,13 @@ private: void createNewTask() {
 		   if (taskType == 0) {
 			   vectorsNewTaskD->created = false;
 			   label3->Text = "Vektory:";
-			   taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\nb) Vypočítajte hodnosť systému vektorov (h)";
+			   taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
 			   vektoryAll->Show();
 			   taskMatrix->Hide();
 			   
 			   vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix(), vectorsNewTaskD->getVB());
 
-			   if (vt->vectorB != 0) taskTextBox->Text += "\r\nc) Zistite, či je vektor b lineárnou kombináciou systému vektorov";
+			   if (vt->vectorB != 0) taskTextBox->Text += "c) Zistite, či je vektor b lineárnou kombináciou systému vektorov";
 
 			   //zobraz vektory v labeli
 
@@ -974,13 +976,13 @@ private: void createNewTask() {
 			   ezbTable->Columns[0]->Name = "Báza";
 			   for (int i = 1; i <= vt->pocetVektorov; i++) {
 				   if (vt->vectorB == 1 && i == vt->pocetVektorov)
-					   ezbTable->Columns[i]->Name = " b\u20D7";
+					   ezbTable->Columns[i]->Name = "b\u20D7";
 				   else
 					   ezbTable->Columns[i]->Name = "a" + subscript(i.ToString()) + "\u20D7";
 				   ezbTable->Columns[i]->Width = 55;
 
 			   }
-			   ezbTable->Columns[vt->pocetVektorov + 1]->Name = " ∑";
+			   ezbTable->Columns[vt->pocetVektorov + 1]->Name = "∑";
 
 			   for (int i = 0; i <= vt->pocetSuradnic; i++) {
 				   ezbTable->Rows->Add();
@@ -988,6 +990,15 @@ private: void createNewTask() {
 				   ezbTable[0, i]->Value = "e" + subscript(i.ToString()) + "\u20D7";
 			   }
 			   ezbTable->Rows[vt->pocetSuradnic]->Height = 2;
+
+			   for (int i = 0; i <= vt->pocetVektorov + 1; i++) {
+				   ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+				   for (int j = 0; j <= vt->pocetSuradnic; j++) {
+					   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					   ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				   }
+			   }
 
 			   for (int j = 0; j < vt->pocetSuradnic; j++) {
 				   double suma = 0;
@@ -1013,17 +1024,17 @@ private: void createNewTask() {
 			   matrixNewTaskD->created = false;
 			   label3->Text = "Matica:";
 
-			   if (taskType == 1) taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n";
-			   if (taskType == 2) taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\nb) Nájdite bázický rozklad matice v tvare: \r\n A = B * C = B * (E | D)";
-			   if (taskType == 3) taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\nb) Nájdite inverznú maticu k matici A";
-			   if (taskType == 4) taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\nb) Vypočítajte determinant štvorcovej matice A";
+			   if (taskType == 1) taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n\r\n";
+			   if (taskType == 2) taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
+			   if (taskType == 3) taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
+			   if (taskType == 4) taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
 			 
 			   vektoryAll->Hide();
 			   taskMatrix->Show();
 
 			   mt = new MatrixTask(matrixNewTaskD->getPocetRiadkov(), matrixNewTaskD->getPocetStlpcov(), matrixNewTaskD->getMatrix(), matrixNewTaskD->getVB(), taskType);
 
-			   if (mt->vectorB != 0) taskTextBox->Text += "b) Zistite, či vektor b patrí do stĺpcového podpriestoru matice.";
+			   if (mt->vectorB != 0) taskTextBox->Text += "b) Zistite, či vektor b\u20D7 patrí do stĺpcového podpriestoru matice.";
 
 			   //task matrix
 
@@ -1038,6 +1049,9 @@ private: void createNewTask() {
 				   taskMatrix->Columns[i]->Width = 55;
 				   for (int j = 0; j < mt->pocetRiadkov; j++) {
 					   taskMatrix[i, j]->Value = (mt->matrix[j][i]);
+					   taskMatrix[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					   taskMatrix[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
 				   }
 			   }
 			   taskMatrix->ClearSelection();
@@ -1068,7 +1082,7 @@ private: void createNewTask() {
 				   ezbTable->Columns[i]->Width = 55;
 
 			   }
-			   ezbTable->Columns[PS + 1]->Name = " ∑";
+			   ezbTable->Columns[PS + 1]->Name = "∑";
 
 			   for (int i = 0; i <= mt->pocetRiadkov; i++) {
 				   ezbTable->Rows->Add();
@@ -1076,6 +1090,15 @@ private: void createNewTask() {
 				   ezbTable[0, i]->Value = "e" + subscript(System::Convert::ToString(i + 1)) + "\u20D7";
 			   }
 			   ezbTable->Rows[mt->pocetRiadkov]->Height = 2;
+
+			   for (int i = 0; i <= PS + 1; i++) {
+				   ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+				   for (int j = 0; j <= mt->pocetRiadkov; j++) {
+					   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					   ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				   }
+			   }
 
 			   //vypln ezb tabulku hodnotami
 			   for (int j = 0; j < mt->pocetRiadkov; j++) {
@@ -1100,7 +1123,7 @@ private: void createNewTask() {
 		   if (taskType == 5) {
 			   slrNewTaskD->created = false;
 			   label3->Text = "Rovnice:";
-			   taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie. + \r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+			   taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
 			   vektoryAll->Show();
 			   taskMatrix->Hide();
 
@@ -1112,9 +1135,9 @@ private: void createNewTask() {
 
 			   for (int i = 0; i < st->pocetRovnic; i++) {
 				   for (int j = 0; j < st->pocetZloziek; j++) {
-					   text += st->matrix[i][j] + "x" + subscript(System::Convert::ToString(j + 1)) + "\u20D7";
+					   text += st->matrix[i][j] + "x" + subscript(System::Convert::ToString(j + 1));
 					   if (j < st->pocetZloziek - 1 && st->matrix[i][j + 1] >= 0) text += "+ ";
-					   if (st->zeros == 1 && j == st->pocetZloziek - 1) text += " = " + st->matrix[i][st->pocetZloziek];
+					   if (j == st->pocetZloziek - 1) text += " = " + st->matrix[i][st->pocetZloziek];
 				   }
 				   text += "\r\n";
 			   }
@@ -1137,11 +1160,11 @@ private: void createNewTask() {
 				   if (st->zeros == 1 && i == st->pocetZloziek + st->zeros)
 					   ezbTable->Columns[i]->Name = "b\u20D7";
 				   else
-					   ezbTable->Columns[i]->Name = "x" + subscript(System::Convert::ToString(i)) + "\u20D7";
+					   ezbTable->Columns[i]->Name = "x" + subscript(System::Convert::ToString(i));
 				   ezbTable->Columns[i]->Width = 55;
 
 			   }
-			   ezbTable->Columns[st->pocetZloziek + st->zeros + 1]->Name = " ∑";
+			   ezbTable->Columns[st->pocetZloziek + st->zeros + 1]->Name = "∑";
 
 			   for (int i = 0; i <= st->pocetRovnic; i++) {
 				   ezbTable->Rows->Add();
@@ -1149,6 +1172,15 @@ private: void createNewTask() {
 				   ezbTable[0, i]->Value = "e" + subscript(System::Convert::ToString(i + 1)) + "\u20D7";
 			   }
 			   ezbTable->Rows[st->pocetRovnic]->Height = 2;
+
+			   for (int i = 0; i <= st->pocetZloziek + st->zeros + 1; i++) {
+				   ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
+				   for (int j = 0; j <= st->pocetRovnic; j++) {
+					   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					   ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				   }
+			   }
 
 			   for (int j = 0; j < st->pocetRovnic; j++) {
 				   double suma = 0;
@@ -1186,7 +1218,7 @@ private: void checkMatrix(double** m) {
 		okButton->Text = "Ukončiť";
 		label5->Text = "Výsledok:";
 
-		String^ field;
+		String^ field = "";
 
 		if (taskType == 0) {
 
@@ -1224,33 +1256,37 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 	if (helpButton->Text == "?  Pomocník") {
 		helpButton->Text = "Zavrieť";
 
-		if(taskType == 0) taskTextBox->Text = "Vhodnou volbou veducich prvkov (dvojklikom v tabulke) postupne uskutocnite elementarnu zmenu bazy.\r\n\r\n" +
-			"Vhodny veduci prvok je 1 alebo cislo, ktore deli cely riadok bezo zvysku.\r\n\r\n" +
-			"Vektor b nezaclenujte do bazy!\r\n\r\n" +
-			"Z poslednej casti tabulky zistite ci je system vektorov linearne zavisly alebo nezavisly, hodnost systemu vektorov (h), popripade ci je vektor b linearnou kombinaciou systemu vektorov.";
+		if(taskType == 0) taskTextBox->Text = "Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n" +
+			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n" +
+			"Vektor b nezačleňujte do bázy!\r\n\r\n" +
+			"Z poslednej časti tabuľky zistite, či je systém vektorov lineárne závislý alebo nezávislý, hodnosť systému vektorov (h), popripade, či je vektor b\u20D7 lineárnou kombináciou systému vektorov.";
 
-		if (taskType == 1) taskTextBox->Text = "Metodou elementarnej zmeny bazy urcite hodnost matice. \r\n\r\nMaticu uvazujeme ako system stlpcovych vektorov.\r\n\r\n" +
-				"Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
-				"Vyberom veduceho prvku (dvojklikom v tabulke) postupne uskutocnite maximalny pocet EZB na najdenie hodnosti matice, ktora sa rovna hodnosti systemu stlpcovych vektorov, popripade zistite ci je vektor b patri do stlpcoveho podpriestoru matice.\r\n\r\n";
+		if (taskType == 1) taskTextBox->Text = "Metódou elementárnej zmeny bázy určte hodnosť matice. \r\n\r\nMaticu uvažujeme ako systém stĺpcových vektorov.\r\n\r\n" +
+				"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
+				"Výberom vedúceho prvku (dvojklikom v tabuľke) postupne uskutočnite maximálny počet EZB na nájdenie hodnosti matice, ktorá sa rovná hodnosti systému stĺpcových vektorov, poprípade zistite, či je vektor b\u20D7 patrí do stĺpcového podpriestoru matice.\r\n\r\n"+
+			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 2) taskTextBox->Text = "Metodou elementarnej zmeny bazy najdite bazicky rozklad matice v tvare: \r\n A = B * C = B * (E | D)\r\n\r\n" +
-			"Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
-			"Vhodnou volbou veducich prvkov (dvojklikom v tabulke) v prirodzenom poradi postupne uskutocnite elementarnu zmenu bazy.\r\n\r\n";
+		if (taskType == 2) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite triviálny alebo bázicky rozklad matice.\r\n\r\n" +
+			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
+			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) v prirodzenom poradí postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n"+
+			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 3) taskTextBox->Text = "Metodou elementarnej zmeny bazy najdite inverznu maticu k matici A.\r\n\r\n" +
-			"Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
-			"V druhej casti tabulky je zapisana jednotkova matica E, kedze podla definicie A * A-1 = E."+
-			"Vhodnou volbou veducich prvkov (dvojklikom v tabulke) postupne uskutocnite elementarnu zmenu bazy.\r\n\r\n";
+		if (taskType == 3) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite inverznú maticu k matici A.\r\n\r\n" +
+			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
+			"V druhej časti tabuľky je zapísaná jednotková matica E, kedže podľa definície A \u2219 A\u207B¹ = E."+
+			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n"+
+			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if(taskType == 4) taskTextBox->Text = "Metodou elementarnej zmeny bazy vypocitajte determinant matice.\r\n\r\n" +
-			"Zlozky stlpovych vektorov su zapisane v tabulke elementarnej zmeny bazy a povazujeme ich za suradnice tychto vektorov.\r\n\r\n" +
-			"Vhodnou volbou veducich prvkov (dvojklikom v tabulke) postupne zaclenujeme maximalny pocet vektorov do bazy.\r\n\r\n" +
-			"Z poslednej casti tabulky zistite ci je matica regularna a v pripade ze ano, vypocitaj determinant ako sucin veducich prvkov a cisla (-1)^I.";
+		if(taskType == 4) taskTextBox->Text = "Metódou elementárnej zmeny bázy vypočítajte determinant matice.\r\n\r\n" +
+			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
+			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne začleňte maximálny počet vektorov do bázy.\r\n\r\n" +
+			"Z poslednej časti tabuľky zistite, či je matica regulárna a v prípade, že áno, vypočítajte determinant ako súčin vedúcich prvkov a čísla (-1)ˡ.\r\n\r\n"+
+			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 5) taskTextBox->Text = "Metodou elementarnej zmeny bazy najdite riesenie systemu linearnych rovnic ak taketo riesenie existuje.\r\n\r\n" +
-				"V tabulke elementarnej zmeny bazy su zapisane stlpcove vektory matice systemu linearnych rovnic a ich zlozky povazujeme za suradnice v jednotkovej baze.\r\n\r\n" +
-				"Vyberom veduceho prvku (dvojklikom v tabulke) postupne uskutocnite elementarne zmeny bazy a z poslednej casti tabulky rozhodnite o riesitelnosti systemu linearnych rovnic.\r\n\r\n"+
-			"Vhodny veduci prvok je 1 alebo cislo, ktore deli cely riadok bezo zvysku.\r\n\r\n";
+		if (taskType == 5) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite riešenie systému lineárnych rovníc ak takéto riešenie existuje.\r\n\r\n" +
+				"V tabuľke elementárnej zmeny bázy sú zapísané stĺpcové vektory matice systému lineárnych rovníc a ich zložky považujeme za súradnice v jednotkovej báze.\r\n\r\n" +
+				"Výberom vedúceho prvku (dvojklikom v tabuľke) postupne uskutočnite elementárne zmeny bázy a z poslednej časti tabuľky rozhodnite o riešiteľnosti systému lineárnych rovníc.\r\n\r\n"+
+				"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
 
 	}
@@ -1259,28 +1295,28 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 		helpButton->Text = "?  Pomocník";
 
 		if (taskType == 0) {
-			taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\nb) Vypočítajte hodnosť systému vektorov (h)";
-			if(vt!=NULL && vt->vectorB != 0 ) taskTextBox->Text += "\r\nc) Zistite, či je vektor b\u20D7 lineárnou kombináciou systému vektorov";
+			taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
+			if(vt!=NULL && vt->vectorB != 0 ) taskTextBox->Text += "c) Zistite, či je vektor b\u20D7 lineárnou kombináciou systému vektorov";
 		}
 
 		if (taskType == 1) {
-			taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n";
-			if (mt != NULL && mt->vectorB != 0) taskTextBox->Text += "b) Zistite, či vektor b\u20D7 patrí do stĺpcového podpriestoru matice.";
+			taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n\r\n";
+			if (mt != NULL && mt->vectorB != 0) taskTextBox->Text += "b) Zistite, či vektor b\u20D7 patrí do stĺpcového podpriestoru matice";
 		}
 
 		if (taskType == 2) {
-			taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\nb) Nájdite bázický rozklad matice v tvare: \r\n A = B * C = B * (E | D)";
+			if (taskType == 2) taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
 		}
 
 		if (taskType == 3) {
-			taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\nb) Nájdite inverznú maticu k matici A";
+			taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
 		}
 
 		if (taskType == 4) {
-			taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\nb) Vypočítajte determinant štvorcovej matice A";
+			taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
 		}
 
-		if (taskType == 5) taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie. + \r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+		if (taskType == 5) taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie. + \r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
 	}
 		
 }
@@ -1344,13 +1380,21 @@ private: System::Void ezbTable_CellDoubleClick(System::Object^ sender, System::W
 				if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4)
 					ezbTable[0, i]->Value = "s" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
 				if (taskType == 5)
-					ezbTable[0, i]->Value = "x" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
+					ezbTable[0, i]->Value = "x" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
 			}
 		}
 
 		ezbTable->ClearSelection();
 
 		ezbTable->Rows[(hlbka * (ezb->iteration + 1)) + ezb->iteration]->Height = 2;
+
+		for (int i = 0; i <= sirka + 1; i++) {
+			for (int j = (hlbka + 1) * ezb->iteration; j <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
+				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+			}
+		}
 
 		for (int j = (hlbka + 1) * ezb->iteration; j < (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
 			for (int i = 0; i <= sirka; i++) {

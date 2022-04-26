@@ -244,13 +244,21 @@ public:
 		if (pocetVektorov->Value == 3) {
 			if (vectorText31->Text == "") return false;
 			if (vectorText32->Text == "") return false;
-			if (pocetSuradnicVektorov->Value == 3)
+			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
+			}
+				
 			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
 				if (vectorText34->Text == "") return false;
 			}
 			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
 				if (vectorText34->Text == "") return false;
 				if (vectorText35->Text == "") return false;
@@ -263,22 +271,34 @@ public:
 			if (vectorText41->Text == "") return false;
 			if (vectorText42->Text == "") return false;
 			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
 				if (vectorText43->Text == "") return false;
 			}
 
 			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
-				if (vectorText34->Text == "") return false;
 				if (vectorText43->Text == "") return false;
+				if (vectorText14->Text == "") return false;
+				if (vectorText24->Text == "") return false;
+				if (vectorText34->Text == "") return false;
 				if (vectorText44->Text == "") return false;
 			}
 			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
-				if (vectorText34->Text == "") return false;
-				if (vectorText35->Text == "") return false;
 				if (vectorText43->Text == "") return false;
+				if (vectorText14->Text == "") return false;
+				if (vectorText24->Text == "") return false;
+				if (vectorText34->Text == "") return false;
 				if (vectorText44->Text == "") return false;
+				if (vectorText15->Text == "") return false;
+				if (vectorText25->Text == "") return false;
+				if (vectorText35->Text == "") return false;
 				if (vectorText45->Text == "") return false;
 			}
 		}
@@ -290,27 +310,39 @@ public:
 			if (vectorText51->Text == "") return false;
 			if (vectorText52->Text == "") return false;
 			if (pocetSuradnicVektorov->Value == 3) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
 				if (vectorText43->Text == "") return false;
 				if (vectorText53->Text == "") return false;
 			}
 			if (pocetSuradnicVektorov->Value == 4) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
-				if (vectorText34->Text == "") return false;
 				if (vectorText43->Text == "") return false;
-				if (vectorText44->Text == "") return false;
 				if (vectorText53->Text == "") return false;
+				if (vectorText14->Text == "") return false;
+				if (vectorText24->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText44->Text == "") return false;
 				if (vectorText54->Text == "") return false;
 			}
 			if (pocetSuradnicVektorov->Value == 5) {
+				if (vectorText13->Text == "") return false;
+				if (vectorText23->Text == "") return false;
 				if (vectorText33->Text == "") return false;
-				if (vectorText34->Text == "") return false;
-				if (vectorText35->Text == "") return false;
 				if (vectorText43->Text == "") return false;
-				if (vectorText44->Text == "") return false;
-				if (vectorText45->Text == "") return false;
 				if (vectorText53->Text == "") return false;
+				if (vectorText14->Text == "") return false;
+				if (vectorText24->Text == "") return false;
+				if (vectorText34->Text == "") return false;
+				if (vectorText44->Text == "") return false;
 				if (vectorText54->Text == "") return false;
+				if (vectorText15->Text == "") return false;
+				if (vectorText25->Text == "") return false;
+				if (vectorText35->Text == "") return false;
+				if (vectorText45->Text == "") return false;
 				if (vectorText55->Text == "") return false;
 			}
 		}
@@ -828,7 +860,6 @@ public:
 			   // 
 			   // bottomPanel
 			   // 
-			   this->bottomPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			   this->bottomPanel->Controls->Add(this->createButton);
 			   this->bottomPanel->Controls->Add(this->clearTaskButton);
 			   this->bottomPanel->Controls->Add(this->exitTaskButton);
@@ -1866,6 +1897,11 @@ public:
 
 			if (vB == 1) {
 				label15->Text = "b\u20D7 = (";
+				this->vectorText31->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText32->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText33->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText34->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText35->BackColor = System::Drawing::Color::DodgerBlue;
 			}
 		}
 		if (this->pocetVektorov->Value == 4) {
@@ -1878,6 +1914,11 @@ public:
 
 			if (vB == 1) {
 				label21->Text = "b\u20D7 = (";
+				this->vectorText41->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText42->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText43->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText44->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText45->BackColor = System::Drawing::Color::DodgerBlue;
 			}
 		}
 		if (this->pocetVektorov->Value == 5) {
@@ -1890,6 +1931,11 @@ public:
 
 			if (vB == 1) {
 				label27->Text = "b\u20D7 = (";
+				this->vectorText51->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText52->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText53->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText54->BackColor = System::Drawing::Color::DodgerBlue;
+				this->vectorText55->BackColor = System::Drawing::Color::DodgerBlue;
 			}
 		}
 
@@ -1932,6 +1978,39 @@ public:
 		label15->Text = "a₃ \u20D7 = (";
 		label21->Text = "a₄ \u20D7 = (";
 		label27->Text = "a₅ \u20D7 = (";
+
+		this->vectorText31->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText32->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText33->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText34->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText35->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+
+		this->vectorText41->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText42->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText43->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText44->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText45->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+
+		this->vectorText51->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText52->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText53->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText54->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
+		this->vectorText55->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			static_cast<System::Int32>(static_cast<System::Byte>(45)));
 
 	}
 

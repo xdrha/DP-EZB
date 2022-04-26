@@ -1,4 +1,4 @@
-#include "MatrixNewTaskDialog.h"
+﻿#include "MatrixNewTaskDialog.h"
 #include <iostream>
 #include <string>
 
@@ -41,6 +41,51 @@ namespace DP_EZB {
 		}
 	}
 
+	private: String^ subscript(String^ c) {
+		if (c == "0") return "₀";
+		if (c == "1") return "₁";
+		if (c == "2") return "₂";
+		if (c == "3") return "₃";
+		if (c == "4") return "₄";
+		if (c == "5") return "₅";
+		if (c == "6") return "₆";
+		if (c == "7") return "₇";
+		if (c == "8") return "₈";
+		if (c == "9") return "₉";
+		if (c == "10") return "₁₀";
+		return "";
+	}
+
+	private: String^ subscriptBack(String^ c) {
+		if (c == "₀") return "0";
+		if (c == "₁") return "1";
+		if (c == "₂") return "2";
+		if (c == "₃") return "3";
+		if (c == "₄") return "4";
+		if (c == "₅") return "5";
+		if (c == "₆") return "6";
+		if (c == "₇") return "7";
+		if (c == "₈") return "8";
+		if (c == "₉") return "9";
+		if (c == "₁₀") return "10";
+		return "";
+	}
+
+	private: String^ superscript(String^ c) {
+		if (c == "0") return "⁰";
+		if (c == "1") return "¹";
+		if (c == "2") return "²";
+		if (c == "3") return "³";
+		if (c == "4") return "⁴";
+		if (c == "5") return "⁵";
+		if (c == "6") return "⁶";
+		if (c == "7") return "⁷";
+		if (c == "8") return "⁸";
+		if (c == "9") return "⁹";
+		if (c == "10") return "¹⁰";
+		return "";
+	}
+
 	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount, double* pivots) {
 		// zaclenene vektory + ich zlozky
 		int pocetZaclenenych = 0;
@@ -51,18 +96,18 @@ namespace DP_EZB {
 		String^ output = "";
 
 		for (int i = 1; i <= pocetStlpcov - vectorB; i++) {
-			all += "s" + i;
+			all += "s" + subscript(i.ToString()) + "\u20D7";
 			if (i < pocetStlpcov - vectorB)
 				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
 				pocetZaclenenych++;
-				zaclenene += "s" + i;
+				zaclenene += "s" + subscript(i.ToString()) + "\u20D7";
 				if (i < pocetStlpcov - vectorB) {
 					zaclenene += ", ";
 				}
 			}
 			else {
-				nezaclenene += "s" + i;
+				nezaclenene += "s" + subscript(i.ToString()) + "\u20D7";
 				if (i < pocetStlpcov - vectorB) {
 					nezaclenene += ", ";
 				}
@@ -92,8 +137,8 @@ namespace DP_EZB {
 		}*/
 
 		//h(a1-an)
-		if (type == 1) output += "a) Maximalny pocet stlpcovych vektorov matice " + all + ", ktore mozeme zaclenit do bazy je " + pocetZaclenenych + ".\r\nPreto: h" +
-			all + " = " + pocetZaclenenych + ".\r\n";
+		if (type == 1) output += "a) Maximálny počet stĺpcových vektorov matice " + all + ", ktoré môžeme začlenit do bázy je " + pocetZaclenenych + ".\r\nPreto: h" +
+			all + " = " + pocetZaclenenych + ".\r\n\r\n";
 
 		// tu sa vypise rozklad matice
 
@@ -105,13 +150,18 @@ namespace DP_EZB {
 				if (i >= pocetZaclenenych && pocetZaclenenychVektorov[i] == 1) lnz = false;
 			}
 			if (!lnz) {
-				output += "a) Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice nie je linearne nezavislych. Nie je mozne rozlozit maticu na sucin.\r\n\r\n";
+				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice nie je lineárne nezávislých. Nie je možné rozložiť maticu na súčin.\r\n\r\n";
 			}
 			else {
-				output += "a) Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice je linearne nezavislych. Maticu je mozne rozlozit na sucin.\r\n\r\n";
+				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice je lineárne nezávislých. Maticu je možné rozložiť na súčin.\r\n\r\n";
 				//ak je h vektrov lineane nezavislych
 				//matica B
-				output += "b) Rozklad matice: A = B * C = B * (E | D)\r\n\r\nMatica B = ( ";
+				if (pocetZaclenenych == pocetStlpcov) {
+					output += "b) Boli začlenné všetky stĺpcové vektory matice, jedná sa o triviálny rozklad A = B \u2219 C = E" + subscript(pocetZaclenenych.ToString()) + " \u2219 A.\r\n\r\nMatica A = ( ";
+				}
+				else{
+					output += "b) Rozklad matice: A = B \u2219 C = B \u2219 (E | D)\r\n\r\nMatica B = ( ";
+				}
 
 				for (int i = 0; i < pocetRiadkov; i++) {
 					for (int j = 0; j < pocetZaclenenych; j++) {
@@ -158,7 +208,8 @@ namespace DP_EZB {
 					}
 				}
 
-				output += MatrixE + MatrixD;
+				output += MatrixE;
+				if (pocetZaclenenych != pocetStlpcov) output += MatrixD;
 
 			}
 
@@ -167,7 +218,7 @@ namespace DP_EZB {
 
 		if (type == 3) {
 			if (pocetZaclenenych == pocetStlpcov - vectorB) {
-				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regularna a existuje k nej inverzna matica: \r\n\r\nA * A - 1 = E\r\n\r\nb) Matica A = (";
+				output += "a) h(A) = " + pocetZaclenenych + " preto je matica A" + subscript(pocetStlpcov.ToString()) + " regulárna a existuje k nej inverzná matica: \r\n\r\nA \u2219 A\u207B¹ = E\r\n\r\nb) Matica A = (";
 
 				//tu vypis inverznu maticu
 				// matica A
@@ -184,7 +235,7 @@ namespace DP_EZB {
 
 				//matica A-1
 				String^ MatrixE = "Matica E = ( ";
-				String^ MatrixD = "Matica A-1 = ( ";
+				String^ MatrixD = "Matica A\u207B¹ = ( ";
 				int count = 0;
 				for (int j = 0; j < pocetStlpcov; j++) {
 					for (int i = 0; i < pocetRiadkov; i++) {
@@ -217,7 +268,7 @@ namespace DP_EZB {
 				output += MatrixD + MatrixE;
 
 			}
-			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singularna a neexistuje k nej inverzna matica\r\n\r\n";
+			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A" + subscript(pocetStlpcov.ToString()) +" singulárna a neexistuje k nej inverzná matica A\u207B¹\r\n\r\n";
 		}
 
 		if (type == 4) {
@@ -230,7 +281,7 @@ namespace DP_EZB {
 				int indexes[5];
 				for (int i = 0; i < pocetStlpcov; i++) {
 					help = helpField->Substring(1, helpField->IndexOf("/"));
-					indexes[i] = System::Convert::ToInt32(help->Substring(0, 1));
+					indexes[i] = System::Convert::ToInt32(subscriptBack(help->Substring(0, 1)));
 					helpField = helpField->Remove(0, helpField->IndexOf("/") + 1);
 				}
 
@@ -242,7 +293,7 @@ namespace DP_EZB {
 					if (i < pocetStlpcov - 1) permutacia += ", ";
 				}
 				permutacia += ")";
-				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regularna a existuje k nej determinant. Pocet inverzii permutacii stlpcovych indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n\r\n";
+				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regulárna a existuje k nej determinant. Počet inverzií permutacií stĺpcových indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n\r\n";
 				output += "b) Determinant matice A:\r\n|A| = ";
 
 				double result = 1;
@@ -250,15 +301,15 @@ namespace DP_EZB {
 					if (pivots[i] < 0) output += "(";
 					output += round_up(pivots[i], 2);
 					if (pivots[i] < 0) output += ")";
-					output += " * ";
+					output += " \u2219 ";
 					result *= pivots[i];
 				}
 
-				output += "(-1)^" + pocetPermutacii + " = " + round_up(result * pow(-1, pocetPermutacii), 2) + "\r\n\r\n";
+				output += "(-1)" + superscript( pocetPermutacii.ToString()) + " = " + round_up(result * pow(-1, pocetPermutacii), 2) + "\r\n\r\n";
 
 			}
 			else {
-				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singularna a neexistuje k nej determinant\r\n\r\n";
+				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singulárna a neexistuje k nej determinant\r\n\r\n";
 			}
 		}
 
@@ -272,7 +323,7 @@ namespace DP_EZB {
 				if (m[i][pocetStlpcov - 1] < 0) {
 					String^ help = "";
 					help += heplField->Substring(0, heplField->IndexOf("/"));
-					vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
+					vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
 					if (!sign) sign = true;
 				}
 				else {
@@ -280,7 +331,7 @@ namespace DP_EZB {
 						String^ help = "";
 						help += heplField->Substring(0, heplField->IndexOf("/"));
 						if (sign) vektorB += " + ";
-						vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " * " + help->Substring(0, 2);
+						vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
 						if (!sign) sign = true;
 					}
 				}
@@ -294,13 +345,12 @@ namespace DP_EZB {
 					if (m[i][j - 1] != 0) count++;
 				if (count == 0 && m[i][pocetStlpcov] != 0) {
 					//nie je linearnou kombinaciou vektorov bazy + vypis bazu pretoze zlozka bindex != 0
-					output += "b) Vektor b nie je linearnou kombinaciou vektorov bazy { " + zaclenene + " }, pretoze zlozka b" + (i + 1) + " != 0.\r\nPreto vektor b nie je kompatibilny so stlpcovym podpriestorom matice.";
+					output += "b) Vektor b\u20D7 nie je lineárnou kombináciou vektorov bázy { " + zaclenene + " }, pretože zložka b" + subscript((i + 1).ToString()) + " \u2260 0.\r\nPreto vektor b nie je kompatibilny so stlpcovym podpriestorom matice.\r\n";
 					return output;
 				}
 			}
-			output += "b) Vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + " a plati: b = " + vektorB + ".\r\nVektor b je je kompatibilny so stlpcovym podpriestorom matice.";
+			output += "b) Vektor b\u20D7 je lineárnou kombináciou bázických vektorov " + zaclenene + " a platí:\r\nb\u20D7 = " + vektorB + ".\r\nVektor b\u20D7 je kompatibilný so stĺpcovým podpriestorom matice.\r\n";
 		}
-
 
 		// tu vraciam text !!
 		return output;

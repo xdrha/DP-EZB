@@ -1,0 +1,7 @@
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP-EZB.vcxproj.AssemblyReference.cache
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP-EZB.vcxproj.SuggestedBindingRedirects.cache
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.MatrixNewTaskDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.MyForm.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.SLRNewTaskDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.VectorsNewTaskDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP-EZB.vcxproj.GenerateResource.cache

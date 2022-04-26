@@ -1,4 +1,4 @@
-#include "VectorsNewTaskDialog.h"
+﻿#include "VectorsNewTaskDialog.h"
 #include <iostream>
 #include <string.h>
 
@@ -18,6 +18,19 @@ namespace DP_EZB {
 		this->matrix = m;
 		this->vectorB = vB;
 	}
+	private: String^ subscript(String^ c) {
+		if (c == "0") return "₀";
+		if (c == "1") return "₁";
+		if (c == "2") return "₂";
+		if (c == "3") return "₃";
+		if (c == "4") return "₄";
+		if (c == "5") return "₅";
+		if (c == "6") return "₆";
+		if (c == "7") return "₇";
+		if (c == "8") return "₈";
+		if (c == "9") return "₉";
+		return "";
+	}
 
 	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, String^ field, int rowCount) {
 		// zaclenene vektory + ich zlozky
@@ -26,21 +39,21 @@ namespace DP_EZB {
 		String^ zaclenene = "";
 		String^ nezaclenene = "";
 		String^ vektorB = "";
-		String^ output = "Koniec vypoctu!\r\n\r\n";
+		String^ output = "Koniec výpočtu!\r\n\r\n";
 
 		for (int i = 1; i <= pocetVektorov - vectorB; i++) {
-			all += "a" + i;
+			all += "a" + subscript(i.ToString()) + "\u20D7";
 			if (i < pocetVektorov - vectorB)
 				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
 				pocetZaclenenych++;
-				zaclenene += "a" + i;
+				zaclenene += "a" + subscript(i.ToString()) + "\u20D7";
 				if (i < pocetVektorov - vectorB) {
 					zaclenene += ", ";
 				}
 			}
 			else {
-				nezaclenene += "a" + i;
+				nezaclenene += "a" + subscript(i.ToString()) + "\u20D7";
 				if (i < pocetVektorov - vectorB) {
 					nezaclenene += ", ";
 				}
@@ -88,31 +101,31 @@ namespace DP_EZB {
 
 		if (check == 0) {
 			if (pocetZaclenenych == pocetVektorov - vectorB) {
-				output += "a) System vektorov A = " + all +
-					" je linearne nezavisly. Vsetky vektory boli zaclenene do bazy a su linearne nezavisle.\r\n\r\n";
+				output += "a) Systém vektorov A = " + all +
+					" je lineárne nezávislý. Všetky vektory boli začlenené do bázy a sú lineárne nezávislé.\r\n\r\n";
 			}
 			else {
 				if (pocetZaclenenych > 0) {
-					output += "a) System vektorov A = " + all +
-						" je linearne zavisly, pretoze aspon jeden z vektorov ( " + nezaclenene + " ) je linearnou kombinaciou ostatnych vektorov.\r\n\r\n";
+					output += "a) Systém vektorov A = " + all +
+						" je lineárne závisly, pretože aspoň jeden z vektorov ( " + nezaclenene + " ) je lineárnou kombináciou ostatnch vektorov.\r\n\r\n";
 				}
 			}
 		}
 		else {
 			if (pocetZaclenenych == pocetVektorov - vectorB) {
-				output += "a) System vektorov A = " + all +
-					" je linearne nezavisly. Vsetky vektory boli zaclenene do bazy a su linearne nezavisle.\r\n\r\n";
+				output += "a) Systém vektorov A = " + all +
+					" je lineárne nezávislý. Všetky vektory boli začlenené do bázy a sú lineárne nezávislé.\r\n\r\n";
 			}
 			else {
-				output += "a) System vektorov A = " + all +
-					" je linearne zavisly, pretoze aspon jeden z vektorov ( " + nezaclenene + " ) je linearnou kombinaciou ostatnych vektorov.\r\n\r\n";
+				output += "a) Systém vektorov A = " + all +
+					" je lineárne závisly, pretože aspoň jeden z vektorov ( " + nezaclenene + " ) je lineárnou kombináciou ostatnch vektorov.\r\n\r\n";
 			}
 
 		}
 
 		//h(a1-an)
 
-		output += "b) Maximalny pocet vektorov systemu " + all + " ktore mozeme zaclenit do bazy je " + pocetZaclenenych + ".\r\nPreto: h" +
+		output += "b) Maximálny počet vektorov systému " + all + ", ktoré môžeme začlenit do bázy je " + pocetZaclenenych + ".\r\nPreto: h" +
 			all + " = " + pocetZaclenenych + ".\r\n\r\n";
 
 		//ci je vektor b linearnou kombinaciou
@@ -124,11 +137,11 @@ namespace DP_EZB {
 					if (m[i][j - 1] != 0) count++;
 				if (count == 0 && m[i][pocetVektorov] != 0) {
 					//nie je linearnou kombinaciou vektorov bazy + vypis bazu pretoze zlozka bindex != 0
-					output += "c) Vektor b nie je linearnou kombinaciou vektorov bazy { " + zaclenene + " }, pretoze zlozka b" + (i + 1) + " != 0.\r\n";
+					output += "c) Vektor b\u20D7 nie je lineárnou kombináciou vektorov bázy { " + zaclenene + " }, pretože zložka b" + (i + 1) + " \u2260 0.\r\n";
 					return output;
 				}
 			}
-			output += "c) Vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + ".";
+			output += "c) Vektor b\u20D7 je lineárnou kombináciou bázickych vektorov " + zaclenene + ".";
 		}
 
 		return output;

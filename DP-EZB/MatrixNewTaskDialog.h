@@ -50,14 +50,14 @@ namespace DP_EZB {
 
 			private: System::Windows::Forms::TextBox^ matrixText11;
 
-			private: System::Windows::Forms::Label^ label3;
+			public: System::Windows::Forms::Label^ label3;
 			public: System::Windows::Forms::NumericUpDown^ pocetStlpcov;
 			public: System::Windows::Forms::Label^ label2;
 			private: System::Windows::Forms::NumericUpDown^ pocetRiadkov;
 			public: System::Windows::Forms::Label^ LabelFirstAction;
 			private: System::Windows::Forms::Panel^ bottomPanel;
 
-			private: System::Windows::Forms::Button^ exitTaskButton;
+
 			private: System::Windows::Forms::Button^ clearTaskButton;
 			private: System::Windows::Forms::Button^ createButton;
 			private: System::Windows::Forms::Panel^ matrixPanel2;
@@ -234,88 +234,123 @@ namespace DP_EZB {
 				return matrix;
 			}
 
-			private: Boolean getVsetkyVyplnene() {
-				if (matrixText11->Text == "") return false;
-				if (matrixText12->Text == "") return false;
-				if (matrixText21->Text == "") return false;
-				if (matrixText22->Text == "") return false;
+private: Boolean getVsetkyVyplnene() {
+	if (matrixText11->Text == "") return false;
+	if (matrixText12->Text == "") return false;
+	if (matrixText21->Text == "") return false;
+	if (matrixText22->Text == "") return false;
 
-				if (pocetRiadkov->Value == 3) {
-					if (matrixText31->Text == "") return false;
-					if (matrixText32->Text == "") return false;
-					if (pocetStlpcov->Value == 3)
-						if (matrixText33->Text == "") return false;
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-						if (matrixText35->Text == "") return false;
-					}
+	if (pocetRiadkov->Value == 3) {
 
-				}
-				if (pocetRiadkov->Value == 4) {
-					if (matrixText31->Text == "") return false;
-					if (matrixText32->Text == "") return false;
-					if (matrixText41->Text == "") return false;
-					if (matrixText42->Text == "") return false;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-					}
+		if (matrixText31->Text == "") return false;
+		if (matrixText32->Text == "") return false;
+		if (pocetStlpcov->Value == 3) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+		}
 
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-						if (matrixText44->Text == "") return false;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-						if (matrixText35->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-						if (matrixText44->Text == "") return false;
-						if (matrixText45->Text == "") return false;
-					}
-				}
-				if (pocetRiadkov->Value == 5) {
-					if (matrixText31->Text == "") return false;
-					if (matrixText32->Text == "") return false;
-					if (matrixText41->Text == "") return false;
-					if (matrixText42->Text == "") return false;
-					if (matrixText51->Text == "") return false;
-					if (matrixText52->Text == "") return false;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-						if (matrixText53->Text == "") return false;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-						if (matrixText44->Text == "") return false;
-						if (matrixText53->Text == "") return false;
-						if (matrixText54->Text == "") return false;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText33->Text == "") return false;
-						if (matrixText34->Text == "") return false;
-						if (matrixText35->Text == "") return false;
-						if (matrixText43->Text == "") return false;
-						if (matrixText44->Text == "") return false;
-						if (matrixText45->Text == "") return false;
-						if (matrixText53->Text == "") return false;
-						if (matrixText54->Text == "") return false;
-						if (matrixText55->Text == "") return false;
-					}
-				}
+		if (pocetStlpcov->Value == 4) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+		}
+		if (pocetStlpcov->Value == 5) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+			if (matrixText35->Text == "") return false;
+		}
 
-				return true;
-			}
+	}
+	if (pocetRiadkov->Value == 4) {
+
+		if (matrixText31->Text == "") return false;
+		if (matrixText32->Text == "") return false;
+		if (matrixText41->Text == "") return false;
+		if (matrixText42->Text == "") return false;
+		if (pocetStlpcov->Value == 3) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+		}
+
+		if (pocetStlpcov->Value == 4) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+			if (matrixText14->Text == "") return false;
+			if (matrixText24->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+			if (matrixText44->Text == "") return false;
+		}
+		if (pocetStlpcov->Value == 5) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+			if (matrixText14->Text == "") return false;
+			if (matrixText24->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+			if (matrixText44->Text == "") return false;
+			if (matrixText15->Text == "") return false;
+			if (matrixText25->Text == "") return false;
+			if (matrixText35->Text == "") return false;
+			if (matrixText45->Text == "") return false;
+		}
+	}
+	if (pocetRiadkov->Value == 5) {
+
+		if (matrixText31->Text == "") return false;
+		if (matrixText32->Text == "") return false;
+		if (matrixText41->Text == "") return false;
+		if (matrixText42->Text == "") return false;
+		if (matrixText51->Text == "") return false;
+		if (matrixText52->Text == "") return false;
+		if (pocetStlpcov->Value == 3) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+			if (matrixText53->Text == "") return false;
+		}
+		if (pocetStlpcov->Value == 4) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+			if (matrixText53->Text == "") return false;
+			if (matrixText14->Text == "") return false;
+			if (matrixText24->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+			if (matrixText44->Text == "") return false;
+			if (matrixText54->Text == "") return false;
+		}
+		if (pocetStlpcov->Value == 5) {
+			if (matrixText13->Text == "") return false;
+			if (matrixText23->Text == "") return false;
+			if (matrixText33->Text == "") return false;
+			if (matrixText43->Text == "") return false;
+			if (matrixText53->Text == "") return false;
+			if (matrixText14->Text == "") return false;
+			if (matrixText24->Text == "") return false;
+			if (matrixText34->Text == "") return false;
+			if (matrixText44->Text == "") return false;
+			if (matrixText54->Text == "") return false;
+			if (matrixText15->Text == "") return false;
+			if (matrixText25->Text == "") return false;
+			if (matrixText35->Text == "") return false;
+			if (matrixText45->Text == "") return false;
+			if (matrixText55->Text == "") return false;
+		}
+	}
+
+	return true;
+}
 
 			private: Boolean getNulovyRiadok() {
 				if (matrixText11->Text == "0" && matrixText12->Text == "0") {
@@ -514,7 +549,6 @@ namespace DP_EZB {
 					   this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 					   this->createButton = (gcnew System::Windows::Forms::Button());
 					   this->clearTaskButton = (gcnew System::Windows::Forms::Button());
-					   this->exitTaskButton = (gcnew System::Windows::Forms::Button());
 					   this->matrixPanel2 = (gcnew System::Windows::Forms::Panel());
 					   this->matrixText25 = (gcnew System::Windows::Forms::TextBox());
 					   this->matrixText24 = (gcnew System::Windows::Forms::TextBox());
@@ -557,10 +591,10 @@ namespace DP_EZB {
 					   this->matrixPanel1->Controls->Add(this->matrixText13);
 					   this->matrixPanel1->Controls->Add(this->matrixText12);
 					   this->matrixPanel1->Controls->Add(this->matrixText11);
-					   this->matrixPanel1->Location = System::Drawing::Point(123, 136);
+					   this->matrixPanel1->Location = System::Drawing::Point(100, 158);
 					   this->matrixPanel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel1->Name = L"matrixPanel1";
-					   this->matrixPanel1->Size = System::Drawing::Size(336, 45);
+					   this->matrixPanel1->Size = System::Drawing::Size(373, 47);
 					   this->matrixPanel1->TabIndex = 2;
 					   // 
 					   // matrixText15
@@ -570,10 +604,10 @@ namespace DP_EZB {
 					   this->matrixText15->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText15->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText15->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText15->Location = System::Drawing::Point(289, 6);
+					   this->matrixText15->Location = System::Drawing::Point(321, 6);
 					   this->matrixText15->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText15->Name = L"matrixText15";
-					   this->matrixText15->Size = System::Drawing::Size(38, 29);
+					   this->matrixText15->Size = System::Drawing::Size(42, 30);
 					   this->matrixText15->TabIndex = 6;
 					   this->matrixText15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText15_KeyPress);
 					   this->matrixText15->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText15_Leave);
@@ -585,10 +619,10 @@ namespace DP_EZB {
 					   this->matrixText14->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText14->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText14->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText14->Location = System::Drawing::Point(221, 6);
+					   this->matrixText14->Location = System::Drawing::Point(246, 6);
 					   this->matrixText14->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText14->Name = L"matrixText14";
-					   this->matrixText14->Size = System::Drawing::Size(38, 29);
+					   this->matrixText14->Size = System::Drawing::Size(42, 30);
 					   this->matrixText14->TabIndex = 5;
 					   this->matrixText14->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText14_KeyPress);
 					   this->matrixText14->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText14_Leave);
@@ -600,10 +634,10 @@ namespace DP_EZB {
 					   this->matrixText13->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText13->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText13->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText13->Location = System::Drawing::Point(150, 6);
+					   this->matrixText13->Location = System::Drawing::Point(167, 6);
 					   this->matrixText13->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText13->Name = L"matrixText13";
-					   this->matrixText13->Size = System::Drawing::Size(38, 29);
+					   this->matrixText13->Size = System::Drawing::Size(42, 30);
 					   this->matrixText13->TabIndex = 4;
 					   this->matrixText13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText13_KeyPress);
 					   this->matrixText13->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText13_Leave);
@@ -615,10 +649,10 @@ namespace DP_EZB {
 					   this->matrixText12->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText12->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText12->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText12->Location = System::Drawing::Point(79, 6);
+					   this->matrixText12->Location = System::Drawing::Point(88, 6);
 					   this->matrixText12->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText12->Name = L"matrixText12";
-					   this->matrixText12->Size = System::Drawing::Size(38, 29);
+					   this->matrixText12->Size = System::Drawing::Size(42, 30);
 					   this->matrixText12->TabIndex = 3;
 					   this->matrixText12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText12_KeyPress);
 					   this->matrixText12->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText12_Leave);
@@ -630,10 +664,10 @@ namespace DP_EZB {
 					   this->matrixText11->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText11->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText11->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText11->Location = System::Drawing::Point(11, 6);
+					   this->matrixText11->Location = System::Drawing::Point(12, 6);
 					   this->matrixText11->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText11->Name = L"matrixText11";
-					   this->matrixText11->Size = System::Drawing::Size(38, 29);
+					   this->matrixText11->Size = System::Drawing::Size(42, 30);
 					   this->matrixText11->TabIndex = 2;
 					   this->matrixText11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText11_KeyPress);
 					   this->matrixText11->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText11_Leave);
@@ -644,12 +678,12 @@ namespace DP_EZB {
 					   this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 					   this->label3->ForeColor = System::Drawing::SystemColors::Window;
-					   this->label3->Location = System::Drawing::Point(25, 151);
+					   this->label3->Location = System::Drawing::Point(20, 114);
 					   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 					   this->label3->Name = L"label3";
-					   this->label3->Size = System::Drawing::Size(59, 21);
+					   this->label3->Size = System::Drawing::Size(195, 22);
 					   this->label3->TabIndex = 11;
-					   this->label3->Text = L"Matica:";
+					   this->label3->Text = L"3. Vyplň zložky matice:";
 					   // 
 					   // pocetStlpcov
 					   // 
@@ -659,13 +693,13 @@ namespace DP_EZB {
 					   this->pocetStlpcov->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->pocetStlpcov->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->pocetStlpcov->ForeColor = System::Drawing::SystemColors::Window;
-					   this->pocetStlpcov->Location = System::Drawing::Point(266, 61);
+					   this->pocetStlpcov->Location = System::Drawing::Point(220, 64);
 					   this->pocetStlpcov->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->pocetStlpcov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetStlpcov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
 					   this->pocetStlpcov->Name = L"pocetStlpcov";
 					   this->pocetStlpcov->ReadOnly = true;
-					   this->pocetStlpcov->Size = System::Drawing::Size(66, 29);
+					   this->pocetStlpcov->Size = System::Drawing::Size(73, 30);
 					   this->pocetStlpcov->TabIndex = 1;
 					   this->pocetStlpcov->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetStlpcov->ValueChanged += gcnew System::EventHandler(this, &matrixNewTaskDialog::pocetStlpcov_ValueChanged);
@@ -674,10 +708,10 @@ namespace DP_EZB {
 					   // 
 					   this->label2->AutoSize = true;
 					   this->label2->ForeColor = System::Drawing::SystemColors::Window;
-					   this->label2->Location = System::Drawing::Point(18, 63);
+					   this->label2->Location = System::Drawing::Point(20, 66);
 					   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 					   this->label2->Name = L"label2";
-					   this->label2->Size = System::Drawing::Size(162, 21);
+					   this->label2->Size = System::Drawing::Size(188, 22);
 					   this->label2->TabIndex = 9;
 					   this->label2->Text = L"2. Zadaj počet stĺpcov:";
 					   // 
@@ -688,14 +722,14 @@ namespace DP_EZB {
 					   this->pocetRiadkov->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->pocetRiadkov->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->pocetRiadkov->ForeColor = System::Drawing::SystemColors::Window;
-					   this->pocetRiadkov->Location = System::Drawing::Point(266, 19);
+					   this->pocetRiadkov->Location = System::Drawing::Point(220, 20);
 					   this->pocetRiadkov->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->pocetRiadkov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetRiadkov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
 					   this->pocetRiadkov->Name = L"pocetRiadkov";
 					   this->pocetRiadkov->ReadOnly = true;
 					   this->pocetRiadkov->RightToLeft = System::Windows::Forms::RightToLeft::No;
-					   this->pocetRiadkov->Size = System::Drawing::Size(66, 29);
+					   this->pocetRiadkov->Size = System::Drawing::Size(73, 30);
 					   this->pocetRiadkov->TabIndex = 0;
 					   this->pocetRiadkov->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetRiadkov->ValueChanged += gcnew System::EventHandler(this, &matrixNewTaskDialog::pocetRiadkov_ValueChanged);
@@ -704,73 +738,57 @@ namespace DP_EZB {
 					   // 
 					   this->LabelFirstAction->AutoSize = true;
 					   this->LabelFirstAction->ForeColor = System::Drawing::SystemColors::Window;
-					   this->LabelFirstAction->Location = System::Drawing::Point(18, 19);
+					   this->LabelFirstAction->Location = System::Drawing::Point(20, 20);
 					   this->LabelFirstAction->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 					   this->LabelFirstAction->Name = L"LabelFirstAction";
-					   this->LabelFirstAction->Size = System::Drawing::Size(165, 21);
+					   this->LabelFirstAction->Size = System::Drawing::Size(193, 22);
 					   this->LabelFirstAction->TabIndex = 7;
 					   this->LabelFirstAction->Text = L"1. Zadaj počet riadkov:";
 					   // 
 					   // bottomPanel
 					   // 
-					   this->bottomPanel->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->bottomPanel->Controls->Add(this->createButton);
 					   this->bottomPanel->Controls->Add(this->clearTaskButton);
-					   this->bottomPanel->Controls->Add(this->exitTaskButton);
 					   this->bottomPanel->Dock = System::Windows::Forms::DockStyle::Bottom;
-					   this->bottomPanel->Location = System::Drawing::Point(0, 461);
+					   this->bottomPanel->Location = System::Drawing::Point(0, 483);
 					   this->bottomPanel->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->bottomPanel->Name = L"bottomPanel";
-					   this->bottomPanel->Size = System::Drawing::Size(607, 38);
+					   this->bottomPanel->Size = System::Drawing::Size(674, 40);
 					   this->bottomPanel->TabIndex = 13;
 					   // 
 					   // createButton
 					   // 
-					   this->createButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->createButton->BackColor = System::Drawing::Color::MediumSeaGreen;
 					   this->createButton->Cursor = System::Windows::Forms::Cursors::Hand;
-					   this->createButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+					   this->createButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->createButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 					   this->createButton->ForeColor = System::Drawing::SystemColors::Window;
-					   this->createButton->Location = System::Drawing::Point(421, -1);
+					   this->createButton->Location = System::Drawing::Point(431, -1);
 					   this->createButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->createButton->Name = L"createButton";
-					   this->createButton->Size = System::Drawing::Size(105, 38);
+					   this->createButton->Size = System::Drawing::Size(228, 40);
 					   this->createButton->TabIndex = 29;
-					   this->createButton->Text = L"Vytvoriť";
+					   this->createButton->Text = L"➕ Vytvoriť novú úlohu";
 					   this->createButton->UseVisualStyleBackColor = false;
 					   this->createButton->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::createButton_Click);
 					   // 
 					   // clearTaskButton
 					   // 
-					   this->clearTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->clearTaskButton->BackColor = System::Drawing::Color::Crimson;
 					   this->clearTaskButton->Cursor = System::Windows::Forms::Cursors::Hand;
-					   this->clearTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+					   this->clearTaskButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->clearTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 					   this->clearTaskButton->ForeColor = System::Drawing::SystemColors::Window;
-					   this->clearTaskButton->Location = System::Drawing::Point(244, -1);
+					   this->clearTaskButton->Location = System::Drawing::Point(271, -1);
 					   this->clearTaskButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->clearTaskButton->Name = L"clearTaskButton";
-					   this->clearTaskButton->Size = System::Drawing::Size(105, 38);
+					   this->clearTaskButton->Size = System::Drawing::Size(117, 40);
 					   this->clearTaskButton->TabIndex = 28;
-					   this->clearTaskButton->Text = L"Zmazať";
+					   this->clearTaskButton->Text = L"❌ Zmazať";
 					   this->clearTaskButton->UseVisualStyleBackColor = false;
 					   this->clearTaskButton->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::clearTaskButton_Click);
-					   // 
-					   // exitTaskButton
-					   // 
-					   this->exitTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
-					   this->exitTaskButton->Cursor = System::Windows::Forms::Cursors::Hand;
-					   this->exitTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-					   this->exitTaskButton->ForeColor = System::Drawing::SystemColors::Window;
-					   this->exitTaskButton->Location = System::Drawing::Point(76, -1);
-					   this->exitTaskButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-					   this->exitTaskButton->Name = L"exitTaskButton";
-					   this->exitTaskButton->Size = System::Drawing::Size(105, 38);
-					   this->exitTaskButton->TabIndex = 27;
-					   this->exitTaskButton->Text = L"Zrušiť";
-					   this->exitTaskButton->UseVisualStyleBackColor = false;
-					   this->exitTaskButton->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::exitTaskButton_Click);
 					   // 
 					   // matrixPanel2
 					   // 
@@ -779,10 +797,10 @@ namespace DP_EZB {
 					   this->matrixPanel2->Controls->Add(this->matrixText23);
 					   this->matrixPanel2->Controls->Add(this->matrixText22);
 					   this->matrixPanel2->Controls->Add(this->matrixText21);
-					   this->matrixPanel2->Location = System::Drawing::Point(123, 191);
+					   this->matrixPanel2->Location = System::Drawing::Point(100, 216);
 					   this->matrixPanel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel2->Name = L"matrixPanel2";
-					   this->matrixPanel2->Size = System::Drawing::Size(336, 45);
+					   this->matrixPanel2->Size = System::Drawing::Size(373, 47);
 					   this->matrixPanel2->TabIndex = 3;
 					   // 
 					   // matrixText25
@@ -792,10 +810,10 @@ namespace DP_EZB {
 					   this->matrixText25->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText25->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText25->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText25->Location = System::Drawing::Point(288, 6);
+					   this->matrixText25->Location = System::Drawing::Point(320, 6);
 					   this->matrixText25->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText25->Name = L"matrixText25";
-					   this->matrixText25->Size = System::Drawing::Size(38, 29);
+					   this->matrixText25->Size = System::Drawing::Size(42, 30);
 					   this->matrixText25->TabIndex = 11;
 					   this->matrixText25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText25_KeyPress);
 					   this->matrixText25->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText25_Leave);
@@ -807,10 +825,10 @@ namespace DP_EZB {
 					   this->matrixText24->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText24->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText24->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText24->Location = System::Drawing::Point(220, 6);
+					   this->matrixText24->Location = System::Drawing::Point(244, 6);
 					   this->matrixText24->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText24->Name = L"matrixText24";
-					   this->matrixText24->Size = System::Drawing::Size(38, 29);
+					   this->matrixText24->Size = System::Drawing::Size(42, 30);
 					   this->matrixText24->TabIndex = 10;
 					   this->matrixText24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText24_KeyPress);
 					   this->matrixText24->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText24_Leave);
@@ -822,10 +840,10 @@ namespace DP_EZB {
 					   this->matrixText23->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText23->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText23->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText23->Location = System::Drawing::Point(149, 6);
+					   this->matrixText23->Location = System::Drawing::Point(166, 6);
 					   this->matrixText23->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText23->Name = L"matrixText23";
-					   this->matrixText23->Size = System::Drawing::Size(38, 29);
+					   this->matrixText23->Size = System::Drawing::Size(42, 30);
 					   this->matrixText23->TabIndex = 9;
 					   this->matrixText23->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText23_KeyPress);
 					   this->matrixText23->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText23_Leave);
@@ -837,10 +855,10 @@ namespace DP_EZB {
 					   this->matrixText22->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText22->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText22->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText22->Location = System::Drawing::Point(78, 6);
+					   this->matrixText22->Location = System::Drawing::Point(87, 6);
 					   this->matrixText22->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText22->Name = L"matrixText22";
-					   this->matrixText22->Size = System::Drawing::Size(38, 29);
+					   this->matrixText22->Size = System::Drawing::Size(42, 30);
 					   this->matrixText22->TabIndex = 8;
 					   this->matrixText22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText22_KeyPress);
 					   this->matrixText22->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText22_Leave);
@@ -852,10 +870,10 @@ namespace DP_EZB {
 					   this->matrixText21->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText21->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText21->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText21->Location = System::Drawing::Point(10, 6);
+					   this->matrixText21->Location = System::Drawing::Point(11, 6);
 					   this->matrixText21->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText21->Name = L"matrixText21";
-					   this->matrixText21->Size = System::Drawing::Size(38, 29);
+					   this->matrixText21->Size = System::Drawing::Size(42, 30);
 					   this->matrixText21->TabIndex = 7;
 					   this->matrixText21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText21_KeyPress);
 					   this->matrixText21->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText21_Leave);
@@ -867,10 +885,10 @@ namespace DP_EZB {
 					   this->matrixPanel3->Controls->Add(this->matrixText33);
 					   this->matrixPanel3->Controls->Add(this->matrixText32);
 					   this->matrixPanel3->Controls->Add(this->matrixText31);
-					   this->matrixPanel3->Location = System::Drawing::Point(123, 246);
+					   this->matrixPanel3->Location = System::Drawing::Point(100, 274);
 					   this->matrixPanel3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel3->Name = L"matrixPanel3";
-					   this->matrixPanel3->Size = System::Drawing::Size(336, 45);
+					   this->matrixPanel3->Size = System::Drawing::Size(373, 47);
 					   this->matrixPanel3->TabIndex = 4;
 					   // 
 					   // matrixText35
@@ -880,10 +898,10 @@ namespace DP_EZB {
 					   this->matrixText35->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText35->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText35->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText35->Location = System::Drawing::Point(288, 6);
+					   this->matrixText35->Location = System::Drawing::Point(320, 6);
 					   this->matrixText35->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText35->Name = L"matrixText35";
-					   this->matrixText35->Size = System::Drawing::Size(38, 29);
+					   this->matrixText35->Size = System::Drawing::Size(42, 30);
 					   this->matrixText35->TabIndex = 16;
 					   this->matrixText35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText35_KeyPress);
 					   this->matrixText35->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText35_Leave);
@@ -895,10 +913,10 @@ namespace DP_EZB {
 					   this->matrixText34->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText34->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText34->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText34->Location = System::Drawing::Point(220, 6);
+					   this->matrixText34->Location = System::Drawing::Point(244, 6);
 					   this->matrixText34->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText34->Name = L"matrixText34";
-					   this->matrixText34->Size = System::Drawing::Size(38, 29);
+					   this->matrixText34->Size = System::Drawing::Size(42, 30);
 					   this->matrixText34->TabIndex = 15;
 					   this->matrixText34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText34_KeyPress);
 					   this->matrixText34->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText34_Leave);
@@ -910,10 +928,10 @@ namespace DP_EZB {
 					   this->matrixText33->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText33->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText33->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText33->Location = System::Drawing::Point(149, 6);
+					   this->matrixText33->Location = System::Drawing::Point(166, 6);
 					   this->matrixText33->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText33->Name = L"matrixText33";
-					   this->matrixText33->Size = System::Drawing::Size(38, 29);
+					   this->matrixText33->Size = System::Drawing::Size(42, 30);
 					   this->matrixText33->TabIndex = 14;
 					   this->matrixText33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText33_KeyPress);
 					   this->matrixText33->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText33_Leave);
@@ -925,10 +943,10 @@ namespace DP_EZB {
 					   this->matrixText32->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText32->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText32->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText32->Location = System::Drawing::Point(78, 6);
+					   this->matrixText32->Location = System::Drawing::Point(87, 6);
 					   this->matrixText32->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText32->Name = L"matrixText32";
-					   this->matrixText32->Size = System::Drawing::Size(38, 29);
+					   this->matrixText32->Size = System::Drawing::Size(42, 30);
 					   this->matrixText32->TabIndex = 13;
 					   this->matrixText32->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText32_KeyPress);
 					   this->matrixText32->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText32_Leave);
@@ -940,10 +958,10 @@ namespace DP_EZB {
 					   this->matrixText31->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText31->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText31->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText31->Location = System::Drawing::Point(10, 6);
+					   this->matrixText31->Location = System::Drawing::Point(11, 6);
 					   this->matrixText31->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText31->Name = L"matrixText31";
-					   this->matrixText31->Size = System::Drawing::Size(38, 29);
+					   this->matrixText31->Size = System::Drawing::Size(42, 30);
 					   this->matrixText31->TabIndex = 12;
 					   this->matrixText31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText31_KeyPress);
 					   this->matrixText31->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText31_Leave);
@@ -955,10 +973,10 @@ namespace DP_EZB {
 					   this->matrixPanel4->Controls->Add(this->matrixText43);
 					   this->matrixPanel4->Controls->Add(this->matrixText42);
 					   this->matrixPanel4->Controls->Add(this->matrixText41);
-					   this->matrixPanel4->Location = System::Drawing::Point(123, 301);
+					   this->matrixPanel4->Location = System::Drawing::Point(100, 331);
 					   this->matrixPanel4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel4->Name = L"matrixPanel4";
-					   this->matrixPanel4->Size = System::Drawing::Size(336, 45);
+					   this->matrixPanel4->Size = System::Drawing::Size(373, 47);
 					   this->matrixPanel4->TabIndex = 5;
 					   // 
 					   // matrixText45
@@ -968,10 +986,10 @@ namespace DP_EZB {
 					   this->matrixText45->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText45->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText45->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText45->Location = System::Drawing::Point(288, 6);
+					   this->matrixText45->Location = System::Drawing::Point(320, 6);
 					   this->matrixText45->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText45->Name = L"matrixText45";
-					   this->matrixText45->Size = System::Drawing::Size(38, 29);
+					   this->matrixText45->Size = System::Drawing::Size(42, 30);
 					   this->matrixText45->TabIndex = 21;
 					   this->matrixText45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText45_KeyPress);
 					   this->matrixText45->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText45_Leave);
@@ -983,10 +1001,10 @@ namespace DP_EZB {
 					   this->matrixText44->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText44->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText44->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText44->Location = System::Drawing::Point(220, 6);
+					   this->matrixText44->Location = System::Drawing::Point(244, 6);
 					   this->matrixText44->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText44->Name = L"matrixText44";
-					   this->matrixText44->Size = System::Drawing::Size(38, 29);
+					   this->matrixText44->Size = System::Drawing::Size(42, 30);
 					   this->matrixText44->TabIndex = 20;
 					   this->matrixText44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText44_KeyPress);
 					   this->matrixText44->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText44_Leave);
@@ -998,10 +1016,10 @@ namespace DP_EZB {
 					   this->matrixText43->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText43->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText43->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText43->Location = System::Drawing::Point(149, 6);
+					   this->matrixText43->Location = System::Drawing::Point(166, 6);
 					   this->matrixText43->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText43->Name = L"matrixText43";
-					   this->matrixText43->Size = System::Drawing::Size(38, 29);
+					   this->matrixText43->Size = System::Drawing::Size(42, 30);
 					   this->matrixText43->TabIndex = 19;
 					   this->matrixText43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText43_KeyPress);
 					   this->matrixText43->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText43_Leave);
@@ -1013,10 +1031,10 @@ namespace DP_EZB {
 					   this->matrixText42->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText42->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText42->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText42->Location = System::Drawing::Point(78, 6);
+					   this->matrixText42->Location = System::Drawing::Point(87, 6);
 					   this->matrixText42->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText42->Name = L"matrixText42";
-					   this->matrixText42->Size = System::Drawing::Size(38, 29);
+					   this->matrixText42->Size = System::Drawing::Size(42, 30);
 					   this->matrixText42->TabIndex = 18;
 					   this->matrixText42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText42_KeyPress);
 					   this->matrixText42->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText42_Leave);
@@ -1028,10 +1046,10 @@ namespace DP_EZB {
 					   this->matrixText41->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText41->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText41->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText41->Location = System::Drawing::Point(10, 6);
+					   this->matrixText41->Location = System::Drawing::Point(11, 6);
 					   this->matrixText41->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText41->Name = L"matrixText41";
-					   this->matrixText41->Size = System::Drawing::Size(38, 29);
+					   this->matrixText41->Size = System::Drawing::Size(42, 30);
 					   this->matrixText41->TabIndex = 17;
 					   this->matrixText41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText41_KeyPress);
 					   this->matrixText41->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText41_Leave);
@@ -1043,10 +1061,10 @@ namespace DP_EZB {
 					   this->matrixPanel5->Controls->Add(this->matrixText53);
 					   this->matrixPanel5->Controls->Add(this->matrixText52);
 					   this->matrixPanel5->Controls->Add(this->matrixText51);
-					   this->matrixPanel5->Location = System::Drawing::Point(123, 356);
+					   this->matrixPanel5->Location = System::Drawing::Point(100, 389);
 					   this->matrixPanel5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel5->Name = L"matrixPanel5";
-					   this->matrixPanel5->Size = System::Drawing::Size(336, 45);
+					   this->matrixPanel5->Size = System::Drawing::Size(373, 47);
 					   this->matrixPanel5->TabIndex = 6;
 					   // 
 					   // matrixText55
@@ -1056,10 +1074,10 @@ namespace DP_EZB {
 					   this->matrixText55->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText55->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText55->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText55->Location = System::Drawing::Point(288, 6);
+					   this->matrixText55->Location = System::Drawing::Point(320, 6);
 					   this->matrixText55->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText55->Name = L"matrixText55";
-					   this->matrixText55->Size = System::Drawing::Size(38, 29);
+					   this->matrixText55->Size = System::Drawing::Size(42, 30);
 					   this->matrixText55->TabIndex = 26;
 					   this->matrixText55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText55_KeyPress);
 					   this->matrixText55->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText55_Leave);
@@ -1071,10 +1089,10 @@ namespace DP_EZB {
 					   this->matrixText54->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText54->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText54->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText54->Location = System::Drawing::Point(220, 6);
+					   this->matrixText54->Location = System::Drawing::Point(244, 6);
 					   this->matrixText54->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText54->Name = L"matrixText54";
-					   this->matrixText54->Size = System::Drawing::Size(38, 29);
+					   this->matrixText54->Size = System::Drawing::Size(42, 30);
 					   this->matrixText54->TabIndex = 25;
 					   this->matrixText54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText54_KeyPress);
 					   this->matrixText54->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText54_Leave);
@@ -1086,10 +1104,10 @@ namespace DP_EZB {
 					   this->matrixText53->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText53->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText53->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText53->Location = System::Drawing::Point(149, 6);
+					   this->matrixText53->Location = System::Drawing::Point(166, 6);
 					   this->matrixText53->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText53->Name = L"matrixText53";
-					   this->matrixText53->Size = System::Drawing::Size(38, 29);
+					   this->matrixText53->Size = System::Drawing::Size(42, 30);
 					   this->matrixText53->TabIndex = 24;
 					   this->matrixText53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText53_KeyPress);
 					   this->matrixText53->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText53_Leave);
@@ -1101,10 +1119,10 @@ namespace DP_EZB {
 					   this->matrixText52->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText52->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText52->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText52->Location = System::Drawing::Point(78, 6);
+					   this->matrixText52->Location = System::Drawing::Point(87, 6);
 					   this->matrixText52->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText52->Name = L"matrixText52";
-					   this->matrixText52->Size = System::Drawing::Size(38, 29);
+					   this->matrixText52->Size = System::Drawing::Size(42, 30);
 					   this->matrixText52->TabIndex = 23;
 					   this->matrixText52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText52_KeyPress);
 					   this->matrixText52->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText52_Leave);
@@ -1116,38 +1134,39 @@ namespace DP_EZB {
 					   this->matrixText51->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText51->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->matrixText51->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText51->Location = System::Drawing::Point(10, 6);
+					   this->matrixText51->Location = System::Drawing::Point(11, 6);
 					   this->matrixText51->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText51->Name = L"matrixText51";
-					   this->matrixText51->Size = System::Drawing::Size(38, 29);
+					   this->matrixText51->Size = System::Drawing::Size(42, 30);
 					   this->matrixText51->TabIndex = 22;
 					   this->matrixText51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText51_KeyPress);
 					   this->matrixText51->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText51_Leave);
 					   // 
 					   // vectorB
 					   // 
-					   this->vectorB->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->vectorB->BackColor = System::Drawing::Color::DodgerBlue;
 					   this->vectorB->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->vectorB->Enabled = false;
-					   this->vectorB->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+					   this->vectorB->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+						   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->vectorB->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 					   this->vectorB->ForeColor = System::Drawing::SystemColors::Window;
-					   this->vectorB->Location = System::Drawing::Point(467, 136);
+					   this->vectorB->Location = System::Drawing::Point(476, 158);
 					   this->vectorB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->vectorB->Name = L"vectorB";
-					   this->vectorB->Size = System::Drawing::Size(127, 38);
+					   this->vectorB->Size = System::Drawing::Size(184, 40);
 					   this->vectorB->TabIndex = 28;
-					   this->vectorB->Text = L"Pridať vektor b";
+					   this->vectorB->Text = L"➕ Pridať vektor b⃗";
 					   this->vectorB->UseVisualStyleBackColor = false;
 					   this->vectorB->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::vectorB_Click);
 					   // 
 					   // matrixNewTaskDialog
 					   // 
-					   this->AutoScaleDimensions = System::Drawing::SizeF(9, 21);
+					   this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
 					   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 					   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
-					   this->ClientSize = System::Drawing::Size(607, 499);
+					   this->ClientSize = System::Drawing::Size(674, 523);
 					   this->Controls->Add(this->vectorB);
 					   this->Controls->Add(this->matrixPanel5);
 					   this->Controls->Add(this->matrixPanel4);
@@ -1160,7 +1179,9 @@ namespace DP_EZB {
 					   this->Controls->Add(this->label2);
 					   this->Controls->Add(this->pocetRiadkov);
 					   this->Controls->Add(this->LabelFirstAction);
-					   this->Font = (gcnew System::Drawing::Font(L"Segoe UI", 12));
+					   this->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
+					   this->FormBorderStyle = System::Windows::Forms::FormBorderStyle::FixedToolWindow;
 					   this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->Name = L"matrixNewTaskDialog";
 					   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
@@ -1203,7 +1224,7 @@ namespace DP_EZB {
 					this->matrixText55->Hide();
 
 					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(266, 136);
+					this->vectorB->Location = System::Drawing::Point(239, 158);
 
 				}
 
@@ -1225,7 +1246,14 @@ namespace DP_EZB {
 					this->matrixText55->Hide();
 
 					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(333, 136);
+					this->vectorB->Location = System::Drawing::Point(318, 158);
+					if (vB) {
+						this->matrixText13->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText23->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText33->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText43->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText53->BackColor = System::Drawing::Color::DodgerBlue;
+					}
 				}
 
 				if (this->pocetStlpcov->Value == 4) {
@@ -1246,7 +1274,15 @@ namespace DP_EZB {
 					this->matrixText55->Hide();
 
 					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(400, 136);
+					this->vectorB->Location = System::Drawing::Point(397, 158);
+
+					if (vB) {
+						this->matrixText14->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText24->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText34->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText44->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText54->BackColor = System::Drawing::Color::DodgerBlue;
+					}
 				}
 
 				if (this->pocetStlpcov->Value == 5) {
@@ -1267,7 +1303,15 @@ namespace DP_EZB {
 					this->matrixText55->Show();
 
 					this->vectorB->Enabled = false;
-					this->vectorB->Location = System::Drawing::Point(467, 136);
+					this->vectorB->Location = System::Drawing::Point(476, 158);
+
+					if (vB) {
+						this->matrixText15->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText25->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText35->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText45->BackColor = System::Drawing::Color::DodgerBlue;
+						this->matrixText55->BackColor = System::Drawing::Color::DodgerBlue;
+					}
 
 				}
 			}
@@ -1340,6 +1384,40 @@ namespace DP_EZB {
 				pocetStlpcov->Enabled = true;
 				if (pocetStlpcov->Value < 5)
 					vectorB->Enabled = true;
+				label3->Text = "3. Vyplň zložky matice:";
+
+				this->matrixText13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText23->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText33->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText43->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText53->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+
+				this->matrixText14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText24->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText34->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText44->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText54->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+
+				this->matrixText15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText25->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText35->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText45->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));
+				this->matrixText55->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+					static_cast<System::Int32>(static_cast<System::Byte>(45)));				
 
 			}
 
@@ -1368,6 +1446,7 @@ namespace DP_EZB {
 
 				if (pocetStlpcov->Value < 5 - vB) {
 					vB = 1;
+					label3->Text = "3. Vyplň zložky matice a vektora b\u20D7:";
 					pocetStlpcov->Value++;
 					pocetStlpcov->Enabled = false;
 					vectorB->Enabled = false;
