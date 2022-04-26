@@ -1344,12 +1344,14 @@ namespace DP_EZB {
 			}
 
 			private: System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
-				created = true;
+
 
 				// zisti ci su vsetky hodnoty vyplnene
 				if (getVsetkyVyplnene()) {
 					if (!getNulovyRiadok() && !getNulovyStlpec()) {
+						created = true;
 						Form::Close();
+
 					}
 					else {
 						MessageBox::Show("V linearnom priestore nesmie byt nulovy riadok alebo stlpec !", "Chybny vstup !", MessageBoxButtons::OK, MessageBoxIcon::Error);

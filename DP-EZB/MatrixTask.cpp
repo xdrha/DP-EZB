@@ -70,7 +70,7 @@ namespace DP_EZB {
 		}
 		all += " }";
 
-		if (check == 0) {
+		/*if (check == 0) {
 			if (pocetZaclenenych == pocetStlpcov - vectorB) {
 				output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit vsetky stlpcove vektory matice: " + zaclenene + ".\r\n\r\n";
 			}
@@ -89,12 +89,11 @@ namespace DP_EZB {
 				output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice " + all + " sme do bazy zaclenili vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
 					zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
 			}
-		}
+		}*/
 
 		//h(a1-an)
-
-		output += "Maximalny pocet stlpcovych vektorov matice " + all + ", ktore mozeme zaclenit do bazy je " + pocetZaclenenych + ".\r\nPreto: h" +
-			all + " = " + pocetZaclenenych + ".\r\n\r\n";
+		if (type == 1) output += "a) Maximalny pocet stlpcovych vektorov matice " + all + ", ktore mozeme zaclenit do bazy je " + pocetZaclenenych + ".\r\nPreto: h" +
+			all + " = " + pocetZaclenenych + ".\r\n";
 
 		// tu sa vypise rozklad matice
 
@@ -106,12 +105,13 @@ namespace DP_EZB {
 				if (i >= pocetZaclenenych && pocetZaclenenychVektorov[i] == 1) lnz = false;
 			}
 			if (!lnz) {
-				output += "Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice nie je linearne nezavislych. Nie je mozne rozlozit maticu na sucin !";
+				output += "a) Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice nie je linearne nezavislych. Nie je mozne rozlozit maticu na sucin.\r\n\r\n";
 			}
 			else {
+				output += "a) Prvych h = " + pocetZaclenenych + " stlpcovych vektorov matice je linearne nezavislych. Maticu je mozne rozlozit na sucin.\r\n\r\n";
 				//ak je h vektrov lineane nezavislych
 				//matica B
-				output += "Rozklad matice: A = B * C = B * (E | D)\r\n\r\nMatica B = ( ";
+				output += "b) Rozklad matice: A = B * C = B * (E | D)\r\n\r\nMatica B = ( ";
 
 				for (int i = 0; i < pocetRiadkov; i++) {
 					for (int j = 0; j < pocetZaclenenych; j++) {
@@ -167,7 +167,7 @@ namespace DP_EZB {
 
 		if (type == 3) {
 			if (pocetZaclenenych == pocetStlpcov - vectorB) {
-				output += "Stvorcova matica je preto regularna a existuje k nej inverzna matica:\r\n\r\nA * A-1 = E\r\n\r\nMatica A = ( ";
+				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regularna a existuje k nej inverzna matica: \r\n\r\nA * A - 1 = E\r\n\r\nb) Matica A = (";
 
 				//tu vypis inverznu maticu
 				// matica A
@@ -217,7 +217,7 @@ namespace DP_EZB {
 				output += MatrixD + MatrixE;
 
 			}
-			else output += "Stvorcova matica preto nie je regularna a neexistuje k nej inverzna matica!\r\n\r\n";
+			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singularna a neexistuje k nej inverzna matica\r\n\r\n";
 		}
 
 		if (type == 4) {
@@ -242,8 +242,8 @@ namespace DP_EZB {
 					if (i < pocetStlpcov - 1) permutacia += ", ";
 				}
 				permutacia += ")";
-				output += "Stvorcova matica je preto regularna a existuje k nej determinant. Pocet inverzii permutacii stlpcovych indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n";
-				output += "Potom determinant matice A:\r\n|A| = ";
+				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regularna a existuje k nej determinant. Pocet inverzii permutacii stlpcovych indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n\r\n";
+				output += "b) Determinant matice A:\r\n|A| = ";
 
 				double result = 1;
 				for (int i = 0; i < pocetStlpcov; i++) {
@@ -256,6 +256,9 @@ namespace DP_EZB {
 
 				output += "(-1)^" + pocetPermutacii + " = " + round_up(result * pow(-1, pocetPermutacii), 2) + "\r\n\r\n";
 
+			}
+			else {
+				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singularna a neexistuje k nej determinant\r\n\r\n";
 			}
 		}
 
@@ -291,11 +294,11 @@ namespace DP_EZB {
 					if (m[i][j - 1] != 0) count++;
 				if (count == 0 && m[i][pocetStlpcov] != 0) {
 					//nie je linearnou kombinaciou vektorov bazy + vypis bazu pretoze zlozka bindex != 0
-					output += "Vektor b nie je linearnou kombinaciou vektorov bazy { " + zaclenene + " }, pretoze zlozka b" + (i + 1) + " != 0.\r\nPreto vektor b nie je kompatibilny so stlpcovym podpriestorom matice.";
+					output += "b) Vektor b nie je linearnou kombinaciou vektorov bazy { " + zaclenene + " }, pretoze zlozka b" + (i + 1) + " != 0.\r\nPreto vektor b nie je kompatibilny so stlpcovym podpriestorom matice.";
 					return output;
 				}
 			}
-			output += "Vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + " a plati: b = " + vektorB + ".\r\nVektor b je je kompatibilny so stlpcovym podpriestorom matice.";
+			output += "b) Vektor b je linearnou kombinaciou bazickych vektorov " + zaclenene + " a plati: b = " + vektorB + ".\r\nVektor b je je kompatibilny so stlpcovym podpriestorom matice.";
 		}
 
 

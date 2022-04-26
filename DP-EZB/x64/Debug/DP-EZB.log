@@ -1,6 +1,9 @@
 ﻿  Main.cpp
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\MyForm.h(710,24): warning C4566: character represented by universal-character-name '\u2795' cannot be represented in the current code page (1252)
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\Main.cpp(8,33): warning C4829: Possibly incorrect parameters to function main. Consider 'int main(Platform::Array<Platform::String^>^ argv)'
   MyForm.cpp
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\MyForm.h(710,24): warning C4566: character represented by universal-character-name '\u2795' cannot be represented in the current code page (1252)
+  VectorsTask.cpp
   Generating Code...
   EZB.obj : MSIL module encountered; incremental linking is disabled for MSIL; performing full link
   DP-EZB.vcxproj -> C:\Users\Matej\source\repos\DP-EZB\x64\Debug\DP-EZB.exe

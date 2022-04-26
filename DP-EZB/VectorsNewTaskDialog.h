@@ -1900,11 +1900,12 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 }
 
 private: System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	created = true;
+
 
 	// zisti ci su vsetky hodnoty vyplnene
 	if (getVsetkyVyplnene()) {
 		if (!getNulovyRiadok() && !getNulovyStlpec()) {
+			created = true;
 			Form::Close();
 		}
 		else {
