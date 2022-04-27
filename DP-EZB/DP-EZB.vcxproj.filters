@@ -42,6 +42,12 @@
     <ClCompile Include="SLRTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="LPNewTaskDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="LPTask.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VectorsNewTaskDialog.h">
@@ -54,6 +60,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="SLRNewTaskDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="LPNewTaskDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

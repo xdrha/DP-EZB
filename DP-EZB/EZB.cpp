@@ -11,6 +11,7 @@ namespace DP_EZB {
 	private: int height;
 	public: int pocetZaclenenychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int pocetBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	public: int indexyBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int pocetNulovychRiadkov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: double pivots[5];
 	public: int stepTask;
@@ -81,6 +82,7 @@ namespace DP_EZB {
 
 		pocetZaclenenychVektorov[pivotXColumn] = 1;
 		pocetBazickychVektorov[pivotYRow] = 1;
+		indexyBazickychVektorov[pivotYRow] = pivotXColumn;
 
 		double pivot = oldMatrix[pivotYRow][pivotXColumn];
 

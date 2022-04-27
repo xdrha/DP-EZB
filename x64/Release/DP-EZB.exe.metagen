@@ -1,3 +1,4 @@
+  DP_EZB.LPNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.MatrixNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.MyForm.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.SLRNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
@@ -17,6 +18,17 @@ Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
+Class DP_EZB.lpNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Boolean created : Public
+    Int32 vB : Public
+  Methods:
+    getPocetVektorov(): PrivateScope, Public, HideBySig
+    getPocetSuradnicVektorov(): PrivateScope, Public, HideBySig
+    getVB(): PrivateScope, Public, HideBySig
+    getMatrix(): PrivateScope, Public, HideBySig
 Class DP_EZB.vectorsNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
