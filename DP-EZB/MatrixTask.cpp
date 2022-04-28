@@ -10,14 +10,11 @@ namespace DP_EZB {
 	public: int pocetRiadkov;
 	public: int pocetStlpcov;
 	public:	double** matrix;
-	public: int vectorB;
 	public: int type; // 1 or 2 ...
 
-	public: MatrixTask(int pocetV, int pocetS, double** m, int vB, int t) {
+	public: MatrixTask(int pocetV, int pocetS, double** m, int t) {
 		this->pocetRiadkov = pocetV;
 		this->pocetStlpcov = pocetS;
-
-		this->vectorB = vB;
 		this->type = t;
 
 		if (t == 3) doubleMatrix(m);
@@ -95,20 +92,20 @@ namespace DP_EZB {
 		String^ vektorB = "";
 		String^ output = "";
 
-		for (int i = 1; i <= pocetStlpcov - vectorB; i++) {
+		for (int i = 1; i <= pocetStlpcov; i++) {
 			all += "s" + subscript(i.ToString()) + "\u20D7";
-			if (i < pocetStlpcov - vectorB)
+			if (i < pocetStlpcov )
 				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
 				pocetZaclenenych++;
 				zaclenene += "s" + subscript(i.ToString()) + "\u20D7";
-				if (i < pocetStlpcov - vectorB) {
+				if (i < pocetStlpcov) {
 					zaclenene += ", ";
 				}
 			}
 			else {
 				nezaclenene += "s" + subscript(i.ToString()) + "\u20D7";
-				if (i < pocetStlpcov - vectorB) {
+				if (i < pocetStlpcov) {
 					nezaclenene += ", ";
 				}
 			}
@@ -217,7 +214,7 @@ namespace DP_EZB {
 		}
 
 		if (type == 3) {
-			if (pocetZaclenenych == pocetStlpcov - vectorB) {
+			if (pocetZaclenenych == pocetStlpcov) {
 				output += "a) h(A) = " + pocetZaclenenych + " preto je matica A" + subscript(pocetStlpcov.ToString()) + " regulárna a existuje k nej inverzná matica: \r\n\r\nA \u2219 A\u207B¹ = E\r\n\r\nb) Matica A = (";
 
 				//tu vypis inverznu maticu
@@ -272,7 +269,7 @@ namespace DP_EZB {
 		}
 
 		if (type == 4) {
-			if (pocetZaclenenych == pocetStlpcov - vectorB) {
+			if (pocetZaclenenych == pocetStlpcov) {
 				String^ permutacia = "I(";
 				int pocetPermutacii = 0;
 
@@ -311,45 +308,6 @@ namespace DP_EZB {
 			else {
 				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singulárna a neexistuje k nej determinant\r\n\r\n";
 			}
-		}
-
-		//ci je vektor b linearnou kombinaciou
-
-		if (vectorB == 1) {
-
-			String^ heplField = field;
-			Boolean sign = false;
-			for (int i = 0; i < pocetRiadkov; i++) {
-				if (m[i][pocetStlpcov - 1] < 0) {
-					String^ help = "";
-					help += heplField->Substring(0, heplField->IndexOf("/"));
-					vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
-					if (!sign) sign = true;
-				}
-				else {
-					if (m[i][pocetStlpcov - 1] > 0) {
-						String^ help = "";
-						help += heplField->Substring(0, heplField->IndexOf("/"));
-						if (sign) vektorB += " + ";
-						vektorB += round_up(m[i][pocetStlpcov - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
-						if (!sign) sign = true;
-					}
-				}
-				heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
-			}
-
-
-			for (int i = 0; i < pocetRiadkov; i++) { //nulovy riadok
-				int count = 0;
-				for (int j = 1; j <= pocetStlpcov - vectorB; j++)
-					if (m[i][j - 1] != 0) count++;
-				if (count == 0 && m[i][pocetStlpcov] != 0) {
-					//nie je linearnou kombinaciou vektorov bazy + vypis bazu pretoze zlozka bindex != 0
-					output += "b) Vektor b\u20D7 nie je lineárnou kombináciou vektorov bázy { " + zaclenene + " }, pretože zložka b" + subscript((i + 1).ToString()) + " \u2260 0.\r\nPreto vektor b nie je kompatibilny so stlpcovym podpriestorom matice.\r\n";
-					return output;
-				}
-			}
-			output += "b) Vektor b\u20D7 je lineárnou kombináciou bázických vektorov " + zaclenene + " a platí:\r\nb\u20D7 = " + vektorB + ".\r\nVektor b\u20D7 je kompatibilný so stĺpcovým podpriestorom matice.\r\n";
 		}
 
 		// tu vraciam text !!

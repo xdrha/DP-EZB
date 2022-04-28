@@ -183,7 +183,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel1 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel15 = (gcnew System::Windows::Forms::Label());
 			   this->slrText15 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText1 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel14 = (gcnew System::Windows::Forms::Label());
 			   this->slrText14 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel13 = (gcnew System::Windows::Forms::Label());
@@ -192,6 +191,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText12 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel11 = (gcnew System::Windows::Forms::Label());
 			   this->slrText11 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText1 = (gcnew System::Windows::Forms::TextBox());
 			   this->label3 = (gcnew System::Windows::Forms::Label());
 			   this->pocetSuradnicVektorov = (gcnew System::Windows::Forms::NumericUpDown());
 			   this->label2 = (gcnew System::Windows::Forms::Label());
@@ -203,7 +203,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel2 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel25 = (gcnew System::Windows::Forms::Label());
 			   this->slrText25 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText2 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel24 = (gcnew System::Windows::Forms::Label());
 			   this->slrText24 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel23 = (gcnew System::Windows::Forms::Label());
@@ -212,10 +211,10 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText22 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel21 = (gcnew System::Windows::Forms::Label());
 			   this->slrText21 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText2 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrPanel3 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel35 = (gcnew System::Windows::Forms::Label());
 			   this->slrText35 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText3 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel34 = (gcnew System::Windows::Forms::Label());
 			   this->slrText34 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel33 = (gcnew System::Windows::Forms::Label());
@@ -224,10 +223,10 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText32 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel31 = (gcnew System::Windows::Forms::Label());
 			   this->slrText31 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText3 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrPanel4 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel45 = (gcnew System::Windows::Forms::Label());
 			   this->slrText45 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText4 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel44 = (gcnew System::Windows::Forms::Label());
 			   this->slrText44 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel43 = (gcnew System::Windows::Forms::Label());
@@ -236,10 +235,10 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText42 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel41 = (gcnew System::Windows::Forms::Label());
 			   this->slrText41 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText4 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrPanel5 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel55 = (gcnew System::Windows::Forms::Label());
 			   this->slrText55 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText5 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel54 = (gcnew System::Windows::Forms::Label());
 			   this->slrText54 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel53 = (gcnew System::Windows::Forms::Label());
@@ -248,12 +247,8 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText52 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel51 = (gcnew System::Windows::Forms::Label());
 			   this->slrText51 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText5 = (gcnew System::Windows::Forms::TextBox());
 			   this->bPanel = (gcnew System::Windows::Forms::Panel());
-
-
-
-
-
 			   this->slrPanel1->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->BeginInit();
@@ -423,6 +418,21 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::slrText11_KeyPress);
 			   this->slrText11->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::slrText11_Leave);
 			   // 
+			   // bText1
+			   // 
+			   this->bText1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			   this->bText1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->bText1->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->bText1->ForeColor = System::Drawing::SystemColors::Window;
+			   this->bText1->Location = System::Drawing::Point(4, 5);
+			   this->bText1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			   this->bText1->Name = L"bText1";
+			   this->bText1->Size = System::Drawing::Size(42, 30);
+			   this->bText1->TabIndex = 7;
+			   this->bText1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText1_KeyPress);
+			   this->bText1->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText1_Leave);
+			   // 
 			   // label3
 			   // 
 			   this->label3->AutoSize = true;
@@ -432,9 +442,9 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->label3->Location = System::Drawing::Point(20, 111);
 			   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(225, 22);
+			   this->label3->Size = System::Drawing::Size(370, 22);
 			   this->label3->TabIndex = 11;
-			   this->label3->Text = L"3. Vyplň premenné rovníc:";
+			   this->label3->Text = L"3. Zadaj koeficienty neznámych v rovniciach:";
 			   // 
 			   // pocetSuradnicVektorov
 			   // 
@@ -462,9 +472,9 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->label2->Location = System::Drawing::Point(20, 66);
 			   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(233, 22);
+			   this->label2->Size = System::Drawing::Size(223, 22);
 			   this->label2->TabIndex = 9;
-			   this->label2->Text = L"2. Zadaj počet premenných:";
+			   this->label2->Text = L"2. Zadaj počet neznámych:";
 			   // 
 			   // pocetVektorov
 			   // 
@@ -520,7 +530,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->createButton->Name = L"createButton";
 			   this->createButton->Size = System::Drawing::Size(229, 40);
 			   this->createButton->TabIndex = 29;
-			   this->createButton->Text = L"➕ Vytvoriť novú úlohu";
+			   this->createButton->Text = L"Vytvoriť tabuľku EZB";
 			   this->createButton->UseVisualStyleBackColor = false;
 			   this->createButton->Click += gcnew System::EventHandler(this, &slrNewTaskDialog::createButton_Click);
 			   // 
@@ -699,6 +709,21 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::slrText21_KeyPress);
 			   this->slrText21->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::slrText21_Leave);
 			   // 
+			   // bText2
+			   // 
+			   this->bText2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			   this->bText2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->bText2->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->bText2->ForeColor = System::Drawing::SystemColors::Window;
+			   this->bText2->Location = System::Drawing::Point(4, 63);
+			   this->bText2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			   this->bText2->Name = L"bText2";
+			   this->bText2->Size = System::Drawing::Size(42, 30);
+			   this->bText2->TabIndex = 12;
+			   this->bText2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText2_KeyPress);
+			   this->bText2->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText2_Leave);
+			   // 
 			   // slrPanel3
 			   // 
 			   this->slrPanel3->Controls->Add(this->slrLabel35);
@@ -856,6 +881,21 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText31->TabIndex = 12;
 			   this->slrText31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::slrText31_KeyPress);
 			   this->slrText31->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::slrText31_Leave);
+			   // 
+			   // bText3
+			   // 
+			   this->bText3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			   this->bText3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->bText3->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->bText3->ForeColor = System::Drawing::SystemColors::Window;
+			   this->bText3->Location = System::Drawing::Point(4, 120);
+			   this->bText3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			   this->bText3->Name = L"bText3";
+			   this->bText3->Size = System::Drawing::Size(42, 30);
+			   this->bText3->TabIndex = 13;
+			   this->bText3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText3_KeyPress);
+			   this->bText3->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText3_Leave);
 			   // 
 			   // slrPanel4
 			   // 
@@ -1015,6 +1055,21 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::slrText41_KeyPress);
 			   this->slrText41->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::slrText41_Leave);
 			   // 
+			   // bText4
+			   // 
+			   this->bText4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+			   this->bText4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			   this->bText4->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->bText4->ForeColor = System::Drawing::SystemColors::Window;
+			   this->bText4->Location = System::Drawing::Point(4, 178);
+			   this->bText4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			   this->bText4->Name = L"bText4";
+			   this->bText4->Size = System::Drawing::Size(42, 30);
+			   this->bText4->TabIndex = 14;
+			   this->bText4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText4_KeyPress);
+			   this->bText4->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText4_Leave);
+			   // 
 			   // slrPanel5
 			   // 
 			   this->slrPanel5->Controls->Add(this->slrLabel55);
@@ -1173,18 +1228,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrText51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::slrText51_KeyPress);
 			   this->slrText51->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::slrText51_Leave);
 			   // 
-			   // bPanel
-			   // 
-			   this->bPanel->Controls->Add(this->bText5);
-			   this->bPanel->Controls->Add(this->bText4);
-			   this->bPanel->Controls->Add(this->bText3);
-			   this->bPanel->Controls->Add(this->bText2);
-			   this->bPanel->Controls->Add(this->bText1);
-			   this->bPanel->Location = System::Drawing::Point(591, 142);
-			   this->bPanel->Name = L"bPanel";
-			   this->bPanel->Size = System::Drawing::Size(58, 278);
-			   this->bPanel->TabIndex = 14;
-			   // 
 			   // bText5
 			   // 
 			   this->bText5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
@@ -1200,65 +1243,17 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->bText5->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText5_KeyPress);
 			   this->bText5->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText5_Leave);
 			   // 
-			   // bText4
+			   // bPanel
 			   // 
-			   this->bText4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			   this->bText4->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->bText4->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->bText4->ForeColor = System::Drawing::SystemColors::Window;
-			   this->bText4->Location = System::Drawing::Point(4, 178);
-			   this->bText4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			   this->bText4->Name = L"bText4";
-			   this->bText4->Size = System::Drawing::Size(42, 30);
-			   this->bText4->TabIndex = 14;
-			   this->bText4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText4_KeyPress);
-			   this->bText4->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText4_Leave);
-			   // 
-			   // bText3
-			   // 
-			   this->bText3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			   this->bText3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->bText3->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->bText3->ForeColor = System::Drawing::SystemColors::Window;
-			   this->bText3->Location = System::Drawing::Point(4, 120);
-			   this->bText3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			   this->bText3->Name = L"bText3";
-			   this->bText3->Size = System::Drawing::Size(42, 30);
-			   this->bText3->TabIndex = 13;
-			   this->bText3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText3_KeyPress);
-			   this->bText3->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText3_Leave);
-			   // 
-			   // bText2
-			   // 
-			   this->bText2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			   this->bText2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->bText2->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->bText2->ForeColor = System::Drawing::SystemColors::Window;
-			   this->bText2->Location = System::Drawing::Point(4, 63);
-			   this->bText2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			   this->bText2->Name = L"bText2";
-			   this->bText2->Size = System::Drawing::Size(42, 30);
-			   this->bText2->TabIndex = 12;
-			   this->bText2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText2_KeyPress);
-			   this->bText2->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText2_Leave);
-			   // 
-			   // bText1
-			   // 
-			   this->bText1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			   this->bText1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			   this->bText1->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->bText1->ForeColor = System::Drawing::SystemColors::Window;
-			   this->bText1->Location = System::Drawing::Point(4, 5);
-			   this->bText1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			   this->bText1->Name = L"bText1";
-			   this->bText1->Size = System::Drawing::Size(42, 30);
-			   this->bText1->TabIndex = 7;
-			   this->bText1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText1_KeyPress);
-			   this->bText1->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText1_Leave);
+			   this->bPanel->Controls->Add(this->bText5);
+			   this->bPanel->Controls->Add(this->bText4);
+			   this->bPanel->Controls->Add(this->bText3);
+			   this->bPanel->Controls->Add(this->bText2);
+			   this->bPanel->Controls->Add(this->bText1);
+			   this->bPanel->Location = System::Drawing::Point(591, 142);
+			   this->bPanel->Name = L"bPanel";
+			   this->bPanel->Size = System::Drawing::Size(58, 278);
+			   this->bPanel->TabIndex = 14;
 			   // 
 			   // slrNewTaskDialog
 			   // 
@@ -1285,7 +1280,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->Name = L"slrNewTaskDialog";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			   this->Text = L"Nová úloha";
+			   this->Text = L"Nový výpočet";
 			   this->slrPanel1->ResumeLayout(false);
 			   this->slrPanel1->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->EndInit();
@@ -1398,7 +1393,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 		return "";
 	}
 
-		private: Boolean getVsetkyVyplnene() {
+	private: Boolean getVsetkyVyplnene() {
 			if (slrText11->Text == "") return false;
 			if (slrText12->Text == "") return false;
 			if (slrText21->Text == "") return false;
@@ -1529,186 +1524,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			return true;
 		}
 
-	private: Boolean getNulovyRiadok() {
-		if (slrText11->Text == "0" && slrText12->Text == "0") {
-			if (pocetSuradnicVektorov->Value == 2)
-				return true;
-			if (pocetSuradnicVektorov->Value == 3) {
-				if (slrText13->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 4) {
-				if (slrText13->Text == "0" && slrText14->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 5) {
-				if (slrText13->Text == "0" && slrText14->Text == "0" && slrText15->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText21->Text == "0" && slrText22->Text == "0") {
-			if (pocetSuradnicVektorov->Value == 2)
-				return true;
-			if (pocetSuradnicVektorov->Value == 3) {
-				if (slrText23->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 4) {
-				if (slrText23->Text == "0" && slrText24->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 5) {
-				if (slrText23->Text == "0" && slrText24->Text == "0" && slrText25->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText31->Text == "0" && slrText32->Text == "0") {
-			if (pocetSuradnicVektorov->Value == 2)
-				return true;
-			if (pocetSuradnicVektorov->Value == 3) {
-				if (slrText33->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 4) {
-				if (slrText33->Text == "0" && slrText34->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 5) {
-				if (slrText33->Text == "0" && slrText34->Text == "0" && slrText35->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText41->Text == "0" && slrText42->Text == "0") {
-			if (pocetSuradnicVektorov->Value == 2)
-				return true;
-			if (pocetSuradnicVektorov->Value == 3) {
-				if (slrText43->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 4) {
-				if (slrText43->Text == "0" && slrText44->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 5) {
-				if (slrText43->Text == "0" && slrText44->Text == "0" && slrText45->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText51->Text == "0" && slrText52->Text == "0") {
-			if (pocetSuradnicVektorov->Value == 2)
-				return true;
-			if (pocetSuradnicVektorov->Value == 3) {
-				if (slrText53->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 4) {
-				if (slrText53->Text == "0" && slrText54->Text == "0")
-					return true;
-			}
-			if (pocetSuradnicVektorov->Value == 5) {
-				if (slrText53->Text == "0" && slrText54->Text == "0" && slrText55->Text == "0")
-					return true;
-			}
-		}
-
-		return false;
-	}
-
-	private: Boolean getNulovyStlpec() {
-
-		if (slrText11->Text == "0" && slrText21->Text == "0") {
-			if (pocetVektorov->Value == 2)
-				return true;
-			if (pocetVektorov->Value == 3) {
-				if (slrText31->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 4) {
-				if (slrText31->Text == "0" && slrText41->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 5) {
-				if (slrText31->Text == "0" && slrText41->Text == "0" && slrText51->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText12->Text == "0" && slrText22->Text == "0") {
-			if (pocetVektorov->Value == 2)
-				return true;
-			if (pocetVektorov->Value == 3) {
-				if (slrText32->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 4) {
-				if (slrText32->Text == "0" && slrText42->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 5) {
-				if (slrText32->Text == "0" && slrText42->Text == "0" && slrText52->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText13->Text == "0" && slrText23->Text == "0") {
-			if (pocetVektorov->Value == 2)
-				return true;
-			if (pocetVektorov->Value == 3) {
-				if (slrText33->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 4) {
-				if (slrText33->Text == "0" && slrText43->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 5) {
-				if (slrText33->Text == "0" && slrText43->Text == "0" && slrText53->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText14->Text == "0" && slrText24->Text == "0") {
-			if (pocetVektorov->Value == 2)
-				return true;
-			if (pocetVektorov->Value == 3) {
-				if (slrText34->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 4) {
-				if (slrText34->Text == "0" && slrText44->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 5) {
-				if (slrText34->Text == "0" && slrText44->Text == "0" && slrText54->Text == "0")
-					return true;
-			}
-		}
-
-		if (slrText15->Text == "0" && slrText25->Text == "0") {
-			if (pocetVektorov->Value == 2)
-				return true;
-			if (pocetVektorov->Value == 3) {
-				if (slrText35->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 4) {
-				if (slrText35->Text == "0" && slrText45->Text == "0")
-					return true;
-			}
-			if (pocetVektorov->Value == 5) {
-				if (slrText35->Text == "0" && slrText45->Text == "0" && slrText55->Text == "0")
-					return true;
-			}
-		}
-
-
-
-		return false;
-	}
 	private: System::Void pocetSuradnicVektorov_ValueChanged(System::Object^ sender, System::EventArgs^ e) {
 
 		if (this->pocetSuradnicVektorov->Value == 2) {
@@ -2004,20 +1819,12 @@ private: System::Windows::Forms::TextBox^ bText1;
 	private: System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
 		// zisti ci su vsetky hodnoty vyplnene
-		if (getVsetkyVyplnene()) {
-			if (!getNulovyRiadok() && !getNulovyStlpec()) {
-				created = true;
-				Form::Close();
-			}
-			else {
-				MessageBox::Show("V lineárnom priestore nesmie byť nulový riadok alebo stĺpec !", "Chybný vstup !", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
-
-		}
+		if (!getVsetkyVyplnene()) 
+			MessageBox::Show("Zadaj všetky koeficienty neznámych v rovniciach!", "Chýbajúce hodnoty !", MessageBoxButtons::OK, MessageBoxIcon::Error);
 		else {
-			MessageBox::Show("Vyplň všetky zložky všetkých rovníc !", "Chýbajúce hodnoty !", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			created = true;
+			Form::Close();
 		}
-
 
 	}
 

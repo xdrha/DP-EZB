@@ -40,13 +40,10 @@ Class DP_EZB.matrixNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFi
     System.Windows.Forms.NumericUpDown pocetStlpcov : Public
     System.Windows.Forms.Label label2 : Public
     System.Windows.Forms.Label LabelFirstAction : Public
-    System.Windows.Forms.Button vectorB : Public
     Boolean created : Public
-    Int32 vB : Public
   Methods:
     getPocetRiadkov(): PrivateScope, Public, HideBySig
     getPocetStlpcov(): PrivateScope, Public, HideBySig
-    getVB(): PrivateScope, Public, HideBySig
     getMatrix(): PrivateScope, Public, HideBySig
 Class DP_EZB.vectorsNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form

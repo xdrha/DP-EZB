@@ -130,11 +130,6 @@ namespace DP_EZB {
 		}
 #pragma endregion
 	private: System::Void welcomeDialog_Load(System::Object^ sender, System::EventArgs^ e) {
-			this->label2->Text =	"Interaktívna aplikácia pomáha pri počítaní príkladov\r\n"+
-									"lineárnej algebry a lineárneho programovania.\r\n" +
-									"Pre vytvorenie nového výpočtu najprv zvoľte typ úlohy\r\n"+
-									"z ponuky záložiek a následne vytvorte nový výpočet kliknutím na tlačidlo." +
-			"\r\n\r\n\r\n\r\n\r\n\r\n\r\nVšetky potrebné informácie k ovládaniu aplikácie aj riešeným úlohám nájdete v pomocníku vpravo hore.";
 
 
 	}

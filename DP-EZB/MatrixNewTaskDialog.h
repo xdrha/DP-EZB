@@ -159,7 +159,10 @@ namespace DP_EZB {
 				/// Required designer variable.
 				/// </summary>
 				System::ComponentModel::Container^ components;
-			public: System::Windows::Forms::Button^ vectorB;
+private: System::Windows::Forms::Panel^ panel1;
+private: System::Windows::Forms::Panel^ panel2;
+private: System::Windows::Forms::Label^ label1;
+
 
 #pragma region Windows Form Designer generated code
 				   /// <summary>
@@ -170,7 +173,6 @@ namespace DP_EZB {
 				   /// 
 				   /// 
 			public: Boolean created = false;
-			public: int vB = 0;
 
 			public: int getPocetRiadkov() {
 				return (int)this->pocetRiadkov->Value;
@@ -178,10 +180,6 @@ namespace DP_EZB {
 
 			public: int getPocetStlpcov() {
 				return (int)this->pocetStlpcov->Value;
-			}
-
-			public: int getVB() {
-				return vB;
 			}
 
 			public: double** getMatrix() {
@@ -352,189 +350,9 @@ private: Boolean getVsetkyVyplnene() {
 	return true;
 }
 
-			private: Boolean getNulovyRiadok() {
-				if (matrixText11->Text == "0" && matrixText12->Text == "0") {
-					if (pocetStlpcov->Value == 2)
-						return true;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText13->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText13->Text == "0" && matrixText14->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText13->Text == "0" && matrixText14->Text == "0" && matrixText15->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText21->Text == "0" && matrixText22->Text == "0") {
-					if (pocetStlpcov->Value == 2)
-						return true;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText23->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText23->Text == "0" && matrixText24->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText23->Text == "0" && matrixText24->Text == "0" && matrixText25->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText31->Text == "0" && matrixText32->Text == "0") {
-					if (pocetStlpcov->Value == 2)
-						return true;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText33->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText33->Text == "0" && matrixText34->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText33->Text == "0" && matrixText34->Text == "0" && matrixText35->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText41->Text == "0" && matrixText42->Text == "0") {
-					if (pocetStlpcov->Value == 2)
-						return true;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText43->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText43->Text == "0" && matrixText44->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText43->Text == "0" && matrixText44->Text == "0" && matrixText45->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText51->Text == "0" && matrixText52->Text == "0") {
-					if (pocetStlpcov->Value == 2)
-						return true;
-					if (pocetStlpcov->Value == 3) {
-						if (matrixText53->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 4) {
-						if (matrixText53->Text == "0" && matrixText54->Text == "0")
-							return true;
-					}
-					if (pocetStlpcov->Value == 5) {
-						if (matrixText53->Text == "0" && matrixText54->Text == "0" && matrixText55->Text == "0")
-							return true;
-					}
-				}
-
-				return false;
-			}
-
-			private: Boolean getNulovyStlpec() {
-
-				if (matrixText11->Text == "0" && matrixText21->Text == "0") {
-					if (pocetRiadkov->Value == 2)
-						return true;
-					if (pocetRiadkov->Value == 3) {
-						if (matrixText31->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 4) {
-						if (matrixText31->Text == "0" && matrixText41->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 5) {
-						if (matrixText31->Text == "0" && matrixText41->Text == "0" && matrixText51->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText12->Text == "0" && matrixText22->Text == "0") {
-					if (pocetRiadkov->Value == 2)
-						return true;
-					if (pocetRiadkov->Value == 3) {
-						if (matrixText32->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 4) {
-						if (matrixText32->Text == "0" && matrixText42->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 5) {
-						if (matrixText32->Text == "0" && matrixText42->Text == "0" && matrixText52->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText13->Text == "0" && matrixText23->Text == "0") {
-					if (pocetRiadkov->Value == 2)
-						return true;
-					if (pocetRiadkov->Value == 3) {
-						if (matrixText33->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 4) {
-						if (matrixText33->Text == "0" && matrixText43->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 5) {
-						if (matrixText33->Text == "0" && matrixText43->Text == "0" && matrixText53->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText14->Text == "0" && matrixText24->Text == "0") {
-					if (pocetRiadkov->Value == 2)
-						return true;
-					if (pocetRiadkov->Value == 3) {
-						if (matrixText34->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 4) {
-						if (matrixText34->Text == "0" && matrixText44->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 5) {
-						if (matrixText34->Text == "0" && matrixText44->Text == "0" && matrixText54->Text == "0")
-							return true;
-					}
-				}
-
-				if (matrixText15->Text == "0" && matrixText25->Text == "0") {
-					if (pocetRiadkov->Value == 2)
-						return true;
-					if (pocetRiadkov->Value == 3) {
-						if (matrixText35->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 4) {
-						if (matrixText35->Text == "0" && matrixText45->Text == "0")
-							return true;
-					}
-					if (pocetRiadkov->Value == 5) {
-						if (matrixText35->Text == "0" && matrixText45->Text == "0" && matrixText55->Text == "0")
-							return true;
-					}
-				}
-
-
-
-				return false;
-			}
-
 				   void InitializeComponent(void)
 				   {
+					   System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(matrixNewTaskDialog::typeid));
 					   this->matrixPanel1 = (gcnew System::Windows::Forms::Panel());
 					   this->matrixText15 = (gcnew System::Windows::Forms::TextBox());
 					   this->matrixText14 = (gcnew System::Windows::Forms::TextBox());
@@ -573,7 +391,9 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixText53 = (gcnew System::Windows::Forms::TextBox());
 					   this->matrixText52 = (gcnew System::Windows::Forms::TextBox());
 					   this->matrixText51 = (gcnew System::Windows::Forms::TextBox());
-					   this->vectorB = (gcnew System::Windows::Forms::Button());
+					   this->panel1 = (gcnew System::Windows::Forms::Panel());
+					   this->panel2 = (gcnew System::Windows::Forms::Panel());
+					   this->label1 = (gcnew System::Windows::Forms::Label());
 					   this->matrixPanel1->SuspendLayout();
 					   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetStlpcov))->BeginInit();
 					   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetRiadkov))->BeginInit();
@@ -591,10 +411,10 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixPanel1->Controls->Add(this->matrixText13);
 					   this->matrixPanel1->Controls->Add(this->matrixText12);
 					   this->matrixPanel1->Controls->Add(this->matrixText11);
-					   this->matrixPanel1->Location = System::Drawing::Point(100, 158);
+					   this->matrixPanel1->Location = System::Drawing::Point(224, 158);
 					   this->matrixPanel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel1->Name = L"matrixPanel1";
-					   this->matrixPanel1->Size = System::Drawing::Size(373, 47);
+					   this->matrixPanel1->Size = System::Drawing::Size(298, 47);
 					   this->matrixPanel1->TabIndex = 2;
 					   // 
 					   // matrixText15
@@ -603,12 +423,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText15->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText15->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText15->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText15->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText15->Location = System::Drawing::Point(321, 6);
+					   this->matrixText15->Location = System::Drawing::Point(241, 3);
 					   this->matrixText15->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText15->Name = L"matrixText15";
-					   this->matrixText15->Size = System::Drawing::Size(42, 30);
+					   this->matrixText15->Size = System::Drawing::Size(50, 36);
 					   this->matrixText15->TabIndex = 6;
+					   this->matrixText15->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText15_KeyPress);
 					   this->matrixText15->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText15_Leave);
 					   // 
@@ -618,12 +441,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText14->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText14->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText14->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText14->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText14->Location = System::Drawing::Point(246, 6);
+					   this->matrixText14->Location = System::Drawing::Point(184, 3);
 					   this->matrixText14->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText14->Name = L"matrixText14";
-					   this->matrixText14->Size = System::Drawing::Size(42, 30);
+					   this->matrixText14->Size = System::Drawing::Size(50, 36);
 					   this->matrixText14->TabIndex = 5;
+					   this->matrixText14->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText14->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText14_KeyPress);
 					   this->matrixText14->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText14_Leave);
 					   // 
@@ -633,12 +459,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText13->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText13->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText13->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText13->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText13->Location = System::Drawing::Point(167, 6);
+					   this->matrixText13->Location = System::Drawing::Point(125, 3);
 					   this->matrixText13->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText13->Name = L"matrixText13";
-					   this->matrixText13->Size = System::Drawing::Size(42, 30);
+					   this->matrixText13->Size = System::Drawing::Size(50, 36);
 					   this->matrixText13->TabIndex = 4;
+					   this->matrixText13->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText13_KeyPress);
 					   this->matrixText13->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText13_Leave);
 					   // 
@@ -648,12 +477,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText12->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText12->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText12->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText12->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText12->Location = System::Drawing::Point(88, 6);
+					   this->matrixText12->Location = System::Drawing::Point(67, 3);
 					   this->matrixText12->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText12->Name = L"matrixText12";
-					   this->matrixText12->Size = System::Drawing::Size(42, 30);
+					   this->matrixText12->Size = System::Drawing::Size(50, 36);
 					   this->matrixText12->TabIndex = 3;
+					   this->matrixText12->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText12_KeyPress);
 					   this->matrixText12->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText12_Leave);
 					   // 
@@ -663,12 +495,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText11->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText11->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText11->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText11->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText11->Location = System::Drawing::Point(12, 6);
+					   this->matrixText11->Location = System::Drawing::Point(8, 3);
 					   this->matrixText11->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText11->Name = L"matrixText11";
-					   this->matrixText11->Size = System::Drawing::Size(42, 30);
+					   this->matrixText11->Size = System::Drawing::Size(50, 36);
 					   this->matrixText11->TabIndex = 2;
+					   this->matrixText11->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText11_KeyPress);
 					   this->matrixText11->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText11_Leave);
 					   // 
@@ -681,9 +516,9 @@ private: Boolean getVsetkyVyplnene() {
 					   this->label3->Location = System::Drawing::Point(20, 114);
 					   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 					   this->label3->Name = L"label3";
-					   this->label3->Size = System::Drawing::Size(195, 22);
+					   this->label3->Size = System::Drawing::Size(188, 22);
 					   this->label3->TabIndex = 11;
-					   this->label3->Text = L"3. Vyplň zložky matice:";
+					   this->label3->Text = L"3. Zadaj prvky matice:";
 					   // 
 					   // pocetStlpcov
 					   // 
@@ -769,7 +604,7 @@ private: Boolean getVsetkyVyplnene() {
 					   this->createButton->Name = L"createButton";
 					   this->createButton->Size = System::Drawing::Size(228, 40);
 					   this->createButton->TabIndex = 29;
-					   this->createButton->Text = L"➕ Vytvoriť novú úlohu";
+					   this->createButton->Text = L"Vytvoriť tabuľku EZB";
 					   this->createButton->UseVisualStyleBackColor = false;
 					   this->createButton->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::createButton_Click);
 					   // 
@@ -797,10 +632,10 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixPanel2->Controls->Add(this->matrixText23);
 					   this->matrixPanel2->Controls->Add(this->matrixText22);
 					   this->matrixPanel2->Controls->Add(this->matrixText21);
-					   this->matrixPanel2->Location = System::Drawing::Point(100, 216);
+					   this->matrixPanel2->Location = System::Drawing::Point(224, 216);
 					   this->matrixPanel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel2->Name = L"matrixPanel2";
-					   this->matrixPanel2->Size = System::Drawing::Size(373, 47);
+					   this->matrixPanel2->Size = System::Drawing::Size(298, 47);
 					   this->matrixPanel2->TabIndex = 3;
 					   // 
 					   // matrixText25
@@ -809,12 +644,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText25->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText25->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText25->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText25->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText25->Location = System::Drawing::Point(320, 6);
+					   this->matrixText25->Location = System::Drawing::Point(240, 3);
 					   this->matrixText25->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText25->Name = L"matrixText25";
-					   this->matrixText25->Size = System::Drawing::Size(42, 30);
+					   this->matrixText25->Size = System::Drawing::Size(50, 36);
 					   this->matrixText25->TabIndex = 11;
+					   this->matrixText25->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText25_KeyPress);
 					   this->matrixText25->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText25_Leave);
 					   // 
@@ -824,12 +662,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText24->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText24->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText24->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText24->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText24->Location = System::Drawing::Point(244, 6);
+					   this->matrixText24->Location = System::Drawing::Point(182, 3);
 					   this->matrixText24->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText24->Name = L"matrixText24";
-					   this->matrixText24->Size = System::Drawing::Size(42, 30);
+					   this->matrixText24->Size = System::Drawing::Size(50, 36);
 					   this->matrixText24->TabIndex = 10;
+					   this->matrixText24->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText24_KeyPress);
 					   this->matrixText24->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText24_Leave);
 					   // 
@@ -839,12 +680,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText23->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText23->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText23->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText23->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText23->Location = System::Drawing::Point(166, 6);
+					   this->matrixText23->Location = System::Drawing::Point(124, 3);
 					   this->matrixText23->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText23->Name = L"matrixText23";
-					   this->matrixText23->Size = System::Drawing::Size(42, 30);
+					   this->matrixText23->Size = System::Drawing::Size(50, 36);
 					   this->matrixText23->TabIndex = 9;
+					   this->matrixText23->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText23->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText23_KeyPress);
 					   this->matrixText23->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText23_Leave);
 					   // 
@@ -854,12 +698,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText22->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText22->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText22->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText22->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText22->Location = System::Drawing::Point(87, 6);
+					   this->matrixText22->Location = System::Drawing::Point(66, 3);
 					   this->matrixText22->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText22->Name = L"matrixText22";
-					   this->matrixText22->Size = System::Drawing::Size(42, 30);
+					   this->matrixText22->Size = System::Drawing::Size(50, 36);
 					   this->matrixText22->TabIndex = 8;
+					   this->matrixText22->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText22_KeyPress);
 					   this->matrixText22->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText22_Leave);
 					   // 
@@ -869,12 +716,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText21->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText21->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText21->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText21->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText21->Location = System::Drawing::Point(11, 6);
+					   this->matrixText21->Location = System::Drawing::Point(7, 3);
 					   this->matrixText21->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText21->Name = L"matrixText21";
-					   this->matrixText21->Size = System::Drawing::Size(42, 30);
+					   this->matrixText21->Size = System::Drawing::Size(50, 36);
 					   this->matrixText21->TabIndex = 7;
+					   this->matrixText21->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText21_KeyPress);
 					   this->matrixText21->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText21_Leave);
 					   // 
@@ -885,10 +735,10 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixPanel3->Controls->Add(this->matrixText33);
 					   this->matrixPanel3->Controls->Add(this->matrixText32);
 					   this->matrixPanel3->Controls->Add(this->matrixText31);
-					   this->matrixPanel3->Location = System::Drawing::Point(100, 274);
+					   this->matrixPanel3->Location = System::Drawing::Point(224, 274);
 					   this->matrixPanel3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel3->Name = L"matrixPanel3";
-					   this->matrixPanel3->Size = System::Drawing::Size(373, 47);
+					   this->matrixPanel3->Size = System::Drawing::Size(298, 47);
 					   this->matrixPanel3->TabIndex = 4;
 					   // 
 					   // matrixText35
@@ -897,12 +747,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText35->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText35->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText35->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText35->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText35->Location = System::Drawing::Point(320, 6);
+					   this->matrixText35->Location = System::Drawing::Point(240, 3);
 					   this->matrixText35->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText35->Name = L"matrixText35";
-					   this->matrixText35->Size = System::Drawing::Size(42, 30);
+					   this->matrixText35->Size = System::Drawing::Size(50, 36);
 					   this->matrixText35->TabIndex = 16;
+					   this->matrixText35->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText35_KeyPress);
 					   this->matrixText35->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText35_Leave);
 					   // 
@@ -912,12 +765,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText34->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText34->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText34->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText34->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText34->Location = System::Drawing::Point(244, 6);
+					   this->matrixText34->Location = System::Drawing::Point(182, 3);
 					   this->matrixText34->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText34->Name = L"matrixText34";
-					   this->matrixText34->Size = System::Drawing::Size(42, 30);
+					   this->matrixText34->Size = System::Drawing::Size(50, 36);
 					   this->matrixText34->TabIndex = 15;
+					   this->matrixText34->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText34_KeyPress);
 					   this->matrixText34->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText34_Leave);
 					   // 
@@ -927,12 +783,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText33->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText33->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText33->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText33->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText33->Location = System::Drawing::Point(166, 6);
+					   this->matrixText33->Location = System::Drawing::Point(124, 3);
 					   this->matrixText33->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText33->Name = L"matrixText33";
-					   this->matrixText33->Size = System::Drawing::Size(42, 30);
+					   this->matrixText33->Size = System::Drawing::Size(50, 36);
 					   this->matrixText33->TabIndex = 14;
+					   this->matrixText33->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText33_KeyPress);
 					   this->matrixText33->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText33_Leave);
 					   // 
@@ -942,12 +801,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText32->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText32->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText32->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText32->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText32->Location = System::Drawing::Point(87, 6);
+					   this->matrixText32->Location = System::Drawing::Point(66, 3);
 					   this->matrixText32->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText32->Name = L"matrixText32";
-					   this->matrixText32->Size = System::Drawing::Size(42, 30);
+					   this->matrixText32->Size = System::Drawing::Size(50, 36);
 					   this->matrixText32->TabIndex = 13;
+					   this->matrixText32->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText32->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText32_KeyPress);
 					   this->matrixText32->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText32_Leave);
 					   // 
@@ -957,12 +819,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText31->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText31->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText31->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText31->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText31->Location = System::Drawing::Point(11, 6);
+					   this->matrixText31->Location = System::Drawing::Point(7, 3);
 					   this->matrixText31->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText31->Name = L"matrixText31";
-					   this->matrixText31->Size = System::Drawing::Size(42, 30);
+					   this->matrixText31->Size = System::Drawing::Size(50, 36);
 					   this->matrixText31->TabIndex = 12;
+					   this->matrixText31->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText31_KeyPress);
 					   this->matrixText31->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText31_Leave);
 					   // 
@@ -973,10 +838,10 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixPanel4->Controls->Add(this->matrixText43);
 					   this->matrixPanel4->Controls->Add(this->matrixText42);
 					   this->matrixPanel4->Controls->Add(this->matrixText41);
-					   this->matrixPanel4->Location = System::Drawing::Point(100, 331);
+					   this->matrixPanel4->Location = System::Drawing::Point(224, 331);
 					   this->matrixPanel4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel4->Name = L"matrixPanel4";
-					   this->matrixPanel4->Size = System::Drawing::Size(373, 47);
+					   this->matrixPanel4->Size = System::Drawing::Size(298, 47);
 					   this->matrixPanel4->TabIndex = 5;
 					   // 
 					   // matrixText45
@@ -985,12 +850,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText45->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText45->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText45->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText45->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText45->Location = System::Drawing::Point(320, 6);
+					   this->matrixText45->Location = System::Drawing::Point(240, 3);
 					   this->matrixText45->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText45->Name = L"matrixText45";
-					   this->matrixText45->Size = System::Drawing::Size(42, 30);
+					   this->matrixText45->Size = System::Drawing::Size(50, 36);
 					   this->matrixText45->TabIndex = 21;
+					   this->matrixText45->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText45_KeyPress);
 					   this->matrixText45->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText45_Leave);
 					   // 
@@ -1000,12 +868,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText44->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText44->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText44->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText44->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText44->Location = System::Drawing::Point(244, 6);
+					   this->matrixText44->Location = System::Drawing::Point(182, 3);
 					   this->matrixText44->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText44->Name = L"matrixText44";
-					   this->matrixText44->Size = System::Drawing::Size(42, 30);
+					   this->matrixText44->Size = System::Drawing::Size(50, 36);
 					   this->matrixText44->TabIndex = 20;
+					   this->matrixText44->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText44_KeyPress);
 					   this->matrixText44->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText44_Leave);
 					   // 
@@ -1015,12 +886,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText43->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText43->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText43->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText43->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText43->Location = System::Drawing::Point(166, 6);
+					   this->matrixText43->Location = System::Drawing::Point(124, 3);
 					   this->matrixText43->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText43->Name = L"matrixText43";
-					   this->matrixText43->Size = System::Drawing::Size(42, 30);
+					   this->matrixText43->Size = System::Drawing::Size(50, 36);
 					   this->matrixText43->TabIndex = 19;
+					   this->matrixText43->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText43_KeyPress);
 					   this->matrixText43->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText43_Leave);
 					   // 
@@ -1030,12 +904,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText42->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText42->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText42->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText42->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText42->Location = System::Drawing::Point(87, 6);
+					   this->matrixText42->Location = System::Drawing::Point(66, 3);
 					   this->matrixText42->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText42->Name = L"matrixText42";
-					   this->matrixText42->Size = System::Drawing::Size(42, 30);
+					   this->matrixText42->Size = System::Drawing::Size(50, 36);
 					   this->matrixText42->TabIndex = 18;
+					   this->matrixText42->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText42_KeyPress);
 					   this->matrixText42->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText42_Leave);
 					   // 
@@ -1045,12 +922,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText41->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText41->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText41->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText41->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText41->Location = System::Drawing::Point(11, 6);
+					   this->matrixText41->Location = System::Drawing::Point(7, 3);
 					   this->matrixText41->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText41->Name = L"matrixText41";
-					   this->matrixText41->Size = System::Drawing::Size(42, 30);
+					   this->matrixText41->Size = System::Drawing::Size(50, 36);
 					   this->matrixText41->TabIndex = 17;
+					   this->matrixText41->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText41_KeyPress);
 					   this->matrixText41->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText41_Leave);
 					   // 
@@ -1061,10 +941,10 @@ private: Boolean getVsetkyVyplnene() {
 					   this->matrixPanel5->Controls->Add(this->matrixText53);
 					   this->matrixPanel5->Controls->Add(this->matrixText52);
 					   this->matrixPanel5->Controls->Add(this->matrixText51);
-					   this->matrixPanel5->Location = System::Drawing::Point(100, 389);
+					   this->matrixPanel5->Location = System::Drawing::Point(224, 389);
 					   this->matrixPanel5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixPanel5->Name = L"matrixPanel5";
-					   this->matrixPanel5->Size = System::Drawing::Size(373, 47);
+					   this->matrixPanel5->Size = System::Drawing::Size(298, 47);
 					   this->matrixPanel5->TabIndex = 6;
 					   // 
 					   // matrixText55
@@ -1073,12 +953,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText55->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText55->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText55->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText55->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText55->Location = System::Drawing::Point(320, 6);
+					   this->matrixText55->Location = System::Drawing::Point(240, 3);
 					   this->matrixText55->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText55->Name = L"matrixText55";
-					   this->matrixText55->Size = System::Drawing::Size(42, 30);
+					   this->matrixText55->Size = System::Drawing::Size(50, 36);
 					   this->matrixText55->TabIndex = 26;
+					   this->matrixText55->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText55_KeyPress);
 					   this->matrixText55->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText55_Leave);
 					   // 
@@ -1088,12 +971,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText54->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText54->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText54->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText54->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText54->Location = System::Drawing::Point(244, 6);
+					   this->matrixText54->Location = System::Drawing::Point(182, 3);
 					   this->matrixText54->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText54->Name = L"matrixText54";
-					   this->matrixText54->Size = System::Drawing::Size(42, 30);
+					   this->matrixText54->Size = System::Drawing::Size(50, 36);
 					   this->matrixText54->TabIndex = 25;
+					   this->matrixText54->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText54_KeyPress);
 					   this->matrixText54->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText54_Leave);
 					   // 
@@ -1103,12 +989,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText53->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText53->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText53->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText53->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText53->Location = System::Drawing::Point(166, 6);
+					   this->matrixText53->Location = System::Drawing::Point(124, 3);
 					   this->matrixText53->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText53->Name = L"matrixText53";
-					   this->matrixText53->Size = System::Drawing::Size(42, 30);
+					   this->matrixText53->Size = System::Drawing::Size(50, 36);
 					   this->matrixText53->TabIndex = 24;
+					   this->matrixText53->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText53_KeyPress);
 					   this->matrixText53->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText53_Leave);
 					   // 
@@ -1118,12 +1007,15 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText52->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText52->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText52->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText52->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText52->Location = System::Drawing::Point(87, 6);
+					   this->matrixText52->Location = System::Drawing::Point(66, 3);
 					   this->matrixText52->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText52->Name = L"matrixText52";
-					   this->matrixText52->Size = System::Drawing::Size(42, 30);
+					   this->matrixText52->Size = System::Drawing::Size(50, 36);
 					   this->matrixText52->TabIndex = 23;
+					   this->matrixText52->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText52_KeyPress);
 					   this->matrixText52->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText52_Leave);
 					   // 
@@ -1133,32 +1025,47 @@ private: Boolean getVsetkyVyplnene() {
 						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
 					   this->matrixText51->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->matrixText51->Cursor = System::Windows::Forms::Cursors::Hand;
+					   this->matrixText51->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
 					   this->matrixText51->ForeColor = System::Drawing::SystemColors::Window;
-					   this->matrixText51->Location = System::Drawing::Point(11, 6);
+					   this->matrixText51->Location = System::Drawing::Point(7, 3);
 					   this->matrixText51->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->matrixText51->Name = L"matrixText51";
-					   this->matrixText51->Size = System::Drawing::Size(42, 30);
+					   this->matrixText51->Size = System::Drawing::Size(50, 36);
 					   this->matrixText51->TabIndex = 22;
+					   this->matrixText51->TextAlign = System::Windows::Forms::HorizontalAlignment::Center;
 					   this->matrixText51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &matrixNewTaskDialog::matrixText51_KeyPress);
 					   this->matrixText51->Leave += gcnew System::EventHandler(this, &matrixNewTaskDialog::matrixText51_Leave);
 					   // 
-					   // vectorB
+					   // panel1
 					   // 
-					   this->vectorB->BackColor = System::Drawing::Color::DodgerBlue;
-					   this->vectorB->Cursor = System::Windows::Forms::Cursors::Hand;
-					   this->vectorB->Enabled = false;
-					   this->vectorB->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-					   this->vectorB->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-					   this->vectorB->ForeColor = System::Drawing::SystemColors::Window;
-					   this->vectorB->Location = System::Drawing::Point(476, 158);
-					   this->vectorB->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-					   this->vectorB->Name = L"vectorB";
-					   this->vectorB->Size = System::Drawing::Size(184, 40);
-					   this->vectorB->TabIndex = 28;
-					   this->vectorB->Text = L"➕ Pridať vektor b⃗";
-					   this->vectorB->UseVisualStyleBackColor = false;
-					   this->vectorB->Click += gcnew System::EventHandler(this, &matrixNewTaskDialog::vectorB_Click);
+					   this->panel1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel1.BackgroundImage")));
+					   this->panel1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+					   this->panel1->Location = System::Drawing::Point(207, 158);
+					   this->panel1->Name = L"panel1";
+					   this->panel1->Size = System::Drawing::Size(10, 278);
+					   this->panel1->TabIndex = 14;
+					   // 
+					   // panel2
+					   // 
+					   this->panel2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"panel2.BackgroundImage")));
+					   this->panel2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+					   this->panel2->Location = System::Drawing::Point(529, 158);
+					   this->panel2->Name = L"panel2";
+					   this->panel2->Size = System::Drawing::Size(10, 278);
+					   this->panel2->TabIndex = 15;
+					   // 
+					   // label1
+					   // 
+					   this->label1->AutoSize = true;
+					   this->label1->Font = (gcnew System::Drawing::Font(L"Cambria", 24, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+						   static_cast<System::Byte>(0)));
+					   this->label1->ForeColor = System::Drawing::SystemColors::Window;
+					   this->label1->Location = System::Drawing::Point(133, 277);
+					   this->label1->Name = L"label1";
+					   this->label1->Size = System::Drawing::Size(69, 37);
+					   this->label1->TabIndex = 16;
+					   this->label1->Text = L"A  =";
 					   // 
 					   // matrixNewTaskDialog
 					   // 
@@ -1166,8 +1073,11 @@ private: Boolean getVsetkyVyplnene() {
 					   this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 					   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 						   static_cast<System::Int32>(static_cast<System::Byte>(25)));
+					   this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 					   this->ClientSize = System::Drawing::Size(674, 523);
-					   this->Controls->Add(this->vectorB);
+					   this->Controls->Add(this->label1);
+					   this->Controls->Add(this->panel2);
+					   this->Controls->Add(this->panel1);
 					   this->Controls->Add(this->matrixPanel5);
 					   this->Controls->Add(this->matrixPanel4);
 					   this->Controls->Add(this->matrixPanel3);
@@ -1185,7 +1095,7 @@ private: Boolean getVsetkyVyplnene() {
 					   this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->Name = L"matrixNewTaskDialog";
 					   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-					   this->Text = L"Nová úloha";
+					   this->Text = L"Nový výpočet";
 					   this->matrixPanel1->ResumeLayout(false);
 					   this->matrixPanel1->PerformLayout();
 					   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetStlpcov))->EndInit();
@@ -1222,9 +1132,7 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
-
-					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(239, 158);
+					this->panel2->Location = System::Drawing::Point(358, 158);
 
 				}
 
@@ -1244,16 +1152,8 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
+					this->panel2->Location = System::Drawing::Point(415, 158);
 
-					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(318, 158);
-					if (vB) {
-						this->matrixText13->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText23->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText33->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText43->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText53->BackColor = System::Drawing::Color::DodgerBlue;
-					}
 				}
 
 				if (this->pocetStlpcov->Value == 4) {
@@ -1272,17 +1172,8 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
+					this->panel2->Location = System::Drawing::Point(472, 158);
 
-					this->vectorB->Enabled = true;
-					this->vectorB->Location = System::Drawing::Point(397, 158);
-
-					if (vB) {
-						this->matrixText14->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText24->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText34->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText44->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText54->BackColor = System::Drawing::Color::DodgerBlue;
-					}
 				}
 
 				if (this->pocetStlpcov->Value == 5) {
@@ -1302,16 +1193,7 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText45->Show();
 					this->matrixText55->Show();
 
-					this->vectorB->Enabled = false;
-					this->vectorB->Location = System::Drawing::Point(476, 158);
-
-					if (vB) {
-						this->matrixText15->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText25->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText35->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText45->BackColor = System::Drawing::Color::DodgerBlue;
-						this->matrixText55->BackColor = System::Drawing::Color::DodgerBlue;
-					}
+					this->panel2->Location = System::Drawing::Point(529, 158);
 
 				}
 			}
@@ -1328,11 +1210,19 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixPanel4->Hide();
 					this->matrixPanel5->Hide();
 
+					panel1->Height = 104;
+					panel2->Height = 104;
+					this->label1->Location = System::Drawing::Point(133, 190);
+
 				}
 				if (this->pocetRiadkov->Value == 3) {
 					this->matrixPanel3->Show();
 					this->matrixPanel4->Hide();
 					this->matrixPanel5->Hide();
+
+					panel1->Height = 162;
+					panel2->Height = 162;
+					this->label1->Location = System::Drawing::Point(133, 219);
 
 				}
 				if (this->pocetRiadkov->Value == 4) {
@@ -1340,11 +1230,19 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixPanel4->Show();
 					this->matrixPanel5->Hide();
 
+					panel1->Height = 220;
+					panel2->Height = 220;
+					this->label1->Location = System::Drawing::Point(133, 248);
+
 				}
 				if (this->pocetRiadkov->Value == 5) {
 					this->matrixPanel3->Show();
 					this->matrixPanel4->Show();
 					this->matrixPanel5->Show();
+
+					panel1->Height = 278;
+					panel2->Height = 278;
+					this->label1->Location = System::Drawing::Point(133, 277);
 
 				}
 
@@ -1380,76 +1278,20 @@ private: Boolean getVsetkyVyplnene() {
 				this->matrixText54->Text = "";
 				this->matrixText55->Text = "";
 
-				vB = 0;
 				pocetStlpcov->Enabled = true;
-				if (pocetStlpcov->Value < 5)
-					vectorB->Enabled = true;
-				label3->Text = "3. Vyplň zložky matice:";
-
-				this->matrixText13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText23->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText33->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText43->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText53->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-
-				this->matrixText14->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText24->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText34->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText44->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText54->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-
-				this->matrixText15->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText25->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText35->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText45->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				this->matrixText55->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));				
+				label3->Text = "3. Zadaj prvky matice:";		
 
 			}
 
 			private: System::Void createButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
-
 				// zisti ci su vsetky hodnoty vyplnene
-				if (getVsetkyVyplnene()) {
-					if (!getNulovyRiadok() && !getNulovyStlpec()) {
-						created = true;
-						Form::Close();
-
-					}
-					else {
-						MessageBox::Show("V linearnom priestore nesmie byt nulovy riadok alebo stlpec !", "Chybny vstup !", MessageBoxButtons::OK, MessageBoxIcon::Error);
-					}
-
+				if (!getVsetkyVyplnene()) {
+					MessageBox::Show("Zadaj všetky prvky matice !", "Chýbajúce hodnoty !", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
 				else {
-					MessageBox::Show("Vypln vsetky zlozky matice !", "Chybajuce hodnoty !", MessageBoxButtons::OK, MessageBoxIcon::Error);
-				}
-
-
-			}
-			private: System::Void vectorB_Click(System::Object^ sender, System::EventArgs^ e) {
-
-				if (pocetStlpcov->Value < 5 - vB) {
-					vB = 1;
-					label3->Text = "3. Vyplň zložky matice a vektora b\u20D7:";
-					pocetStlpcov->Value++;
-					pocetStlpcov->Enabled = false;
-					vectorB->Enabled = false;
+					created = true;
+					Form::Close();
 				}
 			}
 

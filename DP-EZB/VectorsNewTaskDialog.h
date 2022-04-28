@@ -172,6 +172,8 @@ namespace DP_EZB {
 	public: Boolean created = false;
 private: System::Windows::Forms::Button^ exitTaskButton;
 public:
+
+public:
 	public: int vB = 0;
 
 	public: int getPocetVektorov() {
@@ -553,7 +555,6 @@ public:
 			   this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			   this->createButton = (gcnew System::Windows::Forms::Button());
 			   this->clearTaskButton = (gcnew System::Windows::Forms::Button());
-			   this->exitTaskButton = (gcnew System::Windows::Forms::Button());
 			   this->vectorPanel2 = (gcnew System::Windows::Forms::Panel());
 			   this->vectorLabel25 = (gcnew System::Windows::Forms::Label());
 			   this->vectorText25 = (gcnew System::Windows::Forms::TextBox());
@@ -603,6 +604,7 @@ public:
 			   this->vectorText51 = (gcnew System::Windows::Forms::TextBox());
 			   this->label27 = (gcnew System::Windows::Forms::Label());
 			   this->vectorB = (gcnew System::Windows::Forms::Button());
+			   this->exitTaskButton = (gcnew System::Windows::Forms::Button());
 			   this->vectorPanel1->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->BeginInit();
@@ -638,7 +640,7 @@ public:
 			   this->vectorLabel15->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->vectorLabel15->ForeColor = System::Drawing::SystemColors::Window;
-			   this->vectorLabel15->Location = System::Drawing::Point(482, 3);
+			   this->vectorLabel15->Location = System::Drawing::Point(482, 8);
 			   this->vectorLabel15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->vectorLabel15->Name = L"vectorLabel15";
 			   this->vectorLabel15->Size = System::Drawing::Size(17, 22);
@@ -778,7 +780,7 @@ public:
 			   this->label4->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label4->ForeColor = System::Drawing::SystemColors::Window;
-			   this->label4->Location = System::Drawing::Point(46, 7);
+			   this->label4->Location = System::Drawing::Point(46, 8);
 			   this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label4->Name = L"label4";
 			   this->label4->Size = System::Drawing::Size(60, 22);
@@ -794,9 +796,9 @@ public:
 			   this->label3->Location = System::Drawing::Point(20, 115);
 			   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(215, 22);
+			   this->label3->Size = System::Drawing::Size(212, 22);
 			   this->label3->TabIndex = 11;
-			   this->label3->Text = L"3. Vyplň zložky vektorov:";
+			   this->label3->Text = L"3. Zadaj zložky vektorov:";
 			   // 
 			   // pocetSuradnicVektorov
 			   // 
@@ -824,9 +826,9 @@ public:
 			   this->label2->Location = System::Drawing::Point(20, 66);
 			   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(278, 22);
+			   this->label2->Size = System::Drawing::Size(264, 22);
 			   this->label2->TabIndex = 9;
-			   this->label2->Text = L"2. Zadaj počet súradníc vektorov:";
+			   this->label2->Text = L"2. Zadaj počet zložiek vektorov:";
 			   // 
 			   // pocetVektorov
 			   // 
@@ -883,7 +885,7 @@ public:
 			   this->createButton->Name = L"createButton";
 			   this->createButton->Size = System::Drawing::Size(228, 40);
 			   this->createButton->TabIndex = 29;
-			   this->createButton->Text = L"➕ Vytvoriť novú úlohu";
+			   this->createButton->Text = L"Vytvoriť tabuľku EZB";
 			   this->createButton->UseVisualStyleBackColor = false;
 			   this->createButton->Click += gcnew System::EventHandler(this, &vectorsNewTaskDialog::createButton_Click);
 			   // 
@@ -903,22 +905,6 @@ public:
 			   this->clearTaskButton->Text = L"❌ Zmazať";
 			   this->clearTaskButton->UseVisualStyleBackColor = false;
 			   this->clearTaskButton->Click += gcnew System::EventHandler(this, &vectorsNewTaskDialog::clearTaskButton_Click);
-			   // 
-			   // exitTaskButton
-			   // 
-			   this->exitTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			   this->exitTaskButton->Cursor = System::Windows::Forms::Cursors::Hand;
-			   this->exitTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
-			   this->exitTaskButton->ForeColor = System::Drawing::SystemColors::Window;
-			   this->exitTaskButton->Location = System::Drawing::Point(84, -1);
-			   this->exitTaskButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
-			   this->exitTaskButton->Name = L"exitTaskButton";
-			   this->exitTaskButton->Size = System::Drawing::Size(117, 40);
-			   this->exitTaskButton->TabIndex = 27;
-			   this->exitTaskButton->Text = L"Zrušiť";
-			   this->exitTaskButton->UseVisualStyleBackColor = false;
-			   this->exitTaskButton->Visible = false;
 			   // 
 			   // vectorPanel2
 			   // 
@@ -945,7 +931,7 @@ public:
 			   this->vectorLabel25->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->vectorLabel25->ForeColor = System::Drawing::SystemColors::Window;
-			   this->vectorLabel25->Location = System::Drawing::Point(482, 3);
+			   this->vectorLabel25->Location = System::Drawing::Point(482, 8);
 			   this->vectorLabel25->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->vectorLabel25->Name = L"vectorLabel25";
 			   this->vectorLabel25->Size = System::Drawing::Size(17, 22);
@@ -1117,7 +1103,7 @@ public:
 			   this->vectorLabel35->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->vectorLabel35->ForeColor = System::Drawing::SystemColors::Window;
-			   this->vectorLabel35->Location = System::Drawing::Point(482, 3);
+			   this->vectorLabel35->Location = System::Drawing::Point(482, 8);
 			   this->vectorLabel35->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->vectorLabel35->Name = L"vectorLabel35";
 			   this->vectorLabel35->Size = System::Drawing::Size(17, 22);
@@ -1257,7 +1243,7 @@ public:
 			   this->label15->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label15->ForeColor = System::Drawing::SystemColors::Window;
-			   this->label15->Location = System::Drawing::Point(46, 7);
+			   this->label15->Location = System::Drawing::Point(46, 8);
 			   this->label15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label15->Name = L"label15";
 			   this->label15->Size = System::Drawing::Size(60, 22);
@@ -1289,7 +1275,7 @@ public:
 			   this->vectorLabel45->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->vectorLabel45->ForeColor = System::Drawing::SystemColors::Window;
-			   this->vectorLabel45->Location = System::Drawing::Point(482, 3);
+			   this->vectorLabel45->Location = System::Drawing::Point(482, 8);
 			   this->vectorLabel45->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->vectorLabel45->Name = L"vectorLabel45";
 			   this->vectorLabel45->Size = System::Drawing::Size(17, 22);
@@ -1429,7 +1415,7 @@ public:
 			   this->label21->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label21->ForeColor = System::Drawing::SystemColors::Window;
-			   this->label21->Location = System::Drawing::Point(46, 6);
+			   this->label21->Location = System::Drawing::Point(46, 8);
 			   this->label21->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label21->Name = L"label21";
 			   this->label21->Size = System::Drawing::Size(60, 22);
@@ -1461,7 +1447,7 @@ public:
 			   this->vectorLabel55->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->vectorLabel55->ForeColor = System::Drawing::SystemColors::Window;
-			   this->vectorLabel55->Location = System::Drawing::Point(482, 3);
+			   this->vectorLabel55->Location = System::Drawing::Point(482, 8);
 			   this->vectorLabel55->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->vectorLabel55->Name = L"vectorLabel55";
 			   this->vectorLabel55->Size = System::Drawing::Size(17, 22);
@@ -1601,7 +1587,7 @@ public:
 			   this->label27->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				   static_cast<System::Byte>(0)));
 			   this->label27->ForeColor = System::Drawing::SystemColors::Window;
-			   this->label27->Location = System::Drawing::Point(46, 6);
+			   this->label27->Location = System::Drawing::Point(46, 8);
 			   this->label27->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label27->Name = L"label27";
 			   this->label27->Size = System::Drawing::Size(60, 22);
@@ -1625,6 +1611,22 @@ public:
 			   this->vectorB->Text = L"➕ Pridať vektor b⃗";
 			   this->vectorB->UseVisualStyleBackColor = false;
 			   this->vectorB->Click += gcnew System::EventHandler(this, &vectorsNewTaskDialog::vectorB_Click);
+			   // 
+			   // exitTaskButton
+			   // 
+			   this->exitTaskButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			   this->exitTaskButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			   this->exitTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Popup;
+			   this->exitTaskButton->ForeColor = System::Drawing::SystemColors::Window;
+			   this->exitTaskButton->Location = System::Drawing::Point(84, -1);
+			   this->exitTaskButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
+			   this->exitTaskButton->Name = L"exitTaskButton";
+			   this->exitTaskButton->Size = System::Drawing::Size(117, 40);
+			   this->exitTaskButton->TabIndex = 27;
+			   this->exitTaskButton->Text = L"Zrušiť";
+			   this->exitTaskButton->UseVisualStyleBackColor = false;
+			   this->exitTaskButton->Visible = false;
 			   // 
 			   // vectorsNewTaskDialog
 			   // 
@@ -1651,7 +1653,7 @@ public:
 			   this->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->Name = L"vectorsNewTaskDialog";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			   this->Text = L"Nová úloha";
+			   this->Text = L"Nový výpočet";
 			   this->vectorPanel1->ResumeLayout(false);
 			   this->vectorPanel1->PerformLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->EndInit();
