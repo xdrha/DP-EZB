@@ -11,6 +11,11 @@ namespace DP_EZB {
 	public: int pocetStlpcov;
 	public:	double** matrix;
 	public: int type; // 1 or 2 ...
+	public: Boolean existB = false;
+	public: Boolean existD = false;
+	public: double** matrixB = 0;
+	public: double** matrixD = 0;
+	public: int pocetZaclenenych = 0;
 
 	public: MatrixTask(int pocetV, int pocetS, double** m, int t) {
 		this->pocetRiadkov = pocetV;
@@ -85,7 +90,6 @@ namespace DP_EZB {
 
 	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount, double* pivots) {
 		// zaclenene vektory + ich zlozky
-		int pocetZaclenenych = 0;
 		String^ all = "{ ";
 		String^ zaclenene = "";
 		String^ nezaclenene = "";
@@ -154,59 +158,50 @@ namespace DP_EZB {
 				//ak je h vektrov lineane nezavislych
 				//matica B
 				if (pocetZaclenenych == pocetStlpcov) {
-					output += "b) Boli začlenné všetky stĺpcové vektory matice, jedná sa o triviálny rozklad A = B \u2219 C = E" + subscript(pocetZaclenenych.ToString()) + " \u2219 A.\r\n\r\nMatica A = ( ";
+					output += "b) Boli začlenné všetky stĺpcové vektory matice, jedná sa o triviálny rozklad A = B \u2219 C = E" + subscript(pocetZaclenenych.ToString()) + " \u2219 A.\r\n\r\n";
+					existB = true;
 				}
 				else{
-					output += "b) Rozklad matice: A = B \u2219 C = B \u2219 (E | D)\r\n\r\nMatica B = ( ";
+					output += "b) Rozklad matice: A = B \u2219 C = B \u2219 (E | D)\r\n\r\n";
+					existB = true;
+					existD = true;
+					
+				}
+
+				//matica b
+
+				matrixB = new double* [pocetRiadkov];
+				for (int h = 0; h < pocetRiadkov; h++)
+				{
+					matrixB[h] = new double[pocetZaclenenych];
 				}
 
 				for (int i = 0; i < pocetRiadkov; i++) {
 					for (int j = 0; j < pocetZaclenenych; j++) {
-						output += round_up(matrix[i][j], 2);
-						if (j < pocetZaclenenych - 1) output += "; ";
-						else output += " ";
-
+						matrixB[i][j] = round_up(matrix[i][j], 2);
 					}
-					if (i == pocetRiadkov - 1) output += " )\r\n\r\n";
-					else output += "\r\n\t   ";
 				}
 
-				//Matice E,D
+				//Matica D
+				
+				matrixD = new double* [pocetZaclenenych];
+				for (int h = 0; h < pocetZaclenenych; h++)
+				{
+					matrixD[h] = new double[pocetStlpcov - pocetZaclenenych];
+				}
 
-				String^ MatrixE = "Matica E = ( ";
-				String^ MatrixD = "Matica D = ( ";
 				int count = 0;
 				for (int j = 0; j < pocetZaclenenych; j++) {
 					for (int i = 0; i < pocetRiadkov; i++) {
 						if (m[i][j] == 1) {
-							for (int k = 0; k < pocetStlpcov; k++) {
-								if (k < pocetZaclenenych) {
-									MatrixE += round_up(m[i][k], 2);
-									if (k < pocetZaclenenych - 1) MatrixE += "; ";
-									else MatrixE += " ";
-								}
-								else {
-									MatrixD += round_up(m[i][k], 2);
-									if (k < pocetStlpcov - 1) MatrixD += "; ";
-									else MatrixD += " ";
-								}
-
-							}
-							if (pocetZaclenenych - 1 == count) {
-								MatrixE += " )\r\n\r\n";
-								MatrixD += " )\r\n\r\n";
-							}
-							else if (pocetZaclenenych - 1 > count) {
-								MatrixE += "\r\n\t   ";
-								MatrixD += "\r\n\t   ";
+							for (int k = pocetZaclenenych; k < pocetStlpcov; k++) {
+								matrixD[count][k - pocetZaclenenych] = round_up(m[i][k], 2);
 							}
 							count++;
 						}
 					}
 				}
 
-				output += MatrixE;
-				if (pocetZaclenenych != pocetStlpcov) output += MatrixD;
 
 			}
 
@@ -215,57 +210,36 @@ namespace DP_EZB {
 
 		if (type == 3) {
 			if (pocetZaclenenych == pocetStlpcov) {
-				output += "a) h(A) = " + pocetZaclenenych + " preto je matica A" + subscript(pocetStlpcov.ToString()) + " regulárna a existuje k nej inverzná matica: \r\n\r\nA \u2219 A\u207B¹ = E\r\n\r\nb) Matica A = (";
+				output += "a) h(A) = " + pocetZaclenenych + " preto je matica A regulárna a existuje k nej inverzná matica: \r\n\r\nA \u2219 A\u207B¹ = E\r\n\r\nb)";
+				existB = true;
 
 				//tu vypis inverznu maticu
 				// matica A
-				for (int i = 0; i < pocetRiadkov; i++) {
-					for (int j = 0; j < pocetStlpcov; j++) {
-						output += round_up(matrix[i][j], 2);
-						if (j < pocetStlpcov - 1) output += "; ";
-						else output += " ";
 
-					}
-					if (i == pocetRiadkov - 1) output += " )\r\n\r\n";
-					else output += "\r\n\t   ";
+				matrixB = new double* [pocetRiadkov];
+				for (int h = 0; h < pocetRiadkov; h++)
+				{
+					matrixB[h] = new double[pocetZaclenenych];
 				}
 
 				//matica A-1
-				String^ MatrixE = "Matica E = ( ";
-				String^ MatrixD = "Matica A\u207B¹ = ( ";
-				int count = 0;
+				int count = 0;				
+
 				for (int j = 0; j < pocetStlpcov; j++) {
 					for (int i = 0; i < pocetRiadkov; i++) {
 						if (m[i][j] == 1) {
 							for (int k = 0; k < pocetStlpcov * 2; k++) {
-								if (k < pocetStlpcov) {
-									MatrixE += round_up(m[i][k], 2);
-									if (k < pocetStlpcov - 1) MatrixE += "; ";
-									else MatrixE += " ";
+								if (k >= pocetStlpcov) {
+									matrixB[count][k - pocetStlpcov] = round_up(m[i][k], 2);
 								}
-								else {
-									MatrixD += round_up(m[i][k], 2);
-									if (k < pocetStlpcov * 2 - 1) MatrixD += "; ";
-									else MatrixD += " ";
-								}
-
-							}
-							if (pocetStlpcov - 1 == count) {
-								MatrixE += " )\r\n\r\n";
-								MatrixD += " )\r\n\r\n";
-							}
-							else if (pocetStlpcov - 1 > count) {
-								MatrixE += "\r\n\t   ";
-								MatrixD += "\r\n\t   ";
 							}
 							count++;
 						}
 					}
 				}
-				output += MatrixD + MatrixE;
 
 			}
-			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A" + subscript(pocetStlpcov.ToString()) +" singulárna a neexistuje k nej inverzná matica A\u207B¹\r\n\r\n";
+			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A singulárna a neexistuje k nej inverzná matica A\u207B¹\r\n\r\n";
 		}
 
 		if (type == 4) {

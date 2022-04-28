@@ -1691,6 +1691,22 @@ public:
 			this->vectorText45->Hide();
 			this->vectorText55->Hide();
 
+			this->vectorText13->Text = "";
+			this->vectorText23->Text = ""; 
+			this->vectorText33->Text = ""; 
+			this->vectorText43->Text = ""; 
+			this->vectorText53->Text = ""; 
+			this->vectorText14->Text = ""; 
+			this->vectorText24->Text = ""; 
+			this->vectorText34->Text = ""; 
+			this->vectorText44->Text = ""; 
+			this->vectorText54->Text = ""; 
+			this->vectorText15->Text = ""; 
+			this->vectorText25->Text = ""; 
+			this->vectorText35->Text = ""; 
+			this->vectorText45->Text = ""; 
+			this->vectorText55->Text = ""; 
+
 			this->vectorLabel13->Hide();
 			this->vectorLabel23->Hide();
 			this->vectorLabel33->Hide();
@@ -1732,6 +1748,17 @@ public:
 			this->vectorText35->Hide();
 			this->vectorText45->Hide();
 			this->vectorText55->Hide();
+
+			this->vectorText14->Text = "";
+			this->vectorText24->Text = "";
+			this->vectorText34->Text = "";
+			this->vectorText44->Text = "";
+			this->vectorText54->Text = "";
+			this->vectorText15->Text = "";
+			this->vectorText25->Text = "";
+			this->vectorText35->Text = "";
+			this->vectorText45->Text = "";
+			this->vectorText55->Text = "";
 
 			this->vectorLabel13->Show();
 			this->vectorLabel23->Show();
@@ -1779,6 +1806,12 @@ public:
 			this->vectorText35->Hide();
 			this->vectorText45->Hide();
 			this->vectorText55->Hide();
+
+			this->vectorText15->Text = "";
+			this->vectorText25->Text = "";
+			this->vectorText35->Text = "";
+			this->vectorText45->Text = "";
+			this->vectorText55->Text = "";
 
 			this->vectorLabel13->Show();
 			this->vectorLabel23->Show();
@@ -1886,6 +1919,24 @@ public:
 			this->vectorPanel4->Hide();
 			this->vectorPanel5->Hide();
 
+			this->vectorText31->Text = "";
+			this->vectorText32->Text = "";
+			this->vectorText33->Text = "";
+			this->vectorText34->Text = "";
+			this->vectorText35->Text = "";
+
+			this->vectorText41->Text = "";
+			this->vectorText42->Text = "";
+			this->vectorText43->Text = "";
+			this->vectorText44->Text = "";
+			this->vectorText45->Text = "";
+
+			this->vectorText51->Text = "";
+			this->vectorText52->Text = "";
+			this->vectorText53->Text = "";
+			this->vectorText54->Text = "";
+			this->vectorText55->Text = "";
+
 			this->vectorB->Enabled = true;
 			this->vectorB->Location = System::Drawing::Point(184, 246);
 		}
@@ -1893,6 +1944,18 @@ public:
 			this->vectorPanel3->Show();
 			this->vectorPanel4->Hide();
 			this->vectorPanel5->Hide();
+
+			this->vectorText41->Text = "";
+			this->vectorText42->Text = "";
+			this->vectorText43->Text = "";
+			this->vectorText44->Text = "";
+			this->vectorText45->Text = "";
+
+			this->vectorText51->Text = "";
+			this->vectorText52->Text = "";
+			this->vectorText53->Text = "";
+			this->vectorText54->Text = "";
+			this->vectorText55->Text = "";
 
 			this->vectorB->Enabled = true;
 			this->vectorB->Location = System::Drawing::Point(184, 304);
@@ -1910,6 +1973,12 @@ public:
 			this->vectorPanel3->Show();
 			this->vectorPanel4->Show();
 			this->vectorPanel5->Hide();
+
+			this->vectorText51->Text = "";
+			this->vectorText52->Text = "";
+			this->vectorText53->Text = "";
+			this->vectorText54->Text = "";
+			this->vectorText55->Text = "";
 
 			this->vectorB->Enabled = true;
 			this->vectorB->Location = System::Drawing::Point(184, 360);

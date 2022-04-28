@@ -1995,6 +1995,35 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpPanel4->Hide();
 			this->lpPanel5->Hide();
 
+			this->lpText21->Text = "";
+			this->lpText22->Text = "";
+			this->lpText23->Text = "";
+			this->lpText24->Text = "";
+			this->lpText25->Text = "";
+
+			this->lpText31->Text = "";
+			this->lpText32->Text = "";
+			this->lpText33->Text = "";
+			this->lpText34->Text = "";
+			this->lpText35->Text = "";
+
+			this->lpText41->Text = "";
+			this->lpText42->Text = "";
+			this->lpText43->Text = "";
+			this->lpText44->Text = "";
+			this->lpText45->Text = "";
+
+			this->lpText51->Text = "";
+			this->lpText52->Text = "";
+			this->lpText53->Text = "";
+			this->lpText54->Text = "";
+			this->lpText55->Text = "";
+
+			this->bText2->Text = "";
+			this->bText3->Text = "";
+			this->bText4->Text = "";
+			this->bText5->Text = "";
+
 			bText2->Hide();
 			bText3->Hide();
 			bText4->Hide();
@@ -2015,6 +2044,28 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpPanel4->Hide();
 			this->lpPanel5->Hide();
 
+			this->lpText31->Text = "";
+			this->lpText32->Text = "";
+			this->lpText33->Text = "";
+			this->lpText34->Text = "";
+			this->lpText35->Text = "";
+
+			this->lpText41->Text = "";
+			this->lpText42->Text = "";
+			this->lpText43->Text = "";
+			this->lpText44->Text = "";
+			this->lpText45->Text = "";
+
+			this->lpText51->Text = "";
+			this->lpText52->Text = "";
+			this->lpText53->Text = "";
+			this->lpText54->Text = "";
+			this->lpText55->Text = "";
+
+			this->bText3->Text = "";
+			this->bText4->Text = "";
+			this->bText5->Text = "";
+
 			bText2->Show();
 			bText3->Hide();
 			bText4->Hide();
@@ -2034,6 +2085,21 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpPanel4->Hide();
 			this->lpPanel5->Hide();
 
+			this->lpText41->Text = "";
+			this->lpText42->Text = "";
+			this->lpText43->Text = "";
+			this->lpText44->Text = "";
+			this->lpText45->Text = "";
+
+			this->lpText51->Text = "";
+			this->lpText52->Text = "";
+			this->lpText53->Text = "";
+			this->lpText54->Text = "";
+			this->lpText55->Text = "";
+
+			this->bText4->Text = "";
+			this->bText5->Text = "";
+
 			bText2->Show();
 			bText3->Show();
 			bText4->Hide();
@@ -2052,6 +2118,14 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpPanel3->Show();
 			this->lpPanel4->Show();
 			this->lpPanel5->Hide();
+
+			this->lpText51->Text = "";
+			this->lpText52->Text = "";
+			this->lpText53->Text = "";
+			this->lpText54->Text = "";
+			this->lpText55->Text = "";
+
+			this->bText5->Text = "";
 
 			bText2->Show();
 			bText3->Show();
@@ -2108,6 +2182,26 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpText45->Hide();
 			this->lpText55->Hide();
 
+			this->lpText13->Text = "";
+			this->lpText23->Text = ""; 
+			this->lpText33->Text = ""; 
+			this->lpText43->Text = ""; 
+			this->lpText53->Text = ""; 
+			this->lpText14->Text = ""; 
+			this->lpText24->Text = ""; 
+			this->lpText34->Text = ""; 
+			this->lpText44->Text = ""; 
+			this->lpText54->Text = ""; 
+			this->lpText15->Text = ""; 
+			this->lpText25->Text = ""; 
+			this->lpText35->Text = ""; 
+			this->lpText45->Text = ""; 
+			this->lpText55->Text = "";
+
+			this->ufText3->Text = "";
+			this->ufText4->Text = "";
+			this->ufText5->Text = "";
+
 			this->lpLabel13->Hide();
 			this->lpLabel23->Hide();
 			this->lpLabel33->Hide();
@@ -2153,6 +2247,21 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpText45->Hide();
 			this->lpText55->Hide();
 
+		
+			this->lpText14->Text = "";
+			this->lpText24->Text = "";
+			this->lpText34->Text = "";
+			this->lpText44->Text = "";
+			this->lpText54->Text = "";
+			this->lpText15->Text = "";
+			this->lpText25->Text = "";
+			this->lpText35->Text = "";
+			this->lpText45->Text = "";
+			this->lpText55->Text = "";
+
+			this->ufText4->Text = "";
+			this->ufText5->Text = "";
+
 			this->lpLabel13->Show();
 			this->lpLabel23->Show();
 			this->lpLabel33->Show();
@@ -2197,6 +2306,14 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->lpText35->Hide();
 			this->lpText45->Hide();
 			this->lpText55->Hide();
+
+			this->lpText15->Text = "";
+			this->lpText25->Text = "";
+			this->lpText35->Text = "";
+			this->lpText45->Text = "";
+			this->lpText55->Text = "";
+
+			this->ufText5->Text = "";
 
 			this->lpLabel13->Show();
 			this->lpLabel23->Show();

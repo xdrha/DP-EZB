@@ -1543,6 +1543,25 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText45->Hide();
 			this->slrText55->Hide();
 
+			this->slrText13->Text = "";
+			this->slrText23->Text = ""; 
+			this->slrText33->Text = "";
+			this->slrText43->Text = "";
+			this->slrText53->Text = "";
+			this->slrText14->Text = ""; 
+			this->slrText24->Text = ""; 
+			this->slrText34->Text = ""; 
+			this->slrText44->Text = ""; 
+			this->slrText54->Text = ""; 
+			this->slrText15->Text = ""; 
+			this->slrText25->Text = ""; 
+			this->slrText35->Text = ""; 
+			this->slrText45->Text = ""; 
+			this->slrText55->Text = ""; 
+			this->bText3->Text = "";
+			this->bText4->Text = "";
+			this->bText5->Text = "";
+
 			this->slrLabel13->Hide();
 			this->slrLabel23->Hide();
 			this->slrLabel33->Hide();
@@ -1586,6 +1605,19 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText35->Hide();
 			this->slrText45->Hide();
 			this->slrText55->Hide();
+
+			this->slrText14->Text = "";
+			this->slrText24->Text = "";
+			this->slrText34->Text = "";
+			this->slrText44->Text = "";
+			this->slrText54->Text = "";
+			this->slrText15->Text = "";
+			this->slrText25->Text = "";
+			this->slrText35->Text = "";
+			this->slrText45->Text = "";
+			this->slrText55->Text = "";
+			this->bText4->Text = "";
+			this->bText5->Text = "";
 
 			this->slrLabel13->Show();
 			this->slrLabel23->Show();
@@ -1635,6 +1667,14 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText35->Hide();
 			this->slrText45->Hide();
 			this->slrText55->Hide();
+
+			this->slrText15->Text = "";
+			this->slrText25->Text = "";
+			this->slrText35->Text = "";
+			this->slrText45->Text = "";
+			this->slrText55->Text = "";
+
+			this->bText5->Text = "";
 
 			this->slrLabel13->Show();
 			this->slrLabel23->Show();
@@ -1748,6 +1788,28 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->bText3->Hide();
 			this->bText4->Hide();
 			this->bText5->Hide();
+
+			this->slrText31->Text = "";
+			this->slrText32->Text = "";
+			this->slrText33->Text = "";
+			this->slrText34->Text = "";
+			this->slrText35->Text = "";
+
+			this->slrText41->Text = "";
+			this->slrText42->Text = "";
+			this->slrText43->Text = "";
+			this->slrText44->Text = "";
+			this->slrText45->Text = "";
+
+			this->slrText51->Text = "";
+			this->slrText52->Text = "";
+			this->slrText53->Text = "";
+			this->slrText54->Text = "";
+			this->slrText55->Text = "";
+
+			this->bText3->Text = "";
+			this->bText4->Text = "";
+			this->bText5->Text = "";
 		}
 		if (this->pocetVektorov->Value == 3) {
 			this->slrPanel3->Show();
@@ -1756,6 +1818,21 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->bText3->Show();
 			this->bText4->Hide();
 			this->bText5->Hide();
+
+			this->slrText41->Text = "";
+			this->slrText42->Text = "";
+			this->slrText43->Text = "";
+			this->slrText44->Text = "";
+			this->slrText45->Text = "";
+
+			this->slrText51->Text = "";
+			this->slrText52->Text = "";
+			this->slrText53->Text = "";
+			this->slrText54->Text = "";
+			this->slrText55->Text = "";
+
+			this->bText4->Text = "";
+			this->bText5->Text = "";
 		}
 		if (this->pocetVektorov->Value == 4) {
 			this->slrPanel3->Show();
@@ -1764,6 +1841,14 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->bText3->Show();
 			this->bText4->Show();
 			this->bText5->Hide();
+
+			this->slrText51->Text = "";
+			this->slrText52->Text = "";
+			this->slrText53->Text = "";
+			this->slrText54->Text = "";
+			this->slrText55->Text = "";
+
+			this->bText5->Text = "";
 		}
 		if (this->pocetVektorov->Value == 5) {
 			this->slrPanel3->Show();

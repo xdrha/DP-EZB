@@ -53,7 +53,7 @@ namespace DP_EZB {
 			public: System::Windows::Forms::Label^ label3;
 			public: System::Windows::Forms::NumericUpDown^ pocetStlpcov;
 			public: System::Windows::Forms::Label^ label2;
-			private: System::Windows::Forms::NumericUpDown^ pocetRiadkov;
+			public: System::Windows::Forms::NumericUpDown^ pocetRiadkov;
 			public: System::Windows::Forms::Label^ LabelFirstAction;
 			private: System::Windows::Forms::Panel^ bottomPanel;
 
@@ -528,7 +528,7 @@ private: Boolean getVsetkyVyplnene() {
 					   this->pocetStlpcov->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->pocetStlpcov->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->pocetStlpcov->ForeColor = System::Drawing::SystemColors::Window;
-					   this->pocetStlpcov->Location = System::Drawing::Point(220, 64);
+					   this->pocetStlpcov->Location = System::Drawing::Point(226, 64);
 					   this->pocetStlpcov->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->pocetStlpcov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetStlpcov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
@@ -557,7 +557,7 @@ private: Boolean getVsetkyVyplnene() {
 					   this->pocetRiadkov->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 					   this->pocetRiadkov->Cursor = System::Windows::Forms::Cursors::Hand;
 					   this->pocetRiadkov->ForeColor = System::Drawing::SystemColors::Window;
-					   this->pocetRiadkov->Location = System::Drawing::Point(220, 20);
+					   this->pocetRiadkov->Location = System::Drawing::Point(226, 20);
 					   this->pocetRiadkov->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 					   this->pocetRiadkov->Maximum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 					   this->pocetRiadkov->Minimum = System::Decimal(gcnew cli::array< System::Int32 >(4) { 2, 0, 0, 0 });
@@ -1132,6 +1132,22 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
+
+					this->matrixText13->Text = "";
+					this->matrixText23->Text = ""; 
+					this->matrixText33->Text = "";
+					this->matrixText43->Text = "";
+					this->matrixText53->Text = "";
+					this->matrixText14->Text = "";
+					this->matrixText24->Text = "";
+					this->matrixText34->Text = "";
+					this->matrixText44->Text = "";
+					this->matrixText54->Text = "";
+					this->matrixText15->Text = "";
+					this->matrixText25->Text = "";
+					this->matrixText35->Text = "";
+					this->matrixText45->Text = "";
+					this->matrixText55->Text = "";
 					this->panel2->Location = System::Drawing::Point(358, 158);
 
 				}
@@ -1152,6 +1168,17 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
+
+					this->matrixText14->Text = "";
+					this->matrixText24->Text = "";
+					this->matrixText34->Text = "";
+					this->matrixText44->Text = "";
+					this->matrixText54->Text = "";
+					this->matrixText15->Text = "";
+					this->matrixText25->Text = "";
+					this->matrixText35->Text = "";
+					this->matrixText45->Text = "";
+					this->matrixText55->Text = "";
 					this->panel2->Location = System::Drawing::Point(415, 158);
 
 				}
@@ -1172,6 +1199,12 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixText35->Hide();
 					this->matrixText45->Hide();
 					this->matrixText55->Hide();
+
+					this->matrixText15->Text = "";
+					this->matrixText25->Text = "";
+					this->matrixText35->Text = "";
+					this->matrixText45->Text = "";
+					this->matrixText55->Text = "";
 					this->panel2->Location = System::Drawing::Point(472, 158);
 
 				}
@@ -1210,6 +1243,24 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixPanel4->Hide();
 					this->matrixPanel5->Hide();
 
+					this->matrixText31->Text = "";
+					this->matrixText32->Text = "";
+					this->matrixText33->Text = "";
+					this->matrixText34->Text = "";
+					this->matrixText35->Text = "";
+
+					this->matrixText41->Text = "";
+					this->matrixText42->Text = "";
+					this->matrixText43->Text = "";
+					this->matrixText44->Text = "";
+					this->matrixText45->Text = "";
+
+					this->matrixText51->Text = "";
+					this->matrixText52->Text = "";
+					this->matrixText53->Text = "";
+					this->matrixText54->Text = "";
+					this->matrixText55->Text = "";
+
 					panel1->Height = 104;
 					panel2->Height = 104;
 					this->label1->Location = System::Drawing::Point(133, 190);
@@ -1220,6 +1271,18 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixPanel4->Hide();
 					this->matrixPanel5->Hide();
 
+					this->matrixText41->Text = "";
+					this->matrixText42->Text = "";
+					this->matrixText43->Text = "";
+					this->matrixText44->Text = "";
+					this->matrixText45->Text = "";
+
+					this->matrixText51->Text = "";
+					this->matrixText52->Text = "";
+					this->matrixText53->Text = "";
+					this->matrixText54->Text = "";
+					this->matrixText55->Text = "";
+
 					panel1->Height = 162;
 					panel2->Height = 162;
 					this->label1->Location = System::Drawing::Point(133, 219);
@@ -1229,6 +1292,12 @@ private: Boolean getVsetkyVyplnene() {
 					this->matrixPanel3->Show();
 					this->matrixPanel4->Show();
 					this->matrixPanel5->Hide();
+
+					this->matrixText51->Text = "";
+					this->matrixText52->Text = "";
+					this->matrixText53->Text = "";
+					this->matrixText54->Text = "";
+					this->matrixText55->Text = "";
 
 					panel1->Height = 220;
 					panel2->Height = 220;
