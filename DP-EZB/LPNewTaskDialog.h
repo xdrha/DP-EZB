@@ -1671,41 +1671,41 @@ private: System::Windows::Forms::TextBox^ ufText1;
 		pocetOhraniceni->Value = 1;
 
 		maxmin->SelectedIndex = 0;
-		ufLabel1->Text = "x" + subscript("1");
+		ufLabel1->Text = "x" + subscript("1") + " +";
 		ufLabel2->Text = "x" + subscript("2");
-		ufLabel3->Text = "x" + subscript("3");
-		ufLabel4->Text = "x" + subscript("4");
-		ufLabel5->Text = "x" + subscript("5");
+		ufLabel3->Text = "x" + subscript("3") + " +";
+		ufLabel4->Text = "x" + subscript("4") + " +";
+		ufLabel5->Text = "x" + subscript("5") + " +";
 
-		lpLabel11->Text = "x" + subscript("1");
+		lpLabel11->Text = "x" + subscript("1") + " +";
 		lpLabel12->Text = "x" + subscript("2");
-		lpLabel13->Text = "x" + subscript("3");
-		lpLabel14->Text = "x" + subscript("4");
-		lpLabel15->Text = "x" + subscript("5");
+		lpLabel13->Text = "x" + subscript("3") + " +";
+		lpLabel14->Text = "x" + subscript("4") + " +";
+		lpLabel15->Text = "x" + subscript("5") + " +";
 
-		lpLabel21->Text = "x" + subscript("1");
+		lpLabel21->Text = "x" + subscript("1") + " +";
 		lpLabel22->Text = "x" + subscript("2");
-		lpLabel23->Text = "x" + subscript("3");
-		lpLabel24->Text = "x" + subscript("4");
-		lpLabel25->Text = "x" + subscript("5");
+		lpLabel23->Text = "x" + subscript("3") + " +";
+		lpLabel24->Text = "x" + subscript("4") + " +";
+		lpLabel25->Text = "x" + subscript("5") + " +";
 
-		lpLabel31->Text = "x" + subscript("1");
+		lpLabel31->Text = "x" + subscript("1") + " +";
 		lpLabel32->Text = "x" + subscript("2");
-		lpLabel33->Text = "x" + subscript("3");
-		lpLabel34->Text = "x" + subscript("4");
-		lpLabel35->Text = "x" + subscript("5");
+		lpLabel33->Text = "x" + subscript("3") + " +";
+		lpLabel34->Text = "x" + subscript("4") + " +";
+		lpLabel35->Text = "x" + subscript("5") + " +";
 
-		lpLabel41->Text = "x" + subscript("1");
+		lpLabel41->Text = "x" + subscript("1") + " +";
 		lpLabel42->Text = "x" + subscript("2");
-		lpLabel43->Text = "x" + subscript("3");
-		lpLabel44->Text = "x" + subscript("4");
-		lpLabel45->Text = "x" + subscript("5");
+		lpLabel43->Text = "x" + subscript("3") + " +";
+		lpLabel44->Text = "x" + subscript("4") + " +";
+		lpLabel45->Text = "x" + subscript("5") + " +";
 
-		lpLabel51->Text = "x" + subscript("1");
+		lpLabel51->Text = "x" + subscript("1") + " +";
 		lpLabel52->Text = "x" + subscript("2");
-		lpLabel53->Text = "x" + subscript("3");
-		lpLabel54->Text = "x" + subscript("4");
-		lpLabel55->Text = "x" + subscript("5");
+		lpLabel53->Text = "x" + subscript("3") + " +";
+		lpLabel54->Text = "x" + subscript("4") + " +";
+		lpLabel55->Text = "x" + subscript("5") + " +";
 
 
 	}
@@ -2226,6 +2226,14 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->ufLabel4->Hide();
 			this->ufLabel5->Hide();
 
+			this->ufLabel2->Text = "x" + subscript("2");
+
+			this->lpLabel12->Text = "x" + subscript("2");
+			this->lpLabel22->Text = "x" + subscript("2");
+			this->lpLabel32->Text = "x" + subscript("2");
+			this->lpLabel42->Text = "x" + subscript("2");
+			this->lpLabel52->Text = "x" + subscript("2");
+
 			this->bPanel->Location = System::Drawing::Point(261, 202);
 
 		}
@@ -2286,6 +2294,22 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->ufLabel4->Hide();
 			this->ufLabel5->Hide();
 
+			this->ufLabel2->Text = "x" + subscript("2") + " +";
+			this->ufLabel3->Text = "x" + subscript("3");
+
+			this->lpLabel12->Text = "x" + subscript("2") +" +";
+			this->lpLabel22->Text = "x" + subscript("2") + " +";
+			this->lpLabel32->Text = "x" + subscript("2") + " +";
+			this->lpLabel42->Text = "x" + subscript("2") + " +";
+			this->lpLabel52->Text = "x" + subscript("2") + " +";
+
+			this->lpLabel13->Text = "x" + subscript("3");
+			this->lpLabel23->Text = "x" + subscript("3");
+			this->lpLabel33->Text = "x" + subscript("3");
+			this->lpLabel43->Text = "x" + subscript("3");
+			this->lpLabel53->Text = "x" + subscript("3");
+
+
 			this->bPanel->Location = System::Drawing::Point(360, 202);
 
 		}
@@ -2339,6 +2363,28 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->ufLabel4->Show();
 			this->ufLabel5->Hide();
 
+			this->ufLabel2->Text = "x" + subscript("2") + " +";
+			this->ufLabel3->Text = "x" + subscript("3") + " +";
+			this->ufLabel4->Text = "x" + subscript("4");
+
+			this->lpLabel12->Text = "x" + subscript("2") + " +";
+			this->lpLabel22->Text = "x" + subscript("2") + " +";
+			this->lpLabel32->Text = "x" + subscript("2") + " +";
+			this->lpLabel42->Text = "x" + subscript("2") + " +";
+			this->lpLabel52->Text = "x" + subscript("2") + " +";
+
+			this->lpLabel13->Text = "x" + subscript("3") + " +";
+			this->lpLabel23->Text = "x" + subscript("3") + " +";
+			this->lpLabel33->Text = "x" + subscript("3") + " +";
+			this->lpLabel43->Text = "x" + subscript("3") + " +";
+			this->lpLabel53->Text = "x" + subscript("3") + " +";
+
+			this->lpLabel14->Text = "x" + subscript("4");
+			this->lpLabel24->Text = "x" + subscript("4");
+			this->lpLabel34->Text = "x" + subscript("4");
+			this->lpLabel44->Text = "x" + subscript("4");
+			this->lpLabel54->Text = "x" + subscript("4");
+
 			this->bPanel->Location = System::Drawing::Point(459, 202);
 
 		}
@@ -2384,6 +2430,35 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			this->ufLabel3->Show();
 			this->ufLabel4->Show();
 			this->ufLabel5->Show();
+
+			this->ufLabel2->Text = "x" + subscript("2") + " +";
+			this->ufLabel3->Text = "x" + subscript("3") + " +";
+			this->ufLabel4->Text = "x" + subscript("4") + " +";
+			this->ufLabel5->Text = "x" + subscript("5");
+
+			this->lpLabel12->Text = "x" + subscript("2") + " +";
+			this->lpLabel22->Text = "x" + subscript("2") + " +";
+			this->lpLabel32->Text = "x" + subscript("2") + " +";
+			this->lpLabel42->Text = "x" + subscript("2") + " +";
+			this->lpLabel52->Text = "x" + subscript("2") + " +";
+
+			this->lpLabel13->Text = "x" + subscript("3") + " +";
+			this->lpLabel23->Text = "x" + subscript("3") + " +";
+			this->lpLabel33->Text = "x" + subscript("3") + " +";
+			this->lpLabel43->Text = "x" + subscript("3") + " +";
+			this->lpLabel53->Text = "x" + subscript("3") + " +";
+
+			this->lpLabel14->Text = "x" + subscript("4") + " +";
+			this->lpLabel24->Text = "x" + subscript("4") + " +";
+			this->lpLabel34->Text = "x" + subscript("4") + " +";
+			this->lpLabel44->Text = "x" + subscript("4") + " +";
+			this->lpLabel54->Text = "x" + subscript("4") + " +";
+
+			this->lpLabel15->Text = "x" + subscript("5");
+			this->lpLabel25->Text = "x" + subscript("5");
+			this->lpLabel35->Text = "x" + subscript("5");
+			this->lpLabel45->Text = "x" + subscript("5");
+			this->lpLabel55->Text = "x" + subscript("5");
 
 			this->bPanel->Location = System::Drawing::Point(538, 202);
 		}

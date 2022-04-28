@@ -9,6 +9,7 @@
 #include "SLRTask.cpp"
 #include "LPTask.cpp"
 #include "welcomeDialog.h"
+#include "helpDialog.h"
 #include <string.h>
 
 namespace DP_EZB {
@@ -118,6 +119,7 @@ namespace DP_EZB {
 	private: System::Windows::Forms::Panel^ solutionMatrixRightBracket2;
 	private: System::Windows::Forms::Panel^ solutionMatrixLeftBracket2;
 	private: System::Windows::Forms::DataGridView^ solutionMatrix2;
+	private: System::Windows::Forms::Button^ helperButton;
 
 
 
@@ -146,14 +148,15 @@ namespace DP_EZB {
 			this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->topPanel = (gcnew System::Windows::Forms::Panel());
+			this->helperButton = (gcnew System::Windows::Forms::Button());
 			this->lpButton = (gcnew System::Windows::Forms::Button());
-			this->helpButton = (gcnew System::Windows::Forms::Button());
 			this->slrButton = (gcnew System::Windows::Forms::Button());
 			this->determinantButton = (gcnew System::Windows::Forms::Button());
 			this->invertibleMatrixButton = (gcnew System::Windows::Forms::Button());
 			this->matrixDecompositionButton = (gcnew System::Windows::Forms::Button());
 			this->matrixRankButton = (gcnew System::Windows::Forms::Button());
 			this->vectorsButton = (gcnew System::Windows::Forms::Button());
+			this->helpButton = (gcnew System::Windows::Forms::Button());
 			this->taskButtonPanel = (gcnew System::Windows::Forms::Panel());
 			this->resetButton = (gcnew System::Windows::Forms::Button());
 			this->clearTaskButton = (gcnew System::Windows::Forms::Button());
@@ -233,8 +236,8 @@ namespace DP_EZB {
 			this->topPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->topPanel->BackColor = System::Drawing::Color::DodgerBlue;
+			this->topPanel->Controls->Add(this->helperButton);
 			this->topPanel->Controls->Add(this->lpButton);
-			this->topPanel->Controls->Add(this->helpButton);
 			this->topPanel->Controls->Add(this->slrButton);
 			this->topPanel->Controls->Add(this->determinantButton);
 			this->topPanel->Controls->Add(this->invertibleMatrixButton);
@@ -245,6 +248,22 @@ namespace DP_EZB {
 			this->topPanel->Name = L"topPanel";
 			this->topPanel->Size = System::Drawing::Size(1538, 38);
 			this->topPanel->TabIndex = 1;
+			// 
+			// helperButton
+			// 
+			this->helperButton->BackColor = System::Drawing::Color::DodgerBlue;
+			this->helperButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->helperButton->Dock = System::Windows::Forms::DockStyle::Right;
+			this->helperButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->helperButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->helperButton->Location = System::Drawing::Point(1425, 0);
+			this->helperButton->Name = L"helperButton";
+			this->helperButton->Size = System::Drawing::Size(113, 38);
+			this->helperButton->TabIndex = 4;
+			this->helperButton->Text = L"Pomocník";
+			this->helperButton->UseVisualStyleBackColor = false;
+			this->helperButton->Click += gcnew System::EventHandler(this, &MyForm::helperButton_Click);
 			// 
 			// lpButton
 			// 
@@ -260,22 +279,6 @@ namespace DP_EZB {
 			this->lpButton->Text = L"Úloha lineárneho programovania";
 			this->lpButton->UseVisualStyleBackColor = false;
 			this->lpButton->Click += gcnew System::EventHandler(this, &MyForm::lpButton_Click);
-			// 
-			// helpButton
-			// 
-			this->helpButton->BackColor = System::Drawing::Color::DodgerBlue;
-			this->helpButton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->helpButton->Dock = System::Windows::Forms::DockStyle::Right;
-			this->helpButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
-				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->helpButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->helpButton->Location = System::Drawing::Point(1421, 0);
-			this->helpButton->Name = L"helpButton";
-			this->helpButton->Size = System::Drawing::Size(117, 38);
-			this->helpButton->TabIndex = 3;
-			this->helpButton->Text = L"\?  Pomocník";
-			this->helpButton->UseVisualStyleBackColor = false;
-			this->helpButton->Click += gcnew System::EventHandler(this, &MyForm::helpButton_Click);
 			// 
 			// slrButton
 			// 
@@ -368,6 +371,24 @@ namespace DP_EZB {
 			this->vectorsButton->UseVisualStyleBackColor = false;
 			this->vectorsButton->Click += gcnew System::EventHandler(this, &MyForm::vectorsButton_Click);
 			// 
+			// helpButton
+			// 
+			this->helpButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->helpButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->helpButton->Dock = System::Windows::Forms::DockStyle::Right;
+			this->helpButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->helpButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->helpButton->Location = System::Drawing::Point(1493, 0);
+			this->helpButton->Name = L"helpButton";
+			this->helpButton->Size = System::Drawing::Size(45, 38);
+			this->helpButton->TabIndex = 3;
+			this->helpButton->Text = L"\?";
+			this->helpButton->UseVisualStyleBackColor = false;
+			this->helpButton->Visible = false;
+			this->helpButton->Click += gcnew System::EventHandler(this, &MyForm::helpButton_Click);
+			// 
 			// taskButtonPanel
 			// 
 			this->taskButtonPanel->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -375,6 +396,7 @@ namespace DP_EZB {
 			this->taskButtonPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->taskButtonPanel->Controls->Add(this->resetButton);
+			this->taskButtonPanel->Controls->Add(this->helpButton);
 			this->taskButtonPanel->Controls->Add(this->clearTaskButton);
 			this->taskButtonPanel->Controls->Add(this->newTaskButton);
 			this->taskButtonPanel->Location = System::Drawing::Point(0, 50);
@@ -445,7 +467,7 @@ namespace DP_EZB {
 			this->taskPanel->Controls->Add(this->label2);
 			this->taskPanel->Location = System::Drawing::Point(0, 90);
 			this->taskPanel->Name = L"taskPanel";
-			this->taskPanel->Size = System::Drawing::Size(1536, 286);
+			this->taskPanel->Size = System::Drawing::Size(1541, 286);
 			this->taskPanel->TabIndex = 3;
 			this->taskPanel->Visible = false;
 			this->taskPanel->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &MyForm::taskPanel_Paint);
@@ -542,7 +564,7 @@ namespace DP_EZB {
 			this->taskTextBox->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->taskTextBox->Dock = System::Windows::Forms::DockStyle::Right;
 			this->taskTextBox->ForeColor = System::Drawing::SystemColors::Window;
-			this->taskTextBox->Location = System::Drawing::Point(773, 0);
+			this->taskTextBox->Location = System::Drawing::Point(778, 0);
 			this->taskTextBox->Multiline = true;
 			this->taskTextBox->Name = L"taskTextBox";
 			this->taskTextBox->ReadOnly = true;
@@ -553,11 +575,11 @@ namespace DP_EZB {
 			// vektoryAll
 			// 
 			this->vektoryAll->AutoSize = true;
-			this->vektoryAll->Font = (gcnew System::Drawing::Font(L"Cambria", 18, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->vektoryAll->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->vektoryAll->Location = System::Drawing::Point(123, 70);
 			this->vektoryAll->Name = L"vektoryAll";
-			this->vektoryAll->Size = System::Drawing::Size(0, 28);
+			this->vektoryAll->Size = System::Drawing::Size(0, 22);
 			this->vektoryAll->TabIndex = 5;
 			// 
 			// label3
@@ -996,6 +1018,7 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		}
 		if (taskType == 5) {
 			slrNewTaskD = gcnew slrNewTaskDialog();
+			slrNewTaskD->setVisuals();
 			slrNewTaskD->ShowDialog();
 		}
 		if (taskType == 6) {
@@ -1027,10 +1050,11 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	matrixSolutionPanel->Hide();
 	stepTaskTextBox->Clear();
 	label5->Text = "Úloha:";
+	helpButton->Hide();
 	vektoryAll->Text = "";
 	newTaskButton->Text = "➕ Nová úloha";
 	clearTaskButton->Visible = false;
-	helpButton->Text = "?  Pomocník";
+	helpButton->Text = "?";
 	helpButton->Visible = false;
 	resetButton->Visible = false;
 	taskTextBox->Text = "";
@@ -1277,13 +1301,13 @@ private: void createNewTask() {
 		   this->helpButton->Visible = true;
 		   this->taskPanel->Show();
 		   this->tableTaskPanel->Show();
+		   helpButton->Show();
 
 		   if (taskType == 0) {
 			   vectorsNewTaskD->created = false;
 			   label3->Text = "Daný je systém vektorov:";
 			   label3->Show();
-			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je systém vektorov lineárne závislý alebo nezávislý.\r\n\r\nb) Vypočítajte hodnosť systému vektorov.\r\n\r\n";
-			   vektoryAll->Show();
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je systém vektorov lineárne závislý alebo nezávislý.\r\n\r\nb) Vypočítajte hodnosť systému vektorov.\r\n\r\n";			   vektoryAll->Show();
 			   matrixPanel->Hide();
 			   
 			   vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix(), vectorsNewTaskD->getVB());
@@ -1378,11 +1402,11 @@ private: void createNewTask() {
 			   matrixNewTaskD->created = false;
 			   label3->Hide();
 
-			   if (taskType == 1) taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice\r\n\r\n";
-			   if (taskType == 2) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
-			   if (taskType == 3) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
-			   if (taskType == 4) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
-			 
+			   if (taskType == 1) taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice A.\r\n\r\n";
+			   if (taskType == 2) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je možné určiť základný bázický rozklad matice A.\r\n\r\nb) Určte základný bázický rozklad matice A.";
+			   if (taskType == 3) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica A regulárna alebo singulárna.\r\n\r\nb) Určte inverznú maticu k matici A";
+			   if (taskType == 4) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu A vypočítať determinant.\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
+
 			   vektoryAll->Hide();
 			   matrixPanel->Show();
 
@@ -1515,10 +1539,11 @@ private: void createNewTask() {
 			//ak sa riesi SLR
 		   if (taskType == 5) {
 			   slrNewTaskD->created = false;
-			   label3->Text = "Rovnice:";
+			   label3->Text = "Daný je systém lineárnych rovníc A:";
 			   label3->Show();
-			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Určte všeobecné riešenie, resp. množinu riešení, a zapíšte ho v parametrickom tvare.";
 			   vektoryAll->Show();
+			   matrixPanel->Hide();
 			   taskMatrix->Hide();
 
 			   st = new SLRTask(slrNewTaskD->getPocetRovnic(), slrNewTaskD->getPocetZloziekRovnic(), slrNewTaskD->getMatrix(), slrNewTaskD->getZeros());
@@ -1604,8 +1629,8 @@ private: void createNewTask() {
 			   lpNewTaskD->created = false;
 			   label3->Show();
 			   label3->Text = "Účelová funkcia: " + lpNewTaskD->getUF() + "\r\nOhraničenia:";
-			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Nájdite optimálne riešenie, ak existuje.\r\n\r\n";
-			   vektoryAll->Show();
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Určte optimálne riešenie, ak existuje.\r\n\r\n";
+			   matrixPanel->Hide();
 			   taskMatrix->Hide();
 
 			   lpt = new LPTask(lpNewTaskD->getpocetOhraniceni(), lpNewTaskD->getpocetPremennych(), lpNewTaskD->getMatrix(), 0);
@@ -1944,7 +1969,9 @@ private: void checkMatrix(double** m) {
 									solutionMatrix2[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
 								}
 							}
-							solutionMatrix2->ClearSelection();
+							solutionMatrix2->Width = 55 * (mt->pocetStlpcov - mt->pocetZaclenenych);
+							solutionMatrix2->Height = 35 * mt->pocetZaclenenych;
+
 
 							//nastav zatvorky
 
@@ -2111,8 +2138,8 @@ private: void checkMatrix(double** m) {
 
 private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
-	if (helpButton->Text == "?  Pomocník") {
-		helpButton->Text = "Zavrieť";
+	if (helpButton->Text == "?") {
+		helpButton->Text = "? ";
 
 		if(taskType == 0) taskTextBox->Text = "Úlohy:\r\n\r\nVhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n" +
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n" +
@@ -2148,7 +2175,7 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 	}
 
 	else {
-		helpButton->Text = "?  Pomocník";
+		helpButton->Text = "?";
 
 		if (taskType == 0) {
 			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je systém vektorov lineárne závislý alebo nezávislý.\r\n\r\nb) Vypočítajte hodnosť systému vektorov.\r\n\r\n";
@@ -2156,7 +2183,7 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 		}
 
 		if (taskType == 1) {
-			taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice A\r\n\r\n";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice A.\r\n\r\n";
 		}
 
 		if (taskType == 2) {
@@ -2164,14 +2191,14 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 		}
 
 		if (taskType == 3) {
-			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica A regulárna alebo singulárna\r\n\r\nb) Určte inverznú maticu k matici A";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica A regulárna alebo singulárna.\r\n\r\nb) Určte inverznú maticu k matici A";
 		}
 
 		if (taskType == 4) {
-			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu A vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu A vypočítať determinant.\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
 		}
 
-		if (taskType == 5) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie. + \r\n\r\nb) Určte všeobecné riešenie, resp. množinu riešení.";
+		if (taskType == 5)taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Určte všeobecné riešenie, resp. množinu riešení, a zapíšte ho v parametrickom tvare.";
 
 		if (taskType == 6) taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Určte optimálne riešenie, ak existuje.\r\n\r\n";
 	}
@@ -2465,6 +2492,11 @@ private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::
 			ezbTable->ClearSelection();
 		}
 	}
+}
+private: System::Void helperButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	helpDialog^ h = gcnew helpDialog();
+	h->ShowDialog();
+
 }
 };
 }

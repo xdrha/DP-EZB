@@ -1253,7 +1253,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->bPanel->Location = System::Drawing::Point(591, 142);
 			   this->bPanel->Name = L"bPanel";
 			   this->bPanel->Size = System::Drawing::Size(58, 278);
-			   this->bPanel->TabIndex = 14;
+			   this->bPanel->TabIndex = 7;
 			   // 
 			   // slrNewTaskDialog
 			   // 
@@ -1310,6 +1310,42 @@ private: System::Windows::Forms::TextBox^ bText1;
 
 		return (int)this->pocetSuradnicVektorov->Value;
 	}
+
+		  public: void setVisuals() {
+
+
+			  slrLabel11->Text = "x" + subscript("1") + " +";
+			  slrLabel12->Text = "x" + subscript("2") + " +";
+			  slrLabel13->Text = "x" + subscript("3") + " +";
+			  slrLabel14->Text = "x" + subscript("4") + " +";
+			  slrLabel15->Text = "x" + subscript("5") + " +";
+
+			  slrLabel21->Text = "x" + subscript("1") + " +";
+			  slrLabel22->Text = "x" + subscript("2") + " +";
+			  slrLabel23->Text = "x" + subscript("3") + " +";
+			  slrLabel24->Text = "x" + subscript("4") + " +";
+			  slrLabel25->Text = "x" + subscript("5") + " +";
+
+			  slrLabel31->Text = "x" + subscript("1") + " +";
+			  slrLabel32->Text = "x" + subscript("2") + " +";
+			  slrLabel33->Text = "x" + subscript("3") + " +";
+			  slrLabel34->Text = "x" + subscript("4") + " +";
+			  slrLabel35->Text = "x" + subscript("5") + " +";
+
+			  slrLabel41->Text = "x" + subscript("1") + " +";
+			  slrLabel42->Text = "x" + subscript("2") + " +";
+			  slrLabel43->Text = "x" + subscript("3") + " +";
+			  slrLabel44->Text = "x" + subscript("4") + " +";
+			  slrLabel45->Text = "x" + subscript("5") + " +";
+
+			  slrLabel51->Text = "x" + subscript("1") + " +";
+			  slrLabel52->Text = "x" + subscript("2") + " +";
+			  slrLabel53->Text = "x" + subscript("3") + " +";
+			  slrLabel54->Text = "x" + subscript("4") + " +";
+			  slrLabel55->Text = "x" + subscript("5") + " +";
+
+
+		  }
 
 	public: int getZeros() { //nulove B
 		if ((pocetVektorov->Value == 2 && bText1->Text == "0" && bText2->Text == "0") ||
@@ -1558,9 +1594,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText35->Text = ""; 
 			this->slrText45->Text = ""; 
 			this->slrText55->Text = ""; 
-			this->bText3->Text = "";
-			this->bText4->Text = "";
-			this->bText5->Text = "";
+
 
 			this->slrLabel13->Hide();
 			this->slrLabel23->Hide();
@@ -1616,8 +1650,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText35->Text = "";
 			this->slrText45->Text = "";
 			this->slrText55->Text = "";
-			this->bText4->Text = "";
-			this->bText5->Text = "";
 
 			this->slrLabel13->Show();
 			this->slrLabel23->Show();
@@ -1674,7 +1706,6 @@ private: System::Windows::Forms::TextBox^ bText1;
 			this->slrText45->Text = "";
 			this->slrText55->Text = "";
 
-			this->bText5->Text = "";
 
 			this->slrLabel13->Show();
 			this->slrLabel23->Show();

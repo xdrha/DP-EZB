@@ -45,7 +45,6 @@ namespace DP_EZB {
 		String^ all = "{ ";
 		String^ zaclenene = "";
 		String^ nezaclenene = "";
-		String^ vektorB = "";
 		String^ output = "";
 
 		for (int i = 1; i <= pocetZloziek; i++) {
@@ -54,23 +53,25 @@ namespace DP_EZB {
 				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
 				pocetZaclenenych++;
-				zaclenene += "x" + subscript(i.ToString());
-				if (i < pocetZloziek) {
+				if (i < pocetZloziek && zaclenene->Length != 0) {
 					zaclenene += ", ";
 				}
+				zaclenene += "x" + subscript(i.ToString());
+
 			}
 			else {
-				nezaclenene += "x" + subscript(i.ToString());
-				if (i < pocetZloziek) {
+				if (i < pocetZloziek && nezaclenene->Length != 0) {
 					nezaclenene += ", ";
 				}
+				nezaclenene += "x" + subscript(i.ToString());
+
 			}
 		}
 		all += " }";
 
 		//h(a1-an)
 
-		output += "Koniec výpočtu!\r\n\r\na) h(A) = h" + all + " = " + pocetZaclenenych + ".\r\n";
+		output += "Koniec výpočtu!\r\n\r\na) h(A) = " + pocetZaclenenych + ".\r\n";
 
 		String^ heplField = field;
 		Boolean sign = false;
@@ -78,15 +79,12 @@ namespace DP_EZB {
 			if (m[i][pocetZloziek - 1] < 0) {
 				String^ help = "";
 				help += heplField->Substring(0, heplField->IndexOf("/"));
-				vektorB += round_up(m[i][pocetZloziek - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
 				if (!sign) sign = true;
 			}
 			else {
 				if (m[i][pocetZloziek - 1] > 0) {
 					String^ help = "";
 					help += heplField->Substring(0, heplField->IndexOf("/"));
-					if (sign) vektorB += " + ";
-					vektorB += round_up(m[i][pocetZloziek - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
 					if (!sign) sign = true;
 				}
 			}
@@ -146,7 +144,7 @@ namespace DP_EZB {
 					String^ M = "b) Množina všetkých riešení v parametrickom tvare:\r\n M = {(";
 					for (int j = 0; j < pocetZloziek + zeros; j++) {
 						for (int i = 0; i < pocetRovnic; i++) {
-							if (m[i][j] == 1 && field->Contains("x"+(j+1))) {
+							if (m[i][j] == 1 && field->Contains("x"+subscript((j+1).ToString()))) {
 								Boolean sign = false;
 								for (int k = 0; k < pocetZloziek + zeros; k++) {
 									if (j != k) {

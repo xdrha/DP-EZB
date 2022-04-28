@@ -7,3 +7,4 @@ C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.VectorsNewTaskDialog.
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP-EZB.vcxproj.GenerateResource.cache
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.LPNewTaskDialog.resources
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.welcomeDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Debug\DP_EZB.helpDialog.resources

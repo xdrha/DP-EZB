@@ -130,6 +130,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="EZB.cpp" />
+    <ClCompile Include="helpDialog.cpp" />
+    <ClCompile Include="Helper.cpp" />
+    <ClCompile Include="helper1.cpp" />
     <ClCompile Include="LPNewTaskDialog.cpp" />
     <ClCompile Include="LPTask.cpp" />
     <ClCompile Include="Main.cpp" />
@@ -143,6 +146,9 @@
     <ClCompile Include="welcomeDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="helpDialog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="LPNewTaskDialog.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -163,6 +169,9 @@
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="helpDialog.resx">
+      <DependentUpon>helpDialog.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="LPNewTaskDialog.resx">
       <DependentUpon>LPNewTaskDialog.h</DependentUpon>
     </EmbeddedResource>

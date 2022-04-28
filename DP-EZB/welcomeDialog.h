@@ -122,7 +122,7 @@ namespace DP_EZB {
 			this->Name = L"welcomeDialog";
 			this->Opacity = 0.9;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"welcomeDialog";
+			this->Text = L"níečo";
 			this->Load += gcnew System::EventHandler(this, &welcomeDialog::welcomeDialog_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

@@ -90,56 +90,22 @@ namespace DP_EZB {
 
 	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount, double* pivots) {
 		// zaclenene vektory + ich zlozky
-		String^ all = "{ ";
-		String^ zaclenene = "";
-		String^ nezaclenene = "";
-		String^ vektorB = "";
+
 		String^ output = "";
 
 		for (int i = 1; i <= pocetStlpcov; i++) {
-			all += "s" + subscript(i.ToString()) + "\u20D7";
-			if (i < pocetStlpcov )
-				all += ", ";
 			if (pocetZaclenenychVektorov[i - 1] == 1) {
 				pocetZaclenenych++;
-				zaclenene += "s" + subscript(i.ToString()) + "\u20D7";
-				if (i < pocetStlpcov) {
-					zaclenene += ", ";
-				}
-			}
-			else {
-				nezaclenene += "s" + subscript(i.ToString()) + "\u20D7";
-				if (i < pocetStlpcov) {
-					nezaclenene += ", ";
-				}
 			}
 		}
-		all += " }";
-
-		/*if (check == 0) {
-			if (pocetZaclenenych == pocetStlpcov - vectorB) {
-				output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit vsetky stlpcove vektory matice: " + zaclenene + ".\r\n\r\n";
-			}
-			else {
-				if (pocetZaclenenych > 0) {
-					output = "Koniec vypoctu!\r\n\r\ndo bazy mozno zaclenit najviac " + pocetZaclenenych + " stlpcove vektory: " + zaclenene + "\r\n\r\n";
-				}
-			}
-		}
-		else {
-			if (pocetZaclenenych == pocetStlpcov - vectorB) {
-				output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice sme do bazy zaclenili vsetky vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
-					zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
-			}
-			else {
-				output = "Koniec vypoctu!\r\n\r\nZo systemu stlpcovych vektorov matice " + all + " sme do bazy zaclenili vektory " + zaclenene + " a tieto su linearne nezavisle, preto system vektorov { " +
-					zaclenene + " } tvori jednu z moznych baz.\r\n\r\n";
-			}
-		}*/
 
 		//h(a1-an)
-		if (type == 1) output += "a) Maximálny počet stĺpcových vektorov matice " + all + ", ktoré môžeme začlenit do bázy je " + pocetZaclenenych + ".\r\nPreto: h" +
-			all + " = " + pocetZaclenenych + ".\r\n\r\n";
+
+		String^ help = "";
+		if (pocetZaclenenych == 1) help = " stĺpcový vektor matice A";
+		if (pocetZaclenenych == 5) help = " stĺpcových vektorov matice A";
+		if (pocetZaclenenych > 1 && pocetZaclenenych < 5) help = " stĺpcové vektory matice A";
+		if (type == 1) output += "a) Do bázy sme začlenili " + pocetZaclenenych  + help + ".\r\nPreto: h(A) = " + pocetZaclenenych + ".\r\n\r\n";
 
 		// tu sa vypise rozklad matice
 
@@ -151,18 +117,19 @@ namespace DP_EZB {
 				if (i >= pocetZaclenenych && pocetZaclenenychVektorov[i] == 1) lnz = false;
 			}
 			if (!lnz) {
-				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice nie je lineárne nezávislých. Nie je možné rozložiť maticu na súčin.\r\n\r\n";
+
+				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice nie je lineárne nezávislých. Nie je možné určiť základný bázický rozklad matice A.\r\n\r\n";
 			}
 			else {
-				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice je lineárne nezávislých. Maticu je možné rozložiť na súčin.\r\n\r\n";
+				output += "a) Prvých h = " + pocetZaclenenych + " stĺpcových vektorov matice je lineárne nezávislých. Je možné určiť základný bázický rozklad matice A.\r\n\r\n";
 				//ak je h vektrov lineane nezavislych
 				//matica B
 				if (pocetZaclenenych == pocetStlpcov) {
-					output += "b) Boli začlenné všetky stĺpcové vektory matice, jedná sa o triviálny rozklad A = B \u2219 C = E" + subscript(pocetZaclenenych.ToString()) + " \u2219 A.\r\n\r\n";
+					output += "b) Boli začlenné všetky stĺpcové vektory matice, jedná sa o triviálny rozklad A = B \u2219 C = E \u2219 A.\r\n\r\n";
 					existB = true;
 				}
 				else{
-					output += "b) Rozklad matice: A = B \u2219 C = B \u2219 (E | D)\r\n\r\n";
+					output += "b) Základný bázický rozklad matice A = B \u2219 C = B \u2219 (E | D):\r\n\r\n";
 					existB = true;
 					existD = true;
 					
@@ -210,7 +177,7 @@ namespace DP_EZB {
 
 		if (type == 3) {
 			if (pocetZaclenenych == pocetStlpcov) {
-				output += "a) h(A) = " + pocetZaclenenych + " preto je matica A regulárna a existuje k nej inverzná matica: \r\n\r\nA \u2219 A\u207B¹ = E\r\n\r\nb)";
+				output += "a) h(A) = n = " + pocetZaclenenych + " preto je matica A regulárna a existuje k nej inverzná matica A\u207B¹.\r\n\r\nb)";
 				existB = true;
 
 				//tu vypis inverznu maticu
@@ -239,7 +206,7 @@ namespace DP_EZB {
 				}
 
 			}
-			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A singulárna a neexistuje k nej inverzná matica A\u207B¹\r\n\r\n";
+			else output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A singulárna a neexistuje k nej inverzná matica A\u207B¹.\r\n\r\n";
 		}
 
 		if (type == 4) {
@@ -264,7 +231,7 @@ namespace DP_EZB {
 					if (i < pocetStlpcov - 1) permutacia += ", ";
 				}
 				permutacia += ")";
-				output += "a) h(A) = " + pocetZaclenenych + " preto je matica regulárna a existuje k nej determinant. Počet inverzií permutacií stĺpcových indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n\r\n";
+				output += "a) h(A) = n =" + pocetZaclenenych + " preto je matica A regulárna a existuje k nej determinant. Počet inverzií permutacií stĺpcových indexov je:\r\n" + permutacia + " = " + pocetPermutacii + "\r\n\r\n";
 				output += "b) Determinant matice A:\r\n|A| = ";
 
 				double result = 1;
@@ -280,7 +247,7 @@ namespace DP_EZB {
 
 			}
 			else {
-				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica singulárna a neexistuje k nej determinant\r\n\r\n";
+				output += "a) h(A) = " + pocetZaclenenych + " < " + pocetStlpcov + " preto je matica A singulárna a neexistuje k nej determinant.\r\n\r\n";
 			}
 		}
 
