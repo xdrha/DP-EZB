@@ -266,12 +266,12 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->label3->ForeColor = System::Drawing::SystemColors::Window;
-			   this->label3->Location = System::Drawing::Point(20, 162);
+			   this->label3->Location = System::Drawing::Point(20, 166);
 			   this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label3->Name = L"label3";
-			   this->label3->Size = System::Drawing::Size(228, 22);
-			   this->label3->TabIndex = 11;
-			   this->label3->Text = L"3. Vyplň zložky ohraničení:";
+			   this->label3->Size = System::Drawing::Size(409, 22);
+			   this->label3->TabIndex = 0;
+			   this->label3->Text = L"3. Zadaj koeficienty premenných v ohraničeniach:";
 			   // 
 			   // pocetPremennych
 			   // 
@@ -300,7 +300,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->LabelFirstAction->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->LabelFirstAction->Name = L"LabelFirstAction";
 			   this->LabelFirstAction->Size = System::Drawing::Size(233, 22);
-			   this->LabelFirstAction->TabIndex = 7;
+			   this->LabelFirstAction->TabIndex = 0;
 			   this->LabelFirstAction->Text = L"1. Zadaj počet premenných:";
 			   // 
 			   // bottomPanel
@@ -312,7 +312,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bottomPanel->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bottomPanel->Name = L"bottomPanel";
 			   this->bottomPanel->Size = System::Drawing::Size(674, 40);
-			   this->bottomPanel->TabIndex = 13;
+			   this->bottomPanel->TabIndex = 8;
 			   // 
 			   // createButton
 			   // 
@@ -322,12 +322,12 @@ private: System::Windows::Forms::TextBox^ ufText1;
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->createButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->createButton->ForeColor = System::Drawing::SystemColors::Window;
-			   this->createButton->Location = System::Drawing::Point(432, -1);
+			   this->createButton->Location = System::Drawing::Point(334, -1);
 			   this->createButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->createButton->Name = L"createButton";
-			   this->createButton->Size = System::Drawing::Size(228, 40);
-			   this->createButton->TabIndex = 29;
-			   this->createButton->Text = L"➕ Vytvoriť novú úlohu";
+			   this->createButton->Size = System::Drawing::Size(326, 40);
+			   this->createButton->TabIndex = 40;
+			   this->createButton->Text = L"➕ Vytvoriť novú simplexovú tabuľku";
 			   this->createButton->UseVisualStyleBackColor = false;
 			   this->createButton->Click += gcnew System::EventHandler(this, &lpNewTaskDialog::createButton_Click);
 			   // 
@@ -339,11 +339,11 @@ private: System::Windows::Forms::TextBox^ ufText1;
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->clearTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			   this->clearTaskButton->ForeColor = System::Drawing::SystemColors::Window;
-			   this->clearTaskButton->Location = System::Drawing::Point(271, -1);
+			   this->clearTaskButton->Location = System::Drawing::Point(192, -1);
 			   this->clearTaskButton->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->clearTaskButton->Name = L"clearTaskButton";
 			   this->clearTaskButton->Size = System::Drawing::Size(117, 40);
-			   this->clearTaskButton->TabIndex = 28;
+			   this->clearTaskButton->TabIndex = 39;
 			   this->clearTaskButton->Text = L"❌ Zmazať";
 			   this->clearTaskButton->UseVisualStyleBackColor = false;
 			   this->clearTaskButton->Click += gcnew System::EventHandler(this, &lpNewTaskDialog::clearTaskButton_Click);
@@ -360,8 +360,8 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ohranicenie->Location = System::Drawing::Point(77, 491);
 			   this->ohranicenie->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ohranicenie->Name = L"ohranicenie";
-			   this->ohranicenie->Size = System::Drawing::Size(204, 40);
-			   this->ohranicenie->TabIndex = 28;
+			   this->ohranicenie->Size = System::Drawing::Size(216, 40);
+			   this->ohranicenie->TabIndex = 38;
 			   this->ohranicenie->Text = L"➕ Pridať ohraničenie";
 			   this->ohranicenie->UseVisualStyleBackColor = false;
 			   this->ohranicenie->Click += gcnew System::EventHandler(this, &lpNewTaskDialog::ohranicenie_Click);
@@ -382,7 +382,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->pocetOhraniceni->ReadOnly = true;
 			   this->pocetOhraniceni->Size = System::Drawing::Size(73, 30);
 			   this->pocetOhraniceni->TabIndex = 1;
-			   this->pocetOhraniceni->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 1, 0, 0, 0 });
+			   this->pocetOhraniceni->Value = System::Decimal(gcnew cli::array< System::Int32 >(4) { 5, 0, 0, 0 });
 			   this->pocetOhraniceni->Visible = false;
 			   this->pocetOhraniceni->ValueChanged += gcnew System::EventHandler(this, &lpNewTaskDialog::pocetOhraniceni_ValueChanged);
 			   // 
@@ -393,9 +393,9 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label2->Location = System::Drawing::Point(20, 66);
 			   this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label2->Name = L"label2";
-			   this->label2->Size = System::Drawing::Size(273, 22);
-			   this->label2->TabIndex = 9;
-			   this->label2->Text = L"2. Vyplň zložky účelovej funkcie:";
+			   this->label2->Size = System::Drawing::Size(423, 22);
+			   this->label2->TabIndex = 0;
+			   this->label2->Text = L"2. Zadaj koeficienty premenných v účelovej funkcii:";
 			   // 
 			   // bPanel
 			   // 
@@ -412,7 +412,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bPanel->Location = System::Drawing::Point(538, 202);
 			   this->bPanel->Name = L"bPanel";
 			   this->bPanel->Size = System::Drawing::Size(107, 278);
-			   this->bPanel->TabIndex = 34;
+			   this->bPanel->TabIndex = 7;
 			   // 
 			   // label7
 			   // 
@@ -424,7 +424,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label7->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label7->Name = L"label7";
 			   this->label7->Size = System::Drawing::Size(21, 22);
-			   this->label7->TabIndex = 45;
+			   this->label7->TabIndex = 0;
 			   this->label7->Text = L"≤";
 			   // 
 			   // label6
@@ -437,7 +437,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label6->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label6->Name = L"label6";
 			   this->label6->Size = System::Drawing::Size(21, 22);
-			   this->label6->TabIndex = 44;
+			   this->label6->TabIndex = 0;
 			   this->label6->Text = L"≤";
 			   // 
 			   // label5
@@ -450,7 +450,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label5->Name = L"label5";
 			   this->label5->Size = System::Drawing::Size(21, 22);
-			   this->label5->TabIndex = 43;
+			   this->label5->TabIndex = 0;
 			   this->label5->Text = L"≤";
 			   // 
 			   // label4
@@ -463,7 +463,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label4->Name = L"label4";
 			   this->label4->Size = System::Drawing::Size(21, 22);
-			   this->label4->TabIndex = 42;
+			   this->label4->TabIndex = 0;
 			   this->label4->Text = L"≤";
 			   // 
 			   // label1
@@ -476,7 +476,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->label1->Name = L"label1";
 			   this->label1->Size = System::Drawing::Size(21, 22);
-			   this->label1->TabIndex = 41;
+			   this->label1->TabIndex = 0;
 			   this->label1->Text = L"≤";
 			   // 
 			   // bText5
@@ -490,7 +490,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bText5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText5->Name = L"bText5";
 			   this->bText5->Size = System::Drawing::Size(42, 30);
-			   this->bText5->TabIndex = 15;
+			   this->bText5->TabIndex = 37;
 			   this->bText5->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::bText5_KeyPress);
 			   this->bText5->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::bText5_Leave);
 			   // 
@@ -505,7 +505,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bText4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText4->Name = L"bText4";
 			   this->bText4->Size = System::Drawing::Size(42, 30);
-			   this->bText4->TabIndex = 14;
+			   this->bText4->TabIndex = 31;
 			   this->bText4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::bText4_KeyPress);
 			   this->bText4->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::bText4_Leave);
 			   // 
@@ -520,7 +520,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bText3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText3->Name = L"bText3";
 			   this->bText3->Size = System::Drawing::Size(42, 30);
-			   this->bText3->TabIndex = 13;
+			   this->bText3->TabIndex = 25;
 			   this->bText3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::bText3_KeyPress);
 			   this->bText3->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::bText3_Leave);
 			   // 
@@ -535,7 +535,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bText2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText2->Name = L"bText2";
 			   this->bText2->Size = System::Drawing::Size(42, 30);
-			   this->bText2->TabIndex = 12;
+			   this->bText2->TabIndex = 19;
 			   this->bText2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::bText2_KeyPress);
 			   this->bText2->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::bText2_Leave);
 			   // 
@@ -550,7 +550,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->bText1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText1->Name = L"bText1";
 			   this->bText1->Size = System::Drawing::Size(42, 30);
-			   this->bText1->TabIndex = 11;
+			   this->bText1->TabIndex = 13;
 			   this->bText1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::bText1_KeyPress);
 			   this->bText1->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::bText1_Leave);
 			   // 
@@ -570,7 +570,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpPanel5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpPanel5->Name = L"lpPanel5";
 			   this->lpPanel5->Size = System::Drawing::Size(455, 47);
-			   this->lpPanel5->TabIndex = 33;
+			   this->lpPanel5->TabIndex = 6;
 			   // 
 			   // lpLabel55
 			   // 
@@ -582,7 +582,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel55->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel55->Name = L"lpLabel55";
 			   this->lpLabel55->Size = System::Drawing::Size(19, 22);
-			   this->lpLabel55->TabIndex = 10;
+			   this->lpLabel55->TabIndex = 0;
 			   this->lpLabel55->Text = L"x";
 			   // 
 			   // lpText55
@@ -596,7 +596,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText55->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText55->Name = L"lpText55";
 			   this->lpText55->Size = System::Drawing::Size(42, 30);
-			   this->lpText55->TabIndex = 26;
+			   this->lpText55->TabIndex = 36;
 			   this->lpText55->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText55_KeyPress);
 			   this->lpText55->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText55_Leave);
 			   // 
@@ -610,7 +610,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel54->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel54->Name = L"lpLabel54";
 			   this->lpLabel54->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel54->TabIndex = 8;
+			   this->lpLabel54->TabIndex = 0;
 			   this->lpLabel54->Text = L"x +";
 			   // 
 			   // lpText54
@@ -624,7 +624,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText54->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText54->Name = L"lpText54";
 			   this->lpText54->Size = System::Drawing::Size(42, 30);
-			   this->lpText54->TabIndex = 25;
+			   this->lpText54->TabIndex = 35;
 			   this->lpText54->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText54_KeyPress);
 			   this->lpText54->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText54_Leave);
 			   // 
@@ -638,7 +638,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel53->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel53->Name = L"lpLabel53";
 			   this->lpLabel53->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel53->TabIndex = 6;
+			   this->lpLabel53->TabIndex = 0;
 			   this->lpLabel53->Text = L"x +";
 			   // 
 			   // lpText53
@@ -652,7 +652,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText53->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText53->Name = L"lpText53";
 			   this->lpText53->Size = System::Drawing::Size(42, 30);
-			   this->lpText53->TabIndex = 24;
+			   this->lpText53->TabIndex = 34;
 			   this->lpText53->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText53_KeyPress);
 			   this->lpText53->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText53_Leave);
 			   // 
@@ -666,7 +666,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel52->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel52->Name = L"lpLabel52";
 			   this->lpLabel52->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel52->TabIndex = 4;
+			   this->lpLabel52->TabIndex = 0;
 			   this->lpLabel52->Text = L"x +";
 			   // 
 			   // lpText52
@@ -680,7 +680,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText52->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText52->Name = L"lpText52";
 			   this->lpText52->Size = System::Drawing::Size(42, 30);
-			   this->lpText52->TabIndex = 23;
+			   this->lpText52->TabIndex = 33;
 			   this->lpText52->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText52_KeyPress);
 			   this->lpText52->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText52_Leave);
 			   // 
@@ -694,7 +694,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel51->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel51->Name = L"lpLabel51";
 			   this->lpLabel51->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel51->TabIndex = 2;
+			   this->lpLabel51->TabIndex = 0;
 			   this->lpLabel51->Text = L"x +";
 			   // 
 			   // lpText51
@@ -708,7 +708,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText51->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText51->Name = L"lpText51";
 			   this->lpText51->Size = System::Drawing::Size(42, 30);
-			   this->lpText51->TabIndex = 22;
+			   this->lpText51->TabIndex = 32;
 			   this->lpText51->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText51_KeyPress);
 			   this->lpText51->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText51_Leave);
 			   // 
@@ -728,7 +728,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpPanel4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpPanel4->Name = L"lpPanel4";
 			   this->lpPanel4->Size = System::Drawing::Size(455, 47);
-			   this->lpPanel4->TabIndex = 32;
+			   this->lpPanel4->TabIndex = 5;
 			   // 
 			   // lpLabel45
 			   // 
@@ -740,7 +740,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel45->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel45->Name = L"lpLabel45";
 			   this->lpLabel45->Size = System::Drawing::Size(19, 22);
-			   this->lpLabel45->TabIndex = 10;
+			   this->lpLabel45->TabIndex = 0;
 			   this->lpLabel45->Text = L"x";
 			   // 
 			   // lpText45
@@ -754,7 +754,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText45->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText45->Name = L"lpText45";
 			   this->lpText45->Size = System::Drawing::Size(42, 30);
-			   this->lpText45->TabIndex = 21;
+			   this->lpText45->TabIndex = 30;
 			   this->lpText45->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText45_KeyPress);
 			   this->lpText45->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText45_Leave);
 			   // 
@@ -768,7 +768,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel44->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel44->Name = L"lpLabel44";
 			   this->lpLabel44->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel44->TabIndex = 8;
+			   this->lpLabel44->TabIndex = 0;
 			   this->lpLabel44->Text = L"x +";
 			   // 
 			   // lpText44
@@ -782,7 +782,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText44->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText44->Name = L"lpText44";
 			   this->lpText44->Size = System::Drawing::Size(42, 30);
-			   this->lpText44->TabIndex = 20;
+			   this->lpText44->TabIndex = 29;
 			   this->lpText44->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText44_KeyPress);
 			   this->lpText44->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText44_Leave);
 			   // 
@@ -796,7 +796,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel43->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel43->Name = L"lpLabel43";
 			   this->lpLabel43->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel43->TabIndex = 6;
+			   this->lpLabel43->TabIndex = 0;
 			   this->lpLabel43->Text = L"x +";
 			   // 
 			   // lpText43
@@ -810,7 +810,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText43->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText43->Name = L"lpText43";
 			   this->lpText43->Size = System::Drawing::Size(42, 30);
-			   this->lpText43->TabIndex = 19;
+			   this->lpText43->TabIndex = 28;
 			   this->lpText43->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText43_KeyPress);
 			   this->lpText43->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText43_Leave);
 			   // 
@@ -824,7 +824,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel42->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel42->Name = L"lpLabel42";
 			   this->lpLabel42->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel42->TabIndex = 4;
+			   this->lpLabel42->TabIndex = 0;
 			   this->lpLabel42->Text = L"x +";
 			   // 
 			   // lpText42
@@ -838,7 +838,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText42->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText42->Name = L"lpText42";
 			   this->lpText42->Size = System::Drawing::Size(42, 30);
-			   this->lpText42->TabIndex = 18;
+			   this->lpText42->TabIndex = 27;
 			   this->lpText42->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText42_KeyPress);
 			   this->lpText42->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText42_Leave);
 			   // 
@@ -852,7 +852,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel41->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel41->Name = L"lpLabel41";
 			   this->lpLabel41->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel41->TabIndex = 2;
+			   this->lpLabel41->TabIndex = 0;
 			   this->lpLabel41->Text = L"x +";
 			   // 
 			   // lpText41
@@ -866,7 +866,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText41->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText41->Name = L"lpText41";
 			   this->lpText41->Size = System::Drawing::Size(42, 30);
-			   this->lpText41->TabIndex = 17;
+			   this->lpText41->TabIndex = 26;
 			   this->lpText41->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText41_KeyPress);
 			   this->lpText41->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText41_Leave);
 			   // 
@@ -886,7 +886,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpPanel3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpPanel3->Name = L"lpPanel3";
 			   this->lpPanel3->Size = System::Drawing::Size(455, 47);
-			   this->lpPanel3->TabIndex = 31;
+			   this->lpPanel3->TabIndex = 4;
 			   // 
 			   // lpLabel35
 			   // 
@@ -898,7 +898,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel35->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel35->Name = L"lpLabel35";
 			   this->lpLabel35->Size = System::Drawing::Size(19, 22);
-			   this->lpLabel35->TabIndex = 10;
+			   this->lpLabel35->TabIndex = 0;
 			   this->lpLabel35->Text = L"x";
 			   // 
 			   // lpText35
@@ -912,7 +912,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText35->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText35->Name = L"lpText35";
 			   this->lpText35->Size = System::Drawing::Size(42, 30);
-			   this->lpText35->TabIndex = 16;
+			   this->lpText35->TabIndex = 24;
 			   this->lpText35->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText35_KeyPress);
 			   this->lpText35->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText35_Leave);
 			   // 
@@ -926,7 +926,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel34->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel34->Name = L"lpLabel34";
 			   this->lpLabel34->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel34->TabIndex = 8;
+			   this->lpLabel34->TabIndex = 0;
 			   this->lpLabel34->Text = L"x +";
 			   // 
 			   // lpText34
@@ -940,7 +940,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText34->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText34->Name = L"lpText34";
 			   this->lpText34->Size = System::Drawing::Size(42, 30);
-			   this->lpText34->TabIndex = 15;
+			   this->lpText34->TabIndex = 23;
 			   this->lpText34->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText34_KeyPress);
 			   this->lpText34->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText34_Leave);
 			   // 
@@ -954,7 +954,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel33->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel33->Name = L"lpLabel33";
 			   this->lpLabel33->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel33->TabIndex = 6;
+			   this->lpLabel33->TabIndex = 0;
 			   this->lpLabel33->Text = L"x +";
 			   // 
 			   // lpText33
@@ -968,7 +968,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText33->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText33->Name = L"lpText33";
 			   this->lpText33->Size = System::Drawing::Size(42, 30);
-			   this->lpText33->TabIndex = 14;
+			   this->lpText33->TabIndex = 22;
 			   this->lpText33->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText33_KeyPress);
 			   this->lpText33->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText33_Leave);
 			   // 
@@ -982,7 +982,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel32->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel32->Name = L"lpLabel32";
 			   this->lpLabel32->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel32->TabIndex = 4;
+			   this->lpLabel32->TabIndex = 0;
 			   this->lpLabel32->Text = L"x +";
 			   // 
 			   // lpText32
@@ -996,7 +996,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText32->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText32->Name = L"lpText32";
 			   this->lpText32->Size = System::Drawing::Size(42, 30);
-			   this->lpText32->TabIndex = 13;
+			   this->lpText32->TabIndex = 21;
 			   this->lpText32->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText32_KeyPress);
 			   this->lpText32->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText32_Leave);
 			   // 
@@ -1010,7 +1010,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel31->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel31->Name = L"lpLabel31";
 			   this->lpLabel31->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel31->TabIndex = 2;
+			   this->lpLabel31->TabIndex = 0;
 			   this->lpLabel31->Text = L"x +";
 			   // 
 			   // lpText31
@@ -1024,7 +1024,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText31->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText31->Name = L"lpText31";
 			   this->lpText31->Size = System::Drawing::Size(42, 30);
-			   this->lpText31->TabIndex = 12;
+			   this->lpText31->TabIndex = 20;
 			   this->lpText31->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText31_KeyPress);
 			   this->lpText31->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText31_Leave);
 			   // 
@@ -1044,7 +1044,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpPanel2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpPanel2->Name = L"lpPanel2";
 			   this->lpPanel2->Size = System::Drawing::Size(455, 47);
-			   this->lpPanel2->TabIndex = 30;
+			   this->lpPanel2->TabIndex = 3;
 			   // 
 			   // lpLabel25
 			   // 
@@ -1056,7 +1056,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel25->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel25->Name = L"lpLabel25";
 			   this->lpLabel25->Size = System::Drawing::Size(19, 22);
-			   this->lpLabel25->TabIndex = 10;
+			   this->lpLabel25->TabIndex = 0;
 			   this->lpLabel25->Text = L"x";
 			   // 
 			   // lpText25
@@ -1070,7 +1070,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText25->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText25->Name = L"lpText25";
 			   this->lpText25->Size = System::Drawing::Size(42, 30);
-			   this->lpText25->TabIndex = 11;
+			   this->lpText25->TabIndex = 18;
 			   this->lpText25->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText25_KeyPress);
 			   this->lpText25->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText25_Leave);
 			   // 
@@ -1084,7 +1084,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel24->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel24->Name = L"lpLabel24";
 			   this->lpLabel24->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel24->TabIndex = 8;
+			   this->lpLabel24->TabIndex = 0;
 			   this->lpLabel24->Text = L"x +";
 			   // 
 			   // lpText24
@@ -1098,7 +1098,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText24->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText24->Name = L"lpText24";
 			   this->lpText24->Size = System::Drawing::Size(42, 30);
-			   this->lpText24->TabIndex = 10;
+			   this->lpText24->TabIndex = 17;
 			   this->lpText24->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText24_KeyPress);
 			   this->lpText24->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText24_Leave);
 			   // 
@@ -1112,7 +1112,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel23->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel23->Name = L"lpLabel23";
 			   this->lpLabel23->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel23->TabIndex = 6;
+			   this->lpLabel23->TabIndex = 0;
 			   this->lpLabel23->Text = L"x +";
 			   // 
 			   // lpText23
@@ -1126,7 +1126,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText23->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText23->Name = L"lpText23";
 			   this->lpText23->Size = System::Drawing::Size(42, 30);
-			   this->lpText23->TabIndex = 9;
+			   this->lpText23->TabIndex = 16;
 			   this->lpText23->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText23_KeyPress);
 			   this->lpText23->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText23_Leave);
 			   // 
@@ -1140,7 +1140,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel22->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel22->Name = L"lpLabel22";
 			   this->lpLabel22->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel22->TabIndex = 4;
+			   this->lpLabel22->TabIndex = 0;
 			   this->lpLabel22->Text = L"x +";
 			   // 
 			   // lpText22
@@ -1154,7 +1154,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText22->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText22->Name = L"lpText22";
 			   this->lpText22->Size = System::Drawing::Size(42, 30);
-			   this->lpText22->TabIndex = 8;
+			   this->lpText22->TabIndex = 15;
 			   this->lpText22->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText22_KeyPress);
 			   this->lpText22->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText22_Leave);
 			   // 
@@ -1168,7 +1168,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel21->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel21->Name = L"lpLabel21";
 			   this->lpLabel21->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel21->TabIndex = 2;
+			   this->lpLabel21->TabIndex = 0;
 			   this->lpLabel21->Text = L"x +";
 			   // 
 			   // lpText21
@@ -1182,7 +1182,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText21->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText21->Name = L"lpText21";
 			   this->lpText21->Size = System::Drawing::Size(42, 30);
-			   this->lpText21->TabIndex = 7;
+			   this->lpText21->TabIndex = 14;
 			   this->lpText21->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText21_KeyPress);
 			   this->lpText21->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText21_Leave);
 			   // 
@@ -1202,7 +1202,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpPanel1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpPanel1->Name = L"lpPanel1";
 			   this->lpPanel1->Size = System::Drawing::Size(455, 47);
-			   this->lpPanel1->TabIndex = 29;
+			   this->lpPanel1->TabIndex = 2;
 			   // 
 			   // lpLabel15
 			   // 
@@ -1214,7 +1214,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel15->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel15->Name = L"lpLabel15";
 			   this->lpLabel15->Size = System::Drawing::Size(19, 22);
-			   this->lpLabel15->TabIndex = 10;
+			   this->lpLabel15->TabIndex = 0;
 			   this->lpLabel15->Text = L"x";
 			   // 
 			   // lpText15
@@ -1228,7 +1228,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText15->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText15->Name = L"lpText15";
 			   this->lpText15->Size = System::Drawing::Size(42, 30);
-			   this->lpText15->TabIndex = 6;
+			   this->lpText15->TabIndex = 12;
 			   this->lpText15->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText15_KeyPress);
 			   this->lpText15->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText15_Leave);
 			   // 
@@ -1242,7 +1242,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel14->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel14->Name = L"lpLabel14";
 			   this->lpLabel14->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel14->TabIndex = 8;
+			   this->lpLabel14->TabIndex = 0;
 			   this->lpLabel14->Text = L"x +";
 			   // 
 			   // lpText14
@@ -1256,7 +1256,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText14->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText14->Name = L"lpText14";
 			   this->lpText14->Size = System::Drawing::Size(42, 30);
-			   this->lpText14->TabIndex = 5;
+			   this->lpText14->TabIndex = 11;
 			   this->lpText14->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText14_KeyPress);
 			   this->lpText14->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText14_Leave);
 			   // 
@@ -1270,7 +1270,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel13->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel13->Name = L"lpLabel13";
 			   this->lpLabel13->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel13->TabIndex = 6;
+			   this->lpLabel13->TabIndex = 0;
 			   this->lpLabel13->Text = L"x +";
 			   // 
 			   // lpText13
@@ -1284,7 +1284,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText13->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText13->Name = L"lpText13";
 			   this->lpText13->Size = System::Drawing::Size(42, 30);
-			   this->lpText13->TabIndex = 4;
+			   this->lpText13->TabIndex = 10;
 			   this->lpText13->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText13_KeyPress);
 			   this->lpText13->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText13_Leave);
 			   // 
@@ -1298,7 +1298,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel12->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel12->Name = L"lpLabel12";
 			   this->lpLabel12->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel12->TabIndex = 4;
+			   this->lpLabel12->TabIndex = 0;
 			   this->lpLabel12->Text = L"x +";
 			   // 
 			   // lpText12
@@ -1312,7 +1312,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText12->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText12->Name = L"lpText12";
 			   this->lpText12->Size = System::Drawing::Size(42, 30);
-			   this->lpText12->TabIndex = 3;
+			   this->lpText12->TabIndex = 9;
 			   this->lpText12->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText12_KeyPress);
 			   this->lpText12->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText12_Leave);
 			   // 
@@ -1326,7 +1326,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpLabel11->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->lpLabel11->Name = L"lpLabel11";
 			   this->lpLabel11->Size = System::Drawing::Size(34, 22);
-			   this->lpLabel11->TabIndex = 2;
+			   this->lpLabel11->TabIndex = 0;
 			   this->lpLabel11->Text = L"x +";
 			   // 
 			   // lpText11
@@ -1340,7 +1340,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->lpText11->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->lpText11->Name = L"lpText11";
 			   this->lpText11->Size = System::Drawing::Size(42, 30);
-			   this->lpText11->TabIndex = 2;
+			   this->lpText11->TabIndex = 8;
 			   this->lpText11->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::lpText11_KeyPress);
 			   this->lpText11->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::lpText11_Leave);
 			   // 
@@ -1355,8 +1355,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->maxmin->Location = System::Drawing::Point(1, 7);
 			   this->maxmin->Name = L"maxmin";
 			   this->maxmin->Size = System::Drawing::Size(79, 30);
-			   this->maxmin->TabIndex = 35;
-			   this->maxmin->SelectedIndexChanged += gcnew System::EventHandler(this, &lpNewTaskDialog::maxmin_SelectedIndexChanged);
+			   this->maxmin->TabIndex = 2;
 			   // 
 			   // ufPanel
 			   // 
@@ -1375,7 +1374,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufPanel->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufPanel->Name = L"ufPanel";
 			   this->ufPanel->Size = System::Drawing::Size(575, 47);
-			   this->ufPanel->TabIndex = 30;
+			   this->ufPanel->TabIndex = 1;
 			   // 
 			   // ufLabel5
 			   // 
@@ -1387,7 +1386,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufLabel5->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->ufLabel5->Name = L"ufLabel5";
 			   this->ufLabel5->Size = System::Drawing::Size(19, 22);
-			   this->ufLabel5->TabIndex = 10;
+			   this->ufLabel5->TabIndex = 0;
 			   this->ufLabel5->Text = L"x";
 			   // 
 			   // ufText5
@@ -1401,7 +1400,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufText5->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufText5->Name = L"ufText5";
 			   this->ufText5->Size = System::Drawing::Size(42, 30);
-			   this->ufText5->TabIndex = 6;
+			   this->ufText5->TabIndex = 7;
 			   this->ufText5->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::ufText5_KeyPress);
 			   this->ufText5->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::ufText5_Leave);
 			   // 
@@ -1415,7 +1414,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufLabel4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->ufLabel4->Name = L"ufLabel4";
 			   this->ufLabel4->Size = System::Drawing::Size(38, 22);
-			   this->ufLabel4->TabIndex = 8;
+			   this->ufLabel4->TabIndex = 0;
 			   this->ufLabel4->Text = L"x + ";
 			   // 
 			   // ufText4
@@ -1429,7 +1428,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufText4->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufText4->Name = L"ufText4";
 			   this->ufText4->Size = System::Drawing::Size(42, 30);
-			   this->ufText4->TabIndex = 5;
+			   this->ufText4->TabIndex = 6;
 			   this->ufText4->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::ufText4_KeyPress);
 			   this->ufText4->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::ufText4_Leave);
 			   // 
@@ -1443,7 +1442,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufLabel3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->ufLabel3->Name = L"ufLabel3";
 			   this->ufLabel3->Size = System::Drawing::Size(38, 22);
-			   this->ufLabel3->TabIndex = 6;
+			   this->ufLabel3->TabIndex = 0;
 			   this->ufLabel3->Text = L"x + ";
 			   // 
 			   // ufText3
@@ -1457,7 +1456,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufText3->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufText3->Name = L"ufText3";
 			   this->ufText3->Size = System::Drawing::Size(42, 30);
-			   this->ufText3->TabIndex = 4;
+			   this->ufText3->TabIndex = 5;
 			   this->ufText3->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::ufText3_KeyPress);
 			   this->ufText3->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::ufText3_Leave);
 			   // 
@@ -1471,7 +1470,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufLabel2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->ufLabel2->Name = L"ufLabel2";
 			   this->ufLabel2->Size = System::Drawing::Size(38, 22);
-			   this->ufLabel2->TabIndex = 4;
+			   this->ufLabel2->TabIndex = 0;
 			   this->ufLabel2->Text = L"x + ";
 			   // 
 			   // ufText2
@@ -1485,7 +1484,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufText2->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufText2->Name = L"ufText2";
 			   this->ufText2->Size = System::Drawing::Size(42, 30);
-			   this->ufText2->TabIndex = 3;
+			   this->ufText2->TabIndex = 4;
 			   this->ufText2->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::ufText2_KeyPress);
 			   this->ufText2->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::ufText2_Leave);
 			   // 
@@ -1499,7 +1498,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufLabel1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			   this->ufLabel1->Name = L"ufLabel1";
 			   this->ufLabel1->Size = System::Drawing::Size(38, 22);
-			   this->ufLabel1->TabIndex = 2;
+			   this->ufLabel1->TabIndex = 0;
 			   this->ufLabel1->Text = L"x + ";
 			   // 
 			   // ufText1
@@ -1513,7 +1512,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->ufText1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->ufText1->Name = L"ufText1";
 			   this->ufText1->Size = System::Drawing::Size(42, 30);
-			   this->ufText1->TabIndex = 2;
+			   this->ufText1->TabIndex = 3;
 			   this->ufText1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &lpNewTaskDialog::ufText1_KeyPress);
 			   this->ufText1->Leave += gcnew System::EventHandler(this, &lpNewTaskDialog::ufText1_Leave);
 			   // 
@@ -1545,7 +1544,6 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->Name = L"lpNewTaskDialog";
 			   this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
 			   this->Text = L"Nová úloha";
-			   this->Load += gcnew System::EventHandler(this, &lpNewTaskDialog::lpNewTaskDialog_Load);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetPremennych))->EndInit();
 			   this->bottomPanel->ResumeLayout(false);
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetOhraniceni))->EndInit();
@@ -1589,8 +1587,6 @@ private: System::Windows::Forms::TextBox^ ufText1;
 
 		matrix[0][0] = System::Convert::ToDouble(lpText11->Text);
 		matrix[0][1] = System::Convert::ToDouble(lpText12->Text);
-		matrix[1][0] = System::Convert::ToDouble(lpText21->Text);
-		matrix[1][1] = System::Convert::ToDouble(lpText22->Text);
 
 		try {
 
@@ -1598,6 +1594,8 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			if (lpText14->Text != "") matrix[0][3] = System::Convert::ToDouble(lpText14->Text);
 			if (lpText15->Text != "") matrix[0][4] = System::Convert::ToDouble(lpText15->Text);
 
+			if (lpText21->Text != "") matrix[1][0] = System::Convert::ToDouble(lpText21->Text);
+			if (lpText22->Text != "") matrix[1][1] = System::Convert::ToDouble(lpText22->Text);
 			if (lpText23->Text != "") matrix[1][2] = System::Convert::ToDouble(lpText23->Text);
 			if (lpText24->Text != "") matrix[1][3] = System::Convert::ToDouble(lpText24->Text);
 			if (lpText25->Text != "") matrix[1][4] = System::Convert::ToDouble(lpText25->Text);
@@ -1662,6 +1660,56 @@ private: System::Windows::Forms::TextBox^ ufText1;
 
 		return value;
 	}
+
+	public: Boolean getMaxMin() {
+		if (maxmin->SelectedIndex) return false;
+		else return true;
+	}
+
+	public: void setVisuals() {
+		pocetPremennych->Value = 2;
+		pocetOhraniceni->Value = 1;
+
+		maxmin->SelectedIndex = 0;
+		ufLabel1->Text = "x" + subscript("1");
+		ufLabel2->Text = "x" + subscript("2");
+		ufLabel3->Text = "x" + subscript("3");
+		ufLabel4->Text = "x" + subscript("4");
+		ufLabel5->Text = "x" + subscript("5");
+
+		lpLabel11->Text = "x" + subscript("1");
+		lpLabel12->Text = "x" + subscript("2");
+		lpLabel13->Text = "x" + subscript("3");
+		lpLabel14->Text = "x" + subscript("4");
+		lpLabel15->Text = "x" + subscript("5");
+
+		lpLabel21->Text = "x" + subscript("1");
+		lpLabel22->Text = "x" + subscript("2");
+		lpLabel23->Text = "x" + subscript("3");
+		lpLabel24->Text = "x" + subscript("4");
+		lpLabel25->Text = "x" + subscript("5");
+
+		lpLabel31->Text = "x" + subscript("1");
+		lpLabel32->Text = "x" + subscript("2");
+		lpLabel33->Text = "x" + subscript("3");
+		lpLabel34->Text = "x" + subscript("4");
+		lpLabel35->Text = "x" + subscript("5");
+
+		lpLabel41->Text = "x" + subscript("1");
+		lpLabel42->Text = "x" + subscript("2");
+		lpLabel43->Text = "x" + subscript("3");
+		lpLabel44->Text = "x" + subscript("4");
+		lpLabel45->Text = "x" + subscript("5");
+
+		lpLabel51->Text = "x" + subscript("1");
+		lpLabel52->Text = "x" + subscript("2");
+		lpLabel53->Text = "x" + subscript("3");
+		lpLabel54->Text = "x" + subscript("4");
+		lpLabel55->Text = "x" + subscript("5");
+
+
+	}
+
 	private: Boolean vsetkyVyplnene() {
 		if (lpText11->Text == "") return false;
 		if (lpText12->Text == "") return false;
@@ -3121,12 +3169,6 @@ private: System::Void bText1_KeyPress(System::Object^ sender, System::Windows::F
 		if (this->bText1->Text->Contains(",") && !this->bText1->SelectedText->Contains(","))
 			e->Handled = true;
 	}
-	// Allow negative numbers
-	else if (e->KeyChar == '-' && !(this->bText1->Text->Contains("-"))) {
-		e->Handled = true;
-		bText1->Text = "-";
-		bText1->SelectionStart = 1;
-	}
 	// Accept only digits ",", "-" and the Backspace character
 	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
 		e->Handled = true;
@@ -3136,12 +3178,6 @@ private: System::Void bText2_KeyPress(System::Object^ sender, System::Windows::F
 	if (e->KeyChar == ',') {
 		if (this->bText2->Text->Contains(",") && !this->bText2->SelectedText->Contains(","))
 			e->Handled = true;
-	}
-	// Allow negative numbers
-	else if (e->KeyChar == '-' && !(this->bText2->Text->Contains("-"))) {
-		e->Handled = true;
-		bText2->Text = "-";
-		bText2->SelectionStart = 1;
 	}
 	// Accept only digits ",", "-" and the Backspace character
 	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
@@ -3153,12 +3189,6 @@ private: System::Void bText3_KeyPress(System::Object^ sender, System::Windows::F
 		if (this->bText3->Text->Contains(",") && !this->bText3->SelectedText->Contains(","))
 			e->Handled = true;
 	}
-	// Allow negative numbers
-	else if (e->KeyChar == '-' && !(this->bText3->Text->Contains("-"))) {
-		e->Handled = true;
-		bText3->Text = "-";
-		bText3->SelectionStart = 1;
-	}
 	// Accept only digits ",", "-" and the Backspace character
 	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
 		e->Handled = true;
@@ -3168,12 +3198,6 @@ private: System::Void bText4_KeyPress(System::Object^ sender, System::Windows::F
 	if (e->KeyChar == ',') {
 		if (this->bText4->Text->Contains(",") && !this->bText4->SelectedText->Contains(","))
 			e->Handled = true;
-	}
-	// Allow negative numbers
-	else if (e->KeyChar == '-' && !(this->bText4->Text->Contains("-"))) {
-		e->Handled = true;
-		bText4->Text = "-";
-		bText4->SelectionStart = 1;
 	}
 	// Accept only digits ",", "-" and the Backspace character
 	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
@@ -3185,12 +3209,6 @@ private: System::Void bText5_KeyPress(System::Object^ sender, System::Windows::F
 		if (this->bText5->Text->Contains(",") && !this->bText5->SelectedText->Contains(","))
 			e->Handled = true;
 	}
-	// Allow negative numbers
-	else if (e->KeyChar == '-' && !(this->bText5->Text->Contains("-"))) {
-		e->Handled = true;
-		bText5->Text = "-";
-		bText5->SelectionStart = 1;
-	}
 	// Accept only digits ",", "-" and the Backspace character
 	else if (!Char::IsDigit(e->KeyChar) && e->KeyChar != 0x08) {
 		e->Handled = true;
@@ -3198,43 +3216,6 @@ private: System::Void bText5_KeyPress(System::Object^ sender, System::Windows::F
 }
 #pragma endregion
 
-private: System::Void lpNewTaskDialog_Load(System::Object^ sender, System::EventArgs^ e) {
-	this->maxmin->SelectedIndex = 0;
 
-	this->lpPanel2->Hide();
-	this->lpPanel3->Hide();
-	this->lpPanel4->Hide();
-	this->lpPanel5->Hide();
-
-	bText2->Hide();
-	bText3->Hide();
-	bText4->Hide();
-	bText5->Hide();
-
-	label4->Hide();
-	label5->Hide();
-	label6->Hide();
-	label7->Hide();
-
-	this->ohranicenie->Enabled = true;
-	this->ohranicenie->Location = System::Drawing::Point(77, 260);
-
-}
-private: System::Void maxmin_SelectedIndexChanged(System::Object^ sender, System::EventArgs^ e) {
-	if (maxmin->SelectedIndex == 0) {
-		label1->Text = "≤";
-		label4->Text = "≤";
-		label5->Text = "≤";
-		label6->Text = "≤";
-		label7->Text = "≤";
-	}
-	else {
-		label1->Text = "≥";
-		label4->Text = "≥";
-		label5->Text = "≥";
-		label6->Text = "≥";
-		label7->Text = "≥";
-	}
-}
 };
 }

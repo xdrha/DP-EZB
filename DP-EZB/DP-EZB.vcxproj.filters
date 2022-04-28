@@ -48,6 +48,9 @@
     <ClCompile Include="LPTask.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="welcomeDialog.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="VectorsNewTaskDialog.h">
@@ -63,6 +66,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LPNewTaskDialog.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="welcomeDialog.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

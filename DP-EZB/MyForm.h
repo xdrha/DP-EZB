@@ -8,6 +8,7 @@
 #include "MatrixTask.cpp"
 #include "SLRTask.cpp"
 #include "LPTask.cpp"
+#include "welcomeDialog.h"
 #include <string.h>
 
 namespace DP_EZB {
@@ -111,13 +112,15 @@ namespace DP_EZB {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle3 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle4 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle5 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle6 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle7 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^ dataGridViewCellStyle8 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::ComponentModel::ComponentResourceManager^ resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->bottomPanel = (gcnew System::Windows::Forms::Panel());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->topPanel = (gcnew System::Windows::Forms::Panel());
+			this->lpButton = (gcnew System::Windows::Forms::Button());
 			this->slrButton = (gcnew System::Windows::Forms::Button());
 			this->determinantButton = (gcnew System::Windows::Forms::Button());
 			this->invertibleMatrixButton = (gcnew System::Windows::Forms::Button());
@@ -143,7 +146,6 @@ namespace DP_EZB {
 			this->okButton = (gcnew System::Windows::Forms::Button());
 			this->stepTaskTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->lpButton = (gcnew System::Windows::Forms::Button());
 			this->bottomPanel->SuspendLayout();
 			this->topPanel->SuspendLayout();
 			this->taskButtonPanel->SuspendLayout();
@@ -183,6 +185,7 @@ namespace DP_EZB {
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->topPanel->BackColor = System::Drawing::Color::DodgerBlue;
 			this->topPanel->Controls->Add(this->lpButton);
+			this->topPanel->Controls->Add(this->helpButton);
 			this->topPanel->Controls->Add(this->slrButton);
 			this->topPanel->Controls->Add(this->determinantButton);
 			this->topPanel->Controls->Add(this->invertibleMatrixButton);
@@ -194,6 +197,21 @@ namespace DP_EZB {
 			this->topPanel->Size = System::Drawing::Size(1538, 38);
 			this->topPanel->TabIndex = 1;
 			// 
+			// lpButton
+			// 
+			this->lpButton->BackColor = System::Drawing::Color::DodgerBlue;
+			this->lpButton->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->lpButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->lpButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->lpButton->Location = System::Drawing::Point(999, 0);
+			this->lpButton->Name = L"lpButton";
+			this->lpButton->Size = System::Drawing::Size(302, 38);
+			this->lpButton->TabIndex = 6;
+			this->lpButton->Text = L"Úloha lineárneho programovania";
+			this->lpButton->UseVisualStyleBackColor = false;
+			this->lpButton->Click += gcnew System::EventHandler(this, &MyForm::lpButton_Click);
+			// 
 			// slrButton
 			// 
 			this->slrButton->BackColor = System::Drawing::Color::DodgerBlue;
@@ -201,11 +219,11 @@ namespace DP_EZB {
 			this->slrButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->slrButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->slrButton->Location = System::Drawing::Point(767, 0);
+			this->slrButton->Location = System::Drawing::Point(766, 0);
 			this->slrButton->Name = L"slrButton";
-			this->slrButton->Size = System::Drawing::Size(101, 38);
+			this->slrButton->Size = System::Drawing::Size(234, 38);
 			this->slrButton->TabIndex = 5;
-			this->slrButton->Text = L"SLR";
+			this->slrButton->Text = L"Systém lineárnych rovníc";
 			this->slrButton->UseVisualStyleBackColor = false;
 			this->slrButton->Click += gcnew System::EventHandler(this, &MyForm::slrButton_Click);
 			// 
@@ -216,7 +234,7 @@ namespace DP_EZB {
 			this->determinantButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->determinantButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->determinantButton->Location = System::Drawing::Point(586, 0);
+			this->determinantButton->Location = System::Drawing::Point(585, 0);
 			this->determinantButton->Name = L"determinantButton";
 			this->determinantButton->Size = System::Drawing::Size(182, 38);
 			this->determinantButton->TabIndex = 4;
@@ -231,7 +249,7 @@ namespace DP_EZB {
 			this->invertibleMatrixButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->invertibleMatrixButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->invertibleMatrixButton->Location = System::Drawing::Point(424, 0);
+			this->invertibleMatrixButton->Location = System::Drawing::Point(423, 0);
 			this->invertibleMatrixButton->Name = L"invertibleMatrixButton";
 			this->invertibleMatrixButton->Size = System::Drawing::Size(163, 38);
 			this->invertibleMatrixButton->TabIndex = 3;
@@ -246,7 +264,7 @@ namespace DP_EZB {
 			this->matrixDecompositionButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->matrixDecompositionButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->matrixDecompositionButton->Location = System::Drawing::Point(272, 0);
+			this->matrixDecompositionButton->Location = System::Drawing::Point(271, 0);
 			this->matrixDecompositionButton->Name = L"matrixDecompositionButton";
 			this->matrixDecompositionButton->Size = System::Drawing::Size(153, 38);
 			this->matrixDecompositionButton->TabIndex = 2;
@@ -261,7 +279,7 @@ namespace DP_EZB {
 			this->matrixRankButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->matrixRankButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->matrixRankButton->Location = System::Drawing::Point(117, 0);
+			this->matrixRankButton->Location = System::Drawing::Point(116, 0);
 			this->matrixRankButton->Name = L"matrixRankButton";
 			this->matrixRankButton->Size = System::Drawing::Size(156, 38);
 			this->matrixRankButton->TabIndex = 1;
@@ -271,12 +289,12 @@ namespace DP_EZB {
 			// 
 			// vectorsButton
 			// 
-			this->vectorsButton->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
-				static_cast<System::Int32>(static_cast<System::Byte>(25)));
+			this->vectorsButton->BackColor = System::Drawing::Color::DodgerBlue;
 			this->vectorsButton->Cursor = System::Windows::Forms::Cursors::Hand;
 			this->vectorsButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->vectorsButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->vectorsButton->ForeColor = System::Drawing::SystemColors::Window;
 			this->vectorsButton->Location = System::Drawing::Point(0, 0);
 			this->vectorsButton->Name = L"vectorsButton";
 			this->vectorsButton->Size = System::Drawing::Size(117, 38);
@@ -292,7 +310,6 @@ namespace DP_EZB {
 			this->taskButtonPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->taskButtonPanel->Controls->Add(this->resetButton);
-			this->taskButtonPanel->Controls->Add(this->helpButton);
 			this->taskButtonPanel->Controls->Add(this->clearTaskButton);
 			this->taskButtonPanel->Controls->Add(this->newTaskButton);
 			this->taskButtonPanel->Location = System::Drawing::Point(0, 50);
@@ -307,7 +324,7 @@ namespace DP_EZB {
 			this->resetButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->resetButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->resetButton->Location = System::Drawing::Point(154, 0);
+			this->resetButton->Location = System::Drawing::Point(177, 0);
 			this->resetButton->Name = L"resetButton";
 			this->resetButton->Size = System::Drawing::Size(170, 38);
 			this->resetButton->TabIndex = 3;
@@ -340,7 +357,7 @@ namespace DP_EZB {
 			this->clearTaskButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->clearTaskButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->clearTaskButton->Location = System::Drawing::Point(330, 0);
+			this->clearTaskButton->Location = System::Drawing::Point(353, 0);
 			this->clearTaskButton->Name = L"clearTaskButton";
 			this->clearTaskButton->Size = System::Drawing::Size(117, 38);
 			this->clearTaskButton->TabIndex = 2;
@@ -360,10 +377,11 @@ namespace DP_EZB {
 				static_cast<System::Byte>(0)));
 			this->newTaskButton->Location = System::Drawing::Point(6, 0);
 			this->newTaskButton->Name = L"newTaskButton";
-			this->newTaskButton->Size = System::Drawing::Size(143, 38);
+			this->newTaskButton->Size = System::Drawing::Size(164, 38);
 			this->newTaskButton->TabIndex = 1;
-			this->newTaskButton->Text = L"➕ Nová úloha";
+			this->newTaskButton->Text = L"➕ Nový výpočet";
 			this->newTaskButton->UseVisualStyleBackColor = false;
+			this->newTaskButton->Visible = false;
 			this->newTaskButton->Click += gcnew System::EventHandler(this, &MyForm::newTaskButton_Click);
 			// 
 			// taskPanel
@@ -416,28 +434,28 @@ namespace DP_EZB {
 			this->taskMatrix->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->taskMatrix->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			dataGridViewCellStyle1->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			dataGridViewCellStyle5->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			dataGridViewCellStyle1->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle5->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle1->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle1->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->taskMatrix->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle5->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle5->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle5->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle5->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->taskMatrix->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
 			this->taskMatrix->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->taskMatrix->ColumnHeadersVisible = false;
-			dataGridViewCellStyle2->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			dataGridViewCellStyle6->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			dataGridViewCellStyle2->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle6->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle2->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle2->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle2->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->taskMatrix->DefaultCellStyle = dataGridViewCellStyle2;
+			dataGridViewCellStyle6->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle6->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle6->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle6->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->taskMatrix->DefaultCellStyle = dataGridViewCellStyle6;
 			this->taskMatrix->Enabled = false;
 			this->taskMatrix->Location = System::Drawing::Point(123, 54);
 			this->taskMatrix->MinimumSize = System::Drawing::Size(78, 73);
@@ -468,9 +486,9 @@ namespace DP_EZB {
 				static_cast<System::Byte>(0)));
 			this->label2->Location = System::Drawing::Point(13, 16);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(61, 22);
+			this->label2->Size = System::Drawing::Size(79, 22);
 			this->label2->TabIndex = 0;
-			this->label2->Text = L"Úloha:";
+			this->label2->Text = L"Zadanie:";
 			// 
 			// tableTaskPanel
 			// 
@@ -494,27 +512,27 @@ namespace DP_EZB {
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			this->ezbTable->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->ezbTable->ColumnHeadersBorderStyle = System::Windows::Forms::DataGridViewHeaderBorderStyle::Single;
-			dataGridViewCellStyle3->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
+			dataGridViewCellStyle7->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			dataGridViewCellStyle3->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle7->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle3->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle3->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle3->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle3->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
-			this->ezbTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+			dataGridViewCellStyle7->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle7->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle7->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle7->WrapMode = System::Windows::Forms::DataGridViewTriState::True;
+			this->ezbTable->ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
 			this->ezbTable->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			dataGridViewCellStyle4->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
-			dataGridViewCellStyle4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+			dataGridViewCellStyle8->Alignment = System::Windows::Forms::DataGridViewContentAlignment::MiddleCenter;
+			dataGridViewCellStyle8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(45)));
-			dataGridViewCellStyle4->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			dataGridViewCellStyle8->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			dataGridViewCellStyle4->ForeColor = System::Drawing::SystemColors::Window;
-			dataGridViewCellStyle4->SelectionBackColor = System::Drawing::SystemColors::Highlight;
-			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
-			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
-			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle4;
+			dataGridViewCellStyle8->ForeColor = System::Drawing::SystemColors::Window;
+			dataGridViewCellStyle8->SelectionBackColor = System::Drawing::SystemColors::Highlight;
+			dataGridViewCellStyle8->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
+			dataGridViewCellStyle8->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
+			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle8;
 			this->ezbTable->EnableHeadersVisualStyles = false;
 			this->ezbTable->Location = System::Drawing::Point(13, 47);
 			this->ezbTable->MultiSelect = false;
@@ -604,21 +622,6 @@ namespace DP_EZB {
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"Výsledok:";
 			// 
-			// lpButton
-			// 
-			this->lpButton->BackColor = System::Drawing::Color::DodgerBlue;
-			this->lpButton->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->lpButton->FlatAppearance->BorderColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
-				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));
-			this->lpButton->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->lpButton->Location = System::Drawing::Point(867, 0);
-			this->lpButton->Name = L"lpButton";
-			this->lpButton->Size = System::Drawing::Size(101, 38);
-			this->lpButton->TabIndex = 6;
-			this->lpButton->Text = L"LP";
-			this->lpButton->UseVisualStyleBackColor = false;
-			this->lpButton->Click += gcnew System::EventHandler(this, &MyForm::lpButton_Click);
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
@@ -634,11 +637,12 @@ namespace DP_EZB {
 			this->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->ForeColor = System::Drawing::SystemColors::Window;
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->Margin = System::Windows::Forms::Padding(4, 6, 4, 6);
 			this->Name = L"MyForm";
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterScreen;
 			this->Text = L"EZB kalkulačka";
-			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			this->Shown += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->SizeChanged += gcnew System::EventHandler(this, &MyForm::MyForm_SizeChanged);
 			this->bottomPanel->ResumeLayout(false);
 			this->bottomPanel->PerformLayout();
@@ -659,6 +663,8 @@ namespace DP_EZB {
 		}
 #pragma endregion
 	private: System::Void MyForm_Load(System::Object^ sender, System::EventArgs^ e) {
+		welcomeDialog^ wD = gcnew welcomeDialog();
+		wD->ShowDialog();
 	}
 	private: System::Void taskPanel_Paint(System::Object^ sender, System::Windows::Forms::PaintEventArgs^ e) {
 	}
@@ -689,13 +695,13 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 				matrixNewTaskD->label2->Hide();
 				matrixNewTaskD->pocetStlpcov->Hide();
 				matrixNewTaskD->LabelFirstAction->Text = "1. Zadaj rozmer matice:";
-				matrixNewTaskD->label3->Text = "2. Vyplň zložky matice:";
+				matrixNewTaskD->label3->Text = "2. Zadaj prvky matice:";
 			}
 			else {
 				matrixNewTaskD->label2->Show();
 				matrixNewTaskD->pocetStlpcov->Show();
 				matrixNewTaskD->LabelFirstAction->Text = "1. Zadaj počet riadkov:";
-				matrixNewTaskD->label3->Text = "3. Vyplň zložky matice:";
+				matrixNewTaskD->label3->Text = "3. Zadaj prvky matice:";
 			}
 			matrixNewTaskD->ShowDialog();
 		}
@@ -705,6 +711,7 @@ private: System::Void newTaskButton_Click(System::Object^ sender, System::EventA
 		}
 		if (taskType == 6) {
 			lpNewTaskD = gcnew lpNewTaskDialog();
+			lpNewTaskD->setVisuals();
 			lpNewTaskD->ShowDialog();
 		}
 	}
@@ -740,26 +747,12 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	taskTextBox->Text = "";
 
 }
-private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
 
-		int hlbka = 0;
-		if (taskType == 0) hlbka = vt->pocetSuradnic;
-		if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) hlbka = mt->pocetRiadkov;
-		if (taskType == 5) hlbka = st->pocetRovnic;
-
-		if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
-			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
-			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1)*ezb->iteration] == 1 ||
-			ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1
-			|| ezbTable->CurrentCell->OwningColumn->Name == "b\u20D7" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
-			
-			ezbTable->ClearSelection();
-		}
-	
-
-}
 
 private: System::Void vectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	newTaskButton->Show();
+
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -789,6 +782,9 @@ private: System::Void vectorsButton_Click(System::Object^ sender, System::EventA
 	
 }
 private: System::Void matrixRankButton_Click(System::Object^ sender, System::EventArgs^ e) {
+
+	newTaskButton->Show();
+
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -817,7 +813,7 @@ private: System::Void matrixRankButton_Click(System::Object^ sender, System::Eve
 	}
 }
 private: System::Void matrixDecompositionButton_Click(System::Object^ sender, System::EventArgs^ e) {
-
+	newTaskButton->Show();
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -846,6 +842,7 @@ private: System::Void matrixDecompositionButton_Click(System::Object^ sender, Sy
 	}
 }
 private: System::Void invertibleMatrixButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	newTaskButton->Show();
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -875,6 +872,7 @@ private: System::Void invertibleMatrixButton_Click(System::Object^ sender, Syste
 
 }
 private: System::Void determinantButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	newTaskButton->Show();
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -903,6 +901,7 @@ private: System::Void determinantButton_Click(System::Object^ sender, System::Ev
 	}
 }
 private: System::Void slrButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	newTaskButton->Show();
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -931,6 +930,7 @@ private: System::Void slrButton_Click(System::Object^ sender, System::EventArgs^
 	}
 }
 private: System::Void lpButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	newTaskButton->Show();
 	if (clearTaskButton->Visible) {
 		if (MessageBox::Show("Zmazať aktuálnu úlohu ?", "Nová úloha", MessageBoxButtons::YesNo, MessageBoxIcon::Question) == System::Windows::Forms::DialogResult::Yes) {
 			clearTaskButton->PerformClick();
@@ -992,13 +992,13 @@ private: void createNewTask() {
 		   if (taskType == 0) {
 			   vectorsNewTaskD->created = false;
 			   label3->Text = "Vektory:";
-			   taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
 			   vektoryAll->Show();
 			   taskMatrix->Hide();
 			   
 			   vt = new VectorsTask(vectorsNewTaskD->getPocetVektorov(), vectorsNewTaskD->getPocetSuradnicVektorov(), vectorsNewTaskD->getMatrix(), vectorsNewTaskD->getVB());
 
-			   if (vt->vectorB != 0) taskTextBox->Text += "c) Zistite, či je vektor b lineárnou kombináciou systému vektorov";
+			   if (vt->vectorB != 0) taskTextBox->Text += "c) Zistite, či je vektor b\u20D7 lineárnou kombináciou systému vektorov";
 
 			   //zobraz vektory v labeli
 
@@ -1083,10 +1083,10 @@ private: void createNewTask() {
 			   matrixNewTaskD->created = false;
 			   label3->Text = "Matica:";
 
-			   if (taskType == 1) taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n\r\n";
-			   if (taskType == 2) taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
-			   if (taskType == 3) taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
-			   if (taskType == 4) taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
+			   if (taskType == 1) taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice\r\n\r\n";
+			   if (taskType == 2) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
+			   if (taskType == 3) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
+			   if (taskType == 4) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
 			 
 			   vektoryAll->Hide();
 			   taskMatrix->Show();
@@ -1182,7 +1182,7 @@ private: void createNewTask() {
 		   if (taskType == 5) {
 			   slrNewTaskD->created = false;
 			   label3->Text = "Rovnice:";
-			   taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
 			   vektoryAll->Show();
 			   taskMatrix->Hide();
 
@@ -1263,7 +1263,7 @@ private: void createNewTask() {
 		   if (taskType == 6) {
 			   lpNewTaskD->created = false;
 			   label3->Text = "Účelová funkcia: " + lpNewTaskD->getUF() + "\r\nOhraničenia:";
-			   taskTextBox->Text = "a) Zadanie.\r\n\r\nb) Zadanie 2.";
+			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Nájdite optimálne riešenie, ak existuje.\r\n\r\n";
 			   vektoryAll->Show();
 			   taskMatrix->Hide();
 
@@ -1272,17 +1272,54 @@ private: void createNewTask() {
 			   //zobraz ohranicenia a uf v labeli
 
 			   String^ text = "";
+			   String^ doplnkove = "\r\nDoplňujúce podmienky: ";
 
 			   for (int i = 0; i < lpt->pocetOhraniceni; i++) {
 				   for (int j = 0; j < lpt->pocetPremennych; j++) {
 					   text += lpt->matrix[i][j] + "x" + subscript(System::Convert::ToString(j + 1));
-					   if (j < lpt->pocetPremennych -1) text += "+ ";
-					   if (j == lpt->pocetPremennych-1) text += " = " + lpt->matrix[i][lpt->pocetPremennych];
+					   if (i == 0) doplnkove += "x" + subscript(System::Convert::ToString(j + 1));
+					   if (j < lpt->pocetPremennych - 1) {
+						   if (i == 0) doplnkove += ", ";
+						   text += "+ ";
+					   }
+					   if (j == lpt->pocetPremennych-1) text += " ≤ " + lpt->matrix[i][lpt->pocetPremennych];
 				   }
 				   text += "\r\n";
 			   }
+			   doplnkove += " ≥ 0";
 			   vektoryAll->Location = System::Drawing::Point(123, 74);
-			   vektoryAll->Text = text;
+			   vektoryAll->Text = text + doplnkove;
+
+			   //zapis do riesenia rozsirene ohranicujuce podmienky ako rovnost
+
+			   text = "";
+			   doplnkove = "\r\nDoplňujúce podmienky: ";
+
+			   for (int i = 0; i < lpt->pocetOhraniceni; i++) {
+				   for (int j = 0; j < lpt->pocetPremennych + lpt->pocetOhraniceni; j++) {
+					   if (j < lpt->pocetPremennych) {
+						   if (i == 0) doplnkove += "x" + subscript(System::Convert::ToString(j + 1));
+						   text += lpt->matrix[i][j] + "x" + subscript(System::Convert::ToString(j + 1));
+					   }
+					   else{
+						   if (i == j - lpt->pocetPremennych) text += " s" + subscript(System::Convert::ToString(j - lpt->pocetPremennych + 1));
+						   if (i == 0) doplnkove += "s" + subscript(System::Convert::ToString(j - lpt->pocetPremennych + 1));
+					   }
+
+					  
+					   if (j < lpt->pocetPremennych + lpt->pocetOhraniceni - 1) {
+						   if (i == 0) doplnkove += ", ";
+						   if (j < lpt->pocetPremennych) text += "+ ";
+
+					   }
+					   if (j == lpt->pocetPremennych + lpt->pocetOhraniceni - 1) text += " = " + lpt->matrix[i][lpt->pocetPremennych];
+				   }
+				   text += "\r\n";
+			   }
+			   doplnkove += " ≥ 0";
+
+			   solutionTaskPanel->Show();
+			   stepTaskTextBox->Text = "a)\r\n" + text + doplnkove;
 
 			   //vytvor bazicku maticu
 
@@ -1299,7 +1336,7 @@ private: void createNewTask() {
 				   if (i == lpt->pocetPremennych + lpt->pocetOhraniceni + 1) ezbTable->Columns[i]->Name = "b\u20D7";
 				   else if(i <= lpt->pocetPremennych) ezbTable->Columns[i]->Name = "x" + subscript(System::Convert::ToString(i));
 						else ezbTable->Columns[i]->Name = "s" + subscript(System::Convert::ToString(i-lpt->pocetPremennych));
-				   ezbTable->Columns[i]->Width = 55;
+				   if (i < lpt->pocetPremennych + lpt->pocetOhraniceni + 1) ezbTable->Columns[i]->Width = 55;
 
 			   }
 
@@ -1313,9 +1350,14 @@ private: void createNewTask() {
 			   for (int i = 0; i <= lpt->pocetPremennych + lpt->pocetOhraniceni + 1; i++) {
 				   ezbTable->Columns[i]->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::NotSortable;
 				   for (int j = 0; j <= lpt->pocetOhraniceni; j++) {
-					   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-						   static_cast<System::Int32>(static_cast<System::Byte>(45)));
-					   ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+
+					   if(j == lpt->pocetOhraniceni) 
+						   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::LightSlateGray;
+
+					   else
+						   ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+							   static_cast<System::Int32>(static_cast<System::Byte>(45)));
+						ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
 				   }
 			   }
 			   //napln simplexovu tabulku
@@ -1349,6 +1391,8 @@ private: void createNewTask() {
 			   }
 
 			   ezb = new EZB(bazickaMatica, lpt->pocetPremennych + lpt->pocetOhraniceni + 1, lpt->pocetOhraniceni);
+
+			   ezb->fillWithOnes(lpt->pocetPremennych, lpt->pocetOhraniceni);
 			   checkMatrix(bazickaMatica);
 
 
@@ -1358,59 +1402,125 @@ private: void createNewTask() {
 private: void checkMatrix(double** m) {
 	ezbTable->ClearSelection();
 
-	int check = 0;
-	if (taskType == 0) check = ezb->checkMatrix(vt->vectorB);
-	if (taskType == 1 || taskType == 2 || taskType == 4) check = ezb->checkMatrix(mt->vectorB);
-	if (taskType == 3) check = ezb->checkMatrix(mt->pocetStlpcov);
-	if (taskType == 5) check = ezb->checkMatrix(st->zeros);
-	if (taskType == 6) check = ezb->checkMatrix(lpt->pocetOhraniceni);
+		int check = 3;
+		Boolean optimalne = false;
+		Boolean nepripustne = false;
+		Boolean neohranicena = false;
+		if (taskType == 0) check = ezb->checkMatrix(vt->vectorB);
+		if (taskType == 1 || taskType == 2 || taskType == 4) check = ezb->checkMatrix(mt->vectorB);
+		if (taskType == 3) check = ezb->checkMatrix(mt->pocetStlpcov);
+		if (taskType == 5) check = ezb->checkMatrix(st->zeros);
 
-	if (check < 2) { //nulovy riadok alebo koniec ezb
-		this->solutionTaskPanel->Show();
-		ezbTable->Enabled = false;
-		okButton->Enabled = true;
-		okButton->Text = "Ukončiť";
-		label5->Text = "Výsledok:";
+		if (taskType == 6) { //podmienka neohranicenosti
 
-		String^ field = "";
+			int rowIndex = 0;
+			if (ezb != NULL) rowIndex = (ezb->iteration * (lpt->pocetOhraniceni + 1));;
+			int columnIndex = 1;
 
-		if (taskType == 0) {
-
-			for (int i = 0; i < vt->pocetSuradnic; i++) {
-				field += ezbTable[0, ezbTable->RowCount - vt->pocetSuradnic + i - 1]->Value->ToString() + "/";
+			double maxValue = 0;
+			for (int i = 1; i <= lpt->pocetPremennych + lpt->pocetOhraniceni; i++) {
+				if (lpNewTaskD->getMaxMin()) {
+					if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) > maxValue) {
+						maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+						columnIndex = i;
+					}
+				}
+				else {
+					if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) < maxValue) {
+						maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+						columnIndex = i;
+					}
+				}
 			}
 
-			stepTaskTextBox->Text = vt->getResult(m, check, ezb->pocetZaclenenychVektorov, field, ezbTable->RowCount);
-			stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
-		}
-		if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) {
-
-			for (int i = 0; i < mt->pocetRiadkov; i++) {
-				field += ezbTable[0, ezbTable->RowCount - mt->pocetRiadkov + i - 1]->Value->ToString() + "/";
-			}
-
-			stepTaskTextBox->Text = mt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount, ezb->pivots);
-			stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
-		}
-		if (taskType == 5) {
-			for (int i = 0; i < st->pocetRovnic; i++) {
-				field += ezbTable[0, ezbTable->RowCount - st->pocetRovnic + i - 1]->Value->ToString() + "/";
-			}
-
-			stepTaskTextBox->Text = st->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount);
-			stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
-		}
-		if (taskType == 6) {
+			maxValue = 99999999;
 			for (int i = 0; i < lpt->pocetOhraniceni; i++) {
-				field += ezbTable[0, ezbTable->RowCount - lpt->pocetOhraniceni + i - 1]->Value->ToString() + "/";
+				if (System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) < maxValue &&
+					System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) > 0) {
+					maxValue = System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value);
+					rowIndex = i + ezbTable->RowCount - lpt->pocetOhraniceni - 1;
+				}
+				
 			}
 
-			stepTaskTextBox->Text = lpt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount);
-			stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
+			if (maxValue == 99999999) {
+				neohranicena = true;
+			}
 		}
 
-	}
-	
+		//podmienka primarnej pripustnosti
+		if (taskType == 6) {
+			for (int i = 0; i < lpt->pocetOhraniceni; i++)
+				if (m[i][lpt->pocetOhraniceni + lpt->pocetPremennych] < 0)
+					nepripustne = true;
+		}
+
+		//prever optimalne riesenie - riadok cj-zj
+		if (taskType == 6) {
+			optimalne = true;
+
+			if (lpNewTaskD->getMaxMin()) {
+				for (int i = 1; i <= lpt->pocetPremennych + lpt->pocetOhraniceni; i++) {
+					if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) > 0)
+						optimalne = false;
+				}
+			}
+			else {
+				for (int i = 1; i <= lpt->pocetPremennych + lpt->pocetOhraniceni; i++) {
+					if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) < 0)
+						optimalne = false;
+				}
+			}
+
+		}
+
+		if (check < 2 || optimalne || nepripustne || neohranicena) { //nulovy riadok alebo koniec ezb
+			this->solutionTaskPanel->Show();
+			ezbTable->Enabled = false;
+			okButton->Enabled = true;
+			okButton->Text = "Ukončiť";
+			label5->Text = "Výsledok:";
+
+			String^ field = "";
+
+			if (taskType == 0) {
+
+				for (int i = 0; i < vt->pocetSuradnic; i++) {
+					field += ezbTable[0, ezbTable->RowCount - vt->pocetSuradnic + i - 1]->Value->ToString() + "/";
+				}
+
+				stepTaskTextBox->Text = vt->getResult(m, check, ezb->pocetZaclenenychVektorov, field, ezbTable->RowCount);
+				stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
+			}
+			if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) {
+
+				for (int i = 0; i < mt->pocetRiadkov; i++) {
+					field += ezbTable[0, ezbTable->RowCount - mt->pocetRiadkov + i - 1]->Value->ToString() + "/";
+				}
+
+				stepTaskTextBox->Text = mt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount, ezb->pivots);
+				stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
+			}
+			if (taskType == 5) {
+				for (int i = 0; i < st->pocetRovnic; i++) {
+					field += ezbTable[0, ezbTable->RowCount - st->pocetRovnic + i - 1]->Value->ToString() + "/";
+				}
+
+				stepTaskTextBox->Text = st->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->pocetBazickychVektorov, field, ezbTable->RowCount);
+				stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
+			}
+			if (taskType == 6) {
+
+				int values[10];
+				for (int i = 0; i < lpt->pocetOhraniceni + lpt->pocetPremennych; i++) {
+					values[i] = lpNewTaskD->getValueOnIndex(i + 1);
+				}
+
+				stepTaskTextBox->Text += lpt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->indexyZaclenenychVektorov, values, lpNewTaskD->getMaxMin(), System::Convert::ToDouble(ezbTable[lpt->pocetPremennych + lpt->pocetOhraniceni + 1, ezbTable->RowCount - 1]->Value), optimalne, nepripustne, neohranicena);
+				stepTaskTextBox->Text += "\r\n\r\nUkončiť úlohu?";
+			}
+
+		}
 }
 
 private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs^ e) {
@@ -1418,34 +1528,34 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 	if (helpButton->Text == "?  Pomocník") {
 		helpButton->Text = "Zavrieť";
 
-		if(taskType == 0) taskTextBox->Text = "Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n" +
+		if(taskType == 0) taskTextBox->Text = "Úlohy:\r\n\r\nVhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n" +
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n" +
 			"Vektor b nezačleňujte do bázy!\r\n\r\n" +
 			"Z poslednej časti tabuľky zistite, či je systém vektorov lineárne závislý alebo nezávislý, hodnosť systému vektorov (h), popripade, či je vektor b\u20D7 lineárnou kombináciou systému vektorov.";
 
-		if (taskType == 1) taskTextBox->Text = "Metódou elementárnej zmeny bázy určte hodnosť matice. \r\n\r\nMaticu uvažujeme ako systém stĺpcových vektorov.\r\n\r\n" +
+		if (taskType == 1) taskTextBox->Text = "Úlohy:\r\n\r\nMetódou elementárnej zmeny bázy určte hodnosť matice. \r\n\r\nMaticu uvažujeme ako systém stĺpcových vektorov.\r\n\r\n" +
 				"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
 				"Výberom vedúceho prvku (dvojklikom v tabuľke) postupne uskutočnite maximálny počet EZB na nájdenie hodnosti matice, ktorá sa rovná hodnosti systému stĺpcových vektorov, poprípade zistite, či je vektor b\u20D7 patrí do stĺpcového podpriestoru matice.\r\n\r\n"+
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 2) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite triviálny alebo bázicky rozklad matice.\r\n\r\n" +
+		if (taskType == 2) taskTextBox->Text = "Úlohy:\r\n\r\nMetódou elementárnej zmeny bázy nájdite triviálny alebo bázicky rozklad matice.\r\n\r\n" +
 			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
 			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) v prirodzenom poradí postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n"+
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 3) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite inverznú maticu k matici A.\r\n\r\n" +
+		if (taskType == 3) taskTextBox->Text = "Úlohy:\r\n\r\nMetódou elementárnej zmeny bázy nájdite inverznú maticu k matici A.\r\n\r\n" +
 			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
 			"V druhej časti tabuľky je zapísaná jednotková matica E, kedže podľa definície A \u2219 A\u207B¹ = E."+
 			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne uskutočnite elementárnu zmenu bázy.\r\n\r\n"+
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if(taskType == 4) taskTextBox->Text = "Metódou elementárnej zmeny bázy vypočítajte determinant matice.\r\n\r\n" +
+		if(taskType == 4) taskTextBox->Text = "Úlohy:\r\n\r\nMetódou elementárnej zmeny bázy vypočítajte determinant matice.\r\n\r\n" +
 			"Zložky stĺpových vektorov sú zapísané v tabuľke elementárnej zmeny bázy a považujeme ich za súradnice týchto vektorov.\r\n\r\n" +
 			"Vhodnou voľbou vedúcich prvkov (dvojklikom v tabuľke) postupne začleňte maximálny počet vektorov do bázy.\r\n\r\n" +
 			"Z poslednej časti tabuľky zistite, či je matica regulárna a v prípade, že áno, vypočítajte determinant ako súčin vedúcich prvkov a čísla (-1)ˡ.\r\n\r\n"+
 			"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
 
-		if (taskType == 5) taskTextBox->Text = "Metódou elementárnej zmeny bázy nájdite riešenie systému lineárnych rovníc ak takéto riešenie existuje.\r\n\r\n" +
+		if (taskType == 5) taskTextBox->Text = "Úlohy:\r\n\r\nMetódou elementárnej zmeny bázy nájdite riešenie systému lineárnych rovníc ak takéto riešenie existuje.\r\n\r\n" +
 				"V tabuľke elementárnej zmeny bázy sú zapísané stĺpcové vektory matice systému lineárnych rovníc a ich zložky považujeme za súradnice v jednotkovej báze.\r\n\r\n" +
 				"Výberom vedúceho prvku (dvojklikom v tabuľke) postupne uskutočnite elementárne zmeny bázy a z poslednej časti tabuľky rozhodnite o riešiteľnosti systému lineárnych rovníc.\r\n\r\n"+
 				"Vhodný vedúci prvok je 1 alebo číslo, ktoré delí celý riadok bezo zvyšku.\r\n\r\n";
@@ -1457,145 +1567,252 @@ private: System::Void helpButton_Click(System::Object^ sender, System::EventArgs
 		helpButton->Text = "?  Pomocník";
 
 		if (taskType == 0) {
-			taskTextBox->Text = "a) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je systém vektorov lineárne závislý alebo nezávislý\r\n\r\nb) Vypočítajte hodnosť systému vektorov (h)\r\n\r\n";
 			if(vt!=NULL && vt->vectorB != 0 ) taskTextBox->Text += "c) Zistite, či je vektor b\u20D7 lineárnou kombináciou systému vektorov";
 		}
 
 		if (taskType == 1) {
-			taskTextBox->Text = "a) Vypočítajte hodnosť matice\r\n\r\n";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Vypočítajte hodnosť matice\r\n\r\n";
 			if (mt != NULL && mt->vectorB != 0) taskTextBox->Text += "b) Zistite, či vektor b\u20D7 patrí do stĺpcového podpriestoru matice";
 		}
 
 		if (taskType == 2) {
-			if (taskType == 2) taskTextBox->Text = "a) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
+			if (taskType == 2) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je možné rozloziť maticu na súčin matíc\r\n\r\nb) Nájdite triviálny alebo bázický rozklad matice";
 		}
 
 		if (taskType == 3) {
-			taskTextBox->Text = "a) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či je štvorcová matica regulárna alebo singulárna\r\n\r\nb) Nájdite inverznú maticu k matici A";
 		}
 
 		if (taskType == 4) {
-			taskTextBox->Text = "a) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
+			taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či sa dá pre maticu vypočítať determinant\r\n\r\nb) Vypočítajte determinant štvorcovej matice A";
 		}
 
-		if (taskType == 5) taskTextBox->Text = "a) Zistite, či systém lineárnych rovníc má riešenie. + \r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+		if (taskType == 5) taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie. + \r\n\r\nb) Nájdite všeobecné riešenie, resp. množinu riešení.";
+
+		if(taskType == 6) taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Nájdite optimálne riešenie, ak existuje.\r\n\r\n";
 	}
 		
 }
 private: System::Void ezbTable_CellDoubleClick(System::Object^ sender, System::Windows::Forms::DataGridViewCellEventArgs^ e) {
 	int hlbka = 0;
+	int rowIndex = (ezb->iteration * (hlbka + 1));;
+	int columnIndex = 1;
+
 	if (taskType == 0) hlbka = vt->pocetSuradnic;
 	if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) hlbka = mt->pocetRiadkov;
 	if (taskType == 5) hlbka = st->pocetRovnic;
-	if (taskType == 6) hlbka = lpt->pocetOhraniceni;
+	if (taskType == 6) {
+		hlbka = lpt->pocetOhraniceni;
 
-	if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
-		ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
-		|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1) * ezb->iteration] == 1 ||
-		ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1
-		|| ezbTable->CurrentCell->OwningColumn->Name == "b\u20D7" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
+		//povol kliknut len na jednu bunku pri ezb!
+		double maxValue = 0;
+		for (int i = 1; i <= lpt->pocetPremennych + lpt->pocetOhraniceni; i++) {
+			if (lpNewTaskD->getMaxMin()) {
+				if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) > maxValue) {
+					maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+					columnIndex = i;
+				}
+			}
+			else {
+				if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) < maxValue) {
+					maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+					columnIndex = i;
+				}
+			}
+		}
 
-		ezbTable->ClearSelection();
+		maxValue = 99999999;
+		for (int i = 0; i < lpt->pocetOhraniceni; i++) {
+			if (System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) < maxValue &&
+				System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) > 0) {
+				maxValue = System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value);
+				rowIndex = i + ezbTable->RowCount - lpt->pocetOhraniceni - 1;
+			}
+
+		}
+
+	}
+	Boolean ignore = true;
+
+	if (taskType == 6 && ezbTable[0, ezbTable->CurrentCell->OwningRow->Index]->Value->ToString()->Contains("s")) ignore = false;
+
+	if (taskType < 6) {
+		if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
+			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
+			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1) * ezb->iteration] == 1 ||
+			(ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1)
+			|| ezbTable->CurrentCell->OwningColumn->Name == "b\u20D7" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
+
+			ezbTable->ClearSelection();
+		}
+		else {
+
+			if (ezbTable->CurrentCell->Value->ToString() == "0") {
+				MessageBox::Show("Vedúci prvok nemôže byť 0 !", "Chybný výber !", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return;
+			}
+
+			ezbTable->CurrentCell->Style->BackColor = System::Drawing::Color::DodgerBlue;
+			ezbTable->CurrentCell->Style->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
+
+			int sirka = 0;
+			int hlbka = 0;
+
+			if (taskType == 0) {
+				sirka = vt->pocetVektorov;
+				hlbka = vt->pocetSuradnic;
+			}
+
+			if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) {
+				sirka = mt->pocetStlpcov;
+				hlbka = mt->pocetRiadkov;
+				if (taskType == 3) sirka += mt->pocetStlpcov;
+			}
+
+			if (taskType == 5) {
+				sirka = st->pocetZloziek + st->zeros;
+				hlbka = st->pocetRovnic;
+			}
+
+			double** newMatrix = 0;
+			ezb->pivots[ezb->iteration] = ezb->getPivot(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
+			newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
+
+			// dokreslenie tabulky
+
+			for (int i = (hlbka + 1) * ezb->iteration; i <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; i++) {
+				ezbTable->Rows->Add();
+				ezbTable->Rows[i]->Height = 35;
+				ezbTable[0, i]->Value = ezbTable[0, i - (hlbka + 1)]->Value;
+				if (i == ezbTable->CurrentCell->OwningRow->Index + (hlbka + 1)) {
+					// a1->e1
+					if (taskType == 0)
+						ezbTable[0, i]->Value = "a" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
+					if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4)
+						ezbTable[0, i]->Value = "s" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
+					if (taskType == 5)
+						ezbTable[0, i]->Value = "x" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
+				}
+			}
+
+			ezbTable->ClearSelection();
+
+
+			ezbTable->Rows[(hlbka * (ezb->iteration + 1)) + ezb->iteration]->Height = 2;
+
+			for (int i = 0; i <= sirka + 1; i++) {
+				for (int j = (hlbka + 1) * ezb->iteration; j <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
+					if (j == (hlbka * (ezb->iteration + 1)) + ezb->iteration)
+						ezbTable[i, j]->Style->BackColor = System::Drawing::Color::LightSlateGray;
+
+					else
+						ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+							static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				}
+			}
+
+			for (int j = (hlbka + 1) * ezb->iteration; j < (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
+				for (int i = 0; i <= sirka; i++) {
+					ezbTable[i + 1, j]->Value = round_up(newMatrix[j - (((hlbka + 1) * ezb->iteration))][i], 2);
+				}
+			}
+
+			checkMatrix(newMatrix);
+			ezbTable->Height = ezbTable->RowCount * 40;
+			ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
+
+			if (!resetButton->Visible) {
+				resetButton->Visible = true;
+				this->clearTaskButton->Location = System::Drawing::Point(330, 0);
+			}
+
+		}
 	}
 	else {
-		if (ezbTable->CurrentCell->Value->ToString() == "0") {
-			MessageBox::Show("Vedúci prvok nemôže byť 0 !", "Chybný výber !", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			return;
+		if (ezbTable->CurrentCell->OwningRow->Index != rowIndex || ezbTable->CurrentCell->OwningColumn->Index != columnIndex) {
+
+			ezbTable->ClearSelection();
 		}
+		else {
 
-		ezbTable->CurrentCell->Style->BackColor = System::Drawing::Color::DodgerBlue;
-		ezbTable->CurrentCell->Style->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
-			static_cast<System::Int32>(static_cast<System::Byte>(255)));
+			if (ezbTable->CurrentCell->Value->ToString() == "0") {
+				MessageBox::Show("Vedúci prvok nemôže byť 0 !", "Chybný výber !", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				return;
+			}
 
-		int sirka = 0;
-		int hlbka = 0;
+			ezbTable->CurrentCell->Style->BackColor = System::Drawing::Color::DodgerBlue;
+			ezbTable->CurrentCell->Style->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(255)), static_cast<System::Int32>(static_cast<System::Byte>(255)),
+				static_cast<System::Int32>(static_cast<System::Byte>(255)));
 
-		if (taskType == 0) {
-			sirka = vt->pocetVektorov;
-			hlbka = vt->pocetSuradnic;
-		}
+			int sirka = lpt->pocetPremennych + lpt->pocetOhraniceni;
+			int hlbka = lpt->pocetOhraniceni;
 
-		if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) {
-			sirka = mt->pocetStlpcov;
-			hlbka = mt->pocetRiadkov;
-			if (taskType == 3) sirka += mt->pocetStlpcov;
-		}
+			double** newMatrix = 0;
+			ezb->pivots[ezb->iteration] = ezb->getPivot(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
+			newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
 
-		if (taskType == 5) {
-			sirka = st->pocetZloziek + st->zeros;
-			hlbka = st->pocetRovnic;
-		}
+			// dokreslenie tabulky
 
-		if (taskType == 6) {
-			sirka = lpt->pocetPremennych + lpt->pocetOhraniceni;
-			hlbka = lpt->pocetOhraniceni;
-		}
-
-		double** newMatrix = 0;
-		ezb->pivots[ezb->iteration] = ezb->getPivot(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
-		newMatrix = ezb->ezb(ezbTable->CurrentCell->OwningColumn->Index - 1, (ezbTable->CurrentCell->OwningRow->Index - ezb->iteration * (hlbka + 1)));
-
-		// dokreslenie tabulky
-
-		for (int i = (hlbka + 1) * ezb->iteration; i <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; i++) {
-			ezbTable->Rows->Add();
-			ezbTable->Rows[i]->Height = 35;
-			ezbTable[0, i]->Value = ezbTable[0, i - (hlbka + 1)]->Value;
-			if (i == ezbTable->CurrentCell->OwningRow->Index + (hlbka + 1)) {
-				// a1->e1
-				if (taskType == 0)
-					ezbTable[0, i]->Value = "a" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
-				if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4)
-					ezbTable[0, i]->Value = "s" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + "\u20D7" + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
-				if (taskType == 5 || taskType == 6)
+			for (int i = (hlbka + 1) * ezb->iteration; i <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; i++) {
+				ezbTable->Rows->Add();
+				ezbTable->Rows[i]->Height = 35;
+				ezbTable[0, i]->Value = ezbTable[0, i - (hlbka + 1)]->Value;
+				if (i == ezbTable->CurrentCell->OwningRow->Index + (hlbka + 1)) {
+					// a1->e1
 					ezbTable[0, i]->Value = "x" + subscript(ezbTable->CurrentCell->OwningColumn->Index.ToString()) + " \u2192 e" + subscript(System::Convert::ToString(1 + i - (hlbka + 1) * ezb->iteration)) + "\u20D7";
+				}
 			}
-		}
 
-		ezbTable->ClearSelection();
+			ezbTable->ClearSelection();
 
-		if(taskType==6) ezbTable[0, (hlbka * (ezb->iteration + 1)) + ezb->iteration]->Value = "cⱼ - zⱼ";
-		else ezbTable->Rows[(hlbka * (ezb->iteration + 1)) + ezb->iteration]->Height = 2;
+			ezbTable[0, (hlbka * (ezb->iteration + 1)) + ezb->iteration]->Value = "cⱼ - zⱼ";
 
-		for (int i = 0; i <= sirka + 1; i++) {
-			for (int j = (hlbka + 1) * ezb->iteration; j <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
-				ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-					static_cast<System::Int32>(static_cast<System::Byte>(45)));
-				ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+			for (int i = 0; i <= sirka + 1; i++) {
+				for (int j = (hlbka + 1) * ezb->iteration; j <= (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
+					if (j == (hlbka * (ezb->iteration + 1)) + ezb->iteration)
+						ezbTable[i, j]->Style->BackColor = System::Drawing::Color::LightSlateGray;
+
+					else
+						ezbTable[i, j]->Style->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(45)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+							static_cast<System::Int32>(static_cast<System::Byte>(45)));
+					ezbTable[i, j]->Style->ForeColor = System::Drawing::SystemColors::Window;
+				}
 			}
-		}
 
-		for (int j = (hlbka + 1) * ezb->iteration; j < (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
-			for (int i = 0; i <= sirka; i++) {
-				ezbTable[i + 1, j]->Value = round_up(newMatrix[j - (((hlbka + 1) * ezb->iteration))][i], 2);
+			for (int j = (hlbka + 1) * ezb->iteration; j < (hlbka * (ezb->iteration + 1)) + ezb->iteration; j++) {
+				for (int i = 0; i <= sirka; i++) {
+					ezbTable[i + 1, j]->Value = round_up(newMatrix[j - (((hlbka + 1) * ezb->iteration))][i], 2);
+				}
 			}
-		}
 
-		if (taskType == 6) {
 			for (int i = 0; i <= sirka; i++) {
 				//vypocitaj cj-zj
 				double suma = lpNewTaskD->getValueOnIndex(i + 1);
 				for (int j = 0; j < hlbka; j++) {
 					if (ezb->pocetBazickychVektorov[j] == 0)
-						suma -= lpNewTaskD->getValueOnIndex(j + lpt->pocetPremennych+1) * System::Convert::ToDouble(ezbTable[i+1, j+ (hlbka + 1) * ezb->iteration]->Value);
+						suma -= lpNewTaskD->getValueOnIndex(j + lpt->pocetPremennych + 1) * System::Convert::ToDouble(ezbTable[i + 1, j + (hlbka + 1) * ezb->iteration]->Value);
 					else
-						suma -= lpNewTaskD->getValueOnIndex(ezb->indexyBazickychVektorov[j]+1) * System::Convert::ToDouble(ezbTable[i + 1, j + (hlbka + 1) * ezb->iteration]->Value);
+						suma -= lpNewTaskD->getValueOnIndex(ezb->indexyBazickychVektorov[j] + 1) * System::Convert::ToDouble(ezbTable[i + 1, j + (hlbka + 1) * ezb->iteration]->Value);
 					if (i == sirka && j == hlbka - 1) suma *= -1;
 				}
 				ezbTable[i + 1, (hlbka * (ezb->iteration + 1)) + ezb->iteration]->Value = suma;
+			}			
+
+			checkMatrix(newMatrix);
+			ezbTable->Height = ezbTable->RowCount * 40;
+			ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
+
+			if (!resetButton->Visible) {
+				resetButton->Visible = true;
+				this->clearTaskButton->Location = System::Drawing::Point(330, 0);
 			}
-				
-		}
 
-		checkMatrix(newMatrix);
-		ezbTable->Height = ezbTable->RowCount * 40;
-		ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
-
-		if (!resetButton->Visible) {
-			resetButton->Visible = true;
-			this->clearTaskButton->Location = System::Drawing::Point(330, 0);
 		}
 	}
+	
 }
 private: System::Void MyForm_SizeChanged(System::Object^ sender, System::EventArgs^ e) {
 	solutionTaskPanel->Width = this->Width / 2;
@@ -1605,5 +1822,66 @@ private: System::Void MyForm_SizeChanged(System::Object^ sender, System::EventAr
 	okButton->Location = System::Drawing::Point(stepTaskTextBox->Width - 123, 440);
 }
 
+private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::EventArgs^ e) {
+	
+	int hlbka = 0;
+	int rowIndex = 0;
+	if (ezb != NULL) rowIndex = (ezb->iteration * (hlbka + 1));;
+	int columnIndex = 1;
+	Boolean ignore = true;
+
+	if (taskType == 0) hlbka = vt->pocetSuradnic;
+	if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) hlbka = mt->pocetRiadkov;
+	if (taskType == 5) hlbka = st->pocetRovnic;
+	if (taskType == 6 && ezbTable->RowCount > 2) {
+		hlbka = lpt->pocetOhraniceni;
+
+		//povol kliknut len na jednu bunku pri ezb!
+		double maxValue = 0;
+		for (int i = 1; i <= lpt->pocetPremennych + lpt->pocetOhraniceni; i++) {
+			if (lpNewTaskD->getMaxMin()) {
+				if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) > maxValue) {
+					maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+					columnIndex = i;
+				}
+			}
+			else {
+				if (System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value) < maxValue) {
+					maxValue = System::Convert::ToDouble(ezbTable[i, ezbTable->RowCount - 1]->Value);
+					columnIndex = i;
+				}
+			}
+		}
+
+		maxValue = 99999999;
+		for (int i = 0; i < lpt->pocetOhraniceni; i++) {
+			if (System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) < maxValue &&
+				System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) > 0) {
+				maxValue = System::Convert::ToDouble(ezbTable[ezbTable->ColumnCount - 1, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value) / System::Convert::ToDouble(ezbTable[columnIndex, ezbTable->RowCount - lpt->pocetOhraniceni - 1 + i]->Value);
+				rowIndex = i + ezbTable->RowCount - lpt->pocetOhraniceni - 1;
+			}
+
+		}
+
+	if (taskType == 6 && ezbTable[0, ezbTable->CurrentCell->OwningRow->Index]->Value->ToString()->Contains("s")) ignore = false;
+	}
+
+	if (taskType < 6) {
+		if (ezbTable->CurrentCell->OwningColumn->Index == 0 || ezbTable->CurrentCell->OwningColumn->Index == ezbTable->ColumnCount - 1 || ezbTable->CurrentCell->OwningRow->Index == ezbTable->RowCount - 1 ||
+			ezbTable->CurrentCell->OwningRow->Index < ezbTable->RowCount - (hlbka + 1)
+			|| ezb->pocetBazickychVektorov[ezbTable->CurrentCell->OwningRow->Index - (hlbka + 1) * ezb->iteration] == 1 ||
+			(ezb->pocetZaclenenychVektorov[ezbTable->CurrentCell->OwningColumn->Index - 1] == 1)
+			|| ezbTable->CurrentCell->OwningColumn->Name == "b\u20D7" || (taskType > 0 && taskType < 5 && ezbTable->CurrentCell->OwningColumn->Index > mt->pocetStlpcov)) {
+
+			ezbTable->ClearSelection();
+		}
+	}
+	else {
+		if (ezbTable->CurrentCell->OwningRow->Index != rowIndex || ezbTable->CurrentCell->OwningColumn->Index != columnIndex) {
+
+			ezbTable->ClearSelection();
+		}
+	}
+}
 };
 }

@@ -183,6 +183,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel1 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel15 = (gcnew System::Windows::Forms::Label());
 			   this->slrText15 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText1 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel14 = (gcnew System::Windows::Forms::Label());
 			   this->slrText14 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel13 = (gcnew System::Windows::Forms::Label());
@@ -202,6 +203,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel2 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel25 = (gcnew System::Windows::Forms::Label());
 			   this->slrText25 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText2 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel24 = (gcnew System::Windows::Forms::Label());
 			   this->slrText24 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel23 = (gcnew System::Windows::Forms::Label());
@@ -213,6 +215,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel3 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel35 = (gcnew System::Windows::Forms::Label());
 			   this->slrText35 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText3 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel34 = (gcnew System::Windows::Forms::Label());
 			   this->slrText34 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel33 = (gcnew System::Windows::Forms::Label());
@@ -224,6 +227,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel4 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel45 = (gcnew System::Windows::Forms::Label());
 			   this->slrText45 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText4 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel44 = (gcnew System::Windows::Forms::Label());
 			   this->slrText44 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel43 = (gcnew System::Windows::Forms::Label());
@@ -235,6 +239,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrPanel5 = (gcnew System::Windows::Forms::Panel());
 			   this->slrLabel55 = (gcnew System::Windows::Forms::Label());
 			   this->slrText55 = (gcnew System::Windows::Forms::TextBox());
+			   this->bText5 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel54 = (gcnew System::Windows::Forms::Label());
 			   this->slrText54 = (gcnew System::Windows::Forms::TextBox());
 			   this->slrLabel53 = (gcnew System::Windows::Forms::Label());
@@ -244,11 +249,11 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel51 = (gcnew System::Windows::Forms::Label());
 			   this->slrText51 = (gcnew System::Windows::Forms::TextBox());
 			   this->bPanel = (gcnew System::Windows::Forms::Panel());
-			   this->bText5 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText4 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText3 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText2 = (gcnew System::Windows::Forms::TextBox());
-			   this->bText1 = (gcnew System::Windows::Forms::TextBox());
+
+
+
+
+
 			   this->slrPanel1->SuspendLayout();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetSuradnicVektorov))->BeginInit();
 			   (cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pocetVektorov))->BeginInit();
@@ -289,7 +294,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel15->Name = L"slrLabel15";
 			   this->slrLabel15->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel15->TabIndex = 10;
-			   this->slrLabel15->Text = L"x" + subscript("5") + " =";
+			   this->slrLabel15->Text = L"x =";
 			   // 
 			   // slrText15
 			   // 
@@ -317,7 +322,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel14->Name = L"slrLabel14";
 			   this->slrLabel14->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel14->TabIndex = 8;
-			   this->slrLabel14->Text = L"x" + subscript("4") + " +";
+			   this->slrLabel14->Text = L"x +";
 			   // 
 			   // slrText14
 			   // 
@@ -345,7 +350,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel13->Name = L"slrLabel13";
 			   this->slrLabel13->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel13->TabIndex = 6;
-			   this->slrLabel13->Text = L"x" + subscript("3") + " +";
+			   this->slrLabel13->Text = L"x +";
 			   // 
 			   // slrText13
 			   // 
@@ -373,7 +378,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel12->Name = L"slrLabel12";
 			   this->slrLabel12->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel12->TabIndex = 4;
-			   this->slrLabel12->Text = L"x" + subscript("2") + " +";
+			   this->slrLabel12->Text = L"x +";
 			   // 
 			   // slrText12
 			   // 
@@ -401,7 +406,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel11->Name = L"slrLabel11";
 			   this->slrLabel11->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel11->TabIndex = 2;
-			   this->slrLabel11->Text = L"x" + subscript("1") + " +";
+			   this->slrLabel11->Text = L"x +";
 			   // 
 			   // slrText11
 			   // 
@@ -565,7 +570,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel25->Name = L"slrLabel25";
 			   this->slrLabel25->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel25->TabIndex = 10;
-			   this->slrLabel25->Text = L"x" + subscript("5") + " =";
+			   this->slrLabel25->Text = L"x =";
 			   // 
 			   // slrText25
 			   // 
@@ -593,7 +598,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel24->Name = L"slrLabel24";
 			   this->slrLabel24->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel24->TabIndex = 8;
-			   this->slrLabel24->Text = L"x" + subscript("4") + " +";
+			   this->slrLabel24->Text = L"x +";
 			   // 
 			   // slrText24
 			   // 
@@ -621,7 +626,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel23->Name = L"slrLabel23";
 			   this->slrLabel23->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel23->TabIndex = 6;
-			   this->slrLabel23->Text = L"x" + subscript("3") + " +";
+			   this->slrLabel23->Text = L"x +";
 			   // 
 			   // slrText23
 			   // 
@@ -649,7 +654,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel22->Name = L"slrLabel22";
 			   this->slrLabel22->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel22->TabIndex = 4;
-			   this->slrLabel22->Text = L"x" + subscript("2") + " +";
+			   this->slrLabel22->Text = L"x +";
 			   // 
 			   // slrText22
 			   // 
@@ -677,7 +682,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel21->Name = L"slrLabel21";
 			   this->slrLabel21->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel21->TabIndex = 2;
-			   this->slrLabel21->Text = L"x" + subscript("1") + " +";
+			   this->slrLabel21->Text = L"x +";
 			   // 
 			   // slrText21
 			   // 
@@ -723,7 +728,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel35->Name = L"slrLabel35";
 			   this->slrLabel35->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel35->TabIndex = 10;
-			   this->slrLabel35->Text = L"x" + subscript("5") + " =";
+			   this->slrLabel35->Text = L"x =";
 			   // 
 			   // slrText35
 			   // 
@@ -751,7 +756,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel34->Name = L"slrLabel34";
 			   this->slrLabel34->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel34->TabIndex = 8;
-			   this->slrLabel34->Text = L"x" + subscript("4") + " +";
+			   this->slrLabel34->Text = L"x +";
 			   // 
 			   // slrText34
 			   // 
@@ -779,7 +784,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel33->Name = L"slrLabel33";
 			   this->slrLabel33->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel33->TabIndex = 6;
-			   this->slrLabel33->Text = L"x" + subscript("3") + " +";
+			   this->slrLabel33->Text = L"x +";
 			   // 
 			   // slrText33
 			   // 
@@ -807,7 +812,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel32->Name = L"slrLabel32";
 			   this->slrLabel32->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel32->TabIndex = 4;
-			   this->slrLabel32->Text = L"x" + subscript("2") + " +";
+			   this->slrLabel32->Text = L"x +";
 			   // 
 			   // slrText32
 			   // 
@@ -835,7 +840,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel31->Name = L"slrLabel31";
 			   this->slrLabel31->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel31->TabIndex = 2;
-			   this->slrLabel31->Text = L"x" + subscript("1") + " +";
+			   this->slrLabel31->Text = L"x +";
 			   // 
 			   // slrText31
 			   // 
@@ -881,7 +886,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel45->Name = L"slrLabel45";
 			   this->slrLabel45->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel45->TabIndex = 10;
-			   this->slrLabel45->Text = L"x" + subscript("5") + " =";
+			   this->slrLabel45->Text = L"x =";
 			   // 
 			   // slrText45
 			   // 
@@ -909,7 +914,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel44->Name = L"slrLabel44";
 			   this->slrLabel44->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel44->TabIndex = 8;
-			   this->slrLabel44->Text = L"x" + subscript("4") + " +";
+			   this->slrLabel44->Text = L"x +";
 			   // 
 			   // slrText44
 			   // 
@@ -937,7 +942,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel43->Name = L"slrLabel43";
 			   this->slrLabel43->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel43->TabIndex = 6;
-			   this->slrLabel43->Text = L"x" + subscript("3") + " +";
+			   this->slrLabel43->Text = L"x +";
 			   // 
 			   // slrText43
 			   // 
@@ -965,7 +970,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel42->Name = L"slrLabel42";
 			   this->slrLabel42->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel42->TabIndex = 4;
-			   this->slrLabel42->Text = L"x" + subscript("2") + " +";
+			   this->slrLabel42->Text = L"x +";
 			   // 
 			   // slrText42
 			   // 
@@ -993,7 +998,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel41->Name = L"slrLabel41";
 			   this->slrLabel41->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel41->TabIndex = 2;
-			   this->slrLabel41->Text = L"x" + subscript("1") + " +";
+			   this->slrLabel41->Text = L"x +";
 			   // 
 			   // slrText41
 			   // 
@@ -1039,7 +1044,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel55->Name = L"slrLabel55";
 			   this->slrLabel55->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel55->TabIndex = 10;
-			   this->slrLabel55->Text = L"x" + subscript("5") + " =";
+			   this->slrLabel55->Text = L"x =";
 			   // 
 			   // slrText55
 			   // 
@@ -1067,7 +1072,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel54->Name = L"slrLabel54";
 			   this->slrLabel54->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel54->TabIndex = 8;
-			   this->slrLabel54->Text = L"x" + subscript("4") + " +";
+			   this->slrLabel54->Text = L"x +";
 			   // 
 			   // slrText54
 			   // 
@@ -1095,7 +1100,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel53->Name = L"slrLabel53";
 			   this->slrLabel53->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel53->TabIndex = 6;
-			   this->slrLabel53->Text = L"x" + subscript("3") + " +";
+			   this->slrLabel53->Text = L"x +";
 			   // 
 			   // slrText53
 			   // 
@@ -1123,7 +1128,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel52->Name = L"slrLabel52";
 			   this->slrLabel52->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel52->TabIndex = 4;
-			   this->slrLabel52->Text = L"x" + subscript("2") + " +";
+			   this->slrLabel52->Text = L"x +";
 			   // 
 			   // slrText52
 			   // 
@@ -1151,7 +1156,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->slrLabel51->Name = L"slrLabel51";
 			   this->slrLabel51->Size = System::Drawing::Size(34, 22);
 			   this->slrLabel51->TabIndex = 2;
-			   this->slrLabel51->Text = L"x" + subscript("1") + " +";
+			   this->slrLabel51->Text = L"x +";
 			   // 
 			   // slrText51
 			   // 
@@ -1251,7 +1256,7 @@ private: System::Windows::Forms::TextBox^ bText1;
 			   this->bText1->Margin = System::Windows::Forms::Padding(4, 5, 4, 5);
 			   this->bText1->Name = L"bText1";
 			   this->bText1->Size = System::Drawing::Size(42, 30);
-			   this->bText1->TabIndex = 11;
+			   this->bText1->TabIndex = 7;
 			   this->bText1->KeyPress += gcnew System::Windows::Forms::KeyPressEventHandler(this, &slrNewTaskDialog::bText1_KeyPress);
 			   this->bText1->Leave += gcnew System::EventHandler(this, &slrNewTaskDialog::bText1_Leave);
 			   // 

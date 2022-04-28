@@ -3,6 +3,7 @@
   DP_EZB.MyForm.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.SLRNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
   DP_EZB.VectorsNewTaskDialog.resources - Embedded, ContainedInManifestFile, 
+  DP_EZB.welcomeDialog.resources - Embedded, ContainedInManifestFile, 
 ImageRuntimeVersion: v4.0.30319
 Assembly DP-EZB, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
 	hash=SHA1, flags=PublicKey
@@ -29,6 +30,8 @@ Class DP_EZB.lpNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldI
     getMatrix(): PrivateScope, Public, HideBySig
     getUF(): PrivateScope, Public, HideBySig
     getValueOnIndex(Int32): PrivateScope, Public, HideBySig
+    getMaxMin(): PrivateScope, Public, HideBySig
+    setVisuals(): PrivateScope, Public, HideBySig
 Class DP_EZB.matrixNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
@@ -66,6 +69,9 @@ Class DP_EZB.slrNewTaskDialog: AutoLayout, AnsiClass, Class, Public, BeforeField
     getPocetZloziekRovnic(): PrivateScope, Public, HideBySig
     getZeros(): PrivateScope, Public, HideBySig
     getMatrix(): PrivateScope, Public, HideBySig
+Class DP_EZB.welcomeDialog: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Class DP_EZB.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
   :System.Windows.Forms.Form
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName

@@ -140,6 +140,7 @@
     <ClCompile Include="SLRTask.cpp" />
     <ClCompile Include="VectorsTask.cpp" />
     <ClCompile Include="vectorsNewTaskDialog.cpp" />
+    <ClCompile Include="welcomeDialog.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="LPNewTaskDialog.h">
@@ -155,6 +156,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="VectorsNewTaskDialog.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="welcomeDialog.h">
       <FileType>CppForm</FileType>
     </ClInclude>
   </ItemGroup>
@@ -173,6 +177,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="VectorsNewTaskDialog.resx">
       <DependentUpon>VectorsNewTaskDialog.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="welcomeDialog.resx">
+      <DependentUpon>welcomeDialog.h</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

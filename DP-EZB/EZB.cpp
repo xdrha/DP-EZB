@@ -11,7 +11,8 @@ namespace DP_EZB {
 	private: int height;
 	public: int pocetZaclenenychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: int pocetBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
-	public: int indexyBazickychVektorov[10] = { 0,0,0,0,0,0,0,0,0,0 };
+	public: int indexyBazickychVektorov[10] = { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
+	public: int indexyZaclenenychVektorov[10] = { -1,-1,-1,-1,-1,-1,-1,-1,-1,-1 };
 	public: int pocetNulovychRiadkov[10] = { 0,0,0,0,0,0,0,0,0,0 };
 	public: double pivots[5];
 	public: int stepTask;
@@ -52,7 +53,7 @@ namespace DP_EZB {
 			countNulovych += pocetNulovychRiadkov[i];
 		}
 
-		for (int i = 0; i < width - 1; i++) {
+		for (int i = 0; i < width - vB - 1; i++) {
 			countZaclenenych += pocetZaclenenychVektorov[i];
 		}
 				
@@ -78,11 +79,23 @@ namespace DP_EZB {
 		return stepTask;
 	}
 
+	public: void fillWithOnes(int pocetPremennych, int pocetOhraniceni) {
+		for (int i = pocetPremennych; i < pocetPremennych + pocetOhraniceni; i++) {
+			pocetZaclenenychVektorov[i] = 1;
+			indexyZaclenenychVektorov[i] = i - pocetPremennych;
+			indexyBazickychVektorov[i - pocetPremennych] = i;
+		}
+	}
+
 	public: double** ezb(int pivotXColumn, int pivotYRow) {
 
+		if (indexyBazickychVektorov[pivotYRow] != -1) {
+			pocetZaclenenychVektorov[indexyBazickychVektorov[pivotYRow]] = 0;
+		}
 		pocetZaclenenychVektorov[pivotXColumn] = 1;
 		pocetBazickychVektorov[pivotYRow] = 1;
 		indexyBazickychVektorov[pivotYRow] = pivotXColumn;
+		indexyZaclenenychVektorov[pivotXColumn] = pivotYRow;
 
 		double pivot = oldMatrix[pivotYRow][pivotXColumn];
 

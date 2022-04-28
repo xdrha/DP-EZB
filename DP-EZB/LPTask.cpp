@@ -39,171 +39,93 @@ namespace DP_EZB {
 			   return std::ceil(value * multiplier) / multiplier;
 		   }
 
-	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov, int* pocetBazickychVektorov, String^ field, int rowCount) {
+	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov,int* indexyZaclenenych, int* values, Boolean maxmin, double HUF, Boolean optimalne, Boolean nepripustne, Boolean neohranicena) {
 		// zaclenene premenne + ich zlozky
-		int pocetZaclenenych = 0;
-		String^ all = "{ ";
-		String^ zaclenene = "";
-		String^ nezaclenene = "";
-		String^ vektorB = "";
+
 		String^ output = "";
 
-		for (int i = 1; i <= pocetPremennych; i++) {
-			all += "x" + subscript(i.ToString());
-			if (i < pocetPremennych)
-				all += ", ";
-			if (pocetZaclenenychVektorov[i - 1] == 1) {
-				pocetZaclenenych++;
-				zaclenene += "x" + subscript(i.ToString());
-				if (i < pocetPremennych) {
-					zaclenene += ", ";
-				}
-			}
-			else {
-				nezaclenene += "x" + subscript(i.ToString());
-				if (i < pocetPremennych) {
-					nezaclenene += ", ";
-				}
-			}
-		}
-		all += " }";
+		output += "\r\n\r\nb) ";
 
-		//h(a1-an)
 
-		output += "Koniec výpočtu!\r\n\r\na) h(A) = h" + all + " = " + pocetZaclenenych + ".\r\n";
+		if (nepripustne) return output += "Nie je splnená podmienka primárnej prípustnosti. Úloha lineárneho programovania nemá riešenie.\r\n\r\n";
 
-		String^ heplField = field;
-		Boolean sign = false;
-		for (int i = 0; i < pocetOhraniceni; i++) {
-			if (m[i][pocetPremennych - 1] < 0) {
-				String^ help = "";
-				help += heplField->Substring(0, heplField->IndexOf("/"));
-				vektorB += round_up(m[i][pocetPremennych - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
-				if (!sign) sign = true;
-			}
-			else {
-				if (m[i][pocetPremennych - 1] > 0) {
-					String^ help = "";
-					help += heplField->Substring(0, heplField->IndexOf("/"));
-					if (sign) vektorB += " + ";
-					vektorB += round_up(m[i][pocetPremennych - 1], 2).ToString() + " \u2219 " + help->Substring(0, 2);
-					if (!sign) sign = true;
-				}
-			}
-			heplField = heplField->Remove(0, heplField->IndexOf("/") + 1);
-		}
-		int vectorBrank = 0;
+		if (optimalne) {
+			//xvector = (0,0,0,...n) for sirka getvalues()
+			//uf vypisat = HUF
+			output += "Našli sme optimálne riešenie úlohy:\r\n";
+			String^ zlozky = "x = (";
+			String^ uf = "Účelová funkcia: ";
+			String^ ufh = " = ";
+			Boolean sign = false;
+			if (maxmin) uf += "max(f) = ";
+			else uf += "min(f) = ";
 
-		for (int i = 0; i < pocetOhraniceni; i++) { //nulovy riadok
-			int count = 0;
-			for (int j = 1; j <= pocetPremennych; j++)
-				if (m[i][j - 1] != 0) count++;
-			if (count == 0 && m[i][pocetPremennych] != 0) {
-				//nie je linearnou kombinaciou vektorov bazy
-				vectorBrank++;
-			}
-		}
+			for (int i = 0; i < pocetPremennych + pocetOhraniceni; i++) {
+				
+				if (pocetZaclenenychVektorov[i] == 1) { // zlozka je zaclenena
 
-		if (vectorBrank > 0) {
-			output += "h(A|b\u20D7) = " + (vectorBrank + pocetZaclenenych) + "\r\n";
-			output += "h(A) \u2260 h(A\u20D7) Preto systém lineárnych rovníc nemá riešenie.";
-		}
-		else {
-			if (pocetZaclenenych == pocetPremennych) {
-				output += "h(A|b\u20D7) = " + pocetZaclenenych + "\r\n";
-				if (!zeros) {
-					output += "h(A) = h(A\u20D7) = " + pocetZaclenenych + " a zároveň b\u20D7 = 0, preto má systém lineárnych rovníc triviálne riešenie: \r\n\r\n";
+					zlozky += round_up(m[indexyZaclenenych[i]][pocetPremennych + pocetOhraniceni], 2) + "; ";
+					
+					if (i < pocetPremennych) {
+						if (values[i] > 0) {
+							if (sign) {
+								uf += " + ";
+								ufh += " + ";
+							}
+							sign = true;
+							uf += values[i] + "x" + subscript((i + 1).ToString());
+							ufh += values[i] + " \u2219 " + round_up(m[indexyZaclenenych[i]][pocetPremennych + pocetOhraniceni], 2) + " ";
+						}
+						if (values[i] < 0) {
+							if (sign) {
+								uf += " ";
+								ufh += " ";
+							}
+							sign = true;
+							uf += values[i] + "x" + subscript((i + 1).ToString());
+							ufh += values[i] + " \u2219 " + round_up(m[indexyZaclenenych[i]][pocetPremennych + pocetOhraniceni], 2) + " ";
+						}
+					}
 				}
 				else {
-					output += "h(A) = h(A\u20D7) = " + pocetZaclenenych + " Preto má systém lineárnych rovníc jedno riešenie: \r\n\r\n";
-				}
+					zlozky += "0; ";
 
-
-				int count = 0;
-				String^ M = "b) M = {(";
-				for (int j = 0; j < pocetPremennych; j++) {
-					for (int i = 0; i < pocetOhraniceni; i++) {
-						if (m[i][j] == 1) {
-							if (!zeros) M += "0; ";
-							else M += round_up(m[i][pocetPremennych], 2) + "; ";
+					if (i < pocetPremennych) {
+						if (values[i] > 0) {
+							if (sign) {
+								uf += " + ";
+								ufh += " + ";
+							}
+							sign = true;
+							uf += values[i] + "x" + subscript((i + 1).ToString());
+							ufh += values[i] + " \u2219 0 ";
+						}
+						if (values[i] < 0) {
+							if (sign) {
+								uf += " ";
+								ufh += " ";
+							}
+							sign = true;
+							uf += values[i] + "x" + subscript((i + 1).ToString());
+							ufh += values[i] + " \u2219 0 ";
 						}
 					}
-				}
-				M = M->Remove(M->Length - 2, 1);
-				M += ")}";
-				output += M;
 
+				}
+				
 			}
 
-			else {
-				if (pocetZaclenenych < pocetPremennych) {
-					if (zeros) output += "h(A|b\u20D7) = " + pocetZaclenenych + "\r\n";
-					output += pocetZaclenenych + " = h(A) < n = " + pocetPremennych + "\r\nSystém lineárnych rovníc má nekonečne veľa riešení zavislých od n-h(A) = " +
-						pocetPremennych + " - " + pocetZaclenenych + " = " + (pocetPremennych - pocetZaclenenych) + " teda od nezačlenených premenných " + nezaclenene + ".\r\n\r\n";
+			zlozky = zlozky->Remove(zlozky->Length - 2, 1);
+			zlozky += ")\r\n";
+			output += zlozky;
+			output += uf + " = " + ufh + " = " + HUF;
 
-					int count = 0;
-					int lastJ = 10;
-					String^ M = "b) Množina všetkých riešení v parametrickom tvare:\r\n M = {(";
-					for (int j = 0; j < pocetPremennych + zeros; j++) {
-						for (int i = 0; i < pocetOhraniceni; i++) {
-							if (m[i][j] == 1 && field->Contains("x" + (j + 1))) {
-								Boolean sign = false;
-								for (int k = 0; k < pocetPremennych + zeros; k++) {
-									if (j != k) {
-										double help = m[i][k];
-										if (k < pocetPremennych)
-											help *= (-1);
-										if (k < pocetPremennych + zeros)
-											if (help > 0) {
-												if (sign) {
-													M += " + ";
-												}
-												if (help != 1 || k == pocetPremennych) {
-													M += round_up(help, 2);
-												}
-												if (k < pocetPremennych) {
-													M += "x" + subscript((k + 1).ToString());
-												}
-												sign = true;
-											}
-
-											else if (help < 0) {
-												M += " ";
-												if (help != -1 || k == pocetPremennych) {
-													M += round_up(help, 2);;
-												}
-												else {
-													M += "-";
-												}
-												if (k < pocetPremennych) {
-													M += "x" + subscript((k + 1).ToString());
-												}
-												sign = true;
-											}
-									}
-
-								}
-								M += "; ";
-							}
-							else {
-								if (!field->Contains("x" + subscript((j + 1).ToString())) && j < pocetPremennych && lastJ != j) {
-									M += "x" + subscript((j + 1).ToString()) + "; ";
-									lastJ = j;
-								}
-							}
-						}
-						lastJ = j;
-					}
-					M = M->Remove(M->Length - 2, 1);
-					M += ") " + nezaclenene + " \u2208 R}";
-					output += M;
-				}
-			}
-
+			return output;
 		}
 
-		// tu vraciam text !!
-		return output;
+		if (neohranicena) return output += "Hodnota účelovej funkcie môže rásť/klesať do +∞/−∞. Hodnota účelovej funkcie je na množine prípustných riešení neohraničená.\r\n\r\n";
+
+		return "Nepodarilo sa nájsť riešenie !!";
 
 
 
