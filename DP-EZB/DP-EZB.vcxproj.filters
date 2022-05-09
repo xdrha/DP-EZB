@@ -51,9 +51,6 @@
     <ClCompile Include="welcomeDialog.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Helper.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="helper1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>

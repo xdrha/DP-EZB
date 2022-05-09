@@ -6,3 +6,5 @@ C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.SLRNewTaskDialog.re
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.VectorsNewTaskDialog.resources
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP-EZB.vcxproj.GenerateResource.cache
 C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.LPNewTaskDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.helpDialog.resources
+C:\Users\Matej\source\repos\DP-EZB\DP-EZB\x64\Release\DP_EZB.welcomeDialog.resources

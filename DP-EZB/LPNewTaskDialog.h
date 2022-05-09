@@ -1523,6 +1523,7 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)),
 				   static_cast<System::Int32>(static_cast<System::Byte>(25)));
 			   this->ClientSize = System::Drawing::Size(674, 582);
+			   this->Controls->Add(this->ohranicenie);
 			   this->Controls->Add(this->ufPanel);
 			   this->Controls->Add(this->bPanel);
 			   this->Controls->Add(this->lpPanel5);
@@ -1530,7 +1531,6 @@ private: System::Windows::Forms::TextBox^ ufText1;
 			   this->Controls->Add(this->lpPanel3);
 			   this->Controls->Add(this->lpPanel2);
 			   this->Controls->Add(this->lpPanel1);
-			   this->Controls->Add(this->ohranicenie);
 			   this->Controls->Add(this->bottomPanel);
 			   this->Controls->Add(this->label3);
 			   this->Controls->Add(this->pocetOhraniceni);
@@ -1647,15 +1647,15 @@ private: System::Windows::Forms::TextBox^ ufText1;
 		return output;
 	}
 
-	public: int getValueOnIndex(int index) {
-		int value = 0;
-		if (index == 1) value = System::Convert::ToInt32(ufText1->Text);
+	public: double getValueOnIndex(int index) {
+		double value = 0;
+		if (index == 1) value = System::Convert::ToDouble(ufText1->Text);
 		if (index > pocetPremennych->Value) value = 0;
 		else {
-			if (index == 2) value = System::Convert::ToInt32(ufText2->Text);
-			if (index == 3) value = System::Convert::ToInt32(ufText3->Text);
-			if (index == 4) value = System::Convert::ToInt32(ufText4->Text);
-			if (index == 5) value = System::Convert::ToInt32(ufText5->Text);
+			if (index == 2) value = System::Convert::ToDouble(ufText2->Text);
+			if (index == 3) value = System::Convert::ToDouble(ufText3->Text);
+			if (index == 4) value = System::Convert::ToDouble(ufText4->Text);
+			if (index == 5) value = System::Convert::ToDouble(ufText5->Text);
 		}
 
 		return value;

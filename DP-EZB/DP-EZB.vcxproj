@@ -131,7 +131,6 @@
   <ItemGroup>
     <ClCompile Include="EZB.cpp" />
     <ClCompile Include="helpDialog.cpp" />
-    <ClCompile Include="Helper.cpp" />
     <ClCompile Include="helper1.cpp" />
     <ClCompile Include="LPNewTaskDialog.cpp" />
     <ClCompile Include="LPTask.cpp" />

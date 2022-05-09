@@ -84,7 +84,7 @@ namespace DP_EZB {
 			this->label1->BackColor = System::Drawing::Color::Transparent;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Cambria", 20.25F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(41, 34);
+			this->label1->Location = System::Drawing::Point(41, 40);
 			this->label1->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(436, 32);
@@ -97,7 +97,7 @@ namespace DP_EZB {
 			this->label2->BackColor = System::Drawing::Color::Transparent;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Cambria", 15.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(46, 110);
+			this->label2->Location = System::Drawing::Point(46, 113);
 			this->label2->Margin = System::Windows::Forms::Padding(5, 0, 5, 0);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(954, 275);
@@ -122,7 +122,6 @@ namespace DP_EZB {
 			this->Name = L"welcomeDialog";
 			this->Opacity = 0.9;
 			this->StartPosition = System::Windows::Forms::FormStartPosition::CenterParent;
-			this->Text = L"níečo";
 			this->Load += gcnew System::EventHandler(this, &welcomeDialog::welcomeDialog_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();

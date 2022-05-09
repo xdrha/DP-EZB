@@ -120,6 +120,8 @@ namespace DP_EZB {
 	private: System::Windows::Forms::Panel^ solutionMatrixLeftBracket2;
 	private: System::Windows::Forms::DataGridView^ solutionMatrix2;
 	private: System::Windows::Forms::Button^ helperButton;
+	private: System::Windows::Forms::Panel^ backgroundPanel;
+	private: System::Windows::Forms::Label^ label7;
 
 
 
@@ -172,6 +174,7 @@ namespace DP_EZB {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->tableTaskPanel = (gcnew System::Windows::Forms::Panel());
+			this->backgroundPanel = (gcnew System::Windows::Forms::Panel());
 			this->ezbTable = (gcnew System::Windows::Forms::DataGridView());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->centerPanel = (gcnew System::Windows::Forms::Panel());
@@ -191,6 +194,7 @@ namespace DP_EZB {
 			this->classicSolutionPanel = (gcnew System::Windows::Forms::Panel());
 			this->stepTaskTextBox = (gcnew System::Windows::Forms::TextBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->bottomPanel->SuspendLayout();
 			this->topPanel->SuspendLayout();
 			this->taskButtonPanel->SuspendLayout();
@@ -198,6 +202,7 @@ namespace DP_EZB {
 			this->matrixPanel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->taskMatrix))->BeginInit();
 			this->tableTaskPanel->SuspendLayout();
+			this->backgroundPanel->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ezbTable))->BeginInit();
 			this->centerPanel->SuspendLayout();
 			this->solutionTaskPanel->SuspendLayout();
@@ -607,7 +612,8 @@ namespace DP_EZB {
 			// tableTaskPanel
 			// 
 			this->tableTaskPanel->AutoScroll = true;
-			this->tableTaskPanel->Controls->Add(this->ezbTable);
+			this->tableTaskPanel->Controls->Add(this->label7);
+			this->tableTaskPanel->Controls->Add(this->backgroundPanel);
 			this->tableTaskPanel->Controls->Add(this->label4);
 			this->tableTaskPanel->Dock = System::Windows::Forms::DockStyle::Left;
 			this->tableTaskPanel->Location = System::Drawing::Point(0, 0);
@@ -615,6 +621,16 @@ namespace DP_EZB {
 			this->tableTaskPanel->Size = System::Drawing::Size(761, 610);
 			this->tableTaskPanel->TabIndex = 4;
 			this->tableTaskPanel->Visible = false;
+			// 
+			// backgroundPanel
+			// 
+			this->backgroundPanel->BackColor = System::Drawing::Color::DodgerBlue;
+			this->backgroundPanel->Controls->Add(this->ezbTable);
+			this->backgroundPanel->Location = System::Drawing::Point(13, 47);
+			this->backgroundPanel->Name = L"backgroundPanel";
+			this->backgroundPanel->Padding = System::Windows::Forms::Padding(3);
+			this->backgroundPanel->Size = System::Drawing::Size(738, 377);
+			this->backgroundPanel->TabIndex = 6;
 			// 
 			// ezbTable
 			// 
@@ -647,15 +663,16 @@ namespace DP_EZB {
 			dataGridViewCellStyle4->SelectionForeColor = System::Drawing::SystemColors::HighlightText;
 			dataGridViewCellStyle4->WrapMode = System::Windows::Forms::DataGridViewTriState::False;
 			this->ezbTable->DefaultCellStyle = dataGridViewCellStyle4;
+			this->ezbTable->Dock = System::Windows::Forms::DockStyle::Fill;
 			this->ezbTable->EnableHeadersVisualStyles = false;
-			this->ezbTable->Location = System::Drawing::Point(13, 47);
+			this->ezbTable->Location = System::Drawing::Point(3, 3);
 			this->ezbTable->MultiSelect = false;
 			this->ezbTable->Name = L"ezbTable";
 			this->ezbTable->ReadOnly = true;
 			this->ezbTable->RowHeadersVisible = false;
 			this->ezbTable->RowHeadersWidthSizeMode = System::Windows::Forms::DataGridViewRowHeadersWidthSizeMode::DisableResizing;
 			this->ezbTable->ScrollBars = System::Windows::Forms::ScrollBars::None;
-			this->ezbTable->Size = System::Drawing::Size(738, 377);
+			this->ezbTable->Size = System::Drawing::Size(732, 371);
 			this->ezbTable->TabIndex = 5;
 			this->ezbTable->CellDoubleClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &MyForm::ezbTable_CellDoubleClick);
 			this->ezbTable->SelectionChanged += gcnew System::EventHandler(this, &MyForm::ezbTable_SelectionChanged);
@@ -921,6 +938,18 @@ namespace DP_EZB {
 			this->label5->TabIndex = 0;
 			this->label5->Text = L"Výsledok:";
 			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::DodgerBlue;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Cambria", 14.25F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->Location = System::Drawing::Point(13, 423);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(168, 22);
+			this->label7->TabIndex = 7;
+			this->label7->Text = L"Vyber vedúci prvok";
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(10, 22);
@@ -954,6 +983,7 @@ namespace DP_EZB {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->taskMatrix))->EndInit();
 			this->tableTaskPanel->ResumeLayout(false);
 			this->tableTaskPanel->PerformLayout();
+			this->backgroundPanel->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->ezbTable))->EndInit();
 			this->centerPanel->ResumeLayout(false);
 			this->solutionTaskPanel->ResumeLayout(false);
@@ -1040,8 +1070,6 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	ezbTable->RowCount = 0;
 	ezbTable->Enabled = true;
 	ezbTable->ColumnCount = 0;
-	ezbTable->Height = 360;
-	ezbTable->Width = 664;
 	ezbTable->Refresh();
 	taskPanel->Hide();
 	tableTaskPanel->Hide();
@@ -1060,7 +1088,6 @@ private: System::Void clearTaskButton_Click(System::Object^ sender, System::Even
 	taskTextBox->Text = "";
 
 }
-
 
 private: System::Void vectorsButton_Click(System::Object^ sender, System::EventArgs^ e) {
 
@@ -1544,7 +1571,6 @@ private: void createNewTask() {
 			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zistite, či systém lineárnych rovníc má riešenie.\r\n\r\nb) Určte všeobecné riešenie, resp. množinu riešení, a zapíšte ho v parametrickom tvare.";
 			   vektoryAll->Show();
 			   matrixPanel->Hide();
-			   taskMatrix->Hide();
 
 			   st = new SLRTask(slrNewTaskD->getPocetRovnic(), slrNewTaskD->getPocetZloziekRovnic(), slrNewTaskD->getMatrix(), slrNewTaskD->getZeros());
 
@@ -1631,7 +1657,7 @@ private: void createNewTask() {
 			   label3->Text = "Účelová funkcia: " + lpNewTaskD->getUF() + "\r\nOhraničenia:";
 			   taskTextBox->Text = "Úlohy:\r\n\r\na) Zapíšte ohraničujúce podmienky vo forme rovnosti.\r\n\r\nb) Určte optimálne riešenie, ak existuje.\r\n\r\n";
 			   matrixPanel->Hide();
-			   taskMatrix->Hide();
+			   vektoryAll->Show();
 
 			   lpt = new LPTask(lpNewTaskD->getpocetOhraniceni(), lpNewTaskD->getpocetPremennych(), lpNewTaskD->getMatrix(), 0);
 
@@ -1765,6 +1791,13 @@ private: void createNewTask() {
 
 
 		   }
+
+		   backgroundPanel->Width = 206 + ((ezbTable->ColumnCount - 2) * 55);
+		   backgroundPanel->Height = 30;
+
+		   for (int i = 0; i < ezbTable->RowCount; i++) {
+			   backgroundPanel->Height += ezbTable->Rows[i]->Height;
+		   }
 	   }
 
 private: void checkMatrix(double** m) {
@@ -1843,6 +1876,11 @@ private: void checkMatrix(double** m) {
 		}
 
 		if (check < 2 || optimalne || nepripustne || neohranicena) { //nulovy riadok alebo koniec ezb
+
+			label7->Hide();
+			backgroundPanel->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(25)),
+				static_cast<System::Int32>(static_cast<System::Byte>(25)), static_cast<System::Int32>(static_cast<System::Byte>(25)));;
+
 			this->solutionTaskPanel->Show();
 			if (taskType == 2 || taskType == 3) {
 				this->matrixSolutionPanel->Show();
@@ -2125,7 +2163,7 @@ private: void checkMatrix(double** m) {
 			}
 			if (taskType == 6) {
 
-				int values[10];
+				double values[10];
 				for (int i = 0; i < lpt->pocetOhraniceni + lpt->pocetPremennych; i++) {
 					values[i] = lpNewTaskD->getValueOnIndex(i + 1);
 				}
@@ -2133,6 +2171,17 @@ private: void checkMatrix(double** m) {
 				stepTaskTextBox->Text += lpt->getResult(m, check, ezb->pocetZaclenenychVektorov, ezb->indexyZaclenenychVektorov, values, lpNewTaskD->getMaxMin(), System::Convert::ToDouble(ezbTable[lpt->pocetPremennych + lpt->pocetOhraniceni + 1, ezbTable->RowCount - 1]->Value), optimalne, nepripustne, neohranicena);
 			}
 
+		}
+		else {
+			label7->Show();
+			backgroundPanel->BackColor = System::Drawing::Color::DodgerBlue;
+			backgroundPanel->Width = 206 + ((ezbTable->ColumnCount - 2) * 55);
+			backgroundPanel->Height = 30;
+
+			for (int i = 0; i < ezbTable->RowCount; i++) {
+				backgroundPanel->Height += ezbTable->Rows[i]->Height;
+			}
+			label7->Location = System::Drawing::Point(13, backgroundPanel->Height + 47);
 		}
 }
 
@@ -2330,9 +2379,14 @@ private: System::Void ezbTable_CellDoubleClick(System::Object^ sender, System::W
 				}
 			}
 
+			backgroundPanel->Width = 206 + ((ezbTable->ColumnCount - 2) * 55);
+			backgroundPanel->Height = 30;
+
+			for (int i = 0; i < ezbTable->RowCount; i++) {
+				backgroundPanel->Height += ezbTable->Rows[i]->Height;
+			}
+
 			checkMatrix(newMatrix);
-			ezbTable->Height = ezbTable->RowCount * 40;
-			ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
 
 			if (!resetButton->Visible) {
 				resetButton->Visible = true;
@@ -2409,11 +2463,16 @@ private: System::Void ezbTable_CellDoubleClick(System::Object^ sender, System::W
 					if (i == sirka && j == hlbka - 1) suma *= -1;
 				}
 				ezbTable[i + 1, (hlbka * (ezb->iteration + 1)) + ezb->iteration]->Value = suma;
-			}			
+			}	
+
+			backgroundPanel->Width = 206 + ((ezbTable->ColumnCount - 2) * 55);
+			backgroundPanel->Height = 30;
+
+			for (int i = 0; i < ezbTable->RowCount; i++) {
+				backgroundPanel->Height += ezbTable->Rows[i]->Height;
+			}
 
 			checkMatrix(newMatrix);
-			ezbTable->Height = ezbTable->RowCount * 40;
-			ezbTable->Width = (ezbTable->ColumnCount + 2) * 55;
 
 			if (!resetButton->Visible) {
 				resetButton->Visible = true;
@@ -2443,7 +2502,7 @@ private: System::Void ezbTable_SelectionChanged(System::Object^ sender, System::
 	if (taskType == 0) hlbka = vt->pocetSuradnic;
 	if (taskType == 1 || taskType == 2 || taskType == 3 || taskType == 4) hlbka = mt->pocetRiadkov;
 	if (taskType == 5) hlbka = st->pocetRovnic;
-	if (taskType == 6 && ezbTable->RowCount > 2) {
+	if (taskType == 6 && ezbTable->RowCount > 1) {
 		hlbka = lpt->pocetOhraniceni;
 
 		//povol kliknut len na jednu bunku pri ezb!

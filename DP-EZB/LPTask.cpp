@@ -39,7 +39,7 @@ namespace DP_EZB {
 			   return std::ceil(value * multiplier) / multiplier;
 		   }
 
-	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov,int* indexyZaclenenych, int* values, Boolean maxmin, double HUF, Boolean optimalne, Boolean nepripustne, Boolean neohranicena) {
+	public: String^ getResult(double** m, int check, int* pocetZaclenenychVektorov,int* indexyZaclenenych, double* values, Boolean maxmin, double HUF, Boolean optimalne, Boolean nepripustne, Boolean neohranicena) {
 		// zaclenene premenne + ich zlozky
 
 		String^ output = "";
@@ -118,7 +118,7 @@ namespace DP_EZB {
 			zlozky = zlozky->Remove(zlozky->Length - 2, 1);
 			zlozky += ")\r\n";
 			output += zlozky;
-			output += uf + " = " + ufh + " = " + HUF;
+			output += uf + ufh + " = " + HUF;
 
 			return output;
 		}

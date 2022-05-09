@@ -120,7 +120,7 @@
   <data name="label2.Text" xml:space="preserve">
     <value>Interaktívna aplikácia pomáha pri počítaní príkladov lineárnej algebry a lineárneho programovania.
 Všetky výpočty sú realizované použitím algoritmu elementárnej zmeny bázy.
-Dobrá čitateľnosť vstupov aj výstupov podčiarkuje edukatívny charakter aplikácie.
+
 
 Pre vytvorenie nového výpočtu najprv zvoľte typ úlohy z ponuky záložiek
 a následne vytvorte nový výpočet kliknutím na tlačidlo.
